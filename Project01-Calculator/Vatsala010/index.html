@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>HTML Calculator</title>
+
+</head>
+
+<body>
+
+<form name="calculator" >
+
+<table>
+
+<tr>
+
+<th><input type="button" value="1" onClick="document.calculator.ans.value+='1'"></th>
+
+<th><input type="button" value="2" onClick="document.calculator.ans.value+='2'"></th>
+
+<th><input type="button" value="3" onClick="document.calculator.ans.value+='3'"></th>
+
+</tr>
+
+<tr>
+
+<th><input type="button" value="4" onClick="document.calculator.ans.value+='4'"></th>
+
+<th><input type="button" value="5" onClick="document.calculator.ans.value+='5'"></th>
+
+<th><input type="button" value="6" onClick="document.calculator.ans.value+='6'"></th>
+
+</tr>
+
+<tr>
+
+<th><input type="button" value="7" onClick="document.calculator.ans.value+='7'"></th>
+
+<th><input type="button" value="8" onClick="document.calculator.ans.value+='8'"></th>
+
+<th><input type="button" value="9" onClick="document.calculator.ans.value+='9'"></th>
+
+</tr>
+
+<tr>
+
+<th><input type="button" value="-" onClick="document.calculator.ans.value+='-'"></th>
+
+<th><input type="button" value="+" onClick="document.calculator.ans.value+='+'"></th>
+
+<th><input type="button" value="*" onClick="document.calculator.ans.value+='*'"></th>
+
+</tr>
+
+<tr>
+
+<th><input type="button" value="/" onClick="document.calculator.ans.value+='/'"></th> 
+
+<th><input type="button" value="0" onClick="document.calculator.ans.value+='0'"></th>
+
+<th><input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)"></th>
+
+</tr>
+
+<tr>
+
+<th colspan="3"><input type="reset" value="reset"></th>
+
+</tr>
+
+<tr>
+
+<th colspan="3">Solution is <input type="textfield" name="ans" value=""></th>
+
+</tr>
+
+</table>
+
+</form>
+
+</body>
+
+</html>
