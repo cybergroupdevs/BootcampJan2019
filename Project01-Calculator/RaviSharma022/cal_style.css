@@ -8,23 +8,27 @@ table, th, td 	{
 th, td 			{
 				font-size: 115%;
 				height: 15px;
+				border: 1px solid grey;
 				border-radius: 25px; 
 				padding: 25px;
 				background-color: #AAC2CF;
+				box-shadow: 1px 5px #888888;
 				}
+.keypad		 	{
+
+				}				
 .cal_border		{
-				height: 404px;
-				width: 280px;
+				height: 433px;
+				width: 290px;
 				background-color: #7EB5D3;
 				margin-top: 0px;
+				border: 1px solid grey;
 				padding: 0px;
-				border: 3px #5E7684 ;
+				
 				border-radius: 20px;
 				box-shadow:10px 10px 80px 15px #5E7684;
 				}
 .cal_box		{
-				height: 375px;
-				width: 260px;
 				box-sizing: border-box;
 				margin: 0px;
 				padding: 0px;
