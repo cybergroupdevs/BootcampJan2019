@@ -1,0 +1,55 @@
+*{
+max-width:auto;
+font-family: 'Orbitron', sans-serif;
+}
+
+table, tr , td {
+  color: black;
+  padding: 0;
+
+}
+td input{
+  width: 55px;
+  height: 50px;
+  display: inline-block;
+  border: solid black 0px;
+  box-shadow: inset 0 0 5px #000000;
+  background-color: #000080;
+  color: #fff;
+}
+
+table{
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  border: 0;
+  border-spacing: 0;
+}
+
+
+h1{
+  text-align: center;
+}
+
+.container{
+  height: auto;
+  width: 220px;
+  border:black 1px solid;
+  padding: 10px;
+  margin: auto;
+}
+
+.screen{
+  width: 99%;
+  height: 100px;
+  border: 1px solid #000080;
+}
+
+.cols{
+  max-width: 100%;
+  width: 100%;
+}
+
+.rows{
+  height: 100%;
+}
