@@ -1,16 +1,31 @@
 body	
 {
-}
-.cal_border			{
-					height: 350px;
-					width: 250px;
-					transition: opacity 0.4s ease-in-out;
-					border: 5px solid black ;					
-					}	
-.keypad				{
-					height: 250px;
-					width: 164px;
-					transition: opacity 0.1s ease-in-out;	
-					border: 3px solid black ;
-					padding: 30px;
-					}
+	font-family: SimSun-ExtB;
+}	
+table, th, td 	{
+	
+				}
+th, td 			{
+				font-size: 115%;
+				height: 15px;
+				border-radius: 25px; 
+				padding: 25px;
+				background-color: #AAC2CF;
+				}
+.cal_border		{
+				height: 404px;
+				width: 280px;
+				background-color: #7EB5D3;
+				margin-top: 0px;
+				padding: 0px;
+				border: 3px #5E7684 ;
+				border-radius: 20px;
+				box-shadow:10px 10px 80px 15px #5E7684;
+				}
+.cal_box		{
+				height: 375px;
+				width: 260px;
+				box-sizing: border-box;
+				margin: 0px;
+				padding: 0px;
+				}
