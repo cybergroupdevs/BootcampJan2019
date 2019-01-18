@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container{
+            text-align: center;
+            margin-top: 5%;
+        }
+        .calcu{
+            width: 330px;
+            margin: 0 auto;
+            border-radius: 22px;
+            background-color: #1A1818;
+            padding: 10px;
+            box-shadow: 10px 10px 35px 15px;
+        }
+        td:active{
+            transform: scaleY(0.8) translateY(6px);
+        }
+        td{
+            border-radius: 12px;
+            background-color: gray;
+            padding: 20px;
+            color: white;
+            box-sizing: border-box;
+            min-width: 65px;
+            font-weight: bolder;
+            box-shadow: 1px 5px #5E7684;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .head{
+            color: aliceblue;
+            font-family: fantasy;
+            font-size: 25px;
+        }
+        .out{
+            color: black;
+            background-color: azure;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 25px;
+            text-align: right;
+        }
+    </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="calcu">
+      <p class="head">ELECTRONIC &nbsp; CALCULATOR</p>
+      <div>
+        <p class="out">0</p>
+      </div>
+      <table cellspacing="13">
+        <tr>
+          <td>/</td>
+          <td>*</td>
+          <td>-</td>
+          <td>+</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td rowspan="2">AC</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td rowspan="2">=</td>
+        </tr>
+        <tr>
+          <td colspan="2">0</td>
+          <td>.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
