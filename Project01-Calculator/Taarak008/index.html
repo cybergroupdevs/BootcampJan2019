@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 <head>
-<title>CALCULATOR </title>
+<title>CALCULATOR</title>
 	<style>
 	#plus
 		{ height:75px;
@@ -9,7 +9,7 @@
 		background-color:#F7D6E7;
 		}
 	#noshow
-		{border:0px;
+		{border:50px;
 		height:50px;
 		padding:0px;
 		
@@ -20,6 +20,7 @@
 		{width:30px;
 		height:30px;
 		background-color:#CCFFFF;
+		box-shadow: 2px 2px #F7D6E7
 		}
 
 	#fit2
@@ -27,9 +28,16 @@
 		height:30px;
 		background-color:#F7D6E7;
 		}
+		
+		#fit3
+		{
+		height:25px;
+		background-color:#614051;
+		}
 
 	#calcheading	
-		{background-color:#FFFFFF;
+		{background-color:#614051;
+		border:0px;
 		
 		}
 		
@@ -41,8 +49,19 @@
 			margin:100px;
 			
 			}
-	#calcform{
-	width:5000px;}
+	
+
+			
+			div{
+			box-shadow: 10px 10px #F7D6E7;
+			
+			}
+
+		#fit4
+		{height:50px;
+		}
+			#whitish{
+			color:#FFFFFF;}
 
 		
 		
@@ -58,13 +77,13 @@
 		<table border="5px" cellspacing="10px">
 		
 		<tr>
-		<td  colspan="4" id="calcheading"><b>CALCULATOR </b> </td>
+		<td  colspan="3" id="calcheading"><b><span id="whitish">CALCULATOR</span></b> </td>
 		</tr>
 		
 		
 		<tr>
 		<td colspan="4" id="noshow">	
-		<input type="text" name="showanswer">
+		<input type="text" name="showanswer" id="fit4">
 		</td></tr>
 
 
@@ -117,6 +136,12 @@
 		</table>
 		</form></div>
 
+						<marquee behavior="scroll" direction="left" scrollamount="5" id="fit3">
+							<font face="aerial" size="4" color="FFFFFF">
+						
+							BELONGS TO TAARAK
+							</font>
+							</marquee> 
 
 		</body>
 
