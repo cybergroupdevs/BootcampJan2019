@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Basic Calculator">
+        <meta name="keywords" content="Calculator">
+        <meta name="author" content="Rishabh Gupta">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container container-top">
+            <div class="display-wrap">
+                <div class="display">
+                    <input id="inp-exp" type="text" readonly>
+                </div>
+                <div class="side-label">
+                    <div class="side-label-txt">CT-512</div>
+                    <div class="side-label-btm-txt" >check and correct</div>
+                    <hr style="margin: 0px">
+                    <div class="side-label-btm-txt">calculator</div>
+                </div>
+            </div>
+        </div>
+        <div class="container container-mid">
+            <button class="mid-btn">Check</button>
+            <button class="mid-btn" onclick="removeFromInput()">Delete</button>
+            <div class="solar">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="container container-bottom">
+            <div class="main-left">
+                <button class="left-btn">GT</button>
+                <button class="left-btn">MU</button>
+                <button class="left-btn">+/-</button>
+                <button class="left-btn">_/2</button>
+                <button class="left-btn">CE</button>
+            </div>
+
+            <div class="main-right">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><button class="main-btn" onclick="addToInput(7)"><div class="main-btn-inside">7</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput(8)"><div class="main-btn-inside">8</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput(9)"><div class="main-btn-inside">9</div></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="main-btn" onclick="addToInput(4)"><div class="main-btn-inside">4</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput(5)"><div class="main-btn-inside">5</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput(6)"><div class="main-btn-inside">6</div></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="main-btn" onclick="addToInput(1)"><div class="main-btn-inside">1</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput(2)"><div class="main-btn-inside">2</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput(3)"><div class="main-btn-inside">3</div></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="main-btn" onclick="addToInput(0)"><div class="main-btn-inside">0</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput('00')"><div class="main-btn-inside">00</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput('.')"><div class="main-btn-inside">.</div></button></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+            <div class="main-right">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><button class="main-btn" onclick="addToInput('/')"><div class="main-btn-inside">/</div></button></td>
+                            <td><button class="main-btn" ><div class="main-btn-inside">Auto Replay</div></button></td>
+                            <td><button class="main-btn" onclick="clearInput()" style="background-color: #07905e; box-shadow: 0 6px #124e2a;"><div class="main-btn-inside">ON/AC</div></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="main-btn" onclick="addToInput('*')"><div class="main-btn-inside">X</div></button></td>
+                            <td><button class="main-btn"><div class="main-btn-inside">%</div></button></td>
+                            <td><button class="main-btn"><div class="main-btn-inside">Mrc</div></button></td>
+                        </tr>
+                        <tr>
+                            <td rowspan=2><button class="main-btn"  style="padding-bottom:240%;" onclick="addToInput('+')"><div class="main-btn-inside" style="margin-top: 120%">+</div></button></td>
+                            <td><button class="main-btn" onclick="addToInput('-')"><div class="main-btn-inside">-</div></button></td>
+                            <td><button class="main-btn"><div class="main-btn-inside">M-</div></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="main-btn" onclick="calc()"><div class="main-btn-inside">=</div></button></td>
+                            <td><button class="main-btn"><div class="main-btn-inside">M+</div></button></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>
