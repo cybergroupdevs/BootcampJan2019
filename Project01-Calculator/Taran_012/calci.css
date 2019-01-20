@@ -1,0 +1,65 @@
+body{
+    background-color: grey;
+    font-size: 1em;
+    font-family: "Comic Sans MS";
+    /*position: relative;
+*/
+}
+section{
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    margin-top: 100px;
+    padding: 20px;
+    width: 330px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: black;
+    border-radius: 50px;
+}
+.display{
+    width: 100%;
+    height: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    padding :0px;
+    background-color: white;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+h1{
+    max-width: 75%;
+    font-size: 70px;
+    color: darkorange;
+    text-align: center;
+    padding-bottom: 5px;
+}
+*{
+    margin: 0;
+
+}
+td{
+
+    padding: 0;
+}
+
+input{
+    border-radius: 2px;
+}
+.button{
+    width: 80px;
+    height: 60px;
+    font-size: 40px;
+    border-radius: 10px;
+}
+
+.buttone {
+    width: 80px;
+    height: 60px;
+    font-size: 40px;
+    border: 5px solid grey;
+    border-radius: 10px;
+    background-color: darkorange;
+    border: 2.5px solid darkorange;
+
+}
