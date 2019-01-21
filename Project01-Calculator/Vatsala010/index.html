@@ -1,83 +1,102 @@
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
-
+    
 <head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <meta name="author" content="Vatsala Tandon">
+    <style>
+	body{
+  background : black;
+	}
+section{
+    margin-top: 50px;
+    padding: 20px;
+    width: 22%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: grey;
+    border-radius: 2em;
+	}
+.display{
+    width: 90%;
+    height: 4em;
+    margin-right:auto;
+    margin-left: auto;
+    padding :0px;
+    background-color: white;
+    border-radius: 12px;
+    margin-bottom: 10px;
+	}
+h1{
+    font-size: 4em;
+    text-align: center;
+    padding-bottom: 5px;
+	}
 
-<title>HTML Calculator</title>
+input{
+    border-radius: 2px;
+	}
+.button{
+    width: 4em;
+    height: 4em;
+    font-size: 1em;
+    border-radius: 10px;
+	}
 
+.butt {
+    width: 4em;
+    height: 4em;
+    font-size: 1em;
+    border: 4px solid grey;
+    border-radius: 10px;
+    border: 2.5px solid red;
+	}
+.button:hover{background-color: blue;}
+.butt:hover{background-color: blue;}
+    </style>
 </head>
 
 <body>
+    <section>
+        <h1>Calculator</h1>
+        <form name=”calculator”>
+        <table  class="calc_table" >
+            <tr>
+                <div class="display">  </div>
+            </tr>
+            <tr>
 
-	<form name="calculator" >
+                </tr>
+             <tr>
+                <td> <input type="button" name="1" value="1"  class="button"> </td>
+                <td> <input type="button" name="2" value="2"  class="button"> </td>
+                <td> <input type="button" name="3" value="3"  class="button"> </td>
+                <td> <input type="button" name="-" value="-" class="button"> </td>
 
-		<table border="10px">
-		<tr>
+            </tr>
+             <tr>
+                <td> <input type="button" name="4" value="4"class="button"></td>
+                <td> <input type="button" name="5" value="5"class="button"></td>
+                <td> <input type="button" name="6" value="6"class="button"></td>
+                <td> <input type="button" name="X" value="X" class="button"> </td>
 
-			<th colspan="3">Ans = <input type="textfield" name="ans" value=""></th>
+            </tr>
+            <tr>
+                <td> <input type="button" name="7" value="7"  class="button"> </td>
+                <td> <input type="button" name="8" value="8"  class="button"> </td>
+                <td> <input type="button" name="9" value="9"  class="button"> </td>
+                <td> <input type="button" name="/" value="/" class="button"> </td>
+            </tr>
+            <tr>
+                <td> <input type="button" name="." value="."  class="button"> </td>
+                <td> <input type="button" name="0" value="0"  class="button"> </td>
+                <td> <input type="button" name="+" value="+" class="button"> </td>
+                <td> <input type="button" name="=" value="="  class="butt"> </td>
 
-		</tr>
-	
-		<tr>
-
-			<th><input type="button" value="1" ></th>
-
-			<th><input type="button" value="2" ></th>
-
-			<th><input type="button" value="3" ></th>
-
-		</tr>
-		<tr>
-
-			<th><input type="button" value="4" ></th>
-
-			<th><input type="button" value="5" ></th>
-
-			<th><input type="button" value="6" ></th>
-
-		</tr>
-
-		<tr>
-
-			<th><input type="button" value="7" ></th>
-		
-			<th><input type="button" value="8" ></th>
-
-			<th><input type="button" value="9" ></th>
-
-		</tr>
-
-		<tr>
-
-			<th><input type="button" value="-" ></th>
-
-			<th><input type="button" value="+" ></th>
-
-			<th><input type="button" value="*" ></th>
-
-		</tr>
-
-		<tr>
-
-			<th><input type="button" value="/" ></th> 
-
-			<th><input type="button" value="0" ></th>
-
-			<th><input type="button" value="=" ></th>
-
-		</tr>
-
-		<tr>
-
-			<th colspan="3"><input type="reset" value="reset"></th>
-
-		</tr>
-
-		</table>
-
-	</form>
-
+            </tr>
+        </table>
+    </form>
+    </section>
 </body>
-
 </html>
