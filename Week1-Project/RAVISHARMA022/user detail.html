@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Employee Detail</title>
+       <meta charset="utf-8">
+       <meta name="description" content="Authorized User">	
+	   <link href="css/user detail.css" rel="stylesheet" type="text/css">
+	</head>
+<body>
+<div class="header">
+	<img src="images/cyg_logo.jpg" alt="">
+	<div class="wel_text">Welcome To Cyber Group India</br>
+		<div class="punch_line">Technology-Connected-Device-Outsourcing</div>
+	</div>
+</div>
+<div id="nav_bar">
+	<div class="nav_items">
+		<ul>	
+			<a href="homepage.html"><button type="button" class="nav_btn">Home</button></a>
+            <a href="user list.html"><button type="button" class="nav_btn">User list</button></a>
+			<a href="create user.html"><button type="button" class="nav_btn">Create User</button></a>
+			<div class="dropdown">
+				<button type="button" class="nav_btn">My Account</button></a>
+				<div class="dropdown-content">
+					<li><a href="my profile.html">My Profile</a></li>
+					<li><a href="my Account.html">My Account</a></li>
+					<li><a href="index.html">Log Out</a></li>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+<center>
+<div class="bigbox">
+		<div class="list_table">
+			<table id="mytable">
+				<thead>
+					<tr>
+						<th>Employee Id</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Employee's Email</th>
+						<th>Phone Number</th>
+						<th>Father's Name</th>
+						<th>Mother's Name</th>
+						<th>Designation</th>
+						<th>Date of Birth</th>
+						<th>Gender</th>
+						<th>10th Board</th>
+						<th>10th Percentage</th>
+						<th>12th Board</th>
+						<th>12th Percentage</th>
+						<th>Graduation degree</th>
+						<th>College University</th>
+						<th>Graduation Percentage</th>
+						<th>Country/Region</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+</center>
+<div id="footer">
+Copyright All rights reserved © 2017
+</div>
+<script>
+//var data1=JSON.parse()
+//var data2=JSON.stringify()
+var data=["INT022","ravi","Sharma","ravi.sharma@cygrp.com","8449961949","Umesh Sharma","Brajesh Sharma",
+"Intern","09-11-96","Male","CBSE","NA","CBSE","NA","B.tech","Sharda","NA","India","Block,Colony, Khair, Aligarh"];
+table=document.getElementById("mytable");
+	for (var i=0; i<data.length; i++){
+		var row=table.insertRow(table.length);
+			for (var j=0; j<data[i].length; j++){
+				var column=row.insertCell(j);
+				column.innerHTML=data[i];
+			}
+	}
+</script>
+</body></html>
