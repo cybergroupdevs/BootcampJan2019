@@ -1,0 +1,158 @@
+body{
+    background-image: url("Pic22.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+.loginBox{
+    position: absolute;
+    top: 63%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 650px;
+    padding: 40px 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0);
+    
+}
+.loginBox2{
+    position: absolute;
+    top: 63%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 650px;
+    padding: 40px 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0);
+    
+}
+.loginBox1{
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 650px;
+    padding: 40px 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0);
+    
+}
+
+.loginBox p{
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+    color:#fff;
+    
+}
+.loginBox2 p{
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+    color:#fff;
+    
+}
+.loginBox1 p{
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+    color:#fff;
+    
+}
+.loginBox input{
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+.loginBox2 input{
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+.loginBox1 input{
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+.loginBox input[type="date"]{
+    border: none;
+    background: transparent;
+    color:gray;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+     height: 40px;
+}
+.loginBox1 input[type="number"]{
+    border: none;
+    background: transparent;
+    color:white;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+    height: 40px;
+}
+.loginBox2 input[type="url"]{
+    border: none;
+    background: transparent;
+    color:white;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+    height: 40px;
+}
+.loginBox input[type="text"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.loginBox2 input[type="text"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+}
+.loginBox1 input[type="text"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+}
+::placeholder{
+    color: rgba(255,255,255,.5);
+}
+
+.loginBox1 input[type="button"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    color:white ;
+    font-size: 30px;
+    font-family: serif;
+    background-image: url("Pic28.jpg");
+    box-shadow: 5px 5px 5px black;
+    font-weight: bold;
+    cursor: pointer;
+   
+}
+
+.loginBox1 input[type="button"]:hover{
+    background-image: url("Pic24.jpeg");
+    box-shadow: 5px 5px 5px black;
+}
