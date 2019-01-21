@@ -2,58 +2,8 @@
 <html>
 <head>
 	<title>calculater</title>
-	<style type="text/css">
-		body{
-              background-image: url(back.jpg);
-		}
-
-		#h{
-			padding-top: 10px;
-			padding-left: 40%;
-			font-size: 41px;
-			font-weight: bolder;
-			color:white;
-		}
-
-		.cal{
-			
-			width: 300px;
-			margin: auto;
-            height: auto;
-            font-family: sans-serif;
-            background:  black;
-			padding-top: 10px;
-			padding-left: 10px;
-			padding-bottom: 10px;
-                        border-redius:5px;
-			
-		}
-		input[type=text]{
-			width:288px;
-			height: 50px;
-			font-size: bolder;
-			border-radius: 5px;
-
-		}
-		.cal input[type=button]{
-			width:70px;
-			height: 40px;
-			border-radius: 5px;
-			font-weight: bolder;
-			font-size: 30px;
-		}
-		.cal input[type=reset]{
-			width:70px;
-			height: 40px;
-			border-radius: 5px;
-			font-weight: bolder;
-			font-size: 25px;
-			
-
-
-
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="javascipt.js"></script>
 </head>
 <body>
 	
@@ -62,25 +12,27 @@
 	<div class="cal">
    <input type="text" name="dis">
 </br></br>
-   <input type="button" name="" value="1" onclick = "touch.dis.value+='1'">
-   <input type="button" name="" value="2" onclick = "touch.dis.value+='2'">
-   <input type="button" name="" value="3" onclick = "touch.dis.value+='3'">
-   <input type="button" name="" value="+" onclick = "touch.dis.value+='+'">
+   <input type="button" name="" value="1" onclick = "deep('1')">
+   <input type="button" name="" value="2" onclick = "deep('2')">
+   <input type="button" name="" value="3" onclick = "deep('3')">
+   <input type="button" name="" value="+" onclick = "deep('+')">
    </br></br>
-   <input type="button" name="" value="4" onclick = "touch.dis.value+='4'">
-   <input type="button" name="" value="5" onclick = "touch.dis.value+='5'">
-   <input type="button" name="" value="6" onclick = "touch.dis.value+='6'">
-   <input type="button" name="" value="-" onclick = "touch.dis.value+='-'">
+   <input type="button" name="" value="4" onclick = "deep('4')">
+   <input type="button" name="" value="5" onclick = "deep('5')">
+   <input type="button" name="" value="6" onclick = "deep('6')">
+   <input type="button" name="" value="-" onclick = "deep('-')">
    </br></br>
-   <input type="button" name="" value="7" onclick = "touch.dis.value+='7'">
-   <input type="button" name="" value="8" onclick = "touch.dis.value+='8'">
-   <input type="button" name="" value="9" onclick = "touch.dis.value+='9'">
-   <input type="button" name="" value="*" onclick = "touch.dis.value+='*'">
+   <input type="button" name="" value="7" onclick = "deep('7')">
+   <input type="button" name="" value="8" onclick = "deep('8')">
+   <input type="button" name="" value="9" onclick = "deep('9')">
+   <input type="button" name="" value="*" onclick = "deep('*')">
    </br></br>
    <input type="reset" name="" value="Del">
-   <input type="button" name="" value="0" onclick = "touch.dis.value+='0'">
-   <input type="button" name="" value="=" onclick = "touch.dis.value+='='">
-   <input type="button" name="" value="/"onclick = "touch.dis.value+='/'">
+   <input type="button" name="" value="0" onclick = "deep('0')">
+   
+   <input type="button" name="" value= "/" onclick = "deep('/')">
+   <input type="button" name="" value= "=" onclick = "deepresult()">
 </form>
+
 </body>
 </html>
