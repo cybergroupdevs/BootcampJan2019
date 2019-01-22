@@ -1,0 +1,82 @@
+body{
+        background-image: url(back.jpg);
+	}
+
+		#h{
+			padding-top: 10px;
+			padding-left: 40%;
+			font-size: 41px;
+			font-weight: bolder;
+			color:white;
+		}
+
+		.cal{
+			
+			width: 304px;
+			margin: auto;
+                        height: auto;
+                        font-family: sans-serif;
+                        background:  black;
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-bottom: 10px;
+                        border-radius:5px;	
+		}
+
+		.cal input[type=text]{
+			width:288px;
+			height: 50px;
+			font-size: 30px;
+			border-radius: 8px;
+			font-weight: bolder;
+		}
+
+		.cal input[type=button]{
+			width:70px;
+			height: 70px;
+			border-radius: 5px;
+			font-weight: bolder;
+			font-size: 30px;
+			border: none;
+		}
+
+		.cal input[type=reset]{
+			width:70px;
+			height: 70px;
+			border-radius: 5px;
+			font-weight: bolder;
+			font-size: 25px;
+		    border: none;	
+		}
+
+		.cal input[type="button"]:hover{
+		
+			width: 72px;
+			height: 72px;
+			background-color: blue;
+
+		}
+
+		.cal input[type="reset"]:hover{
+		
+			width: 72px;
+			height: 43px;
+			background-color: blue;
+     	}
+
+		.cal input[type=text]{
+			width:288px;
+			height: 50px;
+			font-size: bolder;
+			border-radius: 5px;
+			padding-left: 5px;
+			background: rgba(255,255,255,0.7);
+		}
+
+		.cal input[type=text]:hover{
+			width:290px;
+			height: 52px;
+		    	
+			border-radius: 5px;
+
+		}
