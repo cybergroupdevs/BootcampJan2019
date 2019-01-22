@@ -2,41 +2,132 @@
 <html>
 	<head>
 		<title>calculator</title>
+                <style>
+		body
+			{       
+				background-color:black;
+			}
+		table
+			{
+ 				margin-left:auto; 
+ 		   		margin-right:auto;
+				padding:20vh 0;
+				opacity:0.7;
+			}
+
+
+		.btn
+			{	
+
+				background-color:rgba(0, 0, 255, 0.3);
+				text-align:center;
+				height:10vh;
+				width:12vw;
+				font-size:140%;
+				font-family:helvetica;
+				color:white;
+ 				border-width:3px;
+ 				border-style:solid;
+				border-color:black;
+				border-radius:13px;
+				
+			}
+		.eq
+			{
+				background-color:navy;
+				text-align:center;
+				height:10vh;
+				width:36vw;
+				font-size:140%;
+				font-family:helvetica;
+				color:red;
+			}
+		.btn1
+			{	background-color:navy;
+				text-align:center;
+				height:10vh;
+				width:12vw;
+				font-size:140%;
+				font-family:helvetica;
+				color:silver;
+				border-width:3px;
+ 				border-style:solid;
+				border-color:black;
+				border-radius:13px;
+				border-radius:13px;
+			}
+		.btn2
+			{	background-color:navy;
+				text-align:center;
+				height:10vh;
+				width:12vw;
+				font-size:140%;
+				font-family:helvetica;
+				color:yellow;
+				border-width:3px;
+ 				border-style:solid;
+				border-color:black;
+				border-radius:13px;
+				border-radius:13px;
+			}
+		.btn3
+			{
+				background-color:navy;
+				text-align:center;
+				height:10vh;
+				width:12vw;
+				font-size:140%;
+				font-family:helvetica;
+				color:white;
+				border-width:3px;
+ 				border-style:solid;
+				border-color:black;
+				border-radius:13px;
+				border-radius:13px;
+			}
+		.btn:hover{background-color:purple;}
+		.btn1:hover{background-color:purple;}
+		.btn2:hover{background-color:purple;}	
+			
+		</style>
 	</head>
 <body>
+<div class="m">
  <table>
   <tr>
-   <th colspan=3><input type="textfield" value="      "></th>
+   <th colspan=4 class="btn3">   </th>
   </tr>
   <tr>
-   <th><input type="button" value="+"></th>
-   <th><input type="button" value="-"></th>
-   <th><input type="button" value="x"></th>
+   <th><button class="btn">1</button></th>
+   <th><button class="btn">2</button></th>
+   <th><button class="btn">3</button></th>
+   <th><button class="btn2">C</button></th>
   </tr>
   <tr>
-   <th><input type="button" value="1"></th>
-   <th><input type="button" value="2"></th>
-   <th><input type="button" value="3"></th>
+   <th><button class="btn">4</button></th>
+   <th><button class="btn">5</button></th>
+   <th><button class="btn">6</button></th>
+   <th><button class="btn1">÷</button></th>
   </tr>
   <tr>
-   <th><input type="button" value="4"></th>
-   <th><input type="button" value="5"></th>
-   <th><input type="button" value="6"></th>
+   <th><button class="btn">7</button></th>
+   <th><button class="btn">8</button></th>
+   <th><button class="btn">9</button></th>
+   <th><button class="btn1">x</button></th>
   </tr>
   <tr>
-   <th><input type="button" value="7"></th>
-   <th><input type="button" value="8"></th>
-   <th><input type="button" value="9"></th>
+   <th><button class="btn1">.</button></th>
+   <th><button class="btn">0</button></th>
+   <th><button class="btn1">^</button></th>
+   <th><button class="btn1">+</button></th>
   </tr>
   <tr>
-   <th><input type="button" value="/"></th>
-   <th><input type="button" value="0"></th>
-   <th><input type="button" value="="></th>
-  </tr>
-  <tr>
-   <th colspan="3"><input type="button" value="Clear"></th>
+   <th colspan="3" class="btn1"><button class="eq">=</button></th>
+   <th><button class="btn1">-</button></th>
   </tr>
  </table>
+</div>
+
 </body>
 </html>
  
