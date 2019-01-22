@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -17,37 +18,40 @@
             
             <tbody>
                <tr>
-                  <td id="result" colspan="4" >9999</td> 
+                  <td  colspan="4" ><div><input id="result" type="text" value="0"></div></td> 
                </tr>
-                <tr>
-                    <td><button>%</button></td>
-                    <td><button>*</button></td>
-                    <td><button>+</button></td>
-                    <td><button>-</button></td>
+               <tr>
+                    <td> <input type="button" name="1" value="1"  onclick="func()" class="button"> </td>
+                    <td> <input type="button" name="2" value="2"  class="button"> </td>
+                    <td> <input type="button" name="3" value="3"  class="button"> </td>
+                    <td> <input type="button" name="-" value="-"  class="button"> </td>
+    
+                </tr>
+                 <tr>
+                    <td> <input type="button" name="4" value="4" class="button"></td>
+                    <td> <input type="button" name="5" value="5" class="button"></td>
+                    <td> <input type="button" name="6" value="6" class="button"></td>
+                    <td> <input type="button" name="*" value="*" class="button"> </td>
+    
                 </tr>
                 <tr>
-                    <td><button>7</button></td>
-                    <td><button>8</button></td>
-                    <td><button>9</button></td>
-                    <td rowspan="3"><button  id="equalto">=</button></td>
+                    <td> <input type="button" name="7" value="7"  class="button"> </td>
+                    <td> <input type="button" name="8" value="8"  class="button"> </td>
+                    <td> <input type="button" name="9" value="9"  class="button"> </td>
+                    <td> <input type="button" name="%" value="%"  class="button"> </td>
                 </tr>
                 <tr>
-                    <td><button>4</button></td>
-                    <td><button>5</button></td>
-                    <td><button>6</button></td>
-                </tr>
-                <tr>
-                    <td><button>1</button></td>
-                    <td><button>2</button></td>
-                    <td><button>3</button></td>
-                </tr>
-                <tr>
-                    <td><button>0</button></td>
-                    <td><button>.</button></td>
-                    <td><button style="width: 196%">AC</button></td>
+                    <td> <input type="button" name="." value="."  class="button"> </td>
+                    <td> <input type="button" name="0" value="0"  class="button"> </td>
+                    <td> <input type="button" name="+" value="+"  class="button"> </td>
+                    <td> <input type="button" name="=" value="="  class="equalto"> </td>
+    
                 </tr>
             </tbody>
         </table>
     </div>
+    <div id="myname">Made By <span id="highlight">DEEPAK PAHUJA (INT 002)</span></div>
+    <script src="main.js"></script>
+
 </body>
 </html>
