@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Employee Detail</title>
+<head>
+	<title>Create User</title>
        <meta charset="utf-8">
-       <meta name="description" content="Authorized User">	
-	   <link href="css/user detail.css" rel="stylesheet" type="text/css">
+       <meta name="description" content="This is Employee Details updation form">	
+	   <link href="css/create user.css" rel="stylesheet" type="text/css">
 	</head>
 <body>
+</div>
 <div class="header">
 	<img src="images/cyg_logo.jpg" alt="">
 	<div class="wel_text">Welcome To Cyber Group India</br>
@@ -17,8 +18,7 @@
 	<div class="nav_items">
 		<ul>	
 			<a href="homepage.html"><button type="button" class="nav_btn">Home</button></a>
-            <a href="user list.html"><button type="button" class="nav_btn">User list</button></a>
-			<a href="create user.html"><button type="button" class="nav_btn">Create User</button></a>
+			<a href="user list.html"><button type="button" class="nav_btn">Show List</button></a>
 			<div class="dropdown">
 				<button type="button" class="nav_btn">My Account</button></a>
 				<div class="dropdown-content">
@@ -30,56 +30,61 @@
 		</ul>
 	</div>
 </div>
-<center>
-<div class="bigbox">
-		<div class="list_table">
-			<table id="mytable">
-				<thead>
-					<tr>
-						<th>Employee Id</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Employee's Email</th>
-						<th>Phone Number</th>
-						<th>Father's Name</th>
-						<th>Mother's Name</th>
-						<th>Designation</th>
-						<th>Date of Birth</th>
-						<th>Gender</th>
-						<th>10th Board</th>
-						<th>10th Percentage</th>
-						<th>12th Board</th>
-						<th>12th Percentage</th>
-						<th>Graduation degree</th>
-						<th>College University</th>
-						<th>Graduation Percentage</th>
-						<th>Country/Region</th>
-						<th>Address</th>
-					</tr>
-				</thead>
-			<tbody>
-			</tbody>
-		</table>
-	</div>
-
+<div class="label_box">
+	<h1 class="label_text">Update Employee's Information</h1>
 </div>
-
-</center>
+<div class="bigbox">
+		<p class="box_text">Employee's ID : </p> 
+		<input type="text" class="input_box" id="Employee ID" placeholder="Employee ID" value="INT022"></br>
+		<p class="box_text">Employee's First Name : </p> 
+		<input type="text" class="input_box" id="First Name" placeholder="First Name" value="Ravi Kant"></br>
+		<p class="box_text">Employee's Surname : </p> 
+		<input type="text" class="input_box" id="Surname" placeholder="Surname" value="Sharma"></br>
+		<p class="box_text">Father's Name : </p> 
+		<input type="text" class="input_box" id="fathername" placeholder="Father's Name" value="Umesh Sharma"></br>
+		<p class="box_text"> Mother's Name : </p> 
+		<input type="text" class="input_box" id="mothername" placeholder="Mother's Name" value="Brajesh Lata Sharma"></br>
+		<p class="box_text">10th Board : </p> 
+		<input type="text" class="input_box" id="10board" placeholder="10th Board" value="CBSE"></br>
+		<p class="box_text">10th Percentage : </p> 
+		<input type="text" class="input_box" id="10marks" placeholder="10th Percentage" value="NA"></br>
+		<p class="box_text">12th Board : </p> 
+		<input type="text" class="input_box" id="12board" placeholder="12th Board" value="CBSE"></br>
+		<p class="box_text">12th Percentage : </p> 
+		<input type="text" class="input_box" id="12marks" placeholder="12th Percentage" value="NA"></br>
+		<p class="box_text">Graduation Degree : </p> 
+		<input type="text" class="input_box" id="graddegree" placeholder="Graduation Degree" value="B.Tech"></br>
+		<p class="box_text">College or University : </p> 
+		<input type="text" class="input_box" id="gradclg" placeholder="College or University" value="Sharda University"></br>
+		<p class="box_text">Graduation Percentage : </p> 
+		<input type="text" class="input_box" id="gradmarks" placeholder="Country/Region" value="NA"></br>
+		<p class="box_text">Country/Region : </p> 
+		<input type="text" class="input_box" id="Region" placeholder="Country/Region" value="India"></br>
+		<p class="box_text">Date of Birth : </p> 
+		<input type="date" class="DOB" name="DOB" placeholder="Date of Birth" value="1996-11-09"></br>
+		<p class="box_text">Gender : </p> 
+		<select required="required" class="gender" name="Gender" value="Male">
+			<option value="gender">Gender</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+			<option value="Other">Other</option>
+		</select></br>
+		<p class="box_text">Cyber Group Profile : </p> 
+		<select required="required" autofocus name="profilerank" class="designation" value="Intern">
+			<option value="Default">Cyber Group Profile</option>
+			<option value="Intern">Intern</option>
+			<option value="Trainee">Trainee</option>
+			<option value="Consultant">Consultant</option>
+			<option value="Engineer">Engineer</option>
+			<option value="Senior Developer">Senior Developer</option>
+			<option value="Human Resource">Human Resource</option>
+		</select></br>		
+		<p class="box_text">Address : </p> 
+		<input type="text" class="address_box" id="Email" placeholder="Employee's Address . . . " value="410, Castle Hostle, Gr. Noida"></p>
+		<button type="submit" class="update_btn"> Update Details </button></br>
+		<p class="box_text2">Messed up?<a href="create user.html">Have a fresh Start</a></p>
+</div>
 <div id="footer">
 Copyright All rights reserved © 2017
 </div>
-<script>
-//var data1=JSON.parse()
-//var data2=JSON.stringify()
-var data=["INT022","ravi","Sharma","ravi.sharma@cygrp.com","8449961949","Umesh Sharma","Brajesh Sharma",
-"Intern","09-11-96","Male","CBSE","NA","CBSE","NA","B.tech","Sharda","NA","India","Block,Colony, Khair, Aligarh"];
-table=document.getElementById("mytable");
-	for (var i=0; i<data.length; i++){
-		var row=table.insertRow(table.length);
-			for (var j=0; j<data[i].length; j++){
-				var column=row.insertCell(j);
-				column.innerHTML=data[i];
-			}
-	}
-</script>
 </body></html>
