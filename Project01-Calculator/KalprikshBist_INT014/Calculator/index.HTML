@@ -1,5 +1,6 @@
-<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     *{
         margin: 0;
@@ -13,6 +14,7 @@
         border-bottom-left-radius:10px ;
         border-bottom-right-radius: 10px;
         background-color: lightskyblue;
+        overflow: hidden;
     }
     .body{
         background-color: whitesmoke;
@@ -50,19 +52,16 @@
         background-color: yellow;
         color: gray();
     }
-        .display1{
-        width: 275px;
-        height: 50px;
-        margin-left:auto;
-        margin-right:auto;
+
+    .display{
+        background-color: aliceblue;
+        max-width: 275px;
+        height: 100px;
+        text-align: right;
+        font-family: 'Orbitron';
+
     }
 
-    .display2{
-        width: 275px;
-        height: 50px;
-        margin-left:auto;
-        margin-right:auto;
-    }
 
     .table{
         background-color: darkgrey;
@@ -89,7 +88,7 @@
         border-top-left-radius:10px ;
         font-family: Calibri;
         font-size: smaller;
-
+        overflow: hidden;
     }
     span{
         margin-left: 55px;
@@ -99,58 +98,61 @@
 </style>
 
 
+<head>
+    <title> Calculator</title>
+</head>
+<body class="body">
 <header>
     <p>Simple Calculator Template</p>
 </header>
-
-<body class="body">
-    <table class="table" cellpadding="0" cellspacing="0">
-        <tr>
-            <th class="Title" colspan="4">VIRTUAL CALCULATOR</th>
-        </tr>
-        <tr>
-            <td colspan="4"><input class="display1"  type="text"></td>
-        </tr>
-        <tr>
-            <td colspan="4"><input class="display2"  type="text"></td>
-        </tr>
-        <tr>
-            <td class="button"> CE </td>
-            <td class="button"> C </td>
-            <td class="button"> DEL </td>
-            <td class="button1"> / </td>
+<table class="table" cellpadding="0" cellspacing="0">
+    <tr>
+        <th class="Title" colspan="4">VIRTUAL CALCULATOR</th>
+    </tr>
+    <tr>
+        <td colspan="4" class = "display">
+            <div class="data" id="data"></div>
+            <div class="data1"></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="button" colspan="3" onclick="digit(this)">C</td>
+        <td class="button1" onclick="digit(this)">/</td>
 
 
-        </tr>
-        <tr>
-            <td class="button"> 7 </td>
-            <td class="button"> 8 </td>
-            <td class="button"> 9 </td>
-            <td class="button1"> * </td>
-        </tr>
-        <tr>
-            <td class="button"> 4 </td>
-            <td class="button"> 5 </td>
-            <td class="button"> 6 </td>
-            <td class="button1"> - </td>
+    </tr>
+    <tr>
+        <td class="button" onclick="digit(this)">7</td>
+        <td class="button" onclick="digit(this)">8</td>
+        <td class="button" onclick="digit(this)">9</td>
+        <td class="button1"onclick="digit(this)">*</td>
+    </tr>
+    <tr>
+        <td class="button" onclick="digit(this)">4</td>
+        <td class="button" onclick="digit(this)">5</td>
+        <td class="button" onclick="digit(this)">6</td>
+        <td class="button1"onclick="digit(this)">-</td>
+    </tr>
+    <tr>
+        <td class="button" onclick="digit(this)">1</td>
+        <td class="button" onclick="digit(this)">2</td>
+        <td class="button" onclick="digit(this)">3</td>
+        <td class="button1"onclick="digit(this)">+</td>
 
-        </tr>
-        <tr>
-            <td class="button"> 1 </td>
-            <td class="button"> 2 </td>
-            <td class="button"> 3 </td>
-            <td class="button1"> + </td>
+    </tr>
+    <tr>
 
-        </tr>
-        <tr>
+        <td class="button" colspan="2" onclick="digit(this)">0</td>
+        <td class="button1" onclick="digit(this)">.</td>
+        <td class="button1" onclick="digit(this)">=</td>
 
-            <td class="button" colspan="2"> 0 </td>
-            <td class="button1" > . </td>
-            <td class="button1" > = </td>
+    </tr>
+</table>
 
-        </tr>
-    </table>
-</body>
 <footer>
-    <span>© Kalpriksh Bist 2019-2020</span>
+    <span>Â© Kalpriksh Bist 2019-2020</span>
 </footer>
+
+<script src="interact.js"></script>
+</body>
+
