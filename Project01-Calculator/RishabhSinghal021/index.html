@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <style>
         .container{
@@ -35,7 +34,7 @@
             font-family: fantasy;
             font-size: 25px;
         }
-        .out{
+        #out{
             color: black;
             background-color: azure;
             border-radius: 12px;
@@ -44,48 +43,70 @@
             text-align: right;
         }
     </style>
-
+    <script>
+    var count=1;
+     function fn(n){
+        var m = document.getElementById("out").textContent;
+         if(count == 1){
+             document.getElementById("out").innerHTML = "0";
+             console.log(count);
+             count=0;
+             console.log(count);
+             document.getElementById("out").innerHTML = n;
+         }
+         else{
+           document.getElementById("out").innerHTML = m + n;  
+         }  
+     }
+     function ac(){
+         document.getElementById("out").innerHTML = "0";
+     }
+    function calculate(){
+        var m = document.getElementById("out").textContent;
+        document.getElementById("out").innerHTML = eval(m);
+       count=1;
+        console.log(count);
+    }
+    </script> 
 </head>
-
 <body>
-
   <div class="container">
     <div class="calcu">
       <p class="head">ELECTRONIC &nbsp; CALCULATOR</p>
       <div>
-        <p class="out">0</p>
+        
       </div>
       <table cellspacing="13">
+        <p id="out">0</p>
         <tr>
-          <td>/</td>
-          <td>*</td>
-          <td>-</td>
-          <td>+</td>
+          <td onclick="fn('/')">/</td>
+          <td onclick="fn('*')">*</td>
+          <td onclick="fn('-')">-</td>
+          <td onclick="fn('+')">+</td>
         </tr>
         <tr>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-          <td rowspan="2">AC</td>
+          <td onclick="fn(7)">7</td>
+          <td onclick="fn(8)">8</td>
+          <td onclick="fn(9)">9</td>
+          <td rowspan="2" onclick="ac()">AC</td>
         </tr>
         <tr>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
+          <td onclick="fn(4)">4</td>
+          <td onclick="fn(5)">5</td>
+          <td onclick="fn(6)">6</td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td rowspan="2">=</td>
+          <td onclick="fn(1)">1</td>
+          <td onclick="fn(2)">2</td>
+          <td onclick="fn(3)">3</td>
+          <td rowspan="2" onclick="calculate()">=</td>
         </tr>
         <tr>
-          <td colspan="2">0</td>
-          <td>.</td>
+          <td colspan="2" onclick="fn(0)">0</td>
+          <td onclick="fn('.')">.</td>
         </tr>
       </table>
     </div>
   </div>
 </body>
-
 </html>
