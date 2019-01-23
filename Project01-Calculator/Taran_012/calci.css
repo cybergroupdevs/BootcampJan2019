@@ -9,7 +9,7 @@ section{
     /*position: absolute;*/
     /*top: 50%;*/
     /*left: 50%;*/
-    margin-top: 100px;
+    margin-top: 60px;
     padding: 20px;
     width: 330px;
     margin-right: auto;
@@ -17,15 +17,17 @@ section{
     background-color: black;
     border-radius: 50px;
 }
-.display{
+#display{
     width: 100%;
-    height: 50px;
+    height: 60px;
     margin-right: auto;
     margin-left: auto;
     padding :0px;
     background-color: white;
     border-radius: 12px;
     margin-bottom: 20px;
+    text-align: right;
+    font-size: 32px;
 }
 h1{
     max-width: 75%;
@@ -52,14 +54,24 @@ input{
     font-size: 40px;
     border-radius: 10px;
 }
+.button:hover{
+    background-color: #bab8b8;
+}
 
 .buttone {
     width: 80px;
     height: 60px;
     font-size: 40px;
-    border: 5px solid grey;
+
     border-radius: 10px;
     background-color: darkorange;
     border: 2.5px solid darkorange;
-
+}
+.buttons{
+    width: 160px;
+    height: 60px;
+    font-size: 40px;
+    border-radius: 10px;
+    background-color: darkorange;
+    border: 2.5px solid darkorange;
 }
