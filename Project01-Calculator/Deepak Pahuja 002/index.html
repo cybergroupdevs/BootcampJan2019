@@ -10,45 +10,45 @@
 </head>
 <body>
     <div class="container">
-        <table class="calculator">
+        <form>
+            <table class="calculator">
            
-            <thead>
-                <th colspan="4">ELECTRONIC CALCULATOR</th>
-            </thead>
-            
-            <tbody>
-               <tr>
-                  <td  colspan="4" ><div><input id="result" type="text" value="0"></div></td> 
-               </tr>
-               <tr>
-                    <td> <input type="button" name="1" value="1"  onclick="func()" class="button"> </td>
-                    <td> <input type="button" name="2" value="2"  class="button"> </td>
-                    <td> <input type="button" name="3" value="3"  class="button"> </td>
-                    <td> <input type="button" name="-" value="-"  class="button"> </td>
-    
-                </tr>
-                 <tr>
-                    <td> <input type="button" name="4" value="4" class="button"></td>
-                    <td> <input type="button" name="5" value="5" class="button"></td>
-                    <td> <input type="button" name="6" value="6" class="button"></td>
-                    <td> <input type="button" name="*" value="*" class="button"> </td>
-    
-                </tr>
-                <tr>
-                    <td> <input type="button" name="7" value="7"  class="button"> </td>
-                    <td> <input type="button" name="8" value="8"  class="button"> </td>
-                    <td> <input type="button" name="9" value="9"  class="button"> </td>
-                    <td> <input type="button" name="%" value="%"  class="button"> </td>
-                </tr>
-                <tr>
-                    <td> <input type="button" name="." value="."  class="button"> </td>
-                    <td> <input type="button" name="0" value="0"  class="button"> </td>
-                    <td> <input type="button" name="+" value="+"  class="button"> </td>
-                    <td> <input type="button" name="=" value="="  class="equalto"> </td>
-    
-                </tr>
-            </tbody>
-        </table>
+                <thead>
+                  <th colspan="4">ELECTRONIC CALCULATOR</th>
+                </thead>
+                        
+                <tbody>
+                    <tr>
+                        <td  colspan="4" ><div><input id="result" type="text" size="12" maxlength="12" value="" disabled></div></td> 
+                    </tr>
+                    <tr>
+                        <td> <input type="button" name="1" value="1" onclick="myfunc('1')" class="button"> </td>
+                        <td> <input type="button" name="2" value="2" onclick="myfunc('2')" class="button"> </td>
+                        <td> <input type="button" name="3" value="3" onclick="myfunc('3')" class="button"> </td>
+                        <td> <input type="button" name="-" value="-" onclick="myfunc('-')" class="button"> </td>
+                
+                    </tr>
+                    <tr>
+                        <td> <input type="button" name="4" value="4" onclick="myfunc('4')" class="button"></td>
+                        <td> <input type="button" name="5" value="5" onclick="myfunc('5')" class="button"></td>
+                        <td> <input type="button" name="6" value="6" onclick="myfunc('6')" class="button"></td>
+                        <td> <input type="button" name="*" value="*" onclick="myfunc('*')" class="button"> </td>                
+                    </tr>
+                    <tr>
+                        <td> <input type="button" name="7" value="7" onclick="myfunc('7')" class="button"> </td>
+                        <td> <input type="button" name="8" value="8" onclick="myfunc('8')" class="button"> </td>
+                        <td> <input type="button" name="9" value="9" onclick="myfunc('9')" class="button"> </td>
+                        <td> <input type="button" name="/" value="/" onclick="myfunc('/')" class="button"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input type="button" name="." value="." onclick="myfunc('.')" class="button"> </td>
+                        <td> <input type="button" name="0" value="0" onclick="myfunc('0')" class="button"> </td>
+                        <td> <input type="button" name="+" value="+" onclick="myfunc('+')" class="button"> </td>
+                        <td> <input type="button" name="=" value="=" onclick="e()" class="equalto"> </td>        
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
     <div id="myname">Made By <span id="highlight">DEEPAK PAHUJA (INT 002)</span></div>
     <script src="main.js"></script>

@@ -41,6 +41,10 @@ input[type="button"]{
 input[type="button"]:hover{
     cursor: pointer;
 }
+input[type="button"]:active{
+    background-color: black;
+    color: white;
+}
 #result{
     background-color: #999999;
     border-radius: 5px;
