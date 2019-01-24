@@ -39,6 +39,10 @@ button:hover {
   .button, .table_str {
      width: 10%;
   }
+	
+    .container{
+       height:auto;        
+    }
 }
 h3{
   left: 25%;
