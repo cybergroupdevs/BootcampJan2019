@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    position: relative;
+    width:100%;
+    overflow: hidden;
+    opacity: 0.8;
+    background-color:black;
+    color: white;
+    box-shadow: 2px 2px 2px 2px black;
+}
+body{
+
+    background-image:url("http://smarterware.org/wp-content/uploads/2016/09/technology1.jpg") ;
+
+}
+.links{
+    color: white;
+    display: inline;
+    padding-right: 20px;
+}
+table{
+    color: white;
+    align-self: center;
+    margin-left: 25px;
+    margin-top: 50px;
+}
+.CyberLogo{
+    position: relative;
+    top: 10px;
+
+}
+.bodytxt{
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+}
+.headtxt{
+    color: white;
+    padding-top: 20px;
+    margin-left: 20px;
+}
+.button{
+    width: 22%;
+}
+footer{
+    overflow: hidden;
+    color: white;
+    margin-top:120%;
+    background-color: black;
+}
+nav{
+    padding-top: 10px;
+    float: right;
+    color: white;
+}
+a{
+    color: white;
+}
+.textInput{
+    padding: 5px;
+}
+.button:hover{
+    background-color: lightgrey;
+    cursor: pointer ;
+    color: black;
+}
+
+@media only screen and (min-width:1000px) {
+    footer{
+        margin-top:30%;
+        background-color: black;
+    }
+    .CyberLogo{
+        margin-left: 10px;
+        opacity: 1;
+    }
+    table{
+        float: none;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    .textInput{
+        margin-top: 20px;
+    }
+    .button{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .button:hover{
+        background-color: lightgrey;
+        cursor: pointer ;
+        color: black;
+    }
+
+}
