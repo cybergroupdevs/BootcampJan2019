@@ -1,0 +1,35 @@
+table 
+{
+  position: absolute;
+  left: 25%;
+  right:25%;
+  top:30%;
+  text-align: center;
+  
+}
+
+th 
+{
+    background-color: cadetblue;
+    padding:16px;
+}
+
+
+td
+{
+    background-color: lightsteelblue;
+    padding:16px;
+}
+
+.img
+{ 
+    position:absolute;
+    left:35%;
+}
+
+@media screen and (max-width :768px)
+{
+    .container{
+       height:auto;        
+    }
+}

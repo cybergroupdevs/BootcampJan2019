@@ -1,0 +1,61 @@
+.tx 
+{
+    position:absolute;
+    left: 25%;
+    right:25%;
+    top:35%;
+    background-color: aliceblue;
+ border: 1;
+}
+
+table
+{
+  border-radius: 20px;
+}
+
+
+th 
+{
+    background-color: bisque;
+    padding:16px;
+}
+
+td
+{
+    background-color: cornsilk;
+    padding:16px;
+}
+
+summary
+{
+    font-size: 20px;
+    padding: 16px;
+}
+
+.img
+{ 
+    position:absolute;
+    left:33%;
+ }
+
+
+h1
+{
+    position: absolute;
+    top:20%;
+    left:25%;
+     padding: 20px;
+    
+}
+
+
+@media screen and (max-width :768px)
+{
+    .container{
+       height:auto;        
+    }
+    .img
+    {
+        height:auto;
+    }
+}
