@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container{
+            text-align: center;
+            margin-top: 5%;
+        }
+        .calcu{
+            width: 330px;
+            margin: 0 auto;
+            border-radius: 22px;
+            background-color: #1A1818;
+            padding: 10px;
+            box-shadow: 10px 10px 35px 15px;
+        }
+        td:active{
+            transform: scaleY(0.8) translateY(6px);
+        }
+        td{
+            border-radius: 12px;
+            background-color: gray;
+            padding: 20px;
+            color: white;
+            box-sizing: border-box;
+            min-width: 65px;
+            font-weight: bolder;
+            box-shadow: 1px 5px #5E7684;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .head{
+            color: aliceblue;
+            font-family: fantasy;
+            font-size: 25px;
+        }
+        #out{
+            color: black;
+            background-color: azure;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 25px;
+            text-align: right;
+        }
+    </style>
+    <script>
+    var count=1;
+     function fn(n){
+        var m = document.getElementById("out").textContent;
+         if(count == 1){
+             document.getElementById("out").innerHTML = "0";
+             console.log(count);
+             count=0;
+             console.log(count);
+             document.getElementById("out").innerHTML = n;
+         }
+         else{
+           document.getElementById("out").innerHTML = m + n;  
+         }  
+     }
+     function ac(){
+         document.getElementById("out").innerHTML = "0";
+     }
+    function calculate(){
+        var m = document.getElementById("out").textContent;
+        document.getElementById("out").innerHTML = eval(m);
+       count=1;
+        console.log(count);
+    }
+    </script> 
+</head>
+<body>
+  <div class="container">
+    <div class="calcu">
+      <p class="head">ELECTRONIC &nbsp; CALCULATOR</p>
+      <div>
+        
+      </div>
+      <table cellspacing="13">
+        <p id="out">0</p>
+        <tr>
+          <td onclick="fn('/')">/</td>
+          <td onclick="fn('*')">*</td>
+          <td onclick="fn('-')">-</td>
+          <td onclick="fn('+')">+</td>
+        </tr>
+        <tr>
+          <td onclick="fn(7)">7</td>
+          <td onclick="fn(8)">8</td>
+          <td onclick="fn(9)">9</td>
+          <td rowspan="2" onclick="ac()">AC</td>
+        </tr>
+        <tr>
+          <td onclick="fn(4)">4</td>
+          <td onclick="fn(5)">5</td>
+          <td onclick="fn(6)">6</td>
+        </tr>
+        <tr>
+          <td onclick="fn(1)">1</td>
+          <td onclick="fn(2)">2</td>
+          <td onclick="fn(3)">3</td>
+          <td rowspan="2" onclick="calculate()">=</td>
+        </tr>
+        <tr>
+          <td colspan="2" onclick="fn(0)">0</td>
+          <td onclick="fn('.')">.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
