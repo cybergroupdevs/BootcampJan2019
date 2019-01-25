@@ -23,8 +23,7 @@ td
 
 .img
 { 
-    position:absolute;
-    left:35%;
+    background-color: black;
 }
 
 @media screen and (max-width :768px)
@@ -32,4 +31,51 @@ td
     .container{
        height:auto;        
     }
+}
+
+.footer
+{
+   position: fixed;
+    
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+    
+}
+* {
+  box-sizing: border-box;
+   
+    padding: 0;
+    margin:0;
+  }
+
+
+#one
+{
+        font-family: sans-serif;
+    font-size: large;
+    position: absolute;
+    right: 10px;
+    color: white;
+    top: 90px;
+}
+
+#two
+{
+        font-family: sans-serif;
+    font-size: large;
+    position: absolute;
+    right: 90px;
+    color:white;
+    top: 90px;
+}
+
+p{
+        height: 30px;
+   
+    background-color: #468686;
+    
 }

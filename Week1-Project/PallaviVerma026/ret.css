@@ -8,6 +8,11 @@
  border: 1;
 }
 
+*{
+    padding:0;
+    margin: 0;
+}
+
 table
 {
   border-radius: 20px;
@@ -33,9 +38,8 @@ summary
 }
 
 .img
-{ 
-    position:absolute;
-    left:33%;
+{ background: black;
+ 
  }
 
 
@@ -48,7 +52,12 @@ h1
     
 }
 
-
+p{
+        height: 30px;
+    background-color: peach;
+    background-color: #468686;
+    
+}
 @media screen and (max-width :768px)
 {
     .container{
@@ -58,4 +67,34 @@ h1
     {
         height:auto;
     }
+}
+
+#one{
+        font-family: sans-serif;
+    font-size: large;
+    position: absolute;
+    right: 20px;
+    top: 90px;
+    color: white;
+}
+#two{
+        font-family: sans-serif;
+    font-size: large;
+    position: absolute;
+    right: 97px;
+    top: 90px;
+    color: white;
+}
+
+.footer
+{
+   position: fixed;
+    
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+    
 }
