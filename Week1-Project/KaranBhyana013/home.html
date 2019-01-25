@@ -40,8 +40,8 @@
     
     <div data-brackets-id='7359' class="container">
   <h2 data-brackets-id='7360'>List Of Employees</h2>
-  <div data-brackets-id='7361' id="hey">dsfgvsfdc </div>            
-  <table data-brackets-id='7362' class="table table-dark table-responsive table-hover">
+  
+  <table class="table table-dark table-responsive table-hover">
     <thead data-brackets-id='7363'>
       <tr data-brackets-id='7364'>
         <th data-brackets-id='7365'>Firstname</th>
@@ -83,6 +83,7 @@
       </tr>
     </tbody>
   </table>
+    <div id="hey"></div> 
 </div>
     
 <footer data-brackets-id='7397' class="page-footer font-small blue pt-4">
@@ -167,17 +168,26 @@
 
   </footer>
   <!-- Footer -->
-    <script data-brackets-id='7428'>
-    //document.getElementById("hey").disabled = true;
+    <script>
+    var self = '<div class="container"><div class="card" style="width:400px"><img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:30%"><div class="card-body"><h4 class="card-title">Details</h4><h4 class="card-title" id ="name">John Doe</h4><p class="card-name" id ="Email" >Email</p><p class="card-name"id ="Employment_Id" >Employment_Id</p><p class="card-name" id ="designation">Designation</p><p class="card-name" id ="PhNumber">Ph.Number</p><p class="card-name" id ="Gender" >Gender</p></div></div>';  
     $(document).ready(function(){
-    //document.getElementById("hey").disabled = true;
     $('.table > tbody > tr').click(function() {
-    $('#hey').append("bdchy");
+    var $item = $(this).text();
+    $('#hey').empty().append(self);
+    var res = $item.split(" ");
+    $('#name').empty().html(res[8] + res[16] );
+    $('#Email').empty().html(res[24]);
+    $('#Employment_Id').empty().html(res[32]);
+    $('#designation').empty().html(res[40]);
+    $('#PhNumber').empty().html(res[48]);
+    $('#Gender').empty().html(res[56]);
     });
+    $('.table > tbody > tr').dblclick(function(e){ 
+    $('#hey').empty();})
     });
     </script>
     <script data-brackets-id='7429' src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script data-brackets-id='7430' src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script data-brackets-id='7431' src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+</body>
 </html>
