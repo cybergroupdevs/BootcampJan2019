@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="main-body">
+            <h1 align="center"> Calculator </h1>
+            <hr>
+            <form name="forms">
+                <table>
+                    <tr>
+                        <td colspan="4"  > <input type="text" name="result"></td>
+                    </tr>
+                    <tr>
+                        <td> <input type="button" value="9" onclick="forms.result.value+='9'"></td>
+                        <td> <input type="button" value="8" onclick="forms.result.value+='8'"></td>
+                        <td> <input type="button" value="7" onclick="forms.result.value+='7'"></td>
+                        <td rowspan="2" > <input class="myclass" type="button" value="AC" onclick="forms.result.value=''"></td>
+                    </tr>
+                    <tr>
+                        <td> <input type="button" value="6" onclick="forms.result.value+='6'"></td>
+                        <td> <input type="button" value="5" onclick="forms.result.value+='5'"></td>
+                        <td> <input type="button" value="4" onclick="forms.result.value+='4'"></td>
+
+                    </tr>
+                    <tr>
+                        <td> <input type="button" value="3" onclick="forms.result.value+='3'"></td>
+                        <td> <input type="button" value="2" onclick="forms.result.value+='2'"></td>
+                        <td> <input type="button" value="1" onclick="forms.result.value+='1'"></td>
+                        <td rowspan="2" class="btn"> <input type="button" value="+" onclick="forms.result.value+='+'"></td>
+                    </tr>
+                    <tr>
+                        <td> <input type="button" value="." onclick="forms.result.value+='.'"></td>
+                        <td> <input type="button" value="0" onclick="forms.result.value+='0'"></td>
+                        <td> <input type="button" value="-" onclick="forms.result.value+='-'"></td>        
+                    </tr>
+                    <tr>
+                        <td> <input type="button" value="/" onclick="forms.result.value+='/'"></td>
+                        <td> <input type="button" value="*" onclick="forms.result.value+='*'"></td>
+                        <td> <input type="button" value="sq" onclick="forms.result.value=(forms.result.value*forms.result.value)"></td> 
+                        <td> <input type="button" value="=" onclick="forms.result.value=eval(forms.result.value)"></td>        
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </body>
+</html>
