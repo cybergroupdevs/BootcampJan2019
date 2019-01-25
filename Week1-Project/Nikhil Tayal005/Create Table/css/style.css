@@ -1,0 +1,77 @@
+body{
+    color: beige;
+    background-color: darkgrey;
+}
+.navbar-brand img{
+    width: 60%
+}
+.nav-link {
+    font-size: 160%;
+    margin: 6px
+}
+.navbar{
+    background-color: #333;
+}
+a.navbar-brand-1{
+    font-size: 40px;
+}
+#home-section .home-inner
+{
+    padding-top: 150px;
+}
+
+#home-section{
+    background-image: url(../img/nesa-by-makers-736784-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 700px;
+}
+.dark-overlay{
+    background: rgba(0,0,0,0.8);
+    min-height: 700px;
+}
+.createtable{
+    padding-top: 200px;
+}
+h2.display-4{
+    text-align: right;
+    color: aqua
+}
+.hrline{
+    border: none;
+    border-bottom: 2px solid aqua;
+}
+label{
+    display: inline;
+}
+select{
+    display: inline;
+}
+.btn{
+    margin: 5% 50% 10% 50%;
+    width: 20%;
+}
+.footer-part {
+    text-align: center;
+    color: black;
+}
+.footer-part h2 {
+    border-bottom: solid black 2px;
+}
+@media only screen and (min-width: 991px) {
+    a.navbar-brand-1 {
+        display: none;
+        font-size: 20000px;
+    }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
