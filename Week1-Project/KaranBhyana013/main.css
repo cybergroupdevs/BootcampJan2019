@@ -94,6 +94,8 @@ select:not(:first){
 #Myform:valid .btn {
   background : green ;
 }
+
+
 .btn {
     display: block;
     width: 100%;
@@ -128,17 +130,6 @@ select:not(:first){
     }
 }
 .btn:hover {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    font-family: $font-family;
-    -webkit-appearance: none;
-    outline: 0;
-    border: 0;
-    color: white;
-    background: red;
-    transition: 0.3s;
-    font-weight: normal;
     
 }
 

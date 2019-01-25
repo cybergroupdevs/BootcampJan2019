@@ -28,7 +28,7 @@
             <a data-brackets-id='7354' class="nav-link" href="index.html">Signout</a>
           </li>
           <li data-brackets-id='7355' class="nav-item">
-            <a data-brackets-id='7356' class="nav-link" href="create.html">Create Page</a>
+            <a data-brackets-id='7356' class="nav-link" href="create.html">Edit Details Page</a>
           </li>
           <li data-brackets-id='7357' class="nav-item">
             <a data-brackets-id='7358' class="nav-link" href="home.html">List Page</a>
@@ -42,7 +42,7 @@
   <h2 data-brackets-id='7360'>List Of Employees</h2>
   
   <table class="table table-dark table-responsive table-hover">
-    <thead data-brackets-id='7363'>
+    <thead  data-brackets-id='7363'>
       <tr data-brackets-id='7364'>
         <th data-brackets-id='7365'>Firstname</th>
         <th data-brackets-id='7366'>Lastname</th>
@@ -53,7 +53,7 @@
         <th data-brackets-id='7371'>Gender</th>
       </tr>
     </thead>
-    <tbody data-brackets-id='7372'>
+    <tbody title="Click To Expand Details And Double Click To Close" data-brackets-id='7372'>
       <tr data-brackets-id='7373' >
         <td data-brackets-id='7374'>John</td>
         <td data-brackets-id='7375'>Doe</td>
@@ -98,7 +98,7 @@
         <div data-brackets-id='7400' class="col-md-6 mt-md-0 mt-3">
 
           <!-- Content -->
-          <h5 data-brackets-id='7401' class="text-uppercase">Footer</h5>
+          <h5 data-brackets-id='7401' class="text-uppercase">All Pages:</h5>
           <p data-brackets-id='7402'> </p>
 
         </div>
@@ -106,29 +106,7 @@
 
         <hr data-brackets-id='7403' class="clearfix w-100 d-md-none pb-3">
 
-        <!-- Grid column -->
-        <div data-brackets-id='7404' class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5 data-brackets-id='7405' class="text-uppercase">Links</h5>
-
-            <ul data-brackets-id='7406' class="list-unstyled">
-              <li data-brackets-id='7407'>
-                <a data-brackets-id='7408' href="#!">Link 1</a>
-              </li>
-              <li data-brackets-id='7409'>
-                <a data-brackets-id='7410' href="#!">Link 2</a>
-              </li>
-              <li data-brackets-id='7411'>
-                <a data-brackets-id='7412' href="#!">Link 3</a>
-              </li>
-              <li data-brackets-id='7413'>
-                <a data-brackets-id='7414' href="#!">Link 4</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
+ 
 
           <!-- Grid column -->
           <div data-brackets-id='7415' class="col-md-3 mb-md-0 mb-3">
@@ -138,16 +116,16 @@
 
             <ul data-brackets-id='7417' class="list-unstyled">
               <li data-brackets-id='7418'>
-                <a data-brackets-id='7419' href="#!">Link 1</a>
+                <a data-brackets-id='7419' href="index.html">Login</a>
               </li>
               <li data-brackets-id='7420'>
-                <a data-brackets-id='7421' href="#!">Link 2</a>
+                <a data-brackets-id='7421' href="signup.html">Signup</a>
               </li>
               <li data-brackets-id='7422'>
-                <a data-brackets-id='7423' href="#!">Link 3</a>
+                <a data-brackets-id='7423' href="create.html">Edit Details</a>
               </li>
               <li data-brackets-id='7424'>
-                <a data-brackets-id='7425' href="#!">Link 4</a>
+                <a data-brackets-id='7425' href="home.html">List OF employees</a>
               </li>
             </ul>
 
@@ -169,7 +147,7 @@
   </footer>
   <!-- Footer -->
     <script>
-    var self = '<div class="container"><div class="card" style="width:400px"><img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:30%"><div class="card-body"><h4 class="card-title">Details</h4><h4 class="card-title" id ="name">John Doe</h4><p class="card-name" id ="Email" >Email</p><p class="card-name"id ="Employment_Id" >Employment_Id</p><p class="card-name" id ="designation">Designation</p><p class="card-name" id ="PhNumber">Ph.Number</p><p class="card-name" id ="Gender" >Gender</p></div></div>';  
+    var self = '<div class="container"><div class="card" style="width:300px"><img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"><div class="card-body"><h4 class="card-title">Details</h4><h4 class="card-title" id ="name">John Doe</h4><p class="card-name" id ="Email" >Email</p><p class="card-name"id ="Employment_Id" >Employment_Id</p><p class="card-name" id ="designation">Designation</p><p class="card-name" id ="PhNumber">Ph.Number</p><p class="card-name" id ="Gender" >Gender</p></div></div>';  
     $(document).ready(function(){
     $('.table > tbody > tr').click(function() {
     var $item = $(this).text();

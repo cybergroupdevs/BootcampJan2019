@@ -124,9 +124,9 @@
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+              <input type="button" class="btn btn-primary" onclick = "location.href='home.html'" value="Save Changes">
               <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
+              <input type="reset" class="btn btn-default" onclick = cancel(); value="Cancel">
             </div>
           </div>
         </form>
@@ -135,52 +135,47 @@
 </div>
 <hr>
     
-<footer    class="page-footer font-small blue pt-4">
+<footer data-brackets-id='7397' class="page-footer font-small blue pt-4">
 
     <!-- Footer Links -->
-    <div    class="container-fluid text-center text-md-left">
+    <div data-brackets-id='7398' class="container-fluid text-center text-md-left">
 
       <!-- Grid row -->
-      <div    class="row">
+      <div data-brackets-id='7399' class="row">
 
         <!-- Grid column -->
-        <div   class="col-md-6 mt-md-0 mt-3">
+        <div data-brackets-id='7400' class="col-md-6 mt-md-0 mt-3">
 
           <!-- Content -->
-          <h5   class="text-uppercase">Footer Content</h5>
-          <p  >Here you can use rows and columns here to organize your footer content.</p>
+          <h5 data-brackets-id='7401' class="text-uppercase">All Pages:</h5>
+          <p data-brackets-id='7402'> </p>
 
         </div>
         <!-- Grid column -->
 
-        <hr   class="clearfix w-100 d-md-none pb-3">
+        <hr data-brackets-id='7403' class="clearfix w-100 d-md-none pb-3">
 
-        <!-- Grid column -->
-        <div   class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5   class="text-uppercase">Links</h5>
-
-            <ul   class="list-unstyled">
-              <li  >
-                <a   href="#!">Link 1</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
+ 
 
           <!-- Grid column -->
-          <div  class="col-md-3 mb-md-0 mb-3">
+          <div data-brackets-id='7415' class="col-md-3 mb-md-0 mb-3">
 
             <!-- Links -->
-            <h5   class="text-uppercase">Links</h5>
+            <h5 data-brackets-id='7416' class="text-uppercase">Links</h5>
 
-            <ul  class="list-unstyled">
-              <li >
-                <a   href="#!">Link 1</a>
+            <ul data-brackets-id='7417' class="list-unstyled">
+              <li data-brackets-id='7418'>
+                <a data-brackets-id='7419' href="index.html">Login</a>
               </li>
-            
+              <li data-brackets-id='7420'>
+                <a data-brackets-id='7421' href="signup.html">Signup</a>
+              </li>
+              <li data-brackets-id='7422'>
+                <a data-brackets-id='7423' href="create.html">Edit Details</a>
+              </li>
+              <li data-brackets-id='7424'>
+                <a data-brackets-id='7425' href="home.html">List OF employees</a>
+              </li>
             </ul>
 
           </div>
@@ -193,8 +188,8 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div   class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a   href=""> </a>
+    <div data-brackets-id='7426' class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a data-brackets-id='7427' href=""> </a>
     </div>
     <!-- Copyright -->
 
@@ -202,16 +197,27 @@
   <!-- Footer -->
     <script  >
     //document.getElementById("hey").disabled = true;
-    $(document).ready(function(){
-    document.getElementById("hey").disabled = true;
-    $('.table > tbody > tr').click(function() {
-    $('#hey').append("bdchy");
-    });
-    });
-    
-$('.navbar-collapse a').click(function(){
-    $("#collapsibleNavbar").collapse('hide');
-});
+$(document).ready(function(){
+   function cancel() {
+  alert("Fill in the Details to proceed or signout!");
+}
+        function checkform()
+{
+    var f = document.forms["theform"].elements;
+    var cansubmit = true;
+
+    for (var i = 0; i < f.length; i++) {
+        if (f[i].value.length == 0) cansubmit = false;
+    }
+
+    if (cansubmit) {
+        document.getElementById('submitbutton').disabled = false;
+    }
+    else {
+        document.getElementById('submitbutton').disabled = 'disabled';
+    }
+}
+}
     </script>
     <script   src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
