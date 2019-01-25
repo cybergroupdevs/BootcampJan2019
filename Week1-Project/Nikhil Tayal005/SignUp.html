@@ -9,7 +9,7 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/LoginPage.css">
         <title>Bootstrap Theme</title>
     </head>
 
@@ -29,77 +29,66 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">HOME</a>
+                            <a class="nav-link" href="index.html">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ABOUT US</a>
+                            <a class="nav-link" href="SignUp.html">SIGNUP</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">LIST</a>
+                            <a class="nav-link" href="TableEmployee.html">LIST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="CreateTable.html">CREATE TABLE</a>
                         </li> 
                     </ul>
                 </div> 
             </div>
         </nav>
-        <header id="home-section">
-            <div class="dark-overlay">
-                <div class="home-inner container">
-                    <div class="row">
-                        <div class="col-lg-8 d-none d-lg-block">
-                            <h1 class="display-4">Why
-                                <strong>Choose Us</strong>?
-                            </h1>
-                            <div class="d-flex">
-                                <div class="p-4 align-self-start">
-                                    <i class="fas fa-laptop fa-2x"></i>
+
+
+        <header>
+            <div id="home-section">
+                <div class="dark-overlay">
+                    <div class="signup-box">
+                        <form>
+                            <h2 align="center">Register Now</h2>
+                            <div class="input-group mb-3 mt-5 input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Person</span>
                                 </div>
-                                <div class="p-4 align-self-end">
-                                    <h3>Reliable & Scalable Technology 
-                                        for Digital Transformation</h3>
+                                <input type="text" class="form-control" placeholder="First Name">
+                                <input type="text" class="form-control" placeholder="Last Name">
+                            </div> 
+                            <div class="input-group input-group-lg mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username">
+                            </div>
+
+                            <div class="input-group input-group-lg mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">@example.com</span>
+                                </div>
+                            </div>
+                            <div class="input-group input-group-lg mb-3">
+                                <input type="password" class="form-control" placeholder="Your Password">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                </div>
+                            </div>
+                            <div class="input-group input-group-lg mb-3">
+                                <input type="password" placeholder="Confirm Password" class="form-control">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-eye-slash"></i>
+                                    </span>
                                 </div>
                             </div>
 
-                            <div class="d-flex">
-                                <div class="p-4 align-self-start">
-                                    <i class="far fa-clock fa-2x"></i>
-                                </div>
-                                <div class="p-4 align-self-end .text">
-                                    <h3>Delivered On-Time & Hassle-Free</h3>
-                                </div>
-                            </div>
-
-                            <div class="d-flex">
-                                <div class="p-4 align-self-start">
-                                    <i class="fas fa-hand-holding-usd fa-2x"></i>
-                                </div>
-                                <div class="p-4 align-self-end">
-                                    <h3>Smart Technology Solutions for High-Growth Businesses</h3>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="card bg-dark text-center card-form">
-                                <div class="card-body">
-                                    <h2>Login</h2>
-
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-lg mt-5" placeholder="Username">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-lg mt-4" placeholder="Password">
-                                        </div>
-
-
-                                        <input type="submit" value="Submit" class="btn btn-outline-light btn-block btn-lg mt-4">
-                                        <a href="" class="signuplink">Don't Have any account?</a>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                            <button type="button" class="btn btn-lg btn-outline-primary submit sgn">submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -131,11 +120,8 @@
                 </div>
             </div>
         </footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>&copy;'year'</p>
-            </div>
-        </div>
+
+
         <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
                 crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
