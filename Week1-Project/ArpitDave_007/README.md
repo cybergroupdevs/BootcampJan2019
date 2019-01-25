@@ -9,7 +9,7 @@ The Links for both are as mentioned :
 
 Github (Personal Directory) -: https://github.com/arpitdave1997/BootcampJan2019/Week1-Project/ArpitDave_007
 
-Netlify -:
+Netlify -: https://arpitdave1.netlify.com/
 
 
 ## Authors
