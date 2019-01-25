@@ -1,0 +1,86 @@
+<style>
+body{        
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+.fixed-header, .fixed-footer{
+    width: 100%;
+    position: fixed;        
+    padding: 10px;
+    background-color: cornflowerblue;
+    }
+.fixed-header{
+    top: 0;
+    }
+.fixed-footer{
+    bottom: 0;
+    } 
+.HeaderFooter{
+    width: 80%;
+    margin: auto;
+    }
+.content{
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    top: 110px;
+    position: absolute;
+    font-family: serif;
+    background-color: snow;
+    }
+.outset {
+    border-style: outset;
+    }
+.center {
+    margin-left:40% ;
+    margin-right: 25%;
+    width: 20%;
+}
+hr {
+    border: 1px solid green;
+  	margin-bottom: 20px;
+  	margin-top: 20px;
+	}
+.relative {
+    position: relative;
+    left: 100px;
+    }
+input[type=text], input[type=date], input[type=number] {
+    width: 50%;
+    padding: 5px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+        }
+input[type=text]:focus , input[type=date]:focus ,  input[type=designation]:focus, input[type=number]:focus {
+ 	outline: bold;
+	}
+.save {
+  	background-color: green;
+	color: black;
+  	padding: 18px;
+  	margin: 16px 0;
+  	border: bold;
+  	cursor: pointer;
+ 	width: 20%;
+	}
+.cancelbutton {
+  	background-color: red;
+	color: black;
+  	padding: 18px;
+  	margin: 16px 0;
+  	border: bold;
+	cursor: pointer;
+    width: 20%;
+	}
+
+@media only screen and (max-width: 600px) {
+  body {
+    text-align:left;
+  }
+    .relative{
+        height: auto;
+    }
+}
+
+</style>
