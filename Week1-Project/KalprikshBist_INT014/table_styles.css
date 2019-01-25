@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+}
+header
+{
+    font-family: Calibri;
+    background-color: whitesmoke;
+    overflow: hidden;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
+.CyberLogo{
+    margin-left: 10px;
+    margin-top: 20px;
+
+}
+.headertxt{
+    padding: 20px;
+
+}
+
+nav{
+    float: right;
+    margin-bottom: 10px;
+}
+.links{
+    display: inline;
+    margin-right: 10px;
+
+}
+a{
+    color: dimgrey;
+    margin-right: 5px;
+}
+
+
+table{
+    width: 100%;
+    font-family: Calibri;
+    margin-left: auto;
+    margin-right:auto ;
+    text-align-all: center;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.name{
+    padding: 20px;
+    font-family: "Comic Sans MS";
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgrey;
+}
+.id{
+    padding: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgrey;
+    font-family: "Comic Sans MS";
+}
+.post{
+    padding: 20px;
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: lightgrey;
+    font-family: "Comic Sans MS";
+}
+.nameh{
+    padding: 20px;
+    font-family: "Comic Sans MS";
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgrey;
+    background-color: lightgrey;
+}
+.idh{
+    padding: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgrey;
+    font-family: "Comic Sans MS";
+    background-color: lightgrey;
+}
+.posth{
+    padding: 20px;
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: lightgrey;
+    font-family: "Comic Sans MS";
+    background-color: lightgrey;
+}
+footer {
+
+}
+h1{
+    color: dimgrey;
+}
+
+h6{
+    color: dimgrey;
+}
+
+.name:hover{
+    background-color: darkgrey;
+}
