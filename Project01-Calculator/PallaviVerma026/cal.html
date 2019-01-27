@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" media="screen" type="text/css" href="cal.css" />
+    </head>
+    <body>
+       <div class="container">
+		  <form name="calculator"><input id="answer" type="text" name="display" readonly>
+            
+              <table>
+               
+                  <tr>
+                    <td><input class="digits" type="button" value="1" onclick="calculator.answer.value += '1'"></td>
+                    <td><input class="digits" type="button" value="2" onclick="calculator.answer.value += '2'"></td>
+                    <td><input class="digits" type="button" value="3" onclick="calculator.answer.value += '3'"></td>
+                    <td><input class="op" type="button" value="+" onclick="calculator.answer.value += '+'"></td>
+                </tr>
+              
+                  <tr>
+                    <td><input class="digits" type="button" value="4" onclick="calculator.answer.value += '4'"></td>
+                    <td><input class="digits" type="button" value="5" onclick="calculator.answer.value += '5'"></td>
+                    <td><input class="digits" type="button" value="6" onclick="calculator.answer.value += '6'"></td>
+                    <td><input class="op" type="button" value="-" onclick="calculator.answer.value += '-'"></td>
+                </tr>
+              
+                  <tr>
+                    <td><input class="digits" type="button" value="7" onclick="calculator.answer.value += '7'"></td>
+                    <td><input class="digits" type="button" value="8" onclick="calculator.answer.value += '8'"></td>
+                    <td><input class="digits" type="button" value="9" onclick="calculator.answer.value += '9'"></td>
+                    <td><input class="op" type="button" value="/" onclick="calculator.answer.value += '/'"></td>
+                </tr>
+               
+                  <tr>
+                    <td><input class="resetdigits" type="reset" value="AC" onclick="calculator.answer.value += ''" ></td>
+                    <td><input class="digits" type="button" value="0" onclick="calculator.answer.value += '0'" ></td>
+                    <td><input class="evaluatedigits" type="button" value="=" onclick="calculator.display.value = eval(calculator.display.value)" ></td>
+                    <td><input class="op" type="button" value="*" onclick="calculator.answer.value += '*'"></td>
+            
+              </table>
+        </form>
+        </div>
+    </body>
+</html>
