@@ -1,0 +1,57 @@
+<style>
+    body {
+        font-family: Tahoma;
+        background-color: aquamarine;
+    }
+    #container {
+        width: 200px;
+        padding: 8px 8px 20px 8px;
+        margin: 150px auto;
+        background-color:darkblue;
+        border-radius: 10px;
+        border-bottom: 2px;
+        border-left: 2px;
+    }
+    #answer {
+        display: block;
+        margin: 15px auto;
+        height: 42px;
+        width: 174px;
+        padding: 0 10px;
+        border-radius: 4px;
+        font-size: 28px;
+        color: dimgrey;
+        text-align: right;
+    }
+    .digits, .mdigits{
+        background-color: darkgrey;
+    }
+    .edigits{
+        background-color: dimgrey;
+    }
+    .rdigits{
+        background-color: darkred
+    }
+    .digits , .mdigits , .rdigits, .edigits {
+        display: inline-block;
+        margin: 2px;
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 4px;
+        color: black;
+        border-top: 2px;
+        border-right: 2px;
+        border-bottom: 2px;
+        border-left: 2px;
+        border-radius: 4px;
+    }
+    .digits:hover,.mdigits:hover,.rdigits:hover , .edigits:hover {
+        background-color:skyblue;
+        border-top: 2px;
+        border-right: 2px;
+        border-bottom: 2px;
+        border-left: 2px;
+    }
+</style>
