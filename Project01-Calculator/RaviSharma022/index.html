@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Electronic calculator</title>
+<link href="calculator.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<div class="outer_box" align="center">
+		<h5>Made by Ravi Kant Sharma</h5>
+			<form name="calculator" class="inner_box">
+				<table cellspacing="10">
+					<tr>
+						<p><input type="text" name="answer" class="result_box" value="" placeholder="0"></p>
+					</tr>
+					
+					<tr>
+						<td onclick="calculator.answer.value =''">C</td>
+						<td onclick="calculator.answer.value +='/'">/</td>
+						<td onclick="calculator.answer.value +='*'">*</td>
+						<td onclick="calculator.answer.value +='-'">-</td>
+					</tr>
+					
+					<tr>
+						<td onclick="calculator.answer.value +='7'">7</td>
+						<td onclick="calculator.answer.value +='8'">8</td>
+						<td onclick="calculator.answer.value +='9'">9</td>
+						<td rowspan="2" onclick="calculator.answer.value +='+'">+</td>
+					</tr>
+					
+					<tr>
+						<td onclick="calculator.answer.value +='4'">4</td>
+						<td onclick="calculator.answer.value +='5'">5</td>
+						<td onclick="calculator.answer.value +='6'">6</td>
+					</tr>
+					
+					<tr>
+						<td onclick="calculator.answer.value +='1'">1</td>
+						<td onclick="calculator.answer.value +='2'">2</td>
+						<td onclick="calculator.answer.value +='3'">3</td>
+						<td rowspan="2" onclick="calculator.answer.value =eval(calculator.answer.value)">=</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" onclick="calculator.answer.value +='0'">0</td>
+						<td onclick="calculator.answer.value +='.'">.</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>
+	
