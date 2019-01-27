@@ -110,7 +110,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles
           "hide_card": false,
           "background_color": "#b61924",
           "background_image": "",
-          "background_position": "50% 50%",
+          "background_position": "100% 100%",
           "background_repeat": "no-repeat",
           "background_size": "cover"
         }
