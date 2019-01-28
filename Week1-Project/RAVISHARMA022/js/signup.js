@@ -1,16 +1,16 @@
 function signupform(){
-	
-		var firstname = document.getElementById('First Name').value;
-		var lastname = document.getElementById('Last Name').value;
-		var Email = document.getElementById('Email').value;
-		var pass = document.getElementById('Password').value;
-		var repass = document.getElementById('Repassword').value;
-		var country = document.getElementById('Country').value;
-		var employeeid = document.getElementById('Employee Id').value;
-		var dob = document.getElementById('DOB').value;
-		var terms = document.getElementById('licence').value;
-	
-	var datafor_EmployeeDetails ={
+	var firstname = document.getElementById('First Name').value;
+	var lastname = document.getElementById('Last Name').value;
+	var Email = document.getElementById('Email').value;
+	var pass = document.getElementById('Password').value;
+	var repass = document.getElementById('Repassword').value;
+	var country = document.getElementById('Country').value;
+	var employeeid = document.getElementById('Employee Id').value;
+	var dob = document.getElementById('DOB').value;
+	var terms = document.getElementById('licence').value;
+		
+if (pass==repass){
+	var datafor_EmployeeDetail ={
 								"Id": employeeid,
 								"firstname":firstname,
 								"lastname":lastname,
@@ -20,11 +20,11 @@ function signupform(){
 								}
 								$.ajax	({
 								url: "http://localhost:50052/api/EmployeeDetail",
-								data: datafor_EmployeeDetails,
+								data: datafor_EmployeeDetail,
 								type: 'post',
 								dataType: 'json', 
 								success: function(res)	{
-													location.href = "homepage.html";
+													location.href = "index.html";
 														}
 										});
 										
@@ -46,6 +46,6 @@ function signupform(){
 																}  
 												});
 												
-
+		}else{location.href = "Signup.html";}
 			
 						};
