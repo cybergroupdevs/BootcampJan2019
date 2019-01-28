@@ -30,7 +30,7 @@ td
          
     }
 
-    #answer
+    #screen
    {
        text-align: right;
         display: block;
@@ -43,13 +43,9 @@ td
         
     }
 
-    .digits, .op, .evaluatedigits, .resetdigits
-   {
-        background-color: darkgrey;
-    }
-  
+    
    
-    .digits , .op, .resetdigits, .evaluatedigits 
+    .digits , .rdigits
       {
         display: inline-block;
         margin: 2px;
@@ -60,9 +56,17 @@ td
         border-radius: 4px;
         color: black;
       border: 2px;
+          
+        background-color: darkgrey;
+    
     }
+.rdigits
+{
+      background-color: skyblue;
+    
+}
 
-    .digits:hover,.op:hover,.resetdigits:hover , .evaluatedigits:hover
+.digits:hover, .rdigits:hover
    {
         background-color:darkred;
        border:2px;
