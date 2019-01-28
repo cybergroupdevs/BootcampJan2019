@@ -115,12 +115,11 @@ input[type=text]:focus, input[type=password],input[type=number],input[type=date]
     }
 }
 
-.footer
+
+footer
 {
-   position: fixed;
-    
-   left: 0;
-   bottom: 0;
+   
+       margin-top:90%;
    width: 100%;
    background-color: black;
    color: white;

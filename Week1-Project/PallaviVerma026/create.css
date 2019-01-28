@@ -122,12 +122,10 @@ p{
     
 }
 
-.footer
+footer
 {
-   position:relative;
-    top: 40;
-   left: 0;
-   bottom: 0;
+   
+       margin-top:90%;
    width: 100%;
    background-color: black;
    color: white;
