@@ -8,44 +8,42 @@ function signupform(){
 	var employeeid = document.getElementById('Employee Id').value;
 	var dob = document.getElementById('DOB').value;
 	var terms = document.getElementById('licence').value;
-		
-if (pass==repass){
+if(pass == repass){
 	var datafor_EmployeeDetail ={
-								"Id": employeeid,
-								"firstname":firstname,
-								"lastname":lastname,
-								"Email":Email,
-								"country":Country,
-								"DOB":dob, 
-								}
-								$.ajax	({
-								url: "http://localhost:50052/api/EmployeeDetail",
-								data: datafor_EmployeeDetail,
-								type: 'post',
-								dataType: 'json', 
-								success: function(res)	{
-													location.href = "index.html";
-														}
-										});
-										
-										
-	var datafor_AuthenticateUser =	{
+			"Id": employeeid,
+			"firstname":firstname,
+			"lastname":lastname,
+			"fathername": "Not Specified",
+			"Email":Email,
+			"Phone": "Not Specified",
+			"country":Country,
+			"dob":dob, 
+			"gender": "Not Specified",
+			"designation": "Not Specified",
+			"address":"Not Specified",
+			};
+			$.ajax({
+			url: "http://localhost:50052/api/EmployeeDetail",
+			data: datafor_EmployeeDetail,
+			type: 'post',
+			dataType: 'json', 
+			success: function updateAuthenticationTable()
+			});
+		}
+	else{window.location.href = "Signup.html";}
+};
+function updateAuthenticationTable(){
+		var datafor_AuthenticateUser =	{
 										"Id": employeeid,
 										"Email": Email,
-										"Password": pass,
-										"repassword": repass,
-										"Terms": terms,	 
-										}
-										$.ajax	({
+										"password": pass,
+										"Terms": terms,
+										};
+										$.ajax({
 										url: "http://localhost:50052/api/AuthenticateUser",
 										data: datafor_AuthenticateUser,
 										type: 'post',
 										dataType: 'json', 
-										success: function(res)	{
-											 location.href = "homepage.html";
-																}  
-												});
-												
-		}else{location.href = "Signup.html";}
-			
-						};
+										success: function(res){window.location.href = "index.html";}  
+											});	
+									}
