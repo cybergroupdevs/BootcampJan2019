@@ -1,3 +1,6 @@
+body{
+    background-image: url(images/pattern_bg.jpg);
+}
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
