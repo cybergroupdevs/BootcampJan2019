@@ -1,69 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee Management</title>
-	<link rel="stylesheet" type="text/css" href="C:\Users\vidit.mathur\Desktop\Vidit\main.css">
-	<script type="text/javascript">
-	function reset(){
-		document.getElementById("Id").value = "";
-		document.getElementById("Email").value = "";
-		document.getElementById("Password").value = "";
-		document.getElementById("RePassword").value = "";
+	<title>Index</title>
 
-
-	}
-	function validate(){
-			if (1){alert("Sucessful Login");
-			location.href="C:/Users/vidit.mathur/Desktop/Vidit/continue.html";
-		}
-		else{
-			alert("Password mismatch");
-		}
-	}
-	function postLogin_Credentials(){
-		alert("Sucessful Sign-Up");
-		location.href="C:/Users/vidit.mathur/Desktop/Vidit/continue.html";
-	}
-</script>
-<div>
-   <nav>
-     <img src="C:\Users\vidit.mathur\Desktop\Vidit\cygrplogo.jfif" width="300px" height="80px">
-   </nav>
-  </div>
-</head>
-
-<body>
-	<div class="split left">
-  <div class="centered">
-
-    <h1>Login</h1>
-    <p>If already a user</p>
-    <form>
-    <br><h3>Id</h3><input type="text" id="Id" placeholder="User Id">
-    <br><h3>Email</h3><input type="Email" id="Email" placeholder="Email Id">
-    <br><h3>Password</h3><input type="Password" id="Password" placeholder="Password"><br><p></p>
+	<div>
+    <nav>
+   	 <a href="Employee.html"><img src="cygrplogo.jfif" width="300px" height="80px"></a>
     
-    </form>
-    <input type="submit" value="Login" onclick="validate()">
-    <input type="reset" id="reset" value="Forgot Password" onclick="reset()">
-  
-  </div>
-</div>
+</head>
+<body><br>
+<a href="Employee.html"> Employee Login</a><br>
+<a href="continue.html"> Employee management</a><br>
+<a href="list_employees.html">List of all Employee</a><br>
+<a href="Create_employee.html">Adding a new Employee </a><br>
+<a href="Create_Designation.html">Adding a new Designation</a><br>
+<a href="Create_Department.html">Adding a new Department</a><br>
 
-<div class="split right">
-  <div class="centered">
-    <h1>Sign-Up</h1>
-    <p>for new users</p>
-    <form></form>
-    <br><h3>Id</h3><input type="text" id="Id" placeholder="User Id">
-	<br><h3>Email</h3><input type="Email" id="Email" placeholder="Email Id">
-    <br><h3>Password</h3><input type="Password" id="Password" placeholder="Password">
-    <br><h3>Re-Enter Password</h3><input type="Password" id=" RePassword" placeholder="Re-Enter Password"><br><p></p>
-    </form>
-    <input type="submit" value="Sign-Up" onclick="postLogin_credentials()">
-    <input type="reset" value="Reset"  onclick="reset()">
-  
-  </div>
-</div>
 </body>
 </html>
