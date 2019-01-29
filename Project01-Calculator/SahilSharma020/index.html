@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css" class="css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+  <title>Calculator-Bootcamp</title>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Calculator</h1>
+    <table>
+      <tr>
+          <input type="text" name="display" id="input" class="screen" value="">
+      </tr>
+      <tr>
+        <td> <input type="button" name="/" value="/" class="op" onclick="opfunc(value)"></td>
+        <td> <input type="button" name="X" value="*" class="op" onclick="opfunc(value)"></td>
+        <td> <input type="button" name="-" value="-" class="op" onclick="opfunc(value)"></td>
+        <td> <input type="button" name="+" value="+" class="op" onclick="opfunc(value)"></td>
+      </tr>
+      <tr>
+        <td> <input type="button" name="7" value="7" class="numbers" onclick="numberfunc(value)"></td>
+        <td> <input type="button" name="8" value="8" class="numbers" onclick="numberfunc(value)"></td>
+        <td> <input type="button" name="9" value="9" class="numbers" onclick="numberfunc(value)"></td>
+        <td rowspan="2"> <input  type="button" name="AC" value="AC" class="rows" id="cl" ></td>
+      </tr>
+      <tr>
+        <td> <input type="button" name="4" value="4"  class="numbers" onclick="numberfunc(value)"></td>
+        <td> <input type="button" name="5" value="5"  class="numbers" onclick="numberfunc(value)"></td>
+        <td> <input type="button" name="6" value="6"  class="numbers" onclick="numberfunc(value)"></td>
+
+      </tr>
+      <tr>
+        <td> <input type="button" name="1" value="1"  class="numbers" onclick="numberfunc(value)"></td>
+        <td> <input type="button" name="2" value="2"  class="numbers" onclick="numberfunc(value)"></td>
+        <td> <input type="button" name="3" value="3"  class="numbers" onclick="numberfunc(value)"></td>
+        <td rowspan="2"> <input type="button" name="=" value="=" class="rows" id="eq"></td>
+      </tr>
+      <tr>
+        <td colspan="2"> <input type="button" name="0" value="0" class="cols"  class="numbers" onclick="numberfunc(value)"></td>
+        <td> <input type="button" name="." value="." onclick="decimal(value)" ></td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+<script src="index.js"></script>
+</html>

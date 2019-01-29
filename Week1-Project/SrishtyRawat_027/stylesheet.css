@@ -1,0 +1,77 @@
+.main_area{
+	background-color:#ffffff;
+	 position: relative;
+    left: 25%;
+    top: 50%;
+    width: 40%;
+    border: 2px solid #A9A9A9;
+    	}
+input[type=text], input[type=password], input[type=number], input[type=email] {
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.button {
+  background-color: #0000FF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 20px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+button:hover {
+  opacity:1;
+}
+.container {
+  padding: 16px;
+}
+@media screen and (max-width: 300px) {
+  .button, .table_str {
+     width: 10%;
+  }
+	
+    .container{
+       height:auto;        
+    }
+}
+h3{
+  left: 25%;
+  position: relative;
+  
+}
+
+th, td {
+  border: 1px solid black;
+}
+.table_str{
+  background-color:#ffffff;
+	 position: relative;
+    left: 35%;
+    top: 150px;
+    width:30%;
+    border: 2px solid black;
+}
+table{
+  position: relative;
+}
+label{
+  font-weight:bold;
+}
+.retrieve{
+  background-color:#ffffff;
+  position: relative;
+   left: 25%;
+   top: 50%;
+   width: 22%;
+   border: 1.5px solid black;
+}
