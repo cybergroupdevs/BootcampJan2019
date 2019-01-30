@@ -1,50 +1,21 @@
-
-  src="http://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"
-
-        
-
-				
-		function getEmployees(){
-					var datatosend ={
-									"emp_name": "Taran",
-									"age": 25,
-									"gender": "male",
-									"DesignationId": 3				
+function showlist(){								
+				$.ajax	({
+				url: "http://localhost:50052/api/EmployeeDetail",
+				type: 'GET',
+				dataType: 'json', 
+				success: function(data)
+									{
+									var table=document.getElementById("mytable");
+										for (var i=0; i<data.length; i++){
+											var row=table.insertRow(table.length);
+											row.insertCell(0).innerHTML=data[i].Id;
+											row.insertCell(1).innerHTML=data[i].firstname;
+											row.insertCell(2).innerHTML=data[i].lastname;
+											row.insertCell(3).innerHTML=data[i].Email;
+											row.insertCell(4).innerHTML=data[i].Phone;
+											row.insertCell(5).innerHTML=data[i].dob;
+											row.insertCell(6).innerHTML=data[i].designation;
 									}
-					$.ajax({
-						url: "http://localhost:52041/api/Employees",
-						data: datatosend,
-						type: 'post',
-						dataType: 'json', 
-						success: function(res)	{
-												console.log(res);
-												alert();
-												}   
-						
-							})
-					
-								};
-
-
-
-
-  function getEmployee(){
-        var id = document.getElementById("userid").value
-        $.ajax({
-            url: 'http://localhost:58794/api/Employees/'+id,
-            type: 'GET',
-            dataType: 'json',
-            success: function(res){
-                var pass = document.getElementById("password").value;
-                if(pass == res.Password){
-                    location.href = "list.html";
-                }
-                else{
-                    document.getElementById("error").innerHTML = "WRONG ID OR PASSWORD";
-                }
-            }
-        });
-    }
-    
+				} 
+						});
+};

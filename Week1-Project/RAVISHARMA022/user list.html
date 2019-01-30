@@ -12,7 +12,7 @@
 		</script>	   
 	   <script src="js/user list.js"></script>
 	</head>
-<body>
+<body onload="showlist()">
 <div class="header">
 	<a href="homepage.html"><img src="images/cyg_logo.jpg" alt=""></a>
 	<div class="wel_text">Welcome To Cyber Group India</br>
@@ -23,7 +23,6 @@
 	<div class="nav_items">
 		<ul>	
 			<a href="homepage.html"><button type="button" class="nav_btn">Home</button></a>
-			<a href="create user.html"><button type="button" class="nav_btn">Create User</button></a>
 			<div class="dropdown">
 				<button type="button" class="nav_btn">My Account</button></a>
 				<div class="dropdown-content">
@@ -37,7 +36,6 @@
 </div>
 <center>
 <div class="bigbox">
-	<div class="list_table">
 			<table id="mytable">
 				<thead>
 					<tr>
@@ -53,24 +51,13 @@
 				<tbody>
 				</tbody>
 		</table>
-	</div>
+		<!--
+	<p class="lower_text">User Details are not shown by default for security reasons, Click below button to see the list</p>
+	<button type="button" class="showlist_btn" onclick="showlist()"> Show User list </button></br>
+	-->
 </div>
-
 </center>
 <div id="footer">
 Copyright All rights reserved © 2017
 </div>
-<script>
-//var data1=JSON.parse()
-//var data2=JSON.stringify()
-var data=[["INT022","ravi","Sharma","ravi.sharma@cygrp.com","8449961949","09-11-96","Intern"],["INT022","ravi","Sharma","ravi.sharma@cygrp.com","8449961949","09-11-96","Intern"],["INT02","risabh","Singhal","risabh.singhal@cygrp.com","84496565645","01-10-97","Intern"]];
-table=document.getElementById("mytable");
-	for (var i=0; i<data.length; i++){
-		var row=table.insertRow(table.length);
-			for (var j=0; j<data[i].length; j++){
-				var column=row.insertCell(j);
-				column.innerHTML=data[i][j];
-			}
-	}
-</script>
 </body></html>
