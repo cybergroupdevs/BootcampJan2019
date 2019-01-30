@@ -43,7 +43,8 @@ if(pass == repass && terms == 1 ){
 												});	
 											}
 						});
-		}else{window.location.href = "Signup.html";}
+		}else{alert("Password doesn't match");
+			window.location.href = "Signup.html";}
 };
 
 
