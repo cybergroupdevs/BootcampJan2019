@@ -46,7 +46,7 @@ body{
 .box input[type = "text"]:focus,.box input[type = "password"]:hover,.box input[type = "text"]:hover,.box input[type = "password"]:focus{
     width: 300px;
 }
-.box input[type = "submit"]{
+.box input[type = "button"]{
     border: 1;
     background: none;
     display: block;
@@ -60,7 +60,7 @@ body{
     border-radius: 25px;
     transition-duration: 0.5s;
 }
-.box input[type = "submit"]:hover,.box input[type = "submit"]:focus{
+.box input[type = "button"]:hover,.box input[type = "button"]:focus{
     font-size: 20px;
     width: 90px;
 }
@@ -108,7 +108,7 @@ body{
     text-align: left;
     margin-left: 60px;
 }
-.algn input[type = "submit"]{
+.algn input[type = "button"]{
     text-align: center;
     margin-left: 45%;
     margin-top: 30px;
@@ -120,8 +120,11 @@ body{
     background: none;
     color: white
 }
-.algn input[type = "submit"]:hover,.box input[type = "submit"]:focus{
+.algn input[type = "button"]:hover,.box input[type = "button"]:focus{
     font-size: 15px;
     width: 80px;
     height: 40px;
+}
+#error{
+    color: red;
 }

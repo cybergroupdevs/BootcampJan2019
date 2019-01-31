@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0px; 
-    background: url(https://i2.wp.com/www.nustm.org/wp-content/uploads/2017/06/background-image-html.jpg?fit=1920%2C1200);
 }
 .header{
     position: absolute;
@@ -36,30 +35,56 @@ nav ul li:hover{
     background-color: black;
 }
 .body{
-    margin-top: 5%;
+    margin-top: 130px;
     display: inline-block;
-    padding-left: 25px;
+    padding-left: 5%;
 }
 .body input[type = "text"], input[type = "number"]{
     position: absolute;
     margin-left: 8%;
     border-radius: 12px;
     padding: 6px;
-    width: 200px;
+    width: 25%;
 }
 .body input[type = "text"]:hover, input[type = "number"]:hover{
     transform: scale(1.1,1.4);
     z-index: 1;
 }
-.body input[type="submit"]{
+.body input[type="button"]{
     width: 150px;
     padding: 10;
     border-radius: 12px;
-    margin-left: 159px;
+    margin-left: 0px;
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 10px;
+
+}
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
 }
 .foot{
     text-align: center;
     background-color: gainsboro;
     padding: 15px;
     width: 100%;
+    position: fixed;
+    bottom: 0px;
+    margin-bottom: 0px;
+    object-position: bottom;
+}
+.heading{
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 5%;
 }
