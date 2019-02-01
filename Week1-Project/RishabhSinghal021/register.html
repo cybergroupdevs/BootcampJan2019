@@ -39,6 +39,16 @@
         var dob = document.getElementById("date").value;
         
         var dataToSend= {
+            "Employee": "Educational_details" : {
+                                "Id": id,
+            "tenth_pass_year": ten_year,
+            "tenth_marks": ten_per,
+            "twelfth_pass_year": twelth_year,
+            "twelfth_marks": twelth_per,
+            "Grad_pass_year": grad_year,
+            "course_grad": course,
+            "Grad_marks": grad_marks
+                }
             "Id": id,
             "Mother_Name": mom,
             "Father_Name": father,
@@ -49,7 +59,7 @@
             "Designation": designation
         }
         
-        var eduData = {
+       /* var eduData = {
             "Id": id,
             "tenth_pass_year": ten_year,
             "tenth_marks": ten_per,
@@ -58,9 +68,9 @@
             "Grad_pass_year": grad_year,
             "course_grad": course,
             "Grad_marks": grad_marks
-        }
+        }*/
         
-        $.ajax({
+      /*  $.ajax({
             url: 'http://localhost:58794/api/Educational_details',
             type: 'POST',
             data: eduData,
@@ -68,7 +78,7 @@
             success: function(res){
                 console.log("success-1")
             }
-        });
+        });*/
         
         $.ajax({
             url: 'http://localhost:58794/api/Personal_details',
