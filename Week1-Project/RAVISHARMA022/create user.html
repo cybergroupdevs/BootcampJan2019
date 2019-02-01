@@ -38,7 +38,7 @@
 <div class="bigbox">
 		<div class="inner_box">
 			<div class="box_text">Employee ID : </div>
-			<input type="text" class="input_box" id="Employee ID" placeholder="Employee ID">
+			<input type="text" class="input_box" id="Employee Id" placeholder="Employee ID">
 			<div class="box_text">First Name : </div>
 			<input type="text" class="input_box" id="First Name" placeholder="First Name">
 			<div class="box_text">Last Name : </div>
@@ -58,28 +58,28 @@
 		</div>
 		<div class="inner_box">
 			<div class="box_text">12th Board : </div>
-			<input type="text" class="input_box" id="12 Board" placeholder="12th Board">
+			<input type="text" class="input_box" id="Twelfth Board" placeholder="12th Board">
 			<div class="box_text">12th Percentage : </div>
-			<input type="text" class="input_box" id="12 percentage" placeholder="12th Percentage">
+			<input type="text" class="input_box" id="Twelfth Percentage" placeholder="12th Percentage">
 			<div class="box_text">10th Board : </div>
-			<input type="text" class="input_box" id="10 Board" placeholder="10th Board">
+			<input type="text" class="input_box" id="Tenth Board" placeholder="10th Board">
 			<div class="box_text">10th percentage :</div>
-			<input type="text" class="input_box" id="10 percentage" placeholder="10th Percentage">
+			<input type="text" class="input_box" id="Tenth Percentage" placeholder="10th Percentage">
 		</div>
 		<div class="inner_box">
 			<div class="box_text">Country/Region : </div> 
-			<input type="text" class="input_box" id="Region" placeholder="Country/Region">
+			<input type="text" class="input_box" id="Country" placeholder="Country/Region">
 			<div class="box_text">Date of Birth : </div> 
-			<input type="date" class="DOB" name="DOB" placeholder="Date of Birth" value="">
+			<input type="date" class="DOB" id="dob" placeholder="Date of Birth" value="">
 			<div class="box_text">Gender : </div> 
-			<select required="required" class="gender" name="Gender">
+			<select required="required" class="gender" name="Gender" id="Gender">
 				<option value="gender">Gender</option>
 				<option value="Male">Male</option>
 				<option value="Female">Female</option>
 				<option value="Other">Other</option>
 			</select>
 			<div class="box_text">Cyber Group Profile : </div> 
-			<select required="required" autofocus name="designation" class="designation">
+			<select required="required" name="designation" class="designation" id="Designation">
 				<option value="Default">Cyber Group Profile</option>
 				<option value="Intern">Intern</option>
 				<option value="Trainee">Trainee</option>
@@ -91,9 +91,9 @@
 		</div>
 </div>
 <center>
-<p class="Address_text">Address : </p> 
+<p class="Address_text" id="Address">Address : </p> 
 <input type="text" class="address_box" id="Email" placeholder="Employee's Address . . . "></br>
-<button type="submit" class="update_btn"> Add Employee </button></br>
+<button type="submit" class="update_btn" onclick="CreateUser()"> Add Employee </button></br>
 <p class="lower_text">Messed up?<a href="create user.html">Have a fresh Start</a></p>
 </center>
 <div id="footer">

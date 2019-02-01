@@ -35,3 +35,4 @@ tr:nth-of-type(2n+1){padding: 7px;	margin: 0px;	color:white; border: 2px solid b
 background: #8e9eab;}
 .showlist_btn:hover{cursor: pointer; margin-bottom: 35px; transition-duration:2s; color: black; border-radius: 20px; width: 250px; height:40px;
 background: #bdc3c7;background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);background: linear-gradient(to top, #2c3e50, #bdc3c7);}
+.editbutton{color:White;background:none;border:none;}

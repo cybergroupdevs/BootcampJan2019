@@ -1,38 +1,34 @@
 function showdetail(){
-	
+				//var Id=;
 				$.ajax	({
-				url: "http://localhost:50052/api/EmployeeDetail",
+				url: "http://localhost:50052/api/EmployeeDetail/"+Id,
 				type: 'GET',
 				dataType: 'json', 
 				success: function(EmpDetail){ 
+					document.getElementById("Employee Id").value=EmpDetail.Id;
+					document.getElementById("First Name").value=EmpDetail.firstname;
+					document.getElementById("Last Name").value=EmpDetail.lastname;
+					document.getElementById("Father Name").value=EmpDetail.fathername;
+					document.getElementById("Email").value=EmpDetail.Email;
+					document.getElementById("Phone Number").value=EmpDetail.Phone;
+					document.getElementById("Country").value=EmpDetail.country;
+					document.getElementById("Dob").value=EmpDetail.dob;
+					document.getElementById("Gender").value=EmpDetail.gender;
+					document.getElementById("Designation").value=EmpDetail.designation;
+					document.getElementById("Address").value=EmpDetail.address;
 											}
 						});
 				$.ajax	({
-				url: "http://localhost:50052/api/EducationDetail",
+				url: "http://localhost:50052/api/EducationDetail/"+Id,
 				type: 'GET',
 				dataType: 'json', 
 				success: function(EduDetail){
-				
+					document.getElementById("Graduation Degree").value=EduDetail.GraduationDegree;
+					document.getElementById("Graduation Percentage").value=EduDetail.GraduationMarks;
+					document.getElementById("12 Board").value=EduDetail.TwelfthBoard;
+					document.getElementById("12 Percentage").value=EduDetail.TwelfthMarks;
+					document.getElementById("10 Board").value=EduDetail.TenthBoard;
+					document.getElementById("10 Percentage").value=EduDetail.TenthMarks;
 											}
 						});
-document.getElementById("Employee Id").value=;
-document.getElementById("First Name").value= ;
-document.getElementById("Last Name").value=;
-document.getElementById("Father Name").value=;
-document.getElementById("Email").value=;
-document.getElementById("Phone Number").value=;
-document.getElementById("Graduation Degree").value=;
-document.getElementById("Graduation Percentage").value=;
-document.getElementById("12 Board").value=;
-document.getElementById("12 Percentage").value=;
-document.getElementById("10 Board").value=;
-document.getElementById("10 Percentage").value=;
-document.getElementById("Country").value=;
-document.getElementById("Dob").value=;
-document.getElementById("Gender").value=;
-document.getElementById("Designation").value=;
-document.getElementById("Address").value=;
-
-				
-		
 };

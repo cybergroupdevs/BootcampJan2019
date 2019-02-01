@@ -9,7 +9,7 @@ img{max-height:100%;max-width:100px;margin: 0px;padding: 0px;border-radius: 50%;
  background: -webkit-linear-gradient(to bottom, #eef2f3, #8e9eab);background: linear-gradient(to bottom, #eef2f3, #8e9eab);}
 #nav_bar{margin-top: 5px;	height: 40px; padding: 5px; border-radius: 0px; Display:flex; justify-content: flex-end;
 background: -webkit-linear-gradient(to top, #eef2f3, #8e9eab);background: linear-gradient(to top, #eef2f3, #8e9eab);}
-#footer {padding: 5px;	bottom: 0;	height: 15px;	width: 100%;	text-align: center;	border-radius: 100% 100% 0% 0%;	position: fixed;	margin-top: -0px;	color: black;
+#footer {padding: 5px;	bottom: 0;height: 15px;width: 100%;text-align: center;	border-radius: 100% 100% 0% 0%;	position: fixed;margin-top: -0px;color: black;
 background: #8e9eab; background: -webkit-linear-gradient(to top, #eef2f3, #8e9eab);background: linear-gradient(to top, #eef2f3, #8e9eab);}
 ul a{list-style-type: none;	margin: 0;	padding: 0;	overflow: hidden;	background-color: #8e9eab; }
 ul {list-style-type: none; margin: 0; padding: 0;}
@@ -27,11 +27,11 @@ background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9e
 .Outer_box{margin-top: 20px; font-size:130%;font-family:  Bradley Hand ITC; color: white;text-align: center; }
 .inner_box{float:left; color: black;}
 
-.input_box2{margin: 2px; margin-top:3px; margin-bottom: 3px;padding: 10px; width: 125px; border-radius: 6px;background: #C6FFDD; /*half box*/
+.input_box2{margin: 2px; margin-top:3px; margin-bottom: 3px;padding: 10px; width: 125px; border-radius: 6px;background: #C6FFDD; /*code for half box*/
 background: -webkit-linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);background: linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);}
 .input_box3{margin: 3px;padding: 5px;width: 144px;height: 43px;border-radius: 6px;}	
-.label_box{margin-bottom: 20px; margin-top: 20px; height: 60px; padding: 10px; font-family:Bradley Hand ITC; justify-content: space-between; Display: flex; background: #114357;
-background: -webkit-linear-gradient(to right, #A43931, #403B4A); background: linear-gradient(to right, #A43931, #403B4A);}
+.label_box{margin-bottom: 20px; margin-top: 20px; height: 60px; padding: 10px; font-family:Bradley Hand ITC; justify-content: space-between;
+Display: flex; background: #114357;background: -webkit-linear-gradient(to right, #A43931, #403B4A); background: linear-gradient(to right, #A43931, #403B4A);}
 .label_text{color: white; size: 30px;}
 .DOB{width: 295px; height: 27px; margin-top:3px; padding: 5px; color: grey;border-radius: 6px;background: #C6FFDD;
 background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);background: linear-gradient(to left, #eef2f3, #8e9eab);}
@@ -45,7 +45,6 @@ background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9e
 .bigbox{margin-top: 20px; font-size:130%;font-family:  Bradley Hand ITC; color: white;text-align: center;display:flex; align-items: flex-start;}
 .box_text{text-align:center; margin-bottom:5px; color: Black;}
 
-.update_btn{color: Black; padding: 8px 16px;font-size: 16px; margin-top: 10px; margin-bottom:10px; border-radius: 5px; width: 150px; height: 40px; 
+.update_btn{color: Black; padding: 8px 16px;font-size: 16px;margin: 80px;margin-top: 10px; margin-bottom:10px; border-radius: 5px; width: 150px; height: 40px; 
 background: #8e9eab;}
-.update_btn:hover{cursor: pointer; margin-bottom: 45px; transition-duration:2s; color: black; border-radius: 20px; width: 250px; height:40px;
-background: #bdc3c7;background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);background: linear-gradient(to top, #2c3e50, #bdc3c7);}
+
