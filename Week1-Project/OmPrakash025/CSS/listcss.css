@@ -1,32 +1,7 @@
 body{
     background-image: url(images/pattern_bg.jpg);
-}
-table {
+    overflow:scroll;
   font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-#employee th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-
-#employee tr:nth-child(even){background-color: #f2f2f2;}
-
-#employee tr:hover {background-color: #ddd;}
-
-img{
-    height: 40px;
 }
 
 .header {
@@ -64,3 +39,37 @@ img{
 .header-right {
   float: right;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+caption{
+    font-size: 40px; 
+    color:darkblue;
+    line-height: 1.8;
+}
+
+#employee th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#employee tr:nth-child(even){background-color: #f2f2f2;}
+
+#employee tr:hover {background-color: #ddd;}
+
+img{
+    height: 40px;
+}
+
