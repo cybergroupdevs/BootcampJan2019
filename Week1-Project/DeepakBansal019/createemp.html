@@ -59,7 +59,7 @@
 		height:20px;
 		margin-left:150px;
 		}
-		.emp input[type='submit']
+		.emp input[type='button']
 		{
 		width:120px;
 		height:30px;
@@ -80,7 +80,7 @@
 		border:none;
 		margin-left:200px;
 		}
-		.emp input[type='submit']:hover{
+		.emp input[type='button']:hover{
 		width:123px;
 		height:33px;
 		background-color:orange;
@@ -120,8 +120,15 @@
 		#add{
 			margin-left:142px;
 		}
-		#rad{
+		#female{
 			margin-left:10px;
+		}
+
+		#UserName{
+		           	margin-left:99px;	
+		}
+		#dept{
+		       	margin-left:92px;	
 		}
 
 		#back{
@@ -141,6 +148,80 @@
 			border-radius:5px;
 		}
 	</style>
+	    <script
+          src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        	
+        	function Details() {
+        		
+        		var name=document.getElementById('name').value;
+        		var userName=document.getElementById('UserName').value;
+        		
+        		var gender=form.radio.value;
+        		var desgination=document.getElementById('desg').value;
+        		var empNo=document.getElementById('empno').value;
+        		var contNo=document.getElementById('ContNo').value;
+        		var address =document.getElementById('add').value;
+        		var dept=document.getElementById('dept').value;
+
+                var dataToSend = {
+                                  
+                      "Departments": [
+                                       {
+                                         
+                                         "name": dept,
+                                         "employeeNo": empNo 
+                                       }
+                                     ],
+                      
+                     "Designations": [
+                                      {
+                                        
+                                        "name": desgination,
+                                        "employeeNo":empNo
+                                      }
+                                     ],
+                    
+                     "name": name,
+                     "userName": userName,
+                     "gender": gender,
+                     "employeeNo": empNo,
+                     "contactNo": contNo,
+                     "Address": address
+                          }
+
+                         
+                if(name == "" || userName == "" || desgination == "" || empNo == "" || contNo == "" || address == "" || dept == "" || gender == "")
+                {
+                	alert("fields can not be empty");
+                }
+
+                else{
+
+                	  $.ajax(
+                      { 
+                         url : "http://localhost:55034/api/employees",
+                         type : 'POST',
+                         data : dataToSend,
+                         datatype : 'json',
+                         success : function(res){
+                         	            alert("Detailes have been saved");
+
+                                       window.location.href="afterlogin.html";
+                               }
+                        }
+                       );
+ 
+          
+
+                }
+
+
+        	}
+
+        </script>
      
 </head>
 <body>
@@ -150,36 +231,27 @@
 		<a href="afterlogin.html" id="back">Back</a>
 	</header>
 <div class="emp">
-	<form>
+	<form name="form">
 		<h3 id="emp">Fill Employee Details</h3>
 		Name*
 		<input type="text" id="name" name="" placeholder="Enter Name"></br></br>
 		User Name*
-		<input type="email" id="" name="" placeholder="xyz@gmail.com"></br></br>
+		<input type="text" id="UserName" name="" placeholder="FirstNameEmployeeNo"></br></br>
 		Gender*
-		<input type="radio" name="radio" value="Male">Male
-		<input type="radio" id="rad" name="radio" value="Female">Female</br></br>
+		<input type="radio" id= "male" name="radio" value="male">Male
+		<input type="radio" id="female" name="radio" value="female">Female</br></br>
 		Desgination
 	    <input type="text" id="desg" name="" placeholder="Enter Desgination"></br></br>
 		Emp_No.*
 		<input type="text" id="empno" name="" placeholder="Enter Emp No."></br></br>
 		Contact No*
-		<input type="number" name="" placeholder="Contact No"></br></br>
+		<input type="number" id="ContNo" name="" placeholder="Contact No"></br></br>
 		Address*
 		<input type="text" id="add" name="" placeholder="Enter Address"></br></br>
 		Department*
-		<select>
-			<option>Select</option>
-			<option>IT</option>
-			<option>QA</option>
-			<option>Development</option>
-			<option>Finance</option>
-			<option>Marketing</option>
-			<option>Management</option>
-			<option></option>
-		</select></br></br></br></br>
+	    <input type="text" id="dept" placeholder="Department Name"></br></br></br></br>
 		<input type="reset" name="" value="Reset">
-		<input type="submit" name="" value="Submit">
+		<input type="button" name="" value="Submit" onclick="Details();">
 
 
 	</form></div>

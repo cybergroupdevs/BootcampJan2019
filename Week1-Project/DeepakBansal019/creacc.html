@@ -53,7 +53,7 @@
 			font-weight:bolder;
 			border:none;
 		}
-		.creatAcc input[type='submit']
+		.creatAcc input[type='button']
 		{
 			width:100px;
 			height:30px;
@@ -82,7 +82,7 @@
 			width:102px;
 			height:32px; 
 		}
-        .submit input[type='submit']:hover{
+        .creatAcc input[type='button']:hover{
 			width:102px;
 			height:32px; 
 		}
@@ -115,6 +115,68 @@
 			border-radius:5px;
 		}
 	</style>
+
+  
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+            <script type="text/javascript">
+
+            	
+                 
+            	function acc(){
+
+            		var u_name=document.getElementById('userNam').value;
+            	    var name=document.getElementById('nam').value;
+            	    var password=document.getElementById('pass1').value;
+            	    var Confirm_pass=document.getElementById('pass2').value;
+
+                
+                 var dataToSend={
+
+                     "name": name,
+                     "userName": u_name,
+    				 "password": password
+    				           }
+               
+                 if(u_name=="" || name=="" || password=="" || Confirm_pass=="")
+                {
+
+                	alert("fields can not be empty");
+                }
+                else if(password.length<5)
+                {
+                	alert("Password must not be less than 5 characters");
+ 
+                }
+                else if(password!=Confirm_pass)
+            	{
+            		alert("password is not match with Confirm Password");
+            	}
+
+                else{
+                   $.ajax(
+                      { 
+                         url : "http://localhost:55034/api/Accounts",
+                         type : 'POST',
+                         data : dataToSend,
+                         datatype : 'json',
+                         success : function(res){
+                         	           
+                                       alert("account has been created");
+
+                                       window.location.href="login.html";
+                                       
+                                          }
+                         }
+                           );
+                         }
+                      }
+                
+            </script>
+
 </head>
 <body>
 	<header>
@@ -126,17 +188,17 @@
 	</header>
 	<h1 id="hed">Create Your Account</h1>
 	<div class="creatAcc">		
-<form action="login.html" method="post">
-	Name*</br>
-	<input type="text" name="" placeholder="Enter Name"></br></br>
-	User Name*</br>
-	<input type="Email" name="" placeholder="xyz@gmail.com"></br></br>
-	Password*</br>
-	<input type="Password" name="" placeholder="***********"></br></br>
-	Confirm Password*</br>
-	<input type="Password" name="" placeholder="***********"></br></br></br>
+<form>
+	Name*<br>
+	<input type="text" id="nam" placeholder="Enter Name"><br><br>
+	User Name*<br>
+	<input type="text" id="userNam" placeholder="FirstNameEmployeeNo"><br><br>
+	Password*<br>
+	<input type="Password" id="pass1" placeholder="***********"><br><br>
+	Confirm Password*<br>
+	<input type="Password" id="pass2" placeholder="***********"><br><br><br>
 	<input type="reset" name="" value="Reset">
-	<input type="submit" name="" value="Submit">
+	<input type="button" name="" value= "Submit" onclick="acc();">
 </form>
 </div>
    <div class="g"><p>@DEEPAK BANSAL 2019</p></div>

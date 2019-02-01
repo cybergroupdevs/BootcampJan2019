@@ -59,7 +59,7 @@
 		height:20px;
 		margin-left:150px;
 		}
-		.emp input[type='submit']
+		#up
 		{
 		width:120px;
 		height:30px;
@@ -69,7 +69,7 @@
 		font-weight:bolder;
 		border:none;
 		}
-		.emp input[type='reset']
+		.emp input[type='button']
 		{
 		width:120px;
 		height:30px;
@@ -80,12 +80,13 @@
 		border:none;
 		margin-left:200px;
 		}
-		.emp input[type='submit']:hover{
-		width:123px;
+		
+		.emp input[type='button']:hover{
+     	width:123px;
 		height:33px;
 		background-color:orange;
 		}
-		.emp input[type='reset']:hover{
+		#up:hover{
      	width:123px;
 		height:33px;
 		background-color:orange;
@@ -140,6 +141,9 @@
 			background-color:orange;
 			border-radius:5px;
 		}
+		#dept{
+		       	margin-left:92px;	
+		}
 	</style>
      
 </head>
@@ -155,49 +159,132 @@
 		Name*
 		<input type="text" id="name" name="nm" ></br></br>
 		User Name*
-		<input type="email" id="" name="unm" placeholder="xyz@gmail.com"></br></br>
+		<input type="email" id="uname" name="unm" placeholder="xyz@gmail.com"></br></br>
 		Gender*
-		<input type="radio" name="radio" value="Male">Male
-		<input type="radio" id="rad" name="radio" value="Female">Female</br></br>
+		<input type="radio" name="radio" value="male">Male
+		<input type="radio" id="rad" name="radio" value="female">Female</br></br>
 		Desgination
 	    <input type="text" id="desg" name="des" placeholder="Enter Desgination"></br></br>
 		Emp_No.*
 		<input type="text" id="empno" name="eno" placeholder="Enter Emp No."></br></br>
 		Contact No*
-		<input type="number" name="num" placeholder="Contact No"></br></br>
+		<input type="number" id="contno" name="num" placeholder="Contact No"></br></br>
 		Address*
 		<input type="text" id="add" name="ad" placeholder="Enter Address"></br></br>
 		Department*
-		<select name="dep">
-			<option>Select</option>
-			<option>IT</option>
-			<option>QA</option>
-			<option>Development</option>
-			<option>Finance</option>
-			<option>Marketing</option>
-			<option>Management</option>
-			<option></option>
-		</select></br></br></br></br>
-		<input type="reset" name="" value="Reset">
-		<input type="submit" name="" value="Submit">
+	   
+	    <input type="text" id="dept" placeholder="Department Name"></br></br></br></br>
+		
+		<input type="button" id="up" value="Update" onclick="Edit();">
+		<input type="button" name="" value="Delete" onclick="Delete();">
 
 
 	</form></div>
 	<div class="g"><p>@DEEPAK BANSAL 2019</p></div>
     
 </body>
-<script type="text/javascript">
-    var arr=[[1,"Deepak Bansal","xyz@gmail.com","Male","Intern","INT019",9634349532,"noida","cs"],[2,"Ankit","xyz@gmail.com","Male","Intern","INT020",9634349532,"noida","cs"],[3,"Shanu","xyz@gmail.com","Male","Intern","INT021",9634349532,"noida","cs"],[4,"Navneet Juneja","xyz@gmail.com","Male","Intern","INT022",9634349532,"noida","cs"],[5,"Tarak","xyz@gmail.com","Male","Intern","INT023",9634349532,"noida","cs" ]];
+	 <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
 
-       fm.nm.value=arr[0][1];
-       fm.unm.value=arr[0][2];
-       fm.radio.value=arr[0][3];
-       fm.des.value=arr[0][4];
-       fm.eno.value=arr[0][5];
-       fm.num.value=arr[0][6];
-       fm.ad.value=arr[0][7];
-       fm.dep.value=arr[0][8];
+<script type="text/javascript">
+
+	        var getURL = function getURL(parm){
+            var Pageurl = window.location.search.substring(1),
+            URLVariables = Pageurl.split('&'),
+                ParameterName, i;
+            
+        for(i=0; i<URLVariables.length;i++){
+            ParameterName = URLVariables[i].split('=');
+            
+            if(ParameterName[0] == parm){
+                return ParameterName[1]==undefined ? true : decodeURIComponent(ParameterName[1]);
+            }
+        }
+        };
+        var emp=getURL('id');
+        var tempresult = null;
+
+	function show() {
+				
+               		$.ajax({ 
+                            url : "http://localhost:55034/api/employees/"+emp,
+                            type : 'GET',
+                            datatype : 'json',
+                            async: false,
+                            success : function(res){
+                            	
+                                     tempresult = res;
+                      	             document.getElementById('name').value=res.name;
+                      	             document.getElementById('uname').value=res.userName;
+                      	             fm.radio.value=res.gender.toLowerCase();
+                      	             
+                      	             document.getElementById('empno').value=res.employeeNo;
+                      	             document.getElementById('contno').value=res.contactNo;
+                      	             document.getElementById('add').value=res.Address;
+                      	             document.getElementById('dept').value=res.Departments[0].name; 
+                      	             
+                                     
+                                      document.getElementById('empno').disabled = true;
+                                      document.getElementById('desg').disabled = true;
+                                      document.getElementById('dept').disabled = true;
+                                      document.getElementById('desg').value=res.Designations[0].name;
+                      	                                   	                
+                      	                }
+
+                           });
+	                }
+
+	                
+
+
+	                function Edit()
+	                {
+	                	tempresult.name = document.getElementById('name').value; 
+	                	
+        		        tempresult.userName = document.getElementById('uname').value;
+        				
+        				tempresult.gender=fm.radio.value;
+        			
+		        		tempresult.employeeNo=document.getElementById('empno').value;
+		        		tempresult.contactNo=document.getElementById('contno').value;
+		        		tempresult.Address =document.getElementById('add').value;
+		        		
+		        		
+
+  console.log("id="+desgId);
+
+                
+	                	$.ajax({ 
+                            url : "http://localhost:55034/api/employees/"+emp,
+                            type : 'PUT',
+                            datatype : 'json',
+                            data: tempresult,
+                            success : function(res){
+
+                            	console.log(res);
+                                            alert("Data has been Updated");
+                            }
+                        });
+	                }
+
+	   function Delete(){
+
+                    $.ajax({ 
+                            url : "http://localhost:55034/api/employees/"+emp,
+                            type : 'DELETE',
+                            datatype : 'json',
+                            
+                            success : function(res){
+	                              }
+	                              }); 	
+	   }
+    
+window.onload=show();
 
 
 </script>
+
+
 </html>

@@ -7,11 +7,7 @@
 			background-image:url(bglogin.png);
 			background-size:cover;
 		}
-    @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-}
+    
 
 		#h{
 			float:right;
@@ -46,7 +42,7 @@
 			border-radius:5px;
 			padding-left:8px;
 		}
-		.log input[type='submit']
+		.log input[type='button']
 		{
 			width:120px;
 			height:30px;
@@ -62,7 +58,7 @@
             top:100px;
             color: white;
            }
-		.log input[type='submit']:hover{
+		.log input[type='button']:hover{
 			width:123px;
 			height:35px;
 			background-color:red;
@@ -99,6 +95,52 @@
 			border-radius:5px;
 		}
 	</style>
+
+	 <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+            <script type="text/javascript">
+                    
+                    var temp=3;
+            	 	 
+            	    function login(){
+
+            	    	var uname=document.getElementById('u_name').value;
+            	 	    var pass1=document.getElementById('pass').value;
+
+                    
+            	 	  $.ajax({ 
+
+
+                      url : "http://localhost:55034/api/Accounts/"+uname,
+                      type : 'GET',
+                     
+                      datatype : 'json',
+                      success : function(res){
+                     
+                              if( uname==res.userName && pass1==res.password )
+                              {
+                              	alert("successfully logged in");
+                              	  window.location.href="afterlogin.html";
+                              }
+                              else
+                              {
+                              	temp--;
+                              	alert("please enter correct user_name and password, you have onnly"+temp+"chance");
+                              }
+                              if(temp==0)
+                              {
+                              	document.getElementById("u_name").disabled = true;
+                                document.getElementById("pass").disabled = true;
+                                document.getElementById("submit").disabled = true;
+                              }
+                           }
+                           }
+                         );
+                     }
+            </script>
 </head>
 <body>
 	<header>
@@ -111,10 +153,10 @@
 	</br></br></br>
 		<form action="afterlogin.html" method="post">
 			User Name</br>
-			<input type="Email" name="" placeholder="xyz@gmail.com"></br></br>
+			<input type="Email" id="u_name" placeholder="xyz@gmail.com"></br></br>
 			Password</br>
-			<input type="password" name="" placeholder="*************"></br></br>
-			<input type="submit" name="" value="Login">
+			<input type="password" id="pass" placeholder="*************"></br></br>
+			<input type="button" id="submit" value="Login" onclick= "login()" >
 		</form>
 	</div>>
 <div class="g"><p>@DEEPAK BANSAL 2019</p></div>
