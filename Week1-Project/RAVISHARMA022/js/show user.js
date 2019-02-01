@@ -40,7 +40,7 @@ function FillDetails(){
 									document.getElementById("Tenthpercentage").value=EmpDetail.EducationDetail.Tenthmarks;
 										}
 						});
-}
+};
 
 function UpdateDetails(){
 	var employeeid = document.getElementById("Employee Id").value;
@@ -106,83 +106,20 @@ function UpdateDetails(){
 													window.location="user list.html"
 													}	
 								});
-}
+};
+//console.log(Id);
 
-/*
-function DeleteUser(){
+function DeleteUser(Id){
+	console.log(Id);
+	/*
 		alert("Are you sure, You want to delete the user data from database.");
 		$.ajax({
 		url: 'http://localhost:50052/api/EmployeeDetail/'+Id,
         type: 'DELETE',
         dataType: 'json',
-        success: function(deleted)
-								{
+        success: function(deleted){
+								alert("User Details Have been removed from the database");
 								window.location.href = "user list.html";
 								}
-        });
+        });*/
 }
-*/
-
-/*Extra Create User code
-
-function createuser(){
-	var firstname = document.getElementById("First Name").value;
-	var lastname = document.getElementById("Last Name").value;
-	var Email = document.getElementById("Email").value;
-	var pass = document.getElementById("Password").value;
-	var repass = document.getElementById("Repassword").value;
-	var country = document.getElementById("Country").value;
-	var employeeid = document.getElementById("Employee Id").value;
-	var dob = document.getElementById("DOB").value;
-	var terms = document.getElementById("licence").value;
-	var firstname = document.getElementById("First Name").value;
-	var lastname = document.getElementById("Last Name").value;
-	var Email = document.getElementById("Email").value;
-	var pass = document.getElementById("Password").value;
-	var repass = document.getElementById("Repassword").value;
-	var country = document.getElementById("Country").value;
-	var employeeid = document.getElementById("Employee Id").value;
-	var dob = document.getElementById("DOB").value;
-	var terms = document.getElementById("licence").value;
-if(pass == repass && terms == 1 ){
-	var datafor_EmployeeDetail ={
-								"Id": employeeid,
-								"firstname":firstname,
-								"lastname":lastname,
-								"fathername": "Not Specified",
-								"Email":Email,
-								"Phone": "Not Specified",
-								"country":Country,
-								"dob":dob, 
-								"gender": "Not Specified",
-								"designation": "Not Specified",
-								"address":"Not Specified",
-								};
-	var datafor_EducationDetail={
-								"Id": employeeid,
-								"Email": Email,
-								"password": pass,
-								"Terms": terms,
-								};
-				$.ajax	({
-					url: "http://localhost:50052/api/EmployeeDetail",
-					data: datafor_EmployeeDetail,
-					type: 'post',
-					dataType: 'json', 
-					success: function(res)	{ 
-										$.ajax({
-											url: "http://localhost:50052/api/AuthenticateUser",
-											data: datafor_AuthenticateUser,
-											type: 'post',
-											dataType: 'json', 
-											success: function(response){window.location.href = "index.html";}  
-												});	
-											}
-						});
-		}else{alert("Password doesn't match");
-			window.location.href = "Signup.html";}
-};
-
-*/
-
-	

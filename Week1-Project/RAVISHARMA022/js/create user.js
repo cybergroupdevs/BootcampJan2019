@@ -58,7 +58,8 @@ function CreateUser(){
 							type: 'POST',
 							dataType: 'json', 
 							success: function(response){ 
-													console.log("gtr");
+													alert("User have been successfully added");
+													window.location="user list.html";
 													}	
 								});
 };
