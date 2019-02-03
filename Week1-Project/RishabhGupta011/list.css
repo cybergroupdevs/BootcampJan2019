@@ -1,0 +1,276 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.header{
+    height:60px;
+
+    background-color: white;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    justify-content: space-between;
+    box-shadow: 250px 1px 17px 1px rgba(184,173,173,1);
+}
+.logo-wrap{
+    display: flex;
+}
+.hamburger-btn{
+    display: none;
+    align-self: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.logo{
+    display: flex;
+    padding: 12px 0 12px 12px;
+}
+.logo-img{
+    width: 100%;
+    max-width:40%;
+}
+.body-container{
+    /*                overflow: auto;    */
+    padding-top:45px;
+    padding-left: 300px;
+    padding-right: 20px;
+
+}
+.sidebar{
+    position:fixed;
+    width: 250px;
+    background-color: #212121;
+    height: 100%;
+    padding-top: 110px;
+    left: 0;
+
+}
+.sidebar .item{
+    padding: 15px;
+    color: white;
+
+}
+.sidebar .item-active{
+    background-color:#ffffff1a;
+    border-left: 5px solid #f30000;
+}
+
+.sidebar .item:hover{
+    background-color:#ffffff1a;
+
+}
+.section{
+
+    width:100%;
+    /*                background-color:azure;*/
+    /*                height:400px;*/
+    margin: 60px auto;
+
+    overflow: auto;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 1px 2px 1px #999;
+    -moz-box-shadow: 0px 1px 2px 1px #999;
+    box-shadow: 0px 1px 2px 1px #999;
+}
+.subform{
+    width: 50%;
+    padding: 20px;
+}
+.middle-nav{
+    display: flex;
+}
+
+.nav-item{
+    padding: 20px;
+    margin-right:10px;
+
+}
+.nav-item:hover{
+    cursor: pointer;
+    background-color: beige;
+}
+.grp{
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+}
+.section-head-txt-wrap{
+    background-color: #000033;
+    padding: 15px 20px;
+    /*                text-align: center;*/
+    font-size: 15px;
+
+}
+.section-head-txt{
+    color: white;
+
+}
+.form-wrap{
+    padding: 20px;
+    background-color: #f4f5f5fc;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.form-head{
+    text-align: center;
+    background-color: yellow;
+    align-self: center;
+    padding: 10px;
+    border-radius: 13px;
+}
+.form-content{
+    /*                display: flex;*/
+    /*                justify-content: space-around;*/
+    /*                flex-wrap: wrap;*/
+    padding: 20px;
+}
+.grp > label{
+    font-size: 12px;  
+    padding-bottom: 10px;
+}
+.grp > input{
+    height: 30px;
+
+}
+
+.register-btn{
+    padding: 10px;
+    margin-top: 30px;
+    width: 50%;
+    align-self: center;
+    background-color: #000033;
+    border-color: #000033;
+    color: white;
+    border-radius: 2px;
+}
+
+.employee-table{
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+
+}
+.employee-table tr:hover{
+    cursor: pointer
+}
+.employee-table td{
+    border-bottom: 5px solid #f4f5f5;
+}
+.employee-table td:first{
+    text-align: center;
+}
+
+.profile-image{
+    margin: 12px;
+    display: inline-block;
+    border-radius:50%;
+    background-color: silver;
+    padding: 20px;
+}
+
+.employee-name{
+    font-size: 1.2rem;
+    font-weight:1000;
+    margin-bottom: 3px;
+}
+.employee-code{
+    font-size:0.9rem;
+}
+.employee-card-basic{
+    margin-right: 30px;
+
+}
+.employee-card-start{
+    display: flex;
+    align-items: center;
+    margin-left:2%;;
+}
+.employee-card-mid{
+    margin-right: 50px;
+}
+
+.employee-edit-icon,.employee-delete-icon{
+    margin: 10px;
+}
+a:link,a:hover,a:active,a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+@media only screen and (min-width:961px){
+    .sidebar{
+        left:0px !important;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width:960px) {
+    .sidebar{
+
+        transition: left 1s;    
+        left:-250px;
+    }
+    .hamburger-btn{
+        display: block;
+    }
+    .body-container{
+        padding-left: 20px;
+    }
+    .header{
+        box-shadow: 0px 1px 17px 1px rgba(184,173,173,1);
+    }
+    .employee-table td:nth-child(4){
+        display: none;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width:599px) {
+    .sidebar{
+
+        transition: left 1s;    
+        left:-250px;
+    }
+    .hamburger-btn{
+        display: block;
+    }
+    .body-container{
+        padding-left: 20px;
+    }
+    .header{
+        box-shadow: 0px 1px 17px 1px rgba(184,173,173,1);
+    }
+    .employee-table td:nth-child(4){
+        display: none;
+    }
+    .body-container,.form-wrap{
+        padding-left: 0px;
+        padding-right: 0px;
+
+    }
+    .employee-name{
+        font-size: 0.8rem;
+    }
+    .employee-code{
+        font-size: 0.7rem;
+    }
+    .employee-card-mid{
+        font-size: 0.8rem;
+    }
+    .profile-image{
+        padding: 2px;
+    }
+    .employee-table td:nth-child(3){
+        font-size: 0.7rem; 
+    }
+    .form-content{
+        padding: 6px;
+    }
+}
