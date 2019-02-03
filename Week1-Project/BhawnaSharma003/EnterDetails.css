@@ -104,6 +104,31 @@ body{
     border-bottom: 1px solid #fff;
     height: 40px;
 }
+.loginBox2 input[type="number"]{
+    border: none;
+    background: transparent;
+    color:white;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+    height: 40px;
+}
+.loginBox1 input[type="date"]{
+    border: none;
+    background: transparent;
+    color:gray;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+     height: 40px;
+}
+.loginBox input[type="number"]{
+    border: none;
+    background: transparent;
+    color:white;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+    height: 40px;
+}
+
 .loginBox2 input[type="url"]{
     border: none;
     background: transparent;
@@ -148,6 +173,27 @@ body{
     color: rgba(255,255,255,.5);
 }
 
+.loginBox input[type="button"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    color:white ;
+    font-size: 30px;
+    font-family: serif;
+    background-image: url("Pic28.jpg");
+    box-shadow: 5px 5px 5px black;
+    font-weight: bold;
+    cursor: pointer;
+   
+}
+
+.loginBox input[type="button"]:hover{
+    background-image: url("Pic24.jpeg");
+    box-shadow: 5px 5px 5px black;
+}
+
+
 .loginBox1 input[type="button"]
 {
     border: none;
@@ -164,6 +210,26 @@ body{
 }
 
 .loginBox1 input[type="button"]:hover{
+    background-image: url("Pic24.jpeg");
+    box-shadow: 5px 5px 5px black;
+}
+
+.loginBox2 input[type="button"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    color:white ;
+    font-size: 30px;
+    font-family: serif;
+    background-image: url("Pic28.jpg");
+    box-shadow: 5px 5px 5px black;
+    font-weight: bold;
+    cursor: pointer;
+   
+}
+
+.loginBox2 input[type="button"]:hover{
     background-image: url("Pic24.jpeg");
     box-shadow: 5px 5px 5px black;
 }
