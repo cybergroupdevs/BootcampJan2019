@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+
+<meta charset ="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+
+
+
+</head>
+
+<BODY>
+  <h1>Let Us Calculate</h1>     
+
+<div class="container">
+<table>
+
+<tr>    <div class="Displayscreen"> 
+                <input id = "Diplay-screen" ></div></tr>    
+
+
+
+     <tr><div class="firstrow"> 
+           <td><button onclick="clearInput()"> C </button></td>
+           <td><button onclick="backSpace()"> <- </button></td>
+           <td><button onclick="display('%')"> % </button></td>
+           <td><button onclick="display('/')"> / </button></td>
+     </div></tr>
+     
+            
+    <tr> 
+            <td><button onclick="display('7')"> 7</button></td>
+            <td><button onclick="display('8')"> 8</button></td>
+            <td><button onclick="display('9')"> 9</button></td>
+            <td><button onclick="display('*')"> X</button></td>
+    </tr>
+    
+    <tr> 
+            <td><button onclick="display('4')"> 4</button></td>
+            <td><button onclick="display('5')"> 5</button></td>
+            <td><button onclick="display('6')"> 6</button></td>
+            <td><button onclick="display('+')">+</button> </td>
+     </tr>
+    
+     <tr>
+            <td><button onclick="display('1')"> 1</button></td>
+            <td><button onclick="display('2')"> 2</button></td>
+            <td><button onclick="display('3')"> 3</button></td>
+            <td><button onclick="display('-')"> -</button></td>
+    </tr>
+
+    <tr> 
+          <td><button id="zero" onclick="display('0')"> 0 </button></td>
+          <td> <button onclick="display('00')"> 00 </button> </td> 
+          <td> <button onclick="display('.')"> . </button> </td>
+           <td> <button onclick="result()"> = </button> </td>
+    </tr>
+
+</table>
+</div>    
+</BODY>
+<script src="main.js"></script>
+</HTML>
