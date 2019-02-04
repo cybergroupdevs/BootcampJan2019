@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+<title>LOGIN PORTAL</title>
+<meta name="viewport" content="width=device-width,inital-scale=1" charset="utf-8" >
+<link rel = "stylesheet" type = "text/css" href = "loginstyle.css" />
+
+<script>
+	var images = ["https://www.sopheon.com/wp-content/uploads/Introducing_Sopheon_Solution_-for_EIM_image.jpg","https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/HLG4RKt2xj0vdomxf/videoblocks-painted-hand-shows-concept-hologram-innovation-on-his-hand-drawn-man-in-business-suit-with-future-technology-screen-and-modern-cosmic-background_bb4ocjb3g_thumbnail-full01.png","https://wallpaper-house.com/data/out/7/wallpaper2you_194970.jpg"];
+	var i=0;
+	function imagechange(){
+	document.getElementsByClassName("bodyclass")[0].style.background= "url(" + images[i] + ")";
+
+	if(i<(images.length-1))
+	i++;
+	else
+	i=0;
+}
+	setInterval(imagechange,3000);
+</script>
+
+</head>
+
+	<body class="bodyclass">	
+	<div class="formstyle">
+		<form action="detailpage.html">
+			<h1 class="loginheading">LOGIN</h1>
+
+				<div class="details">
+				
+					
+						<input type="text" placeholder="Email Id"><br/>
+							
+								<input type="password" placeholder="Enter Password"><br/>
+							
+								
+				
+						<div class="submitstyle">
+							<input type="submit" value="SUBMIT"><br/>
+					
+						
+</div>
+									
+							<a href="signup portal.html">
+							NOT A REGISTERED USER??</a>
+
+		
+</form>
+
+		
+	</div>
+	</body>
+
+	
+</html>

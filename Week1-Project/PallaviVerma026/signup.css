@@ -1,0 +1,128 @@
+body 
+{
+  font-family: sans-serif;
+}
+
+* 
+{
+  box-sizing: border-box;
+    padding: 0;
+    margin:0;
+  }
+
+  
+p
+{
+        height: 30px;
+    background-color: #468686;
+   
+}
+
+.container 
+{
+    padding: 16px;
+    width:50%;
+    position: absolute;
+    top:120px;
+    left:25%;
+    right:25%;
+    border: solid black 2px;
+   
+}
+
+
+input[type=text], input[type=password] ,input[type=number],input[type=date]
+{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background-color: antiquewhite;
+}
+
+input[type=text]:focus, input[type=password],input[type=number],input[type=date]:focus
+{
+  outline: none;
+  background-color: peachpuff;
+}
+
+.img
+{ 
+    background: black;
+}
+
+.signup 
+{
+   padding: 16px;
+   position:relative;;
+   left: 55%;
+   margin: 8px;
+   width: 20%;
+   text-align: center;    
+   font-size: 16px;
+   transition-duration: 0.4s;
+   box-shadow: 20px;
+   cursor: pointer;
+    
+   
+   
+}
+
+ 
+.cancel 
+{
+    position: relative;
+    left:55%;
+    padding: 16px;
+    margin: 8px;
+    cursor: pointer;
+    width: 20%;
+    box-shadow: 20px;
+    text-align: center;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    
+
+ }
+
+
+
+#one{
+        font-family: sans-serif;
+    font-size: large;
+    position: absolute;
+    right: 20px;
+    top: 90px;
+    color: white;
+}
+.cancel:hover 
+{
+  background-color: red;
+  color: white;
+}
+
+.signup:hover
+{
+  background-color: green;
+  color: white;
+}
+    
+@media screen and (max-width :768px)
+{
+    .container{
+       height:auto;        
+    }
+}
+
+
+footer
+{
+   
+       margin-top:90%;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+    
+}

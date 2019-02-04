@@ -1,0 +1,109 @@
+<!-- Cyber Group (Bootcamp) : Project 1 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project-1 : Sign up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .header
+      {
+        position:fixed;
+        width:100%;
+        top:10px;
+        left:0px;
+        padding: 2px;
+        text-align: center;
+      }
+      .background-color
+      {
+        opacity: 0.6;
+        display:inline;
+        position:fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        animation: bgcolour 5s infinite;
+      }
+      @keyframes bgcolour
+      {
+        0%    {background-color:#A5E7EE;}
+        25%   {background-color:#EEA5BA;}
+        50%   {background-color:#B2EEA5;}
+        75%   {background-color:#EEB7A5;}
+        100%  {background-color:#A5E7EE;}
+      }
+      .footer
+      {
+        padding: 2px;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        font-size: 12px;
+        font-family: verdana;
+      }
+      .body-design
+      {
+        position: relative;
+        margin-top:120px;
+      }
+      .signup
+      {
+        position: relative;
+        margin: auto;
+        font-family: verdana;
+      }
+      .button
+      {
+        position: absolute;
+        bottom: -17%;
+        background-color: green;
+        color: white;
+        padding: 15px 120px;
+        text-align: center;
+        font-family: verdana;
+        display: inline-block;
+        font-size: 18px;
+        left: 39%;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="background-color">
+    </div>
+
+    <div class="header">
+        <a href="Sign up.html">
+          <img src="logo.png" alt="Cyber Group" width=400px height=100px>
+        </a>
+    </div>
+
+    <div class="body-design">
+      <h2 style="font-family:Verdana;text-align:center;">Please Sign up to continue.</h2>
+      <p style="font-family:Verdana;text-align:center;">Or <a href="Login.html">Login</a> to continue.</p>
+    </div>
+    <div class="signup">
+      <table align="center" class="Signup-page">
+        <tr><th><p>Full Name :</p></th><th><p><input type="textfield" name="ans" value=""></p></th></tr>
+        <tr><th><p>Address :</p></th><th><p><input type="textfield" name="ans" value=""></p></th></tr>
+        <tr><th><p>Phone number :</p></th><th><p><input type="number" name="ans" value=""></p></th></tr>
+        <tr><th><p>E-Mail ID :</p></th><th><p><input type="email" name="ans" value=""></p></th></tr>
+        <tr><th><p>Employee ID :</p></th><th><p><input type="textfield" name="ans" value=""></p></th></tr>
+        <tr><th><p>Password :</p></th><th><p><input type="password" name="ans" value=""></p></th></tr>
+    </div>
+
+    <div><a href="Login.html"><input type="button" class="button" value="Sign up"></a></div>
+
+    <div class="footer">
+      <p style="font-family:Verdana">
+        <b>© Copyright : Cyber Group<b>
+      </p>
+    </div>
+  </body>
+</html>
