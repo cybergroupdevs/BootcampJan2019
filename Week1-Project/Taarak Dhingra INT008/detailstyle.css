@@ -1,0 +1,90 @@
+.heading{
+/*margin:20px;*/
+background:rgba(0,0,0,0.4);
+
+height:100px;
+
+}
+.heading .fornavigation ul li{
+display:inline-block;
+padding:25px;
+font-size:25px;
+font-weight: bold;
+
+
+
+}
+.forright
+	 { float:right; width:30%; clear:right }
+
+
+a{	
+	color:#ffffff;
+	text-decoration:none;
+
+}
+
+		.infostyle{
+
+				margin: 20px;
+				/*height: 50px;*/
+				font-size: 25px;
+				color:#FFFFFF;
+				
+
+				
+				
+			}
+
+			input{color:#FFFFFF;
+				font-size: 15px;
+				/*border-color:transparent;*/
+				background: transparent;
+				border-bottom:2px solid #FFFFFF;
+							}
+
+							.formdetails{
+
+								width:500px;
+								margin-left: 20px; 
+
+							}
+
+							.detailbutton{
+								
+								margin-top: 50px;
+								margin-left: 150px;
+								  background: linear-gradient(#0033cc, #33ccff); 
+								width:63px;
+								
+							}
+
+						.detailclass{
+	
+	/*background: url("http://www.cerc-ug.org/pic/b/62/629461_innovation-wallpaper-hd.jpg");*/
+	background:url("https://i.pinimg.com/originals/08/a7/ab/08a7ab130881d2fb60585dc37744e04b.jpg");
+
+	background-repeat:no-repeat;
+	background-size:cover;
+						}
+
+
+						.foot{
+
+							
+							background-color: #333;
+            				
+          					
+            				position: relative;
+            				top:500px;
+            				bottom:0px;
+        
+						}
+
+							#fit3
+		{
+		height:25px;
+		background-color:#614051;
+		}
+					
+

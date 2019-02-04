@@ -1,0 +1,64 @@
+body{
+    background-color: rgb(168, 168, 211);
+}
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:0px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.container{
+    margin:0 auto;
+    position: relative;
+    width:300px;
+    border-radius: 14px;
+    border: 2px solid slategrey;
+    padding: 7px;
+    box-shadow: 5px 5px 5px;
+}
+.firstrow{
+    color:crimson;
+    font-size: 28px;
+ }
+
+
+.screen, input{
+    background:rgb(183, 240, 110);
+    width:298px;
+    height:100px;
+    border-radius: 14px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 24px;
+    text-align: right;
+    
+}
+
+td{ 
+    border-radius: 14px;
+    padding:3px;
+    border: 2px solid;
+}
+
+button{
+    display: block;
+    position: relative;
+    border-radius: 4px;
+    height: 70px;
+    width:65px;
+    text-align: center;
+    font-size: 24px;
+    color: blueviolet;
+    border-radius: 14px;
+    box-shadow: 1px 1px 3px 3px;
+    
+}
+
+.blink-me{
+    color: #E0B612;
+}
+
+
+
+
