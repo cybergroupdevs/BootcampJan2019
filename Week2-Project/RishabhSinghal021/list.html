@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="table.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script> </head>
+     <script>
+    function getEmployee(){
+        $.ajax({
+            url: 'http://localhost:58794/api/Personal_details',
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+                //console.log(res);
+                //var id = res[i].Id;
+                var table = document.getElementById("mtable");
+                for(var i=0;i<res.length;i++){
+                    var id = res[i].Id;
+                var row = table.insertRow(table.length);
+                name = res[i].Employee.FirstName + 
+                    ' '+res[i].Employee.LastName
+                var cell1 = row.insertCell(0);
+                    //data = res;
+                cell1.innerHTML=name;
+                row.insertCell(1).innerHTML = res[i].Id;
+                row.insertCell(2).innerHTML = res[i].Designation;
+                row.insertCell(3).innerHTML = "<input type='button' value='edit' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal' onclick=\'fetch(\""+res[i].Id +"\",\""+ res[i].E_mail +"\",\""+res[i].Phone_Number +"\",\""+ res[i].Designation+"\",\""+res[i].Address+"\",\""+res[i].Mother_Name+"\",\""+res[i].Father_Name+"\",\""+res[i].Date_Of_Birth+  "\")\'>"
+                
+                row.insertCell(4).innerHTML = "<input type='button' value='delete' class='btn btn-info btn-lg' onclick=\'delet(\""+res[i].Id+"\")\'>"
+                row.insertCell(5).innerHTML = "<input type='button' value='Full_details' class='btn btn-info btn-lg' onclick=\'show(\""+res[i].Id+"\")\'>"
+                }
+
+            }
+        });
+    }
+    function show(id){
+        window.location="show.html?id="+id;
+    }
+    function fetch(id,email,phone,designation,address,mom,father,dob){
+        console.log(id);
+        document.getElementById("email").value = email;
+        document.getElementById("phone").value = phone;
+        document.getElementById("designation").value = designation;
+        document.getElementById("address").value = address;
+        document.getElementById("id").value = id;
+        document.getElementById("mom").value = mom;
+        document.getElementById("father").value = father;
+        document.getElementById("dob").value = dob;
+    }
+    function update(){
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var designation = document.getElementById("designation").value;
+        var address = document.getElementById("address").value;
+        var id = document.getElementById("id").value;
+        var mom = document.getElementById("mom").value;
+        var father = document.getElementById("father").value;
+        var dob = document.getElementById("dob").value;
+        var dataToUpdate = {
+            "Id": id,
+            "Mother_Name": mom,
+            "Father_Name": father,
+            "E_mail": email,
+            "Phone_Number": phone,
+            "Address": address,
+            "Date_Of_Birth": dob,
+            "Designation": designation
+        }
+        $.ajax({
+            url: 'http://localhost:58794/api/Personal_details/'+id,
+            type: 'PUT',
+            data: dataToUpdate,
+            dataType: 'json',
+            success: function(res){
+                console.log("success");
+                //getEmployee();
+                window.location = "list.html";
+            }
+        });
+    }
+    function delet(id){
+            $.ajax({
+            url: 'http://localhost:58794/api/Personal_details/'+id,
+            type: 'DELETE',
+            dataType: 'json',
+            success: function(res){
+                window.location = "list.html";
+            }
+        });
+    } 
+    </script>
+    <header>
+        <div class="navi">
+            <nav>
+                <img src="https://hrms.cygrp.com/content/images/logo.png" width="200px" height="80px">
+                <ul>
+                    <li><a href="register.html">Create</a></li>
+                    <li><a>Contact</a></li>
+                    <li><a href="index.html">Sign-out</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <body onload="getEmployee()">
+        <table id="mtable" align="center">
+            
+            <tr>
+                <th colspan="3" class="th">List of Employees</th>
+            </tr>
+            <tr>
+                <th class="th">Name</th>
+                <th class="th">ID</th>
+                <th class="th">Designation</th>
+                <th class="th">Edit</th>
+                <th class="th">Delete</th>
+                <th class="th">Full Details</th>
+            </tr>
+            <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Details</h4>
+        </div>
+        <div class="modal-body">
+          E-mail : <input type="text" placeholder="year" id="email"><br><br>
+           Phone_no : <input type="text" placeholder="year" id="phone"><br><br>
+           Designation : <input type="text" placeholder="marks" id="designation"><br><br>
+        Address : <input type="text" placeholder="marks" id="address"><br><br>
+            <input type="hidden" id="id">
+            <input type="hidden" id="mom">
+            <input type="hidden" id="father">
+            <input type="hidden" id="dob">
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="update()">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+           
+        </table>
+        <script>/*
+            var arr = [["Rishabh","INT021","Intern"],["Ravi","INT022","Intern"],["Vansh","INT023","Intern"],["Manish","INT024","Intern"],["Ankit","INT025","Intern"]];
+            table = document.getElementById("mtable");
+            for(var i=0;i<arr.length;i++){
+                var row = table.insertRow(table.length);
+                for(var j=0;j<arr[i].length;j++){
+                    var cell = row.insertCell(j);
+                    cell.innerHTML=arr[i][j];
+                }
+                row.insertCell(3).innerHTML = '<input type="submit" value="edit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">'
+                row.insertCell(4).innerHTML = '<input type="submit" value="delete" class="btn btn-info btn-lg">'
+            }*/
+        </script>
+    </body>
+    <footer class="foot">
+        copyright All Right Reserved by Cyber Group India Pvt. Ltd. 
+    </footer>
+</html>

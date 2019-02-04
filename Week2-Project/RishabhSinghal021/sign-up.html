@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="login-css.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
+    </script>
+    <header>
+        <div class="navi">
+            <nav>
+                <img src="https://hrms.cygrp.com/content/images/logo.png" width="200px" height="80px">
+                <ul>
+                    <li><a>Contact</a></li>
+                    <li><a href="index.html">Log-in</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <body>
+        <div class="sign-up">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrwUUggt5BWyeJzNR0E8SwvYfzyXU8JkBaqWPBAcbC_WLPY5w95Q" class="sign-img">
+            <form class="algn">
+                Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="First" name="First" id="first">&nbsp;<input type="text" placeholder="Last" name="Last" class="last" id="last"><br><br>
+                UserId: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="userid" name="user" id="userid"><br><br>
+                Password:&nbsp; <input type="password" placeholder="pasword" name="user" id="password"><br><br>
+                Re-Password: <input type="password" placeholder="pasword" name="user" id="re-password"><br><br>
+                Gender: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="radio" name="gender" value="male" id="male" checked> Male &nbsp;
+                <input type="radio" name="gender" value="female" id="female"> Female<br><br>
+                <input type="button" name="submit" value="login" onclick="store()">
+            </form>
+        </div>
+        
+         <script>
+    function store(){
+        var gender;
+        var first = document.getElementById("first").value;
+        var last = document.getElementById("last").value;
+        var userid = document.getElementById("userid").value;
+        var password = document.getElementById("password").value;
+        if(document.getElementById("male").checked){
+            gender = 'Male';
+        }
+        else{
+            gender = 'female';
+        }
+        console.log(gender);
+        console.log(password);
+        var dataToSend= {
+            "ID": userid,
+            "FirstName": first,
+            "LastName": last,
+            "Password": password,
+            "Gender": gender
+        }
+        $.ajax({
+            url: 'http://localhost:58794/api/Employees',
+            type: 'POST',
+            data: dataToSend,
+            dataType: 'json',
+            success: function(res){
+                window.location = "register.html"
+            }
+        });
+    }
+</script>
+        
+    </body>
+</html>

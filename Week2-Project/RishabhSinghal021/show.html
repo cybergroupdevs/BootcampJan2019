@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <header>
+        <div class="navi">
+            <nav>
+                <img src="https://hrms.cygrp.com/content/images/logo.png" width="200px" height="80px">
+                <ul>
+                    <li><a href="list.html">List</a></li>
+                    <li><a href="register.html">Create</a></li>
+                    <li><a href="index.html">Sign-out</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <body onload="filldetails()">
+        <h1 id="head" class="heading"></h1>
+        <div class="split left body"><br><br>
+            <h2>Personal Details</h2>
+            <form>
+                <br>
+                Mother's Name : :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="mom" placeholder="Mother's name" readonly><br><br>
+                Father's Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="father" placeholder="Father's name" readonly><br><br>
+                E-mail : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" placeholder="E-mail" readonly><br><br>
+                Phone no : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="phone" placeholder="phone" readonly><br><br>
+                Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="address" placeholder="Address" readonly><br><br>
+                Date Of birth :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="date" placeholder="YYYY-MM-DD" readonly><br><br>
+                Designation :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="designation" placeholder="Designation" readonly>
+                <br><br><br>
+            </form>
+        </div>
+        
+        <div class="split right body"><br><br>
+            <h2>Educational Details</h2>
+            <form>
+                <br>
+                10th passing year :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="ten_year" placeholder="year" readonly><br><br>
+                10th percentage : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="ten_per" placeholder="marks" readonly><br><br>
+                12th passing year : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="twelth_year" placeholder="year" readonly><br><br>
+                12th percentage : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="twelth_per" placeholder="marks" readonly><br><br>
+                Graduation-year :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" id="graduation_year" placeholder="graduation" readonly><br><br>
+                Course(graduation) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="course" placeholder="course" readonly><br><br>
+                Graduation-marks :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" id="grad-marks" placeholder="marks" readonly><br><br><br><br><br><br>
+            </form>
+        </div>
+        
+    </body>
+            <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+    <script>
+        var getURL = function getURL(parm){
+            var Pageurl = window.location.search.substring(1),
+            URLVariables = Pageurl.split('&'),
+                ParameterName, i;
+            
+        for(i=0; i<URLVariables.length;i++){
+            ParameterName = URLVariables[i].split('=');
+            
+            if(ParameterName[0] == parm){
+                return ParameterName[1]==undefined ? true : decodeURIComponent(ParameterName[1]);
+            }
+        }
+        };
+        var id = getURL('id');
+        console.log(id);
+        document.getElementById("heading").innerHTML = "Welcome";   
+        function filldetails(){
+            $.ajax({
+            url: 'http://localhost:58794/api/Personal_details/'+id,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+                console.log(res);
+        document.getElementById("head").innerHTML = "Welcome "+res.Employee.FirstName+" "+res.Employee.LastName+"("+id+")";
+        document.getElementById("ten_year").value=res.Employee.Educational_details.tenth_pass_year;
+        document.getElementById("ten_per").value=res.Employee.Educational_details.tenth_marks;
+        document.getElementById("twelth_year").value=res.Employee.Educational_details.twelfth_pass_year;
+        document.getElementById("twelth_per").value=res.Employee.Educational_details.twelfth_marks;
+        document.getElementById("graduation_year").value=res.Employee.Educational_details.Grad_pass_year;
+        document.getElementById("course").value=res.Employee.Educational_details.course_grad;
+        document.getElementById("grad-marks").value=res.Employee.Educational_details.Grad_marks;
+        document.getElementById("designation").value=res.Designation;
+        document.getElementById("mom").value=res.Mother_Name;
+        document.getElementById("father").value=res.Father_Name;
+        document.getElementById("email").value=res.E_mail;
+        document.getElementById("phone").value=res.Phone_Number;
+        document.getElementById("address").value=res.Address;
+        document.getElementById("date").value=res.Date_Of_Birth;
+                }
+        
+            });
+        }
+    </script>
+    <footer class="foot">
+        copyright All Right Reserved by Cyber Group India Pvt. Ltd. 
+    </footer>
+</html>

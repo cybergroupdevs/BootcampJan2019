@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="login-css.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
+    </script>
+    <header>
+        <div class="navi">
+            <nav>
+                <img src="https://hrms.cygrp.com/content/images/logo.png" width="200px" height="80px">
+                <ul>
+                    <li><a href="sign-up.html">Sign-up</a></li>
+                    <li><a>Contact</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <body>
+        <div class="box">
+            <img src="https://arabacademy-u8hapu3mdn.netdna-ssl.com/wp-content/uploads/2015/04/loginImage-400x300.jpg" class="log-img">
+            <form>
+                <h2>LOGIN</h2>
+                <input type="text" name="" placeholder="userid" id="userid">
+                <input type="password" name="" placeholder="password" id="password">
+                
+                <input type="button" name="" value="login" onclick="getEmployee()">
+                <p id="error"></p>
+            </form>
+        </div>
+        
+        <script>
+            var err = 0;
+    function getEmployee(){
+        var id = document.getElementById("userid").value
+        var err = 1;
+        $.ajax({
+            url: 'http://localhost:58794/api/Employees/'+id,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+                var pass = document.getElementById("password").value;
+                if(pass == res.Password){
+                    window.location = "list.html";
+                }
+                else{
+                   alert("wrong id or password");
+                }
+            }
+        });
+    }
+</script>
+        
+    </body>
+</html>

@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <header>
+        <div class="navi">
+            <nav>
+                <img src="https://hrms.cygrp.com/content/images/logo.png" width="200px" height="80px">
+                <ul>
+                    <li><a href="list.html">List</a></li>
+                    <li><a>Contact</a></li>
+                    <li><a href="index.html">Sign-out</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+        </script>
+
+    <script>
+    function registerEmployee(){
+        var id = document.getElementById("id").value;
+        var ten_year = document.getElementById("ten_year").value;
+        var ten_per = document.getElementById("ten_per").value;
+        var twelth_year = document.getElementById("twelth_year").value;
+        var twelth_per = document.getElementById("twelth_per").value;
+        var grad_year = document.getElementById("graduation_year").value;
+        var course = document.getElementById("course").value;
+        var grad_marks = document.getElementById("grad-marks").value;
+        var designation = document.getElementById("designation").value;
+        var mom = document.getElementById("mom").value;
+        var father = document.getElementById("father").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var address = document.getElementById("address").value;
+        var dob = document.getElementById("date").value;
+        
+        var dataToSend= {
+            "Id": id,
+            "Mother_Name": mom,
+            "Father_Name": father,
+            "E_mail": email,
+            "Phone_Number": phone,
+            "Address": address,
+            "Date_Of_Birth": dob,
+            "Designation": designation
+        }
+        
+       var eduData = {
+            "Id": id,
+            "tenth_pass_year": ten_year,
+            "tenth_marks": ten_per,
+            "twelfth_pass_year": twelth_year,
+            "twelfth_marks": twelth_per,
+            "Grad_pass_year": grad_year,
+            "course_grad": course,
+            "Grad_marks": grad_marks
+        }
+        
+        $.ajax({
+            url: 'http://localhost:58794/api/Educational_details',
+            type: 'POST',
+            data: eduData,
+            dataType: 'json',
+            success: function(res){
+                console.log("success-1")
+            }
+        });
+        
+        $.ajax({
+            url: 'http://localhost:58794/api/Personal_details',
+            type: 'POST',
+            data: dataToSend,
+            dataType: 'json',
+            success: function(res){
+                console.log("success-2")
+                window.location = "list.html"
+            }
+        });
+    }
+</script>
+    
+    <body>
+        <h1 class="heading">Fill Your Details</h1>
+        <div class="split left body"><br><br>
+            <h2>Personal Details</h2>
+            <form>
+                <br>
+                Employee id : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id" placeholder="id"><br><br>
+                Mother's Name : :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="mom" placeholder="Mother's name"><br><br>
+                Father's Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="father" placeholder="Father's name"><br><br>
+                E-mail : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" placeholder="E-mail"><br><br>
+                Phone no : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="phone" placeholder="phone"><br><br>
+                Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="address" placeholder="Address"><br><br>
+                Date Of birth :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="date" placeholder="YYYY-MM-DD"><br><br>
+                Designation :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="designation" placeholder="Designation">
+                <br><br><br>
+            </form>
+        </div>
+        
+        <div class="split right body"><br><br>
+            <h2>Educational Details</h2>
+            <form>
+                <br>
+                10th passing year :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="ten_year" placeholder="year"><br><br>
+                10th percentage : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="ten_per" placeholder="marks"><br><br>
+                12th passing year : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="twelth_year" placeholder="year"><br><br>
+                12th percentage : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="twelth_per" placeholder="marks"><br><br>
+                Graduation-year :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" id="graduation_year" placeholder="graduation"><br><br>
+                Course(graduation) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="course" placeholder="course"><br><br>
+                Graduation-marks :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" id="grad-marks" placeholder="marks"><br><br><br><br><br><br>
+                <input type="button" value="submit" onclick="registerEmployee()">
+            
+            </form>
+        </div>
+        
+    </body>
+    <footer class="foot">
+        copyright All Right Reserved by Cyber Group India Pvt. Ltd. 
+    </footer>
+
+</html>
