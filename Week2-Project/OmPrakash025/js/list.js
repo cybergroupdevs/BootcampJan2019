@@ -11,8 +11,7 @@ function getEmployee(){
                         "<td>" + item.Email + "</td>" +  
                         "<td>" + item.PhoneNumber + "</td>" +  
                         "<td>" + item.BloodGroup + "</td>" +  
-                        "<td>" + Date(item.DOB,  
-                         "dd-MM-yyyy") + "</td>" + 
+                        "<td>" + item.DOB + "</td>" + 
                         "<td><button id='" + item.ID +"' onclick='showEmployee(this.id);'>View</button></td>" + 
                         "<td><button id='" + item.ID +"' onclick='updateEmployee(this.id);'>Update</button></td>" + 
                         "<td><button id='" + item.ID +"' onclick='deleteEmployee(this.id);'>Delete</button></td>" +

@@ -1,18 +1,19 @@
 function loadInfo(){
     var url = new URL(window.location.href);
     var id = url.searchParams.get("id");
-    console.log(id);
+    console.log(id); 
+    
+    document.getElementById("uid").value=id;
     $.ajax({
             url: 'http://localhost:50191/api/Employees/'+Number(id),
             type: 'GET',
             dataType: 'json',
             success: function(item){
-                    $("uid").val(item['ID']);
                     $('#name').val(item['Name']);
                     $('#mail').val(item['Email']); 
                     $('#phone').val(item['PhoneNumber']);
-                    $('#fathers_name').val(item['FathersName']); 
-                    $('#mothers_name').val(item['MothersName']); 
+                    $('#fname').val(item['FathersName']); 
+                    $('#mname').val(item['MothersName']); 
                     $('#user_dob').val(item['DOB']);
                     $('#gender').val(item['Gender']);
                     $('#blood').val(item['BloodGroup']);   
@@ -21,7 +22,8 @@ function loadInfo(){
                     $('#aadhar').val(item['AadharNumber']); 
                     $('#pan').val(item['PanNumber']); 
                     $('#bio').val(item['Bio']); 
-                    $('#job').val(item['JobRole']);    
+                    $('#job').val(item['JobRole']);  
+               
         }
     });
 }
@@ -29,15 +31,17 @@ function loadInfo(){
 function updateEmployee(){
     var url = new URL(window.location.href);
     var id = url.searchParams.get("id");
+    id=Number(id);
+    console.log(id);
     regData = { 
             "Logins": [],
-            "ID":Number(id);
+            "ID":id,
             "Name": $('#name').val(), 
             "Email": $('#mail').val(), 
-            "PhoneNumber": $('#mail').val(), 
-            "FathersName": $('#mail').val(),  
-            "MothersName": $('#mail').val(), 
-            "DOB": $('#mail').val(), 
+            "PhoneNumber": $('#phone').val(), 
+            "FathersName": $('#fname').val(),  
+            "MothersName": $('#mname').val(), 
+            "DOB": $('#user_dob').val(), 
             "Gender": $('#gender').val(), 
             "BloodGroup": $('#blood').val(),    
             "Qualification": $('#qualif').val(), 
@@ -49,16 +53,18 @@ function updateEmployee(){
            };
     $.ajax({
            type : "PUT",
-           url : "http://localhost:50191/api/Employees/"+Number(id),
+           url : "http://localhost:50191/api/Employees/"+id,
            dataType : "json",
            data : regData,
            success : function (msg) {
                if (msg) {
-                   alert("Somebody" + name + " was updated in list !");
-                   location.reload(true);
+                   window.location ="list.html";
                } 
-               else {
+               else { 
+                   
                    alert("Cannot update !");
+                   window.location ="list.html";
+                   
                }
            }
     });

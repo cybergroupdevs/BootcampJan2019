@@ -16,7 +16,7 @@
             "PhoneNumber": $('#phone').val(), 
             "FathersName": $('#fname').val(),  
             "MothersName": $('#mname').val(), 
-            "DOB": $('#user_dob').val(), 
+            "DOB": Format($('#user_dob').val(), "yyyy/mm/dd"), 
             "Gender": $('#gender').val(), 
             "BloodGroup": $('#blood').val(),    
             "Qualification": $('#qualif').val(), 
@@ -29,16 +29,17 @@
         $.ajax({
            type : "POST",
            url : "http://localhost:50191/api/Employees/", 
+            
+           dataType : "json",
+           data : regData, debugger;
             error: function(e)
             {
               console.log(e);  
             },
-           dataType : "json",
-           data : regData,
            success : function (msg) {
                if (msg) {
-                   alert("Somebody" + name + " was added in list !");
-                   location.reload(true);
+                   alert("Somebody" + $('#name').val() + " was added in list !");
+                   //location.reload(true);
                } 
                else {
                    alert("Cannot add to list !");
@@ -46,6 +47,7 @@
            }
         });
       }
+      
       </script>
 
   </head>
