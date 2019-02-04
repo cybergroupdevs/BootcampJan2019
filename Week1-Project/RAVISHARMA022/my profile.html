@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create User</title>
+	<title>Update Profile</title>
        <meta charset="utf-8">
        <meta name="description" content="This is Employee Details updation form">	
-	   <link href="css/create user.css" rel="stylesheet" type="text/css">
+	   <link href="css/my profile.css" rel="stylesheet" type="text/css">
 	   <script src="http://code.jquery.com/jquery-3.3.1.js"
 				integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 				crossorigin="anonymous">
 		</script>
-	   <script src="js/create user.js"></script>
+	   <script src="js/my profile.js"></script>
 	</head>
 <body>
 </div>
@@ -23,7 +23,8 @@
 	<div class="nav_items">
 		<ul>	
 			<a href="homepage.html"><button type="button" class="nav_btn">Home</button></a>
-			<a href="user list.html"><button type="button" class="nav_btn">Show List</button></a>
+			<a href="user list.html"><button type="button" class="nav_btn">List Users</button></a>
+			<a href="create user.html"><button type="button" class="nav_btn">Create User</button></a>
 			<div class="dropdown">
 				<button type="button" class="nav_btn">My Account</button></a>
 				<div class="dropdown-content">
@@ -38,48 +39,48 @@
 <div class="bigbox">
 		<div class="inner_box">
 			<div class="box_text">Employee ID : </div>
-			<input type="text" class="input_box" id="Employee Id" placeholder="Employee ID">
+			<input type="text" class="input_box" id="Employee Id" placeholder="Employee ID" value="">
 			<div class="box_text">First Name : </div>
-			<input type="text" class="input_box" id="First Name" placeholder="First Name">
+			<input type="text" class="input_box" id="First Name" placeholder="First Name"value="">
 			<div class="box_text">Last Name : </div>
-			<input type="text" class="input_box" id="Last Name" placeholder="Last Name">
+			<input type="text" class="input_box" id="Last Name" placeholder="Last Name" value="">
 			<div class="box_text">Father's Name :</div>
-			<input type="text" class="input_box" id="Father Name" placeholder="Father's Name">
+			<input type="text" class="input_box" id="Father Name" placeholder="Father's Name" value="">
 		</div>
 		<div class="inner_box">
 			<div class="box_text">Employee's Email : </div>
-			<input type="text" class="input_box" id="Email" placeholder="Employee's Email">
+			<input type="text" class="input_box" id="Email" placeholder="Employee's Email" value="">
 			<div class="box_text">Phone Number : </div>
-			<input type="text" class="input_box" id="Phone Number" placeholder="Phone Number">
+			<input type="text" class="input_box" id="Phone Number" placeholder="Phone Number" value="">
 			<div class="box_text">Graduation Degree : </div>
-			<input type="text" class="input_box" id="Graduation Degree" placeholder="Graduation Degree">
+			<input type="text" class="input_box" id="Graduation Degree" placeholder="Graduation Degree" value="">
 			<div class="box_text">Graduation Percentage:</div>
-			<input type="text" class="input_box" id="Graduation Percentage" placeholder="Graduation Percentage">
+			<input type="text" class="input_box" id="Graduation Percentage" placeholder="Graduation Percentage" value="">
 		</div>
 		<div class="inner_box">
 			<div class="box_text">12th Board : </div>
-			<input type="text" class="input_box" id="Twelfth Board" placeholder="12th Board">
+			<input type="text" class="input_box" id="12 Board" placeholder="12th Board" value="">
 			<div class="box_text">12th Percentage : </div>
-			<input type="text" class="input_box" id="Twelfth Percentage" placeholder="12th Percentage">
+			<input type="text" class="input_box" id="12 Percentage" placeholder="12th Percentage" value="">
 			<div class="box_text">10th Board : </div>
-			<input type="text" class="input_box" id="Tenth Board" placeholder="10th Board">
+			<input type="text" class="input_box" id="10 Board" placeholder="10th Board" value="">
 			<div class="box_text">10th percentage :</div>
-			<input type="text" class="input_box" id="Tenth Percentage" placeholder="10th Percentage">
+			<input type="text" class="input_box" id="10 Percentage" placeholder="10th Percentage" value="">
 		</div>
 		<div class="inner_box">
 			<div class="box_text">Country/Region : </div> 
-			<input type="text" class="input_box" id="Country" placeholder="Country/Region">
+			<input type="text" class="input_box" id="Country" placeholder="Country/Region" value="">
 			<div class="box_text">Date of Birth : </div> 
-			<input type="date" class="DOB" id="dob" placeholder="Date of Birth" value="">
+			<input type="date" class="DOB" id="Dob" placeholder="Date of Birth" value="">
 			<div class="box_text">Gender : </div> 
-			<select required="required" class="gender" name="Gender" id="Gender">
+			<select required="required" class="gender" id="Gender" name="Gender" value="">
 				<option value="gender">Gender</option>
 				<option value="Male">Male</option>
 				<option value="Female">Female</option>
 				<option value="Other">Other</option>
 			</select>
 			<div class="box_text">Cyber Group Profile : </div> 
-			<select required="required" name="designation" class="designation" id="Designation">
+			<select required="required" name="designation" id ="Designation" class="designation" value="">
 				<option value="Default">Cyber Group Profile</option>
 				<option value="Intern">Intern</option>
 				<option value="Trainee">Trainee</option>
@@ -91,9 +92,9 @@
 		</div>
 </div>
 <center>
-<p class="Address_text" id="Address">Address : </p> 
-<input type="text" class="address_box" id="Address" placeholder="Employee's Address . . . "></br>
-<button type="submit" class="update_btn" onclick="CreateUser()"> Add Employee </button></br>
+<p class="Address_text">Address : </p> 
+<input type="text" class="address_box" id="Address" placeholder="Employee's Address . . . " value=""></br>
+<button type="submit" class="update_btn"> Update Profile </button></br>
 <p class="lower_text">Messed up?<a href="create user.html">Have a fresh Start</a></p>
 </center>
 <div id="footer">

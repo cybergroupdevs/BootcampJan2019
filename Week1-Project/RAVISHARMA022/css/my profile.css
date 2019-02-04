@@ -30,14 +30,15 @@ background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9e
 .input_box2{margin: 2px; margin-top:3px; margin-bottom: 3px;padding: 10px; width: 125px; border-radius: 6px;background: #C6FFDD; /*half box*/
 background: -webkit-linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);background: linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);}
 .input_box3{margin: 3px;padding: 5px;width: 144px;height: 43px;border-radius: 6px;}	
+
 .label_box{margin-bottom: 20px; margin-top: 20px; height: 60px; padding: 10px; font-family:Bradley Hand ITC; justify-content: space-between; Display: flex; background: #114357;
 background: -webkit-linear-gradient(to right, #A43931, #403B4A); background: linear-gradient(to right, #A43931, #403B4A);}
 .label_text{color: white; size: 30px;}
-.DOB{width: 295px; height: 27px; margin-top:3px; padding: 5px; color: grey;border-radius: 6px;background: #C6FFDD;
+.DOB{width: 295px; height: 27px; margin-top:3px; padding: 5px; color: black;border-radius: 6px;background: #C6FFDD;
 background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);background: linear-gradient(to left, #eef2f3, #8e9eab);}
-.gender{width: 308px; height: 40px; margin-top:3px; color: grey;padding: 10px; border-radius: 6px;background: #C6FFDD;
+.gender{width: 308px; height: 40px; margin-top:3px; color: black;padding: 10px; border-radius: 6px;background: #C6FFDD;
 background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);background: linear-gradient(to left, #eef2f3, #8e9eab);}
-.designation{width: 308px; height: 41px; margin-top:3px; color: grey; padding: 10px; border-radius: 6px;background: #C6FFDD;
+.designation{width: 308px; height: 41px; margin-top:3px; color: black; padding: 10px; border-radius: 6px;background: #C6FFDD;
 background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);background: linear-gradient(to left, #eef2f3, #8e9eab);}	
 .address_box{margin: 3px;padding: 10px; width: 700px; height: 60px;color: black; border-radius: 6px;background: #C6FFDD;
 background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);background: linear-gradient(to left, #eef2f3, #8e9eab);}
