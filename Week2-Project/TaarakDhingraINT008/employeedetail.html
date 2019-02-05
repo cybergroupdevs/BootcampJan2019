@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DETAILS OF EMPLOYEE</title>
+	<link href="employeedetaildeco.css" rel="stylesheet">
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>		
+  <script type="text/javascript" src="employeelistbackend.js"></script>
+</head>
+<body>
+		<header class="heading">
+
+						<nav class="fornavigation">
+								<ul>
+										<li><a href="detailpage.html">CREATE</a></li>
+										<li><a href="employeelist.html">LIST</a></li>
+										<li><a href="https://cygrp.com/">LOGOUT</a></li>
+										<li class="forright"><img src="https://hrms.cygrp.com/content/images/logo.png" height="75px" weight="75px"></li>
+								</ul>
+										
+										
+									
+							</nav>
+
+							<div class="formstyle">
+
+			<h1>PERSONAL DETAIL</h1><br/>
+
+		</div>
+
+				<div class="detailstyle">
+							Employee id:<span id="empid" ></span>
+							
+						</div>
+						<div class="detailstyle">
+							Fist name:<span id="firstname"></span>
+						</div>
+						<div class="detailstyle">
+							Last name:<span  id="lastname"></span>
+						</div>
+						<div class="detailstyle">
+							Email id:<span id="email"></span>
+						</div>
+
+						<div class="updatebutton">
+							<a href="updatepage.html"><button class="forupdate">UPDATE</button></a>
+						</div>
+
+						<div class="deletedetails">
+							<input class="delbutton" type="button" value="DELETE" onclick= "deleteDetails()" >
+						</div>
+						
+
+							<footer class="foot">
+								<nav>
+								
+									CYBER GROUP DEVELOPMENT
+								
+								 
+
+							</nav>
+							</footer>
+<script>
+
+	var idgetting=localStorage.getItem("id");
+							 $.ajax({
+      type: 'GET',
+      url: 'http://localhost:64490/api/Employees/' + idgetting,
+      success: function(data) {
+        valuestore = data;
+        console.log(data);
+        document.getElementById("firstname").innerHTML=data.Firstname;
+        document.getElementById("empid").innerHTML = data.Id; 
+        document.getElementById("firstname").innerHTML=data.Firstname;
+        document.getElementById("lastname").innerHTML=data.Lastname;
+        document.getElementById("email").innerHTML=data.Email;
+      }
+    });
+
+
+           
+
+		//javascript:getdetails();
+		// javascript:DeletingSingleData();
+
+</script>
+</body>
+</html>
