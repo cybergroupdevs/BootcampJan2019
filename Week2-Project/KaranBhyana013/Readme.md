@@ -1,1 +1,1 @@
-Netlify Link : https://kbhyanaweekly.netlify.com
+Netlify Link : https://kbhyanaweek2.netlify.com/
