@@ -28,6 +28,7 @@ function CreateUser(){
 	var designation = document.getElementById("Designation").value;
 	var profile=designation.valueOf();
 	var address = document.getElementById("Address").value;
+	var address1=address.valueOf();
 	
 			var datafor_EmployeeDetail={
 								"EducationDetail": {
@@ -50,7 +51,7 @@ function CreateUser(){
 								"dob":dob, 
 								"gender": sex,
 								"designation": profile,
-								"address": address,
+								"address": address1,
 								};
 						$.ajax({
 							url: 'http://localhost:50052/api/EmployeeDetail',
@@ -58,7 +59,7 @@ function CreateUser(){
 							type: 'POST',
 							dataType: 'json', 
 							success: function(response){ 
-													alert("User have been successfully added");
+													alert("User has been successfully added");
 													window.location="user list.html";
 													}	
 								});

@@ -20,7 +20,7 @@ function FillDetails(){
 				type: 'GET',
 				dataType: 'json', 
 				success: function(EmpDetail){ 
-				console.log(EmpDetail);
+				//console.log(EmpDetail);
 									document.getElementById("Employee Id").value=EmpDetail.Id;
 									document.getElementById("First Name").value=EmpDetail.firstname;
 									document.getElementById("Last Name").value=EmpDetail.lastname;
@@ -110,8 +110,27 @@ function UpdateDetails(){
 //console.log(Id);
 
 function DeleteUser(Id){
-	console.log(Id);
+	//console.log(Id);
+		//to delete Education details
 		alert("Are you sure, You want to delete the user data from database.");
+		$.ajax({
+		url: 'http://localhost:50052/api/EducationDetail/'+Id,
+        type: 'DELETE',
+        dataType: 'json',
+        success: function(deleted){
+								console.log("Education Details have been deleted");
+								}
+        });
+		//to delete Signup details
+		$.ajax({
+		url: 'http://localhost:50052/api/AuthenticateUser/'+Id,
+        type: 'DELETE',
+        dataType: 'json',
+        success: function(deleted){
+								console.log("Authentication Details have been deleted");
+								}
+        });
+		//to delete Employee details
 		$.ajax({
 		url: 'http://localhost:50052/api/EmployeeDetail/'+Id,
         type: 'DELETE',
