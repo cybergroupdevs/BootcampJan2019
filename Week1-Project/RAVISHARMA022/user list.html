@@ -3,12 +3,18 @@
 	<head>
 	<title>Employee List</title>
        <meta charset="utf-8">
+	   <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
        <meta name="description" content="Authorized User">	
 	   <link href="css/user list.css" rel="stylesheet" type="text/css">
+	   <script src="http://code.jquery.com/jquery-3.3.1.js"
+				integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+				crossorigin="anonymous">
+		</script>	   
+	   <script src="js/user list.js"></script>
 	</head>
-<body>
+<body onload="showlist()">
 <div class="header">
-	<img src="images/cyg_logo.jpg" alt="">
+	<a href="homepage.html"><img src="images/cyg_logo.jpg" alt=""></a>
 	<div class="wel_text">Welcome To Cyber Group India</br>
 		<div class="punch_line">Technology-Connected-Device-Outsourcing</div>
 	</div>
@@ -31,7 +37,6 @@
 </div>
 <center>
 <div class="bigbox">
-	<div class="list_table">
 			<table id="mytable">
 				<thead>
 					<tr>
@@ -42,29 +47,19 @@
 						<th>Phone Number</th>
 						<th>Date of Birth</th>
 						<th>Designation</th>
+						<th>View or Edit</th>
 						</tr>
 				</thead>
 				<tbody>
 				</tbody>
 		</table>
-	</div>
+		<!--
+	<p class="lower_text">User Details are not shown by default for security reasons, Click below button to see the list</p>
+	<button type="button" class="showlist_btn" onclick="showlist()"> Show User list </button></br>
+	-->
 </div>
-
 </center>
 <div id="footer">
 Copyright All rights reserved © 2017
 </div>
-<script>
-//var data1=JSON.parse()
-//var data2=JSON.stringify()
-var data=[["INT022","ravi","Sharma","ravi.sharma@cygrp.com","8449961949","09-11-96","Intern"],["INT022","ravi","Sharma","ravi.sharma@cygrp.com","8449961949","09-11-96","Intern"],["INT02","risabh","Singhal","risabh.singhal@cygrp.com","84496565645","01-10-97","Intern"]];
-table=document.getElementById("mytable");
-	for (var i=0; i<data.length; i++){
-		var row=table.insertRow(table.length);
-			for (var j=0; j<data[i].length; j++){
-				var column=row.insertCell(j);
-				column.innerHTML=data[i][j];
-			}
-	}
-</script>
 </body></html>

@@ -1,0 +1,76 @@
+<style>
+
+
+*
+ { 
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+
+body
+   {
+      font-family: sans-serif;
+       background-color: palegoldenrod;
+    }
+
+td
+  {
+    text-align: center;
+  } 
+
+    .container 
+    {
+        width: 200px;
+        padding: 8px 8px 20px 8px;
+        margin: 150px auto;
+        background-color: black;
+        border-radius: 8px;
+    box-shadow: 10px 10px 10px grey;
+         
+    }
+
+    #screen
+   {
+       text-align: right;
+        display: block;
+        margin: 15px auto;
+        height: 42px;
+        width: 174px;
+        border-radius: 4px;
+        font-size: 28px;
+        color: dimgrey;
+        
+    }
+
+    
+   
+    .digits , .rdigits
+      {
+        display: inline-block;
+        margin: 2px;
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 4px;
+        color: black;
+      border: 2px;
+          
+        background-color: darkgrey;
+    
+    }
+.rdigits
+{
+      background-color: skyblue;
+    
+}
+
+.digits:hover, .rdigits:hover
+   {
+        background-color:darkred;
+       border:2px;
+   }
+
+
+</style>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show User Details</title>
+       <meta charset="utf-8">
+       <meta name="description" content="This is Employee Details updation form">	
+	   <link href="css/show user.css" rel="stylesheet" type="text/css">
+	   <script src="http://code.jquery.com/jquery-3.3.1.js"
+				integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+				crossorigin="anonymous">
+		</script>
+	   <script src="js/show user.js"></script>
+	</head>
+<body onload="FillDetails()">
+</div>
+<div class="header">
+	<a href="homepage.html"><img src="images/cyg_logo.jpg" alt=""></a>
+	<div class="wel_text">Welcome To Cyber Group India</br>
+		<div class="punch_line">Technology-Connected-Device-Outsourcing</div>
+	</div>
+</div>
+<div id="nav_bar">
+	<div class="nav_items">
+		<ul>	
+			<a href="homepage.html"><button type="button" class="nav_btn">Home</button></a>
+			<a href="user list.html"><button type="button" class="nav_btn">Show List</button></a>
+			<a href="create user.html"><button type="button" class="nav_btn">Create User</button></a>
+			<div class="dropdown">
+				<button type="button" class="nav_btn">My Account</button></a>
+				<div class="dropdown-content">
+					<li><a href="my profile.html">My Profile</a></li>
+					<li><a href="my Account.html">My Account</a></li>
+					<li><a href="index.html">Log Out</a></li>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+<div class="bigbox">
+		<div class="inner_box">
+			<div class="box_text">Employee ID : </div>
+			<input type="text" class="input_box" id="Employee Id" placeholder="Employee ID" value="">
+			<div class="box_text">First Name : </div>
+			<input type="text" class="input_box" id="First Name" placeholder="First Name" value="">
+			<div class="box_text">Last Name : </div>
+			<input type="text" class="input_box" id="Last Name" placeholder="Last Name" value="">
+			<div class="box_text">Father's Name :</div>
+			<input type="text" class="input_box" id="Father Name" placeholder="Father's Name" value="">
+		</div>
+		<div class="inner_box">
+			<div class="box_text">Employee's Email : </div>
+			<input type="text" class="input_box" id="Email" placeholder="Employee's Email" value="">
+			<div class="box_text">Phone Number : </div>
+			<input type="text" class="input_box" id="Phone Number" placeholder="Phone Number" value="">
+			<div class="box_text">Graduation Degree : </div>
+			<input type="text" class="input_box" id="Graduationdegree" placeholder="Graduation Degree" value="">
+			<div class="box_text">Graduation Percentage:</div>
+			<input type="text" class="input_box" id="Graduationpercentage" placeholder="Graduation Percentage" value="">
+		</div>
+		<div class="inner_box">
+			<div class="box_text">12th Board : </div>
+			<input type="text" class="input_box" id="Twelfthboard" placeholder="12th Board" value="">
+			<div class="box_text">12th Percentage : </div>
+			<input type="text" class="input_box" id="Twelfthpercentage" placeholder="12th Percentage" value="">
+			<div class="box_text">10th Board : </div>
+			<input type="text" class="input_box" id="Tenthboard" placeholder="10th Board" value="">
+			<div class="box_text">10th percentage :</div>
+			<input type="text" class="input_box" id="Tenthpercentage" placeholder="10th Percentage" value="">
+		</div>
+		<div class="inner_box">
+			<div class="box_text">Country/Region : </div> 
+			<input type="text" class="input_box" id="Country" placeholder="Country/Region" value="">
+			<div class="box_text">Date of Birth : </div> 
+			<input type="text" class="input_box" name="DOB" id="Dob" placeholder="Date of Birth" value="">
+			<div class="box_text">Gender : </div> 
+			<input type="text" class="input_box" id="Gender" placeholder="Gender" value="">
+			<div class="box_text">Cyber Group Profile : </div> 
+			<input type="text" class="input_box" id="Designation" placeholder="Designation" value="">
+		</div>
+</div>
+<center>
+<p class="box_text">Address : </p> 
+<input type="text" class="address_box" id="Address" placeholder="Employee's Address . . . "></br>
+<button type="button" class="update_btn" onclick="UpdateDetails()"> Update Details </button>
+<button type="button" class="update_btn" onclick="DeleteUser("+Id+")"> Delete User </button></br>
+</center>
+<div id="footer">
+Copyright All rights reserved © 2017
+</div>
+</body></html>

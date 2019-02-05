@@ -2,9 +2,9 @@ table		{
 			margin: 15px;
 			border: 2px solid grey;
 			border-radius: 10px;
-			background: #757F9A;  /* fallback for old browsers */
-			background: -webkit-linear-gradient(to bottom, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
-			background: linear-gradient(to bottom, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			background: #757F9A; 
+			background: -webkit-linear-gradient(to bottom, #D7DDE8, #757F9A);
+			background: linear-gradient(to bottom, #D7DDE8, #757F9A); 
 
 			}
 td 			{
@@ -17,6 +17,7 @@ td 			{
 td:active 	{
 			color: white;
 			border: 2px solid red;
+			transform: scaleY(0.95) translateY(3px);
 }
 .result_box	{
 			margin-top:10px;
