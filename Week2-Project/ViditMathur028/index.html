@@ -3,6 +3,11 @@
 <head>
 	<title>Employee Management</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
+  <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
 	<script type="text/javascript">
 	function reset(){
     document.getElementById("Id_login").value = "";
@@ -24,6 +29,7 @@
 			alert("Password mismatch");
 		}
 	}
+
 	function postLogin_Credentials(){
 	 var Id_Signup = document.getElementById("Id_Signup").value; 
       var Email_Signup = document.getElementById("Email_Signup").value; 
@@ -86,7 +92,7 @@
     <br><h3>Password</h3><input type="Password" id="Password_Signup" placeholder="Password">
     <br><h3>Re-Enter Password</h3><input type="Password" id=" RePassword_Signup" placeholder="Re-Enter Password"><br><p></p>
     </form>
-    <input type="submit" value="Sign-Up" onclick="postLogin_credentials()">
+    <input type="submit" value="Sign-Up" onclick="postLogin_Credentials()">
     <input type="reset" value="Reset"  onclick="reset()">
   
   </div>
