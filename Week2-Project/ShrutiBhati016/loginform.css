@@ -1,0 +1,95 @@
+<style>
+body{        
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+.fixed-header, .fixed-footer{
+    width: 100%;        
+    background: cornflowerblue;
+    padding: 10px ;
+    }
+.fixed-header{
+    top: 0;
+    }
+.fixed-footer{
+    bottom: 0;
+    position: fixed;
+    } 
+.HeaderFooter{
+    width: 80%;
+    margin: auto;
+    }
+#toggle {
+    position: relative;
+    left:40%;
+}
+#redirect{
+    background-color: navajowhite;
+	color: black;
+  	cursor: pointer;
+ 	width: 10%;
+}
+.outset {
+    border-style: outset;
+    background-color: snow;
+    }
+hr {
+    border: 1px solid green;
+  	margin-bottom: 20px;
+  	margin-top: 20px;
+	}
+.relative {
+    position: relative;
+    left: 20px;
+    }
+input[type=text], input[type=password] {
+    width: 50%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+        }
+input[type=text]:focus, input[type=password]:focus {
+	background-color: #ddd;
+ 	outline: bold;
+	}
+.login {
+  	background-color: green;
+	color: black;
+  	padding: 18px;
+  	margin: 16px 0;
+  	border: bold;
+  	cursor: pointer;
+ 	width: 20%;
+	}
+.cancelbutton {
+  	background-color: red;
+	color: black;
+  	padding: 18px;
+  	margin: 16px 0;
+  	border: bold;
+	cursor: pointer;
+    width: 20%;
+	}
+.content{
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    top: 110px;
+    }
+.center {
+      margin-left:40% ;
+      margin-right: 25%;
+      width: 20%;
+    }
+@media only screen and (max-width: 768px) {
+  body {
+    text-align: center;
+      
+  }
+    .clear{
+        height: auto;
+    }
+}
+
+</style>
