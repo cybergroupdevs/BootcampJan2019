@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create User</title>
+       <meta charset="utf-8">
+       <meta name="description" content="This is Employee Details updation form">	
+	   <link href="css/create user.css" rel="stylesheet" type="text/css">
+	   <script src="http://code.jquery.com/jquery-3.3.1.js"
+				integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+				crossorigin="anonymous">
+		</script>
+	   <script src="js/create user.js"></script>
+	</head>
+<body>
+</div>
+<div class="header">
+	<a href="homepage.html"><img src="images/cyg_logo.jpg" alt=""></a>
+	<div class="wel_text">Welcome To Cyber Group India</br>
+		<div class="punch_line">Technology-Connected-Device-Outsourcing</div>
+	</div>
+</div>
+<div id="nav_bar">
+	<div class="nav_items">
+		<ul>	
+			<a href="homepage.html"><button type="button" class="nav_btn">Home</button></a>
+			<a href="user list.html"><button type="button" class="nav_btn">Show List</button></a>
+			<div class="dropdown">
+				<button type="button" class="nav_btn">My Account</button></a>
+				<div class="dropdown-content">
+					<li><a href="my profile.html">My Profile</a></li>
+					<li><a href="my Account.html">My Account</a></li>
+					<li><a href="index.html">Log Out</a></li>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+<div class="bigbox">
+		<div class="inner_box">
+			<div class="box_text">Employee ID : </div>
+			<input type="text" class="input_box" id="Employee Id" placeholder="Employee ID">
+			<div class="box_text">First Name : </div>
+			<input type="text" class="input_box" id="First Name" placeholder="First Name">
+			<div class="box_text">Last Name : </div>
+			<input type="text" class="input_box" id="Last Name" placeholder="Last Name">
+			<div class="box_text">Father's Name :</div>
+			<input type="text" class="input_box" id="Father Name" placeholder="Father's Name">
+		</div>
+		<div class="inner_box">
+			<div class="box_text">Employee's Email : </div>
+			<input type="text" class="input_box" id="Email" placeholder="Employee's Email">
+			<div class="box_text">Phone Number : </div>
+			<input type="text" class="input_box" id="Phone Number" placeholder="Phone Number">
+			<div class="box_text">Graduation Degree : </div>
+			<input type="text" class="input_box" id="Graduation Degree" placeholder="Graduation Degree">
+			<div class="box_text">Graduation Percentage:</div>
+			<input type="text" class="input_box" id="Graduation Percentage" placeholder="Graduation Percentage">
+		</div>
+		<div class="inner_box">
+			<div class="box_text">12th Board : </div>
+			<input type="text" class="input_box" id="Twelfth Board" placeholder="12th Board">
+			<div class="box_text">12th Percentage : </div>
+			<input type="text" class="input_box" id="Twelfth Percentage" placeholder="12th Percentage">
+			<div class="box_text">10th Board : </div>
+			<input type="text" class="input_box" id="Tenth Board" placeholder="10th Board">
+			<div class="box_text">10th percentage :</div>
+			<input type="text" class="input_box" id="Tenth Percentage" placeholder="10th Percentage">
+		</div>
+		<div class="inner_box">
+			<div class="box_text">Country/Region : </div> 
+			<input type="text" class="input_box" id="Country" placeholder="Country/Region">
+			<div class="box_text">Date of Birth : </div> 
+			<input type="date" class="DOB" id="dob" placeholder="Date of Birth" value="">
+			<div class="box_text">Gender : </div> 
+			<select required="required" class="gender" name="Gender" id="Gender">
+				<option value="gender">Gender</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="Other">Other</option>
+			</select>
+			<div class="box_text">Cyber Group Profile : </div> 
+			<select required="required" name="designation" class="designation" id="Designation">
+				<option value="Default">Cyber Group Profile</option>
+				<option value="Intern">Intern</option>
+				<option value="Trainee">Trainee</option>
+				<option value="Consultant">Consultant</option>
+				<option value="Engineer">Engineer</option>
+				<option value="Senior Developer">Senior Developer</option>
+				<option value="Human Resource">Human Resource</option>
+			</select>
+		</div>
+</div>
+<center>
+<p class="Address_text" id="Address_text">Address : </p> 
+<input type="text" class="address_box" id="Address" placeholder="Employee's Address . . . "></br>
+<button type="submit" class="update_btn" onclick="CreateUser()"> Add Employee </button></br>
+<p class="lower_text">Messed up?<a href="create user.html">Have a fresh Start</a></p>
+</center>
+<div id="footer">
+Copyright All rights reserved © 2017
+</div>
+</body></html>
