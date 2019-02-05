@@ -1,12 +1,12 @@
 Files to review for week-2 project :
 
-Index.js: 			Login page
-Signup.js: 			Signup page
-Create User.js: 		To add a new user to database.
-show user.js:			after clicking "Click to view Button user can see and edit the Details of the clicked on user"
-my profile.js: 			Logged user can see his details.
-Homepage.js: 			Welcome page after successful Login.
-User List.js: 			to see the list of all the users.
+Index.js: 			Login page(CHECKS USER CREDENTIALS)
+Signup.js: 			Signup page(Signup user as a new user, Employee add himself/herself)
+Create User.js: 		To add a new user to database.(Add new Employee, Admin Adds Employee)
+show user.js:			after clicking "Click to view Button, follow the update and delete buttons for update and delete operations"
+my profile.js: 			Logged user can see his details.(Shows the details of logged in user)
+Homepage.js: 			Welcome page after successful Login.(Homepage for logged in user)
+User List.js: 			to see the list of all the users.(Extracts the list of all the user from database)
 
 
 
