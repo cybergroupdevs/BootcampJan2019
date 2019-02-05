@@ -111,7 +111,6 @@ function UpdateDetails(){
 
 function DeleteUser(Id){
 	console.log(Id);
-	/*
 		alert("Are you sure, You want to delete the user data from database.");
 		$.ajax({
 		url: 'http://localhost:50052/api/EmployeeDetail/'+Id,
@@ -121,5 +120,5 @@ function DeleteUser(Id){
 								alert("User Details Have been removed from the database");
 								window.location.href = "user list.html";
 								}
-        });*/
+        });
 }
