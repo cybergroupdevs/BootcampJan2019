@@ -1,0 +1,41 @@
+body{
+    background-image: url("background1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img{
+    width:400px; 
+    height:100px;
+}
+h2{
+align:center;
+font-size: 40px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+  }
+table,td,th{
+    border: 1px solid;
+    padding: 15px;
+    
+  }
+table{
+    position: relative;
+  align-content: center;
+  margin: 100px;
+  left:100px;
+  }
+
+  td,th{
+      font-size: 30px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+
+  

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="calculator, calcii">
+    <meta name="author" content="Taran Pal Singh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = "text/css" href = "calci.css" media = "screen">
+    <title> Calculator </title>
+
+    <script>
+
+        let string1 = "";
+        let string2 = "";
+        let flag=1;
+        let num1 = 0;
+        let num2 = 0;
+        let operator = 0;
+        let ans = 0;
+        let num = 0;
+        function myFunction(value){
+
+            if(flag == 1) {
+                string1 = string1 + value;
+                console.log(string1);
+                document.getElementById("display").value = string1;
+            }
+            else
+            {
+                string2 = string2 + value;
+                console.log(string2);
+                document.getElementById("display").value = string2;
+            }
+        }
+
+        function operate(value,num){
+
+            operator = num;
+            flag = 2;
+            console.log(string1 + value);
+            document.getElementById("display").value = value;
+        }
+
+        function equals(){
+
+            num1 = Number(string1);
+            num2 = Number(string2);
+            if(operator ==1){ ans = num1 + num2;}
+            else if(operator ==2){ ans = num1 - num2;}
+            else if(operator ==3){ ans = num1 * num2;}
+            else if(operator ==4){ ans = num1 / num2;}
+            console.log(ans);
+            document.getElementById("display").value = ans;
+            flag = 2;
+            string1 = String(ans);
+            string2 = "";
+        }
+
+        function del(){
+
+            flag = 1;
+            string1 = "";
+            string2 = "";
+            document.getElementById("display").value = "";
+
+        }
+        function off() {
+            alert("Bye bye.......");
+            window.close()
+        }
+    </script>
+    </head>
+<body>
+    <section>
+        <h1>Calculator</h1>
+        <form name=”calculator”>
+        <table  class="calc_table" >
+            <tr>
+
+                <input type="text" name = "field" id = "display">
+            </tr>
+            <tr>
+                <td colspan="2"> <input type="button" name="OFF" value="OFF"  class="buttons" onclick = "off() "> </td>
+                <td colspan="2"> <input type="button" name="Del" value="Del"  class="buttons" onclick = "del(value)"> </td>
+                </tr>
+            <tr>
+                <td> <input type="button" name="7" value="7"  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="8" value="8"  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="9" value="9"  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="/" value="/" class="button" onclick = "operate(value,4)"> </td>
+            </tr>
+            <tr>
+                <td> <input type="button" name="4" value="4" class="button" onclick = "myFunction(value)"></td>
+                <td> <input type="button" name="5" value="5" class="button" onclick = "myFunction(value)"></td>
+                <td> <input type="button" name="6" value="6" class="button" onclick = "myFunction(value)"></td>
+                <td> <input type="button" name="X" value="X" class="button" onclick = "operate(value,3)"> </td>
+
+            </tr>
+            <tr>
+                <td> <input type="button" name="1" value="1"  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="2" value="2"  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="3" value="3"  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="-" value="-" class="button" onclick = "operate(value,2)"> </td>
+
+            </tr>
+            <tr>
+                <td> <input type="button" name="." value="."  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="0" value="0"  class="button" onclick = "myFunction(value)"> </td>
+                <td> <input type="button" name="+" value="+" class="button" onclick = "operate(value,1)"> </td>
+                <td> <input type="button" name="=" value="="  class="buttone" onclick = "equals()"> </td>
+
+            </tr>
+        </table>
+    </form>
+    </section>
+</body>
+</html>
