@@ -16,11 +16,12 @@
 </script>
   <script type="text/javascript">
     var empdata=[];
-
+var Url='http://localhost:51969/api/Employees/';
+    
      function fetchrecord()
     {
     var id= document.getElementById("id").value;
-    var Url='http://localhost:51969/api/Employees/';
+    Url='http://localhost:51969/api/Employees/';
     Url=Url+''+id+'';
     $.ajax({
             url: Url,
@@ -48,7 +49,7 @@
     function submit() {
    $.ajax({
             url: Url,
-            type: 'GET',
+            type: 'DELETE',
             dataType: 'json',
             success: function(res){
             console.log(res);
