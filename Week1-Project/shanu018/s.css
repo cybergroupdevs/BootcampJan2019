@@ -1,0 +1,101 @@
+label{
+    color:white;
+    display: inline-block;
+    width: 100px;
+}
+
+.header{
+    text-align: center;
+}
+
+.header-image{
+    display:inline-block;
+    text-align: left;
+    display: inline-block;
+    position: absolute;
+    top: 5%;
+    left: 1%;
+}
+.header h1{
+    display: inline-block;
+    color: #fff;
+}
+
+
+.header-logo{
+    width: 165px;
+    opacity: 1;
+    margin: 10px;
+}
+
+body{
+    height:100vh;
+    position: relative;
+    margin:0 auto;
+  background-image : linear-gradient(rgba(0,0,0,.6)  ,rgba(0,0,0,.6)) ,   url('https://images.pexels.com/photos/1089549/pexels-photo-1089549.jpeg?cs=srgb&dl=adult-agreement-business-1089549.jpg&fm');
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+  opacity:0.8;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}  
+p{color: white;
+    display: inline-block;
+}
+.box{
+width:50%;
+height:480px;
+position: absolute;
+left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+background: linear-gradient(#24c6dc,#514a9d);
+
+opacity: 0.9;
+text-align: center;
+  border-radius:16px;
+}
+
+.continue{
+    text-decoration: none;
+}
+
+.box h2{
+
+    color:white;
+    font-size: 50px;
+}
+h1{
+    color:black;
+    text-align: center;
+    font-size: 40px;}
+
+input[type="text"],input[type="email"],input[type="password"]{
+ width:60%;
+ height:30px;
+ margin-bottom: 25px
+ font-size: 15px;
+ border:1px solid black;
+ padding-left: 45px;
+margin-bottom: 5px;
+text-indent: 16px;
+    border-radius:14px;
+}
+
+.icon{
+    position: absolute;
+    padding-top: 8px;
+    margin-right: 15px;
+    width:45px;
+}
+ button[type="submit"]{
+      background:linear-gradient(#1D2B64,#F8CDDA);
+      cursor: pointer;
+      width:150px;
+      height:35px;
+      border: 1px solid black;
+      font-size:20px;
+      color: black;
+   border-radius:20px;
+    }

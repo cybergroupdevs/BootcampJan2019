@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="bleh.css" />
+    </head>
+    <body>
+        <fieldset id="container">
+		  <form name="calculator"><input id="screen" type="text" name="screen" readonly>
+              <table>
+                <tr>
+                    <td ><input class="digits" type="button" value="1" onclick="display('1')"></td>
+                    <td><input class="digits" type="button" value="2" onclick="display('2')"></td>
+                    <td><input class="digits" type="button" value="3" onclick="display('3')"></td>
+                    <td><input class="mdigits" type="button" value="+" onclick="display('+')"></td>
+                </tr>
+                <tr>
+                    <td><input class="digits" type="button" value="4" onclick="display('4')"></td>
+                    <td><input class="digits" type="button" value="5" onclick="display('5')"></td>
+                    <td><input class="digits" type="button" value="6" onclick="display('6')"></td>
+                    <td><input class="mdigits" type="button" value="-" onclick="display('-')"></td>
+                </tr>
+                <tr>
+                    <td><input class="digits" type="button" value="7" onclick="display('7')"></td>
+                    <td><input class="digits" type="button" value="8" onclick="display('8')"></td>
+                    <td><input class="digits" type="button" value="9" onclick="display('9')"></td>
+                    <td><input class="mdigits" type="button" value="/" onclick="display('/')"></td>
+                </tr>
+                <tr>
+                    <td><input class="rdigits" type="reset" value="AC" onclick="clearInput()" ></td>
+                    <td><input class="digits" type="button" value="0" onclick="display('0')" ></td>
+                    <td><input class="edigits" type="button" value="=" onclick="result()" ></td>
+                    <td><input class="mdigits" type="button" value="*" onclick="display('*')"></td>
+            </table>
+        </form>
+    </fieldset>
+        <div class="fixed-footer">
+            <div class="HeaderFooter">SHRUTI BHATI</div>
+        </div>
+    </body>
+    <script src="main.js"></script>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="List">
+        <meta name="keywords" content="HRMS">
+        <meta name="author" content="Rishabh Gupta">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">      
+        <link href="list.css" rel="stylesheet">
+
+    </head>
+
+
+    <body>
+        <header class="header">
+            <div class="logo-wrap">
+                <div class="hamburger-btn">       
+                    <img src="img/baseline_menu_black_18dp.png" class="">
+                </div>
+                <div class="logo">       
+                    <img src="img/logo.png" class="logo-img">
+                </div>
+            </div>
+            <div class="middle-nav">
+                <a href="signup.html"><div class="nav-item">Signup</div></a>
+                <a href="login.html"><div class="nav-item">Login</div></a>
+                <a href="create.html"><div class="nav-item">Create</div></a>
+                <a href="list.html"><div class="nav-item">List</div></a>
+                <a href="details.html"><div class="nav-item">Detail</div></a>
+            </div>
+        </header>
+        <div class="sidebar">
+            <div class="item">Create Employee</div>
+            <div class="item item-active">List Employee</div>
+            <div class="item">Details Employee</div>
+        </div>
+        <div class="body-container">
+            <div class="section">
+                <div class="section-head-txt-wrap">
+                    <span class="section-head-txt">Employees</span>
+                </div>
+                <form>
+                    <div class="form-wrap">
+
+                        <div class="form-content">
+
+                            <table class="employee-table">
+                                <tr>
+
+                                    <td>
+                                        <div class="profile-image"><img src="img/round_person_black_18dp.png"></div>
+                                    </td>
+                                    <td>
+                                        <ul type="none">
+                                            <li class="employee-name">John Doe</li>
+                                            <li class="employee-code">INT000</li>
+
+                                        </ul>
+
+                                    </td>
+
+                                    <td>
+                                        <ul type="none">
+                                            <li>Designation:Manager</li>
+                                            <li>Department:Engineer</li>
+                                            <li>Joined:10/09/2019</li>
+                                            <li>Reporting Manager:Manager</li>
+                                        </ul>
+
+                                    </td>
+                                    <td><ul type="none">
+                                        <li>Email : john.doe@example.com</li>
+                                        <li>Phone No : 0120-1234567</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <img class="employee-edit-icon" src="img/baseline_edit_black_18dp.png">
+                                        <img class="employee-delete-icon" src="img/baseline_delete_black_18dp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>
+                                        <div class="profile-image"><img src="img/round_person_black_18dp.png"></div>
+                                    </td>
+                                    <td>
+                                        <ul type="none">
+                                            <li class="employee-name">John Doe</li>
+                                            <li class="employee-code">INT000</li>
+
+                                        </ul>
+
+                                    </td>
+
+                                    <td>
+                                        <ul type="none">
+                                            <li>Designation:Manager</li>
+                                            <li>Department:Engineer</li>
+                                            <li>Joined:10/09/2019</li>
+                                            <li>Reporting Manager:Manager</li>
+                                        </ul>
+
+                                    </td>
+                                    <td><ul type="none">
+                                        <li>Email : john.doe@example.com</li>
+                                        <li>Phone No : 0120-1234567</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <img class="employee-edit-icon" src="img/baseline_edit_black_18dp.png">
+                                        <img class="employee-delete-icon" src="img/baseline_delete_black_18dp.png">
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <script>
+            document.getElementsByClassName("hamburger-btn")[0].onclick = function(){
+                if(document.getElementsByClassName("sidebar")[0].style.left == '0px'){
+                    document.getElementsByClassName("sidebar")[0].style.left = '-250px';
+                }
+                else{
+                    document.getElementsByClassName("sidebar")[0].style.left = '0px';}
+            }
+        </script>
+    </body>
+</html>
