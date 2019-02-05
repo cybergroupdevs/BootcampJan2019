@@ -1,1 +1,0 @@
-https://shruticalculator.netlify.com/
