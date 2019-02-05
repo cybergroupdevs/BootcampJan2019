@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create User</title>
+       <meta charset="utf-8">
+       <meta name="description" content="This is Employee Registration form">	
+       <link href="css/createuser.css" rel="stylesheet" type="text/css">
+       <script src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+	</head>
+<body>
+		
+</div>
+<div class="header">
+	<img src="images/cyg_logo.jpg" alt="">
+	<div class="wel_text">Welcome To Cyber Group India</br>
+		
+	</div>
+</div>
+<div id="nav_bar">
+	<div class="nav_items">
+		<ul>	
+			<a href="homepage.html"><button type="button" class="nav_btn">Home</button></a>
+			<a href="user list.html"><button type="button" class="nav_btn">Show List</button></a>
+			<div class="dropdown">
+				<button type="button" class="nav_btn">My Account</button></a>
+				<div class="dropdown-content">
+					
+					<li><a href="index.html">Log Out</a></li>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+<div class="label_box">
+	<h1 class="label_text">Update Employee's Information</h1>
+</div>
+<div class="bigbox"> 
+	     
+		<p class="box_text">Employee's (User id ) : </p> 
+		<input type="text" class="input_box" id="userid" placeholder="USER ID"></br>
+		<p class="box_text">Employee's code ID : </p> 
+		<input type="text" class="input_box" id="EmployeeID" placeholder="Employee ID"></br>
+		<p class="box_text">Employee's First Name : </p> 
+		<input type="text" class="input_box" id="Firstname" placeholder="First Name"></br>
+		<p class="box_text">Employee's Surname : </p> 
+		<input type="text" class="input_box" id="Surname" placeholder="Surname"></br>
+		<p class="box_text">Date of Birth : </p> 
+		<input type="date" id="Dob" class="DOB" name="DOB" placeholder="Date of Birth" value=""></br>
+		<p class="box_text">Gender : </p> 
+		<select required="required" id="Gender" class="gender" name="Gender">
+			<option value="gender">Gender</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+			<option value="Other">Other</option>
+		</select></br>
+		<p class="box_text">Cyber Group Profile : </p> 
+		<select required="required" autofocus name="profilerank" id="Designation" class="designation">
+			<option value="Default">Cyber Group Profile</option>
+			<option value="Intern">Intern</option>
+			<option value="Trainee">Trainee</option>
+			<option value="Consultant">Consultant</option>
+			<option value="Engineer">Engineer</option>
+			<option value="Senior Developer">Senior Developer</option>
+			<option value="Human Resource">Human Resource</option>
+		</select></br>		
+		<p class="box_text">Address : </p> 
+		<input type="text" class="address_box" id="Address" placeholder="Employee's Address . . . "></p>
+		<button type="submit" class="update_btn" onclick="CreateUser()"> Add Employee </button></br>
+		
+</div>
+<div id="footer">
+Copyright All rights reserved © 2017
+</div> 
+<script>
+    function CreateUser(){	
+		var userid=document.getElementById("userid").value;
+		var userId= userid.valueOf();
+	var employeeid = document.getElementById("EmployeeID").value;
+	var empid=employeeid.valueOf();
+	var firstname = document.getElementById("Firstname").value;
+	var fname=firstname.valueOf();
+	var lastname = document.getElementById("Surname").value;
+	var lname=lastname.valueOf();
+	
+	
+	var dob = document.getElementById("Dob").value;
+	var gender = document.getElementById("Gender").value;
+	var sex=gender.valueOf();
+	var designation = document.getElementById("Designation").value;
+	var profile=designation.valueOf();
+	var address = document.getElementById("Address").value;
+	
+			var datafor_Employee={
+								"id": userId,
+								"empid": empid,
+								"firstname":fname,
+								"lastname":lname,
+								"DOB":dob, 
+								"Gender": sex,
+								"Designation": profile,
+								"Adress": address,
+								};
+						$.ajax({
+							url: 'http://localhost:49504/api/EMPLOYEEs',
+							data: datafor_Employee,
+							type: 'POST',
+							dataType: 'json', 
+							error: function(e)
+							{
+								console.log(e);
+							},
+							success: function(response){ 
+													alert("User have been successfully added");
+													console.log("New Employee has been addeed");
+													window.location="userlist.html";
+													}	
+								});
+};
+
+
+
+	
+</script>
+</body></html>
