@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+    <title> Details List</title>
+      <link rel="stylesheet" href="list.css">
+      <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+                                 
+</head>
+<script>
+    $(document).ready(function(){
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:61666/api/Pinfoes',
+        success: function(data) {
+        var table = document.getElementById("ListTable");
+        
+
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:61666/api/Pinfoes',
+            success: function(SignUpData) {
+                
+                for(i=0; i<data.length;i++){
+                    $('#ListTable').append(
+                        '<tr><td id = "SerialNo">' + (i+1) +
+                      
+                        '</td><td id = "Name">' + data[i].Name + 
+                        '</td><td id = "Designation">' + data[i].Designation + 
+                       '</td><td id = "Eid"><a  href = "details.html?id=' + data[i].Eid + '">' + data[i].Eid + '</a>' +
+                        
+                       
+                        '</td><td id = "PhoneNo">' + data[i].Mobile + 
+                        '</td></tr>'  
+                    
+                     
+                    );
+                }
+            }
+        });
+         }
+    });
+});
+
+</script>
+<body>
+   <div class='header'>
+            <div class='header-image'>
+                    <img src='https://hrms.cygrp.com/content/images/logo.png' class='header-logo'>
+            </div>
+        
+        <ul class='nav'>
+            
+            <li><a href='index.html'>Logout</a></li>
+            <li><a href='signup.html'>Signup</a></li>
+            <li><a href='create.html'>Create</a></li>
+        </ul>
+
+       
+    </div>
+    <h1>List of Employees</h1>
+       
+        <table class = "nav1" id ="ListTable" >
+            
+        
+            <tr>
+                <th>S.NO</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Eid</th>
+                <th>Contact</th>
+            </tr>
+                       
+            
+        
+       
+    </table>
+    </div>
+
+</body>
+
+</html>
