@@ -33,18 +33,19 @@ if(pass1 == pass2 && licence == 1 ){
 								"Id": empid,
 								"Email": mail,
 								"password": pass1,
-								"Terms": licence,
+								"Terms": licence
 								},
 								"EducationDetail":{
-								"GraduationDegree": "Not Specified",
-								"GraduationMarks": 0,
 								"Id": empid,
 								"TenthBoard": "Not Specified",
 								"Tenthmarks": 0,
 								"Twelfthboard": "Not Specified",
-								"Twelfthmarks": 0,	
-										},
+								"Twelfthmarks": 0,
+								"GraduationDegree": "Not Specified",
+								"GraduationMarks": 0
+										}
 								};
+								console.log(datafor_EmployeeDetail);
 						$.ajax	({
 							url: "http://localhost:50052/api/EmployeeDetail",
 							data: datafor_EmployeeDetail,
