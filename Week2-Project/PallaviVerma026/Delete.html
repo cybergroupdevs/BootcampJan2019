@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html>
+  <head> 
+   <title> retieval page </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" type="text/css" href="Delete.css">
+ 
+  </head> 
+    
+   <body>
+      <header> 
+       <div class="img"> 
+       <img src=".\logo.png"> 
+       </div>   
+      </header>
+ 
+       <div class="btn-group">
+          <a href=".\createtry.html" ><button class="button"> Add New Employee?</button> </a>
+          <a href=".\ListEmp.html" ><button class="button">List All</button> </a>
+          <button class="button" onclick="update()">Update</button>
+       </div>
+       
+      <div class="container">
+       <label><b>Enter Employee ID</b></label>
+       <input type="text" id="emp_id"> <br>
+       <button class="del" onclick="delt()">Delete</button>
+      </div>    
+    
+   <footer>
+       Copyright All Rights Reserved © 2017      
+   </footer>
+ </body>    
+         
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+    
+<script type="text/javascript">
+
+    function delt() 
+      {
+        var ide= document.getElementById("emp_id").value;
+        var Url='http://localhost:52598/api/Employees/';
+        Url=Url+ide;
+  
+          $.ajax ({
+            url:Url,
+            type: 'DELETE',
+            dataType: 'json',
+            success: function(res) {
+            console.log(res);
+            alert("Employee Deleted");
+                                }
+                  });
+      }
+   
+
+  </script>
+</html>
