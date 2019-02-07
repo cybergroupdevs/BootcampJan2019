@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <title>Create FORM </title>
+
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <style>
+
+             .abc{
+                    text-align: center;
+                }
+            .footer{
+                    width: 10px;
+                    height: 10px;
+                }
+            .well{
+                    text-align: center;
+                    background-color: lavender;
+                    border-width: 10px; 
+                }
+     
+    
+        </style>
+
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header class="abc">
+            <strong>
+            <h1>
+                Cyber Group Create Page
+                    <br><br>
+            </h1>
+
+            <a class="link" href="./List.html">Details</a>
+            <a class="link" href="./retrieve.html">Retrieve</a>
+            <a class="link" href="#">Home</a>
+            <a class="link" href="#">About</a>
+            <a class="link" href="#">Contact</a>
+            <a class="link" href="#">Log Out</a>
+             </strong>
+
+             <hr size="1px" color="black"><br><br>
+        </header>
+
+        <div class= "container-fluid">
+        <div class="col-sm-12">
+        <div class="well well-lg">
+        
+        <form>
+            <label>First Name
+                <input type="text" placeholder="First Name" id="fname">
+            </label>
+            <br>
+            <br>
+            
+            <label>Last Name
+            <input type = "text" placeholder="Last Name" id="lname"><br><br>
+            </label><br>
+            
+            <label>Employee ID
+            <input type = "number" placeholder="Employee Id" id="EmployeeId"><br><br>
+            </label><br>
+    
+            <label>Date-Of-Birth:
+            <input type = "date" placeholder="Enter D.O.B" id="dob"><br><br>
+            </label><br>
+                
+            <label>Email-Address
+            <input type = "text" placeholder="Enter Email-Id" id="email"><br><br>
+            </label><br>
+
+            <label>Address
+            <input type = "text" placeholder="Enter Address" id="address"><br><br>
+            </label><br>
+                    <br>
+            
+            <label>PhoneNo.
+            <input type = "number" placeholder="Enter PhoneNo" id="Phone"><br><br>
+            </label><br><br>
+
+            <label>Comments
+            <textarea rows="4" cols="50" name="comment" form="usrform" id="Comments" placeholder="enter"></textarea>
+            </label><br>
+
+            <btn class="btn-success">
+            <button type="button" onclick="submission()">Submit</button></btn>
+            <br>
+            <br>
+            <input type="checkbox">Remember Me
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            </form>
+        </div>
+        </div>
+        </div>
+             <footer>  All rights reserved<br>
+                <div class="footer">
+            
+                <img src="./logo.png" height= 100px width=250px>
+            
+                 </div>
+                 </footer>
+
+    </body>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+        
+
+        <script>
+            function submission(){
+            var id= document.getElementById("EmployeeId").value;
+                
+
+            var fname= document.getElementById("fname").value;
+
+            var lname= document.getElementById("lname").value;
+
+            var email= document.getElementById("email").value;
+
+            var comments= document.getElementById("Comments").value;
+
+            
+                  
+            var dob = document.getElementById("dob").value;  
+            
+            var phoneno =document.getElementById("Phone").value;
+
+
+
+            var dataToSend={
+                    "FirstName": fname,
+                    "LastName": lname,
+                    "EmployeeId": id,
+                    "Date_of_birth": dob,
+                    "Email_Address": email,
+                    "PhoneNo": phoneno,
+                    "Comments": comments    
+            }
+            $.ajax({
+                url: 'http://localhost:57389/api/desigs',
+
+                data: dataToSend,
+
+                type:'POST',
+
+                dataType:'json',
+
+                success:function(res){
+
+                    console.log("hello "+res);
+
+                    alert("table updated");
+
+                }
+
+
+
+            });
+
+
+
+              }
+
+        </script>
+
+</html>
