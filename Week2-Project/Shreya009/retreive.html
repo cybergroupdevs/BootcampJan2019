@@ -49,35 +49,55 @@
                           document.getElementById("exp").value=Data.Experience;    
                     }
          });
-
         
-         
         
-       
-          $("#puto").click(function(){
+        
+         function put1(){
         var change = {
-            "FName": FName.value,
-            "LName": LName.value,
-            "ID": ID.value,
-            "EmailID": EmailID.value,
-            "Number": Number.value,
-        }
-                
+            "FName": document.getElementById("FName").value,
+            "LName": document.getElementById("LName").value,
+            "ID":document.getElementById("ID").value,
+            "EmailID": document.getElementById("EmailID").value,
+            "Number":document.getElementById("Number").value,
+        }  
         $.ajax({
             type: 'PUT',
             url: 'http://localhost:51442/api/SignUps/'+UserId,
             data: change,
-            
+            dataType : "json",
             success: function(data) {
                 alert("User Info Updated !!")
                 location.replace("list.html");
             }
         });
-          });
-   
-        
-         $("#delo").click(function(){ 
+          }
+              
+           function put2(){
+        var change = {
+            "Designation": document.getElementById("des").value,
+            "Qualification": document.getElementById("qual").value,
+            "Experience":document.getElementById("exp").value,
+        }  
         $.ajax({
+            type: 'PUT',
+            url: 'http://localhost:51442/api/Profiles/'+UserId,
+            data: change,
+            dataType : "json",
+            success: function(data) {
+                alert("User Info Updated !!")
+                location.replace("list.html");
+            }
+        });
+          }
+            
+        
+        
+              function Delete(){ 
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://localhost:51442/api/Profiles/'+UserId,
+            success: function(data) {                
+             $.ajax({
             type: 'DELETE',
             url: 'http://localhost:51442/api/SignUps/'+UserId,
             success: function(data) {                
@@ -86,7 +106,19 @@
                 location.replace("list.html");
             }
         });
-    });
+                  
+    }
+        });
+                  
+    }
+        
+            
+            
+            
+        
+   
+        
+      
         
              
         </script>    
@@ -119,8 +151,9 @@
 <input class="formmid" type="number" id="Number">
 <br>
 <br>
-<input type="button"  value="Update"  id="puto">
-<input type="button"  value="Delete" id="delo" />
+      
+        <input type="button"  value="Update"  onclick="put1();" class="putbtn">
+      
 <br>
 <br>
 <input class="formmid" type="text" id="des">
@@ -132,8 +165,10 @@
 <input class="formmid" type="text" id="exp">
 <br>
             <br>
-            <input type="button" onclick="put2()" value="Update"  id="puto"/>
-<input type="button"  value="Delete" id="del2" />
+            <input type="button" value="Update"  id="put2();" class="putbtn"/>
+            <br>
+            <br>
+<input type="button"  value="Delete"  onclick="Delete();" class="deletebtn"/>
             </form>
 
 
