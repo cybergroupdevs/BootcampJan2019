@@ -41,9 +41,7 @@ body
 }
 */
 
-.btns{
-    
-}
+
 
 input[type=text], input[type=password] ,input[type=number],input[type=date]
 {
@@ -65,36 +63,6 @@ input[type=text]:focus, input[type=password],input[type=number],input[type=date]
 { 
     background: black;
 }
-#fetch
-{
-     cursor: pointer;
-    background-color: cadetblue;
-    color: white;
-     margin: 8px;
-       padding: 12px;
- 
-}
-
-
-#save
-{
-   padding: 12px;
-   position:relative;;
-   left: 75%;
-   margin: 8px;
-   width: 10%;
-   text-align: center;    
-   font-size: 16px;
-   
-   box-shadow: 20px;
-   cursor: pointer;
-    background-color: cadetblue;
-    color: white;
-   
-}
-
- 
-
 #fill
 {
     position: relative;
@@ -112,6 +80,28 @@ input[type=text]:focus, input[type=password],input[type=number],input[type=date]
     
 
  }
+
+
+#save
+{
+   padding: 12px;
+   position:absolute;
+   left: 86%;
+   margin: 8px;
+   width: 10%;
+   text-align: center;    
+   font-size: 16px;
+   
+   box-shadow: 20px;
+   cursor: pointer;
+    background-color: cadetblue;
+    color: white;
+   
+}
+
+ 
+
+
 
 
     
