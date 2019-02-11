@@ -4,8 +4,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Create Page</title>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		 
 	</head>
 	<body>
+                
+
 			<header><img src="logo.png"> 
 				<a class="link" href="#">Home</a>
 				<a class="link" href="#">About</a>
@@ -15,33 +18,110 @@
 		<div class="h3">
 	<h3>Enter the following credentials:</h3></div><br>
 		<div class="main_area">
-			<form action="/register.php">  
+			<form>  
 			<div class="container">
 			
-    			<input class="input" type="text" placeholder="First Name" name="fname" required>
-			<input type="text" class="input" placeholder="Last Name" name="lname" required><br>
+    			<input class="input" type="text" placeholder="First Name" name="fname" id="fname" required>
+			<input type="text" class="input" placeholder="Last Name" name="lname" id="lname" required><br>
 
-			<input type="email" class="input" placeholder="Email Id" name="email" required><br>
+			<input type="email" class="input" placeholder="Email Id" name="email" id="email" required><br>
 
-            <input type="text" class="input" placeholder="Designation" name="designation" required><br>
+            <input type="text" class="input" placeholder="Designation" name="designation" id="designation"required><br>
             
-            <input class="input" type="text" placeholder="CGI Code" name="cgi" required><br>
+            <input class="input" type="text" placeholder="CGI Code" name="cgi" id="cgi" required><br>
 
-			<input type="text" placeholder="Highest Qualification" class="input" name="highest_qualification" required><br>
+			<input type="text" placeholder="Highest Qualification" class="input" id="highest_qualification" name="highest_qualification" required><br>
 			
-			<input type="number" placeholder="Work Experience" name="experience" class="input" required><br>
+			<input type="number" placeholder="Work Experience" name="experience" class="input" id="experience" required><br>
 
-			<input type="text" placeholder="Previous Organisation" name="previous_organisation" class="input" required><br>
+			<input type="text" placeholder="Project" name="project" class="input" id="project"required><br>
 
-    		<a href = "list_page.html" type="button" class="link2">Submit</a>	
-  			</div>
+    		</div>
+              
+                </form>
+                 <button class="link2" onclick="submission();" id="submission">Submit</button>	
 
-			  
-    			
-            </div>
-			</form>
-		  </div>
-		  
-			
+  			
+		  		  </div>
+
+
 	</body>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+        
+
+        <script>
+            function submission(){
+            var id= document.getElementById("cgi").value;
+                
+
+            var fname= document.getElementById("fname").value;
+
+            var lname= document.getElementById("lname").value;
+
+            var email= document.getElementById("email").value;
+
+            var designation= document.getElementById("designation").value;
+
+            
+                  
+            var qual = document.getElementById("highest_qualification").value;  
+            
+            var project = document.getElementById("project").value;
+
+
+
+            var dataToSend={
+
+            "ID": id,
+                
+            "First_Name": fname,
+                
+            "Last_Name": lname,
+                
+            "E_mail": email,
+                
+            "Qualification": qual,
+                
+            "Project": project,
+                
+            "Designation": designation
+
+            }
+
+            
+
+            
+
+            $.ajax({
+                url: 'http://localhost:60066/api/CyberEmployees',
+
+                data: dataToSend,
+
+                type:'POST',
+
+                dataType:'json',
+
+                success:function(res){
+
+                    console.log(res);
+
+                    alert("table updated");
+
+                }
+
+
+
+            });
+
+
+
+              }
+
+        </script>
+
+        
 </html>

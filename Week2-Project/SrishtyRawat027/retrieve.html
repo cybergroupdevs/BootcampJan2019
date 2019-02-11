@@ -4,19 +4,149 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Employee Details:</title>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<script type="text/javascript"
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+  </script>
+  <script type="text/javascript">
+    var empdata={};
+    var id=0;
+    var Url='http://localhost:60066/api/CyberEmployees/';
+      
+      
+    
+     function getData()
+    { 
+      id=document.getElementById("cgi").value;
+      Url='http://localhost:60066/api/CyberEmployees/';
+     Url=Url+ id ;
+      $.ajax({
+            url: Url,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            empdata=res;
+            alert("Employee Found");
+              }
+        });
+    }
+       function fill() 
+    {
+    document.getElementById("cgi").value = empdata["ID"];
+		document.getElementById("fname").value = empdata["First_Name"];
+		document.getElementById("lname").value = empdata["Last_Name"];
+		document.getElementById("email").value = empdata["E_mail"];
+		document.getElementById("highest_qualification").value = empdata["Qualification"];
+		document.getElementById("project").value = empdata["Project"];
+		document.getElementById("designation").value = empdata["Designation"];
+    }
+    
+    function submitit() {
+      var id = document.getElementById("cgi").value;
+      var FName = document.getElementById("fname").value;
+      var LName = document.getElementById("lname").value;
+      var email = document.getElementById("email").value;
+      var qual = document.getElementById("highest_qualification").value;
+      var project = document.getElementById("project").value;
+      var desig = document.getElementById("designation").value; 
+      
+      var datatosend = {
+      "Id": id,
+      "First_Name":FName,
+      "Last_Name":LName,
+      "E_mail":email,
+      "Qualification":qual,
+      "Project":project,
+      "Designation":desig
+          }
+
+      $.ajax({
+            url: Url,
+            type: 'PUT',
+            dataType: 'json',
+            data: datatosend,
+            success: function(res){
+            console.log(res);      
+            alert("Employee updated");  
+        }
+        });
+    }
+   function deleted()
+      {
+        
+        document.getElementById("cgi").value = ""
+		document.getElementById("fname").value = ""
+		document.getElementById("lname").value = ""
+		document.getElementById("email").value = ""
+		document.getElementById("highest_qualification").value = ""
+		document.getElementById("project").value = ""
+		document.getElementById("designation").value = ""
+    
+       Url="http://localhost:60066/api/CyberEmployees/";
+          id=document.getElementById("cgi").value;
+          Url=Url+id;
+          
+           $.ajax({
+            url: Url,
+            type: 'DELETE',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);      
+            alert("Employee updated");  
+        }
+        });
+          
+
+      }
+    function reset()
+    {
+
+		 document.getElementById("cgi").value = ""
+		document.getElementById("fname").value = ""
+		document.getElementById("lname").value = ""
+		document.getElementById("email").value = ""
+		document.getElementById("highest_qualification").value = ""
+		document.getElementById("project").value = ""
+		document.getElementById("designation").value = ""
+    
+    Url="http://localhost:60066/api/CyberEmployees/";
+
+    }
+      
+      
+      
+      
+        </script>
 	</head>
 	<body>
 	<div class="detail">
 	<h3>User details</h3><br>
-	<div class="retrieve">
-	<label>First Name:</label><span class="text">Alexa</span><br>
-	<label>Last Name:</label><span class="text">Andrew</span><br>
-	<label>Email ID:</label><span class="text">alexa.andrew@cygrp.com</span><br>
-	<label>Designation:</label><span class="text">Consultant-1</span><br>	
-	<label>CGI Code:</label><span class="text">INT001</span><br>
-	<label>Highest Qualification:</label><span class="text">M.Tech.</span><br>
-	<label>Work Experience:</label><span class="text">4</span><br>
-	<label>Previous Organisation:</label><span class="text">ABC organisation</span><br>
-	</div></div>
+	<div class = "main_area">
+	<div class="container">
+			
+            <label for="cgi">CGI Code:</label><br>
+            <input class="input" type="text" placeholder="CGI Code" name="cgi" id="cgi"  >
+            <button onclick="getData()">Get Data</button>
+            <button onclick="fill()">Fill Data</button><br><br>
+            <label for="fname" >First Name:</label><br>
+            <input class="input" type="text" placeholder="First Name" name="fname" id="fname" ><br>
+            <label for="lname">Last Name:</label><br>
+			<input type="text" class="input" placeholder="Last Name" name="lname" id="lname" ><br>
+			<label for="email">Email-Id:</label><br>
+			<input type="email" class="input" placeholder="Email Id" name="email" id="email" ><br>
+			<label for="designation">Designation:</label><br>
+            <input type="text" class="input" placeholder="Designation" name="designation" id="designation"><br>
+        	<label for="highest_qualification">Qualification:</label><br>
+            <input type="text" placeholder="Highest Qualification" class="input" id="highest_qualification" name="highest_qualification" ><br>
+			<label for="project">Project:</label><br>
+			<input type="text" placeholder="Project" name="project" class="input" id="project"><br>
+            
+            <button onclick="submitit()">Submit</button>
+            <button onclick="deleted()">Delete</button>
+            <button onclick="reset()">Clear</button>
+
+    		</div></div></div>
 	</body>
 </html>
