@@ -14,19 +14,24 @@
         
         <div class="loginBox">
             <h2>Create A New Account</h2>
-            <form>
+            <form name="MyForm" onsubmit="return validation()">
                 <p>Name</p>
-                <input type="text" name="" placeholder="Name">
+                <input type="text" name="" placeholder="Name" id="name">
+                <span id="name"></span>
                 
                  <p>Employment Id</p>
-                <input type="text" name="" placeholder="EMP000"> 
+                <input type="text" name="" placeholder="EMP000" id="employmentid"> 
+                <span id="employmentid"></span>
                 <p> Email </p>
-                <input type="text" name="" placeholder="abc@cygrp.com">
+                <input type="text" name="" placeholder="abc@cygrp.com" id="email">
+                <span id="email"></span>
                 <p> Password </p>
-                <input type="password" name="" placeholder="••••••••">
+                <input type="password" name="" placeholder="••••••••" id="password">
+                 <span id="password"></span>
                 <p>Confirm Password </p>
-                <input type="password" name="" placeholder="••••••••">
-               <br><br>
+                <input type="password" name="" placeholder="••••••••" id="confirmpassword">
+                <span id="confirmpassword"></span>
+                <br><br>
                 <a href="EnterDetails.html"><input type="button" name="" value="Submit"></a><br>
                  
 
@@ -36,5 +41,6 @@
             <source src="Background12.mp4" type="video/mp4">
             you have an older version  of browser
         </video>
+        <script type="text/javascript" src="SignUpPage.js"></script>
     </body>
 </html>
