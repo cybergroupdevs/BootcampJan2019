@@ -1,1 +1,0 @@
-Use this directory for Week 2 project
