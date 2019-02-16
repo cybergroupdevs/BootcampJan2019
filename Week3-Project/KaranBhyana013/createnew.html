@@ -7,7 +7,7 @@
         <link   rel="stylesheet" href="home.css">
     <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--script   src="home.js"></script-->
+
 </head>
 <body   >
        <header>
@@ -29,7 +29,7 @@
       <li class="nav-item">
         <a class="nav-link" href="createnew.html">Create New Employee</a>
       </li>
-     <li class="nav-item">
+        <li class="nav-item">
         <a class="nav-link" href="er.html">Er Diagram</a>
       </li>
 
@@ -37,9 +37,8 @@
   </div>
 </nav>
 </header>
-    
-    <div class="container">
-    <h1>Edit Profile</h1>
+    <div class="container form-group">
+    <h1>New Profile</h1>
   	<hr>
 	<div class="row">
       <!-- left column -->
@@ -57,7 +56,7 @@
         <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a> 
           <i class="fa fa-coffee"></i>
-          Please update the <strong>details</strong>.
+          Please fill the <strong>details</strong> of the Employees to proceed further.
         </div>
         <h3>Personal info</h3>
         
@@ -65,7 +64,7 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
-              <input class="form-control" id ="name" type="text" value="Jane" >
+              <input class="form-control" id ="name" type="text" placeholder="Name" >
             </div>
           </div>
           <div class="form-group">
@@ -80,54 +79,56 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Contact Number:</label>
             <div class="col-lg-8">
-              <input class="form-control" id ="Phone"type="text" value="">
+              <input class="form-control" id ="Phone"type="number" placeholder="Phone No." >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" id = "email"type="text" value="janesemail@gmail.com" >
+              <input class="form-control" id = "email"type="text" placeholder="Email" >
             </div>
           </div>
         
           <div class="form-group">
             <label class="col-md-3 control-label">Employee ID:</label>
             <div class="col-md-8">
-              <input class="form-control" id="Id" type="text" value="" disabled>
+              <input class="form-control" id="Id" type="text" placeholder="Automatically Assigned" disabled >
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Age:</label>
             <div class="col-md-8">
-              <input class="form-control" id="age" type="number" value="" >
+              <input class="form-control" id="age" type="number" placeholder="Age" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Gender</label>
-            <div class="col-md-8">
-                <select  class="form-control" id ="gender"name="gender"><option disabled selected hidden>Gender</option>
+              <div class="col-md-8">
+              <select  class="form-control" id="gender" name="gender" >
+            <option disabled selected hidden>Gender</option>
             <option  value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
             </select>
+            
+              <!--input class="form-control" id="gender" type="Text" placeholder="Male" -->
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" onclick = "savechanges();" value="Save Changes">
+              <input type="button" class="btn btn-primary" onclick = "createnew();" value="Create New">
               <span></span>
               <input type="reset" class="btn btn-default" onclick = 'cancel();' value="Cancel">
-            <input type="reset" class="btn btn-default" onclick="ConfirmDelete();" value="Delete Entry">
             </div>
           </div>
         </form>
       </div>
   </div>
 </div>
-
-
-    <!-- Footer -->
+<hr>
+    
+ <!-- Footer -->
 <footer class="page-footer font-small blue">
 
 
@@ -147,10 +148,7 @@
 </footer>
 </body>
 </html>
-
-    <script src="update.js" >
-
-    </script>
+<script src="createnew.js" ></script>
     <script data-brackets-id='7429' src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
