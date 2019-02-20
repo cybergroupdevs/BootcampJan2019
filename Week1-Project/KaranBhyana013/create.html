@@ -1,0 +1,225 @@
+<!doctype html>
+<html  >
+<head  >
+        <meta    charset="utf-8">
+        <meta    name="viewport" content="width=device-width, initial-scale=1.0">
+        <title  >Sign Up Form</title>
+        <link   rel="stylesheet" href="home.css">
+    <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script   src="home.js"></script>
+</head>
+<body   >
+    <nav class="navbar bg-dark navbar-dark ">
+      <!-- Brand -->
+      <a    class="navbar-brand" href="#" >
+        <img    src="logo.png" width="100" height="45">
+      </a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button    class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span   class="navbar-toggler-icon"></span>
+      </button>
+        
+      <!-- Navbar links -->
+      <div   class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul    class="navbar-nav">
+          <li    class="nav-item">
+            <a    class="nav-link" href="index.html">Signout</a>
+          </li>
+          <li    class="nav-item">
+            <a    class="nav-link" href="create.html">Create Page</a>
+          </li>
+          <li    class="nav-item">
+            <a    class="nav-link" href="home.html">List Page</a>
+          </li> 
+        </ul>
+          
+      </div> 
+    </nav>
+    
+    <div class="container">
+    <h1>Edit Profile</h1>
+  	<hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          
+          <input type="file" class="form-control">
+        </div>
+      </div>
+      
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">×</a> 
+          <i class="fa fa-coffee"></i>
+          Please fill the <strong>details</strong> to proceed further.
+        </div>
+        <h3>Personal info</h3>
+        
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">First name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="Jane" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="Bishop" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Contact Number:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="number" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="janesemail@gmail.com" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Time Zone:</label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <select id="user_time_zone" class="form-control">
+                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                  <option value="Alaska">(GMT-09:00) Alaska</option>
+                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                  <option value="Arizona">(GMT-07:00) Arizona</option>
+                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Employee Code:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="janeuser">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" value="11111122333" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Gender</label>
+            <div class="col-md-8">
+              <input class="form-control" type="Text" value="Male" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="button" class="btn btn-primary" onclick = "location.href='home.html'" value="Save Changes">
+              <span></span>
+              <input type="reset" class="btn btn-default" onclick = cancel(); value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>
+    
+<footer data-brackets-id='7397' class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div data-brackets-id='7398' class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div data-brackets-id='7399' class="row">
+
+        <!-- Grid column -->
+        <div data-brackets-id='7400' class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 data-brackets-id='7401' class="text-uppercase">All Pages:</h5>
+          <p data-brackets-id='7402'> </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr data-brackets-id='7403' class="clearfix w-100 d-md-none pb-3">
+
+ 
+
+          <!-- Grid column -->
+          <div data-brackets-id='7415' class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 data-brackets-id='7416' class="text-uppercase">Links</h5>
+
+            <ul data-brackets-id='7417' class="list-unstyled">
+              <li data-brackets-id='7418'>
+                <a data-brackets-id='7419' href="index.html">Login</a>
+              </li>
+              <li data-brackets-id='7420'>
+                <a data-brackets-id='7421' href="signup.html">Signup</a>
+              </li>
+              <li data-brackets-id='7422'>
+                <a data-brackets-id='7423' href="create.html">Edit Details</a>
+              </li>
+              <li data-brackets-id='7424'>
+                <a data-brackets-id='7425' href="home.html">List OF employees</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div data-brackets-id='7426' class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a data-brackets-id='7427' href=""> </a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+    <script  >
+    //document.getElementById("hey").disabled = true;
+$(document).ready(function(){
+   function cancel() {
+  alert("Fill in the Details to proceed or signout!");
+}
+        function checkform()
+{
+    var f = document.forms["theform"].elements;
+    var cansubmit = true;
+
+    for (var i = 0; i < f.length; i++) {
+        if (f[i].value.length == 0) cansubmit = false;
+    }
+
+    if (cansubmit) {
+        document.getElementById('submitbutton').disabled = false;
+    }
+    else {
+        document.getElementById('submitbutton').disabled = 'disabled';
+    }
+}
+}
+    </script>
+    <script   src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    

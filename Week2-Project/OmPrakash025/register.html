@@ -1,0 +1,156 @@
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cyber Group India | Register</title>
+        <link rel="stylesheet" href="css/registercss.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    
+      <script type="text/javascript">
+      function setEmployee(){
+        regData = { 
+            "Logins": [],
+            "Name": $('#name').val(), 
+            "Email": $('#mail').val(), 
+            "PhoneNumber": $('#phone').val(), 
+            "FathersName": $('#fname').val(),  
+            "MothersName": $('#mname').val(), 
+            "DOB": Format($('#user_dob').val(), "yyyy/mm/dd"), 
+            "Gender": $('#gender').val(), 
+            "BloodGroup": $('#blood').val(),    
+            "Qualification": $('#qualif').val(), 
+            "Nationality": $('#nationality').val(), 
+            "AadharNumber": $('#aadhar').val(), 
+            "PanNumber": $('#pan').val(), 
+            "Bio": $('#bio').val(), 
+            "JobRole": $('#job').val() 
+           };
+        $.ajax({
+           type : "POST",
+           url : "http://localhost:50191/api/Employees/", 
+            
+           dataType : "json",
+           data : regData, debugger;
+            error: function(e)
+            {
+              console.log(e);  
+            },
+           success : function (msg) {
+               if (msg) {
+                   alert("Somebody" + $('#name').val() + " was added in list !");
+                   //location.reload(true);
+               } 
+               else {
+                   alert("Cannot add to list !");
+               }
+           }
+        });
+      }
+      
+      </script>
+
+  </head>
+  <body>
+     <div class="header">
+      <a href="#default" class="logo"><img src="images/logo.png" alt="Cyber Group India Limited"></a>
+      <div class="header-right">
+        <a href="dashboard.html">Home</a>
+        <a class="active" href="register.html">Register</a>
+        <a href="list.html">List People</a>
+        <a href="loginList.html">Login List</a>
+        <a href="index.html">Logout</a>
+      </div>
+     </div>
+     <form>
+        <br/>
+        <h2>Register</h2>
+        <hr/><br/>
+        <fieldset>
+          <legend><span class="number">1</span>Your basic info</legend>
+          
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="emp_name" required>
+          
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="emp_email" required>
+          
+          <label for="phone">Phone No:</label>
+          <input type="number" id="phone" name="phone" required>
+          
+          <label for="fathers_name">Father's Name:</label>
+          <input type="text" id="fname" name="father_name" required>
+          
+          <label for="mothers_name">Mother's Name:</label>
+          <input type="text" id="mname" name="mother_name" required>
+          
+          <label>DOB:</label>
+          <input type="date" name="user_dob" required>
+          
+          <label for="gender">Gender:</label>
+          <select id="gender" name="emp_gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
+          
+          <label for="blood">Blood Group:</label>
+          <select id="blood" name="emp_bgroup">
+            <option value="a+">A+</option>
+            <option value="a-">A-</option>
+            <option value="b+">B+</option>
+            <option value="b-">B-</option>
+            <option value="ab+">AB+</option>
+            <option value="ab-">AB-</option>
+            <option value="o+">O+</option>
+            <option value="o-">O-</option>
+          </select>
+          
+          <label for="qualification">Qualification:</label>
+          <input type="text" id="qualif" name="qualification" required>
+        
+          <label for="nationality">Nationality:</label>
+          <input type="text" id="nationality" name="emp_nationality" required>
+        
+          <label for="aadhar">Aadhar No:</label>
+          <input type="number" id="aadhar" name="aadhar" required>
+          
+          <label for="pan">Pan No:</label>
+          <input type="text" id="pan" name="pan" required>
+          
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Your profile</legend>
+          <label for="bio">Biography:</label>
+          <textarea id="bio" name="user_bio" required></textarea>
+         
+          <label for="job">Job Role:</label>
+          <select id="job" name="user_job">
+          <optgroup label="Web">
+            <option value="frontend_developer">Front-End Developer</option>
+            <option value="php_developor">PHP Developer</option>
+            <option value="python_developer">Python Developer</option>
+            <option value="rails_developer"> Rails Developer</option>
+            <option value="web_designer">Web Designer</option>
+            <option value="WordPress_developer">WordPress Developer</option>
+          </optgroup>
+          <optgroup label="Mobile">
+            <option value="Android_developer">Androild Developer</option>
+            <option value="iOS_developer">iOS Developer</option>
+            <option value="mobile_designer">Mobile Designer</option>
+          </optgroup>
+          <optgroup label="Business">
+            <option value="business_owner">Business Owner</option>
+            <option value="freelancer">Freelancer</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="secretary">Secretary</option>
+            <option value="maintenance">Maintenance</option>
+          </optgroup>
+          </select>
+        </fieldset>
+        <button id="reg" name="register" onclick="setEmployee();">Register</button>
+      </form>
+  </body>
+</html>
