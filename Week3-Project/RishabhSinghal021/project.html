@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/table.css">
+		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+		<script
+		src="http://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		crossorigin="anonymous">
+		
+		</script>
+		<header>
+			<div class="navi">
+				<nav>
+					<img src="logo.png" width="200px" height="80px">
+					<ul>
+						<li><a href="#" id="project">Projects</a></li>
+						<li><a>Employees</a></li>
+						<li><a href="#">Sign-out</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	</head>
+	
+	<body onload="getEmployee()">
+
+	<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Project</h4>
+        </div>
+        <div class="modal-body">
+           Name of Project : <input type="text" placeholder="Name" id="project"><br><br>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="onclick="addProject()">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+	
+	
+		<table id="mtable" align="center">
+            <tr>
+                <th colspan="2" class="th" height="65">List of Projects</th>
+				<th></th>
+				<th class="th" id="add"><button id="button" data-toggle='modal' data-target='#myModal2' >Add Project</button></th>
+            </tr>
+            <tr>
+                <th class="th">ID</th>
+                <th class="th">Name</th>
+                <th class="th">Edit</th>
+                <th class="th">Delete</th>
+            </tr>
+		</table>
+		
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Details</h4>
+        </div>
+        <div class="modal-body">
+          ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" id="projectid" value="" readonly><br><br><br>
+           Name : <input type="text" placeholder="Name" id="projectname"><br><br>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="update()">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+		
+		
+		<script src="js/project.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
