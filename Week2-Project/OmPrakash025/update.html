@@ -1,0 +1,116 @@
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cyber Group India | Register</title>
+        <link rel="stylesheet" href="css/registercss.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+        <script type="text/javascript" src="js/update.js"></script>
+  </head>
+  <body onload="loadInfo();">
+     <div class="header">
+      <a href="#default" class="logo"><img src="images/logo.png" alt="Cyber Group India Limited"></a>
+      <div class="header-right">
+        <a href="dashboard.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="list.html">List People</a>
+        <a href="loginList.html">Login List</a>
+        <a href="index.html">Logout</a>
+      </div>
+     </div>
+     <form>
+        <br/>
+        <h2>Update Info</h2>
+        <hr/><br/>
+        <fieldset>
+          <legend><span class="number">1</span>Your basic info</legend>
+          
+          <label for="Id">ID:</label>
+          <input type="text" id="uid" name="emp_id" readonly>
+          
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="emp_name" required>
+          
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="emp_email" required>
+          
+          <label for="phone">Phone No:</label>
+          <input type="number" id="phone" name="phone" required>
+          
+          <label for="fathers_name">Father's Name:</label>
+          <input type="text" id="fname" name="father_name" required>
+          
+          <label for="mothers_name">Mother's Name:</label>
+          <input type="text" id="mname" name="mother_name" required>
+          
+          <label>DOB:</label>
+          <input type="date" name="user_dob" required>
+          
+          <label for="gender">Gender:</label>
+          <select id="gender" name="emp_gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+          </select>
+          
+          <label for="blood">Blood Group:</label>
+          <select id="blood" name="emp_bgroup">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+          
+          <label for="qualification">Qualification:</label>
+          <input type="text" id="qualif" name="qualification" required>
+        
+          <label for="nationality">Nationality:</label>
+          <input type="text" id="nationality" name="emp_nationality" required>
+        
+          <label for="aadhar">Aadhar No:</label>
+          <input type="number" id="aadhar" name="aadhar" required>
+          
+          <label for="pan">Pan No:</label>
+          <input type="text" id="pan" name="pan" required>
+          
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Your profile</legend>
+          <label for="bio">Biography:</label>
+          <textarea id="bio" name="user_bio" required></textarea>
+         
+          <label for="job">Job Role:</label>
+          <select id="job" name="user_job">
+          <optgroup label="Web">
+            <option value="Front-End Developer">Front-End Developer</option>
+            <option value="PHP Developer">PHP Developer</option>
+            <option value="Python Developer">Python Developer</option>
+            <option value="Rails Developer"> Rails Developer</option>
+            <option value="Web Designer">Web Designer</option>
+            <option value="WordPress Developer">WordPress Developer</option>
+          </optgroup>
+          <optgroup label="Mobile">
+            <option value="Androild Developer">Androild Developer</option>
+            <option value="iOS Developer">iOS Developer</option>
+            <option value="Mobile Designer">Mobile Designer</option>
+          </optgroup>
+          <optgroup label="Business">
+            <option value="Business Owner">Business Owner</option>
+            <option value="Freelancer">Freelancer</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="Secretary">Secretary</option>
+            <option value="Maintenance">Maintenance</option>
+          </optgroup>
+          </select>
+        </fieldset>
+        <button id="reg" name="update" onclick="updateEmployee();">Update</button>
+      </form>
+  </body>
+</html>
