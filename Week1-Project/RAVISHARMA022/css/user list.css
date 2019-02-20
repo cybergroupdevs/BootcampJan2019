@@ -23,11 +23,10 @@ padding: 12px 0px; z-index: 1; background: #8e9eab; border-radius: 0px 20px 0px 
 .lower_text{color:#8e9eab; font-size: 16px; margin: 5px; margin-bottom:30px;}
 .input_box{margin: 3px;padding: 10px; width: 282px;border-radius: 6px;background: #C6FFDD;
 background: #8e9eab; background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);background: linear-gradient(to left, #eef2f3, #8e9eab);}
-
-
 .bigbox	{align-content: center;	width: 1100px;}
 table{padding: 10px;	margin: 10px;	margin-top: 15px;	color: white;}
-th{padding: 10px;	margin: 0px;	color: black;	border: #F29492; background: -webkit-linear-gradient(to top, #F29492, #114357); background: linear-gradient(to top, #F29492, #114357);}
+th{padding: 10px;	margin: 0px;	color: black;	border: #F29492; background: -webkit-linear-gradient(to top, #F29492, #114357);
+background: linear-gradient(to top, #F29492, #114357);}
 td{padding: 10px;	margin: 0px;	color: white;	border: 2px #403B4A;}
 tr{padding: 7px;	margin: 0px;	color: white;	border: 2px #403B4A; background-color: #403B4A;}
 tr:nth-of-type(2n+1){padding: 7px;	margin: 0px;	color:white; border: 2px solid black; background-color: #A43931;}
