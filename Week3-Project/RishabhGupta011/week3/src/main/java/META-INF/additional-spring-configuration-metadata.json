@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "jdbc.url",
+    "type": "java.lang.String",
+    "description": "A description for 'jdbc.url'"
+  },
+  {
+    "name": "jdbc.user",
+    "type": "java.lang.String",
+    "description": "A description for 'jdbc.user'"
+  },
+  {
+    "name": "jdbc.password",
+    "type": "java.lang.String",
+    "description": "A description for 'jdbc.password'"
+  }
+]}
