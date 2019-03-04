@@ -1,9 +1,12 @@
 package com.example.demo;
 
 public class Login_Credentials {
+
 int Id;
 String Email;
 String Password;
+
+
 public int getId() {
 	return Id;
 }
@@ -22,15 +25,14 @@ public String getPassword() {
 public void setPassword(String password) {
 	Password = password;
 }
-
 public Login_Credentials(int id, String email, String password) {
-	Id = id;
-	Email = email;
-	Password = password;
+	this.setId(id);	
+	this.setEmail(email);
+	this.setPassword(password);
 }
 public Login_Credentials() {
-	Id = 0;
-	Email = null;
-	Password = null;
+	super();
+	// TODO Auto-generated constructor stub
 }
+
 }
