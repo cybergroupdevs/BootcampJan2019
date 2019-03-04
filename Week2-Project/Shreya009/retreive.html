@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        create
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+         <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script>
+        
+        
+    var getUrl = function getUrl(param){
+        var pageUrl = window.location.search.substring(1);
+        var urlVariables = pageUrl.split("&");
+        var parameterName;
+        var i;
+        for(i=0; i<urlVariables.length; i++){
+            parameterName = urlVariables[i].split("=");
+            if(parameterName[0] == param){
+                return  parameterName[1] == undefined ? true : decodeURIComponent(parameterName[1]);
+            }
+        }
+    }
+
+         var UserId=getUrl("id");
+        console.log(UserId);
+        //$(#"deleteData").cli
+         $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:51442/api/SignUps/'+UserId,
+                    success: function(Data) {
+        document.getElementById("FName").value=Data.FName;
+                        document.getElementById("1name").innerHTML=Data.FName + " " +  Data.LName;
+                          document.getElementById("LName").value=Data.LName;
+                          document.getElementById("ID").value=Data.ID;
+                          document.getElementById("EmailID").value=Data.EmailID;
+                          document.getElementById("Number").value=Data.Number;     
+                    }
+         });
+        $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:51442/api/Profiles/'+UserId,
+                    success: function(Data) {
+        document.getElementById("des").value=Data.Designation;
+                          document.getElementById("qual").value=Data.Qualification;
+                          document.getElementById("exp").value=Data.Experience;    
+                    }
+         });
+        
+        
+        
+         function put1(){
+        var change = {
+            "FName": document.getElementById("FName").value,
+            "LName": document.getElementById("LName").value,
+            "ID":document.getElementById("ID").value,
+            "EmailID": document.getElementById("EmailID").value,
+            "Number":document.getElementById("Number").value,
+        }  
+        $.ajax({
+            type: 'PUT',
+            url: 'http://localhost:51442/api/SignUps/'+UserId,
+            data: change,
+            dataType : "json",
+            success: function(data) {
+                alert("User Info Updated !!")
+                location.replace("list.html");
+            }
+        });
+          }
+              
+           function put2(){
+        var change = {
+            "Designation": document.getElementById("des").value,
+            "Qualification": document.getElementById("qual").value,
+            "Experience":document.getElementById("exp").value,
+        }  
+        $.ajax({
+            type: 'PUT',
+            url: 'http://localhost:51442/api/Profiles/'+UserId,
+            data: change,
+            dataType : "json",
+            success: function(data) {
+                alert("User Info Updated !!")
+                location.replace("list.html");
+            }
+        });
+          }
+            
+        
+        
+              function Delete(){ 
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://localhost:51442/api/Profiles/'+UserId,
+            success: function(data) {                
+             $.ajax({
+            type: 'DELETE',
+            url: 'http://localhost:51442/api/SignUps/'+UserId,
+            success: function(data) {                
+                alert("User deleted !!");
+
+                location.replace("list.html");
+            }
+        });
+                  
+    }
+        });
+                  
+    }
+        
+            
+            
+            
+        
+   
+        
+      
+        
+             
+        </script>    
+        
+  
+        
+        
+</head>
+    <body>     
+        <div class="text">  
+       
+         <div class="header">
+            <img src="cg.png" align="left" height="30vh" width="100vw">
+            <a href="login.html">Login</a>&nbsp&nbsp<a href="signup.html">Sign up</a>&nbsp&nbsp<a href="create.html">Create</a>&nbsp&nbsp<a href="list.html">List</a>
+         </div>
+         <hr color=navy>
+   
+            <h3>&nbsp <p id="1name"></p></h3> 
+        <form>
+<input class="formname" type="text" id="FName">
+<input class="formname" type="text" id="LName">
+<br>
+<br>
+<input class="formmid" type="number" id="ID">
+<br>
+<br>
+<input class="formmid" type="text" id="EmailID">
+<br>
+<br>
+<input class="formmid" type="number" id="Number">
+<br>
+<br>
+      
+        <input type="button"  value="Update"  onclick="put1();" class="putbtn">
+      
+<br>
+<br>
+<input class="formmid" type="text" id="des">
+<br>
+<br>
+<input class="formmid" type="text" id="qual">
+<br>
+<br>
+<input class="formmid" type="text" id="exp">
+<br>
+            <br>
+            <input type="button" value="Update"  id="put2();" class="putbtn"/>
+            <br>
+            <br>
+<input type="button"  value="Delete"  onclick="Delete();" class="deletebtn"/>
+            </form>
+
+
+
+
+
+
+
+        <div class="footer">
+            <p>Copyright © 2019.All Rights Reserved. Terms & Conditions | Privacy Policy | Disclaimers</p>
+            </div>
+    </div>
+    </body>
+</html>
+

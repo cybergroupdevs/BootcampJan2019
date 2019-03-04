@@ -1,0 +1,130 @@
+<!DOCTYPE html> 
+<html>
+  <head> 
+    <title> create employee page </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="createtry.css">
+      
+   
+  </head> 
+
+    
+   <body>
+      <header > 
+          <div class="img"> 
+            <img src=".\logo.png"> 
+            
+          </div>   
+          
+      </header>
+       
+       <p> 
+<!--           <a href=".\ret.html" id="one"> <b> Details </b> </a> -->
+                <a href=".\ListEmp.html" id="two"> <b> List </b> </a>
+       </p> 
+       
+      <div class="container">
+     <form>
+  <h1>Create Employee</h1>
+        <br>
+    <label for="cyg_id"><b>Employee ID</b></label>
+    <input type="text"  id="emp_id" ><br>
+      
+    <label for="FirstName"><b>First Name</b></label>
+    <input type="text" id="First Name" > <br>
+      
+    <label for="LastName"><b>Last Name</b></label>
+    <input type="text"id="Last Name" ><br>
+
+    <label for="DOB"><b>Date of Birth</b></label>
+    <input type="date" placeholder="dd-mm-yyyy" id="DOB" ><br>
+      
+    <label for="gender"><b>Gender</b></label>
+    <input type="text" placeholder="M/F/Other" id="gender" ><br>
+    
+    <label for="eid"><b>Employee Desig</b></label>
+    <input type="text"  id="eid" placeholder="01/02"><br>
+
+    <label for="ph"><b>Contact No.</b></label>
+    <input type="number" maxlength="10"  id="ph"><br>
+      
+    <label for="HQ"><b>Highest Qualifictation </b></label>
+    <input type="text"  id="HQ" > <br>
+      
+    <label for="workex"><b>Work Experience</b></label>
+    <input type="number" placeholder="In Months" id="workex"> <br>
+
+    
+         
+         
+           
+         
+    </form>
+          
+             <button type="button" class="cancel" onclick="reset()">Cancel</button>
+          <input type="button" value="Save" class="create" onclick="submit()">
+       </div>      
+  <footer>
+  Copyright All Rights Reserved © 2017      
+ </footer>
+        
+
+      
+     
+ </body>
+          <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+    
+  <script type="text/javascript">
+    function submit() 
+      {
+      var Id = document.getElementById("emp_id").value; // var , form
+      var First_Name = document.getElementById("First Name").value; 
+           var Last_Name = document.getElementById("Last Name").value;
+           var DOB = document.getElementById("DOB").value;
+           var gender = document.getElementById("gender").value;
+           var E_ID = document.getElementById("eid").value;
+         var ph = document.getElementById("ph").value;
+         var HQ = document.getElementById("HQ").value;
+         var workex = document.getElementById("workex").value;
+          
+      var dataToSend= {
+            "ID": Id, //db:var
+            "FName": First_Name,
+             "LName":Last_Name,
+             "DOB":DOB,
+             "Gender": gender,
+             
+             "Contact_No": ph,
+             "HighestQualification":HQ,
+             "Work_Ex": workex,
+          "E_ID": E_ID  
+            
+        };
+console.log("Department Added");
+//    alert("Department Added");
+      $.ajax({
+            url: 'http://localhost:52598/api/Employees/',
+            type: 'POST',
+            dataType: 'json',
+            data: dataToSend,
+            success: function(data){
+                alert("Employee Added");
+            console.log(data);
+            
+              }
+        });
+    };
+    function reset()
+    {
+
+    }
+  </script>
+    
+   
+  
+
+</html>

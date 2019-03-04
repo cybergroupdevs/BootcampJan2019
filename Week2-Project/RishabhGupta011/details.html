@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Details Page">
+        <meta name="keywords" content="HRMS">
+        <meta name="author" content="Rishabh Gupta">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">      
+
+        <link href="details.css" rel="stylesheet">
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script src="const.js"></script>
+
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo-wrap">
+                <div class="hamburger-btn">       
+                    <img src="img/baseline_menu_black_18dp.png" class="">
+                </div>
+                <div class="logo">       
+                    <img src="img/logo.png" class="logo-img">
+                </div>
+            </div>
+            <div class="middle-nav">
+                <a href="signup.html"><div class="nav-item">Signup</div></a>
+                <a href="login.html"><div class="nav-item">Login</div></a>
+                <a href="create.html"><div class="nav-item">Create</div></a>
+                <a href="list.html"><div class="nav-item">List</div></a>
+                <a href="details.html"><div class="nav-item">Detail</div></a>
+            </div>
+        </header>
+        <div class="sidebar">
+            <div class="item">Create Employee</div>
+            <div class="item">List Employee</div>
+            <div class="item item-active">Details Employee</div>
+        </div>
+        <div class="body-container">
+            <div class="section">
+                <div class="section-head-txt-wrap">
+                    <span class="section-head-txt">Employee Details</span>
+                </div>
+
+                <div class="form-wrap">
+                    <div class="form-content">
+                        <div class="form-head">Basic Information</div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td id="Name">John</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td id="Gender">Male</td>
+                                </tr>
+                                <tr>
+                                    <td>Father's Name</td>
+                                    <td id="FathersName">Jack</td>
+                                </tr>
+                                <tr>
+                                    <td>Mother's Name</td>
+                                    <td id="MothersName">Lara</td>
+                                </tr>
+                                <tr>
+                                    <td>DOB</td>
+                                    <td id="DateOfBirth">12/12/1996</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile</td>
+                                    <td id="MobileNumber">9999999999</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td id="Email">john.doe@example.com</td>
+                                </tr>
+                                <tr>
+                                    <td>Cgi Code</td>
+                                    <td id="CgiCode">INT000</td>
+                                </tr>
+                                <tr>
+                                    <td>Designation</td>
+                                    <td id="Designation">Software Engineer</td>
+                                </tr>
+                                <tr>
+                                    <td>Department</td>
+                                    <td id="Department">Enginnering</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="form-content">
+                        <div class="form-head">Address Details</div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>House / Flat No</td>
+                                    <td id="HouseNo">A-56/23</td>
+                                </tr>
+                                <tr>
+                                    <td>Street</td>
+                                    <td id="Street">alpha</td>
+                                </tr>
+                                <tr>
+                                    <td>District</td>
+                                    <td id="District">Gautam Budh Nagar</td>
+                                </tr>
+                                <tr>
+                                    <td>City</td>
+                                    <td id="City">GNOIDA</td>
+                                </tr>
+                                <tr>
+                                    <td>State</td>
+                                    <td id="State">UP</td>
+                                </tr>
+                                <tr>
+                                    <td>Pincode</td>
+                                    <td id="Pincode">208123</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="form-wrap">
+                    <div class="form-content full-width">
+                        <div class="form-head">Educational Qualifications</div>
+                        <div class="table-wrap table-responsive">
+                            <table id="education-details-table">
+                                <thead>
+
+                                    <tr>
+                                        <th>Degree/Certificate</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Board/University</th>
+                                        <th>Marks/CGPA</th>
+                                    </tr>
+
+                                </thead>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <script>
+            document.getElementsByClassName("hamburger-btn")[0].onclick = function(){
+                if(document.getElementsByClassName("sidebar")[0].style.left == '0px'){
+                    document.getElementsByClassName("sidebar")[0].style.left = '-250px';
+                }
+                else{
+                    document.getElementsByClassName("sidebar")[0].style.left = '0px';}
+            }
+        </script>
+        <script src="details.js"></script>
+
+
+    </body>
+</html>

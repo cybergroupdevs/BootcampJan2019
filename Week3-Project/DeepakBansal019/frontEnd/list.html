@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>emplye list</title>
+	<style type="text/css">
+		body{
+			
+			background-image:url(bglogin.png);
+			background-size:cover;
+		}
+        #h{
+			float:right;
+			color:white;
+			margin-right:8px;
+		}
+          .g{
+			font-size:19px;
+			font-weight:bolder;
+			margin-top:23%;
+			margin-left:40%;
+			font-style:sans-serif;
+		}
+		header{
+			background-color:rgba(0,0,0,0.8);
+			width:100.5%;
+			height:80px;
+			margin-right:0;
+			padding-right:-1px;
+		}
+		#EL{
+			text-align: center;
+			color: white;
+		}
+
+		#back{
+
+        	float: right;
+        	text-decoration: none;
+        	font-size:28px; 
+        	margin-top: 15px;
+        	margin-right: 20px;
+        	color: white;
+        	font-weight: bold;
+        }
+
+
+		 a:hover {
+			background-color:orange;
+			border-radius:5px;
+		}
+
+       .tb{
+
+			width:auto;
+			height:auto;
+			margin-left:25%;
+			margin-top:5%;
+			color:black;
+			font-size:35px;
+			font-weight:bold;
+		}
+		table,th,td{
+			border: 1px solid black;
+			border-color: collapse;
+			opacity: 0.95;
+		}
+
+		th,td{
+			padding: 10px;
+			text-align: center;
+
+		}
+
+		th{
+			background-color: blue;
+			color: white;
+		}
+
+		tr:nth-child(even)
+		{
+			background-color: #e8e8e8;
+		}
+        
+		tr:nth-child(odd)
+		{
+			background-color: white;
+		}
+
+		tr:hover td{
+			background-color: red;
+			color: white;
+			cursor:pointer;
+		}
+		          #tbl a:hover{
+          	color:red;
+          }
+
+
+
+	</style>
+</head>
+<body onload="CreateTable()">
+	<header>
+		<img src="logo.png" width="215" height="80">
+		<h2 id ="h">We build smart solutions</h2>
+		<a href="afterlogin.html" id="back">Back</a>
+	</header>
+	<h1 id="EL">Employees List</h1>
+<div class = "tb">
+<table id="table">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>User Name</th>
+		<th>Employee No.</th>
+		
+	</tr>
+</table>
+</div>
+<div class="g"><p>@DEEPAK BANSAL 2019</p></div>
+</body>
+
+<script
+          src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+	function CreateTable(){
+
+		 $.ajax({ 
+
+
+                      url : "http://localhost:8083/employee",
+                      type : 'GET',
+                     
+                      datatype : 'json',
+                      success : function(res){
+                      	var table = document.getElementById('table');
+                      	console.log(res);
+                      	for(var i=0; i<res.length;i++)
+                      	{
+                           var row = table.insertRow(table.length);
+                           row.insertCell(0).innerHTML=res[i].id;
+                           row.insertCell(1).innerHTML=res[i].name;
+                           row.insertCell(2).innerHTML=res[i].userName;
+                           row.insertCell(3).innerHTML='<a href="displayDetails.html?id='+res[i].employeeNo+'">'+res[i].employeeNo+'</a>'
+                      	}
+
+	                   }
+
+	               });
+		}
+
+   
+
+                   window.onload=CreateTable();
+</script>
+</html>

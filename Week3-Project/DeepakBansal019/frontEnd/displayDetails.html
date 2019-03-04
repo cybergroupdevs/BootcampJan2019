@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>display details</title>
+	<style type="text/css">
+		body{
+			background-image:url(bglogin.png);
+			background-size:cover;
+		}
+		#h{
+			float:right;
+			color:white;
+			margin-right:8px;
+		}
+      .emp{ 
+          width:1000px;
+          height:auto;
+          color:black;
+          font-weight:bolder;
+          font-style:sans-serif;
+          margin-left:25%;
+          font-size:30px;
+          padding:3px;
+          margin-top:-10px;
+      }	
+      .emp input[type="text"]
+      {
+      	width:250px;
+		height:30px;
+		border-radius:5px;
+		padding-left:8px;		
+      }
+	  .emp input[type='Email']
+		{
+		width:250px;
+		height:30px;
+		border-radius:5px;
+		margin-left:100px;
+		padding-left:8px;
+		}
+	  .emp input[type='number']
+		{
+		width:250px;
+		height:30px;
+		border-radius:5px;
+		margin-left:100px;
+		padding-left:8px;
+		}
+      .emp select{
+        width:255px;
+	    height:34px;
+		border-radius:5px;
+	    margin-left:92px;
+	    padding-left:8px;
+		}
+	   .emp input[type="radio"]
+		{
+		width:20px;
+		height:20px;
+		margin-left:150px;
+		}
+		#up
+		{
+		width:120px;
+		height:30px;
+		border-radius:5px;
+		background-color:green;
+		color:white;
+		font-weight:bolder;
+		border:none;
+		}
+		.emp input[type='button']
+		{
+		width:120px;
+		height:30px;
+		border-radius:5px;
+		background-color:red;
+		color:white;
+		font-weight:bolder;
+		border:none;
+		margin-left:200px;
+		}
+		
+		.emp input[type='button']:hover{
+     	width:123px;
+		height:33px;
+		background-color:orange;
+		}
+		#up:hover{
+     	width:123px;
+		height:33px;
+		background-color:orange;
+		}
+       .g{
+		font-size:19px;
+		font-weight:bolder;
+		margin-top:100px;
+		margin-left:40%;
+		font-style:sans-serif;
+		}
+		#name{
+			margin-left:165px;
+		}
+		header{
+			background-color:rgba(0,0,0,0.8);
+			width:100.5%;
+			height:80px;
+			margin-right:0;
+			padding-right:-1px;
+		}
+		#emp{
+			margin-left:145px;
+			color: white;
+		}
+		#desg{
+		      margin-left:110px;	
+		}
+		#empno{
+			margin-left:125px;
+		}
+		#add{
+			margin-left:142px;
+		}
+		#rad{
+			margin-left:10px;
+		}
+
+		#back{
+
+        	float: right;
+        	text-decoration: none;
+        	font-size:28px; 
+        	margin-top: 15px;
+        	margin-right: 20px;
+        	color: white;
+        	font-weight: bold;
+        }
+
+
+		 a:hover {
+			background-color:orange;
+			border-radius:5px;
+		}
+		#dept{
+		       	margin-left:92px;	
+		}
+	</style>
+     
+</head>
+<body>
+	<header>
+		<img src="logo.png" width="215" height="80">
+		<h2 id ="h">We build smart solutions</h2>
+				<a href="list.html" id="back">Back</a>
+	</header>
+<div class="emp">
+	<form name="fm">
+		<h3 id="emp">Employee Details</h3>
+		Name*
+		<input type="text" id="name" name="nm" ></br></br>
+		User Name*
+		<input type="email" id="uname" name="unm" placeholder="xyz@gmail.com"></br></br>
+		Gender*
+		<input type="radio" name="radio" value="male">Male
+		<input type="radio" id="rad" name="radio" value="female">Female</br></br>
+		Desgination
+	    <input type="text" id="desg" name="des" placeholder="Enter Desgination"></br></br>
+		Emp_No.*
+		<input type="text" id="empno" name="eno" placeholder="Enter Emp No."></br></br>
+		Contact No*
+		<input type="number" id="contno" name="num" placeholder="Contact No"></br></br>
+		Address*
+		<input type="text" id="add" name="ad" placeholder="Enter Address"></br></br>
+		Department*
+	   
+	    <input type="text" id="dept" placeholder="Department Name"></br></br></br></br>
+		
+		<input type="button" id="up" value="Update" onclick="Edit();">
+		<input type="button" name="" value="Delete" onclick="Delete();">
+
+
+	</form></div>
+	<div class="g"><p>@DEEPAK BANSAL 2019</p></div>
+    
+</body>
+	 <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+	        var getURL = function getURL(parm){
+            var Pageurl = window.location.search.substring(1),
+            URLVariables = Pageurl.split('&'),
+                ParameterName, i;
+            
+        for(i=0; i<URLVariables.length;i++){
+            ParameterName = URLVariables[i].split('=');
+            
+            if(ParameterName[0] == parm){
+                return ParameterName[1]==undefined ? true : decodeURIComponent(ParameterName[1]);
+            }
+        }
+        };
+        var emp=getURL('id');
+        var tempresult = null;
+
+	function show() {
+			 	
+               		$.ajax({ 
+                            url : "http://localhost:8083/employee/"+emp,
+                            type : 'GET',
+                            datatype : 'json',
+                            async: false,
+                            success : function(res){
+                            	
+                                     tempresult = res;
+                      	             document.getElementById('name').value=res.name;
+                      	             document.getElementById('uname').value=res.userName;
+                      	             fm.radio.value=res.gender.toLowerCase();
+                      	             
+                      	             document.getElementById('empno').value=res.employeeNo;
+                      	             document.getElementById('contno').value=res.contactNo;
+                      	             document.getElementById('add').value=res.Address;
+                      	             document.getElementById('dept').value=res.Departments[0].name; 
+                      	             
+                                     
+                                      document.getElementById('empno').disabled = true;
+                                      document.getElementById('desg').disabled = true;
+                                      document.getElementById('dept').disabled = true;
+                                      document.getElementById('desg').value=res.Designations[0].name;
+                      	                                   	                
+                      	                }
+
+                           });
+	                }
+
+	                
+
+
+	                function Edit()
+	                {
+	                	tempresult.name = document.getElementById('name').value; 
+	                	
+        		        tempresult.userName = document.getElementById('uname').value;
+        				
+        				tempresult.gender=fm.radio.value;
+        			
+		        		tempresult.employeeNo=document.getElementById('empno').value;
+		        		tempresult.contactNo=document.getElementById('contno').value;
+		        		tempresult.Address =document.getElementById('add').value;
+		        		
+		        		
+
+  
+
+                
+	                	$.ajax({ 
+                            url : "http://localhost:8083/employee/"+emp,
+                            type : 'PUT',
+                            datatype : 'json',
+                            data: tempresult,
+                            success : function(res){
+
+                            	console.log(res);
+                                            alert("Data has been Updated");
+                            }
+                        });
+	                }
+
+	   function Delete(){
+
+                    $.ajax({ 
+                            url : "http://localhost:8083/employee/"+emp,
+                            type : 'DELETE',
+                            datatype : 'json',
+                            
+                            success : function(res){
+	                              }
+	                              }); 	
+	   }
+    
+window.onload=show();
+
+
+</script>
+
+
+</html>

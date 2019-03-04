@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new registration</title>
+	<style type="text/css">
+		body{
+			background-image:url(bglogin.png);
+			background-size:cover;
+		}
+		#h{
+			float: right;
+			color: white;
+			margin-right:8px;
+		}
+		.creatAcc{
+            width:60%;
+  			height:390px;
+			margin-left:500px;
+			margin-top:10px;
+			font-size:20px;
+			font-weight:bolder;
+			font-style:sans-serif;
+			color:black;
+		}
+		.creatAcc input[type='text']
+		{
+			width:250px;
+			height:30px;
+			border-radius:5px;
+			padding-left:8px;
+		}
+		.creatAcc input[type='Email']
+		{
+			width:250px;
+			height:30px;
+			border-radius:5px;
+			padding-left:8px;
+		}
+		.creatAcc input[type='password']
+		{
+			width:250px;
+			height:30px;
+			border-radius:5px;
+			padding-left:8px;
+		}
+		.creatAcc input[type='reset']
+		{
+			width:100px;
+			height:30px;
+			border-radius:5px;
+			background-color:red;
+			color: white;
+			font-weight:bolder;
+			border:none;
+		}
+		.creatAcc input[type='button']
+		{
+			width:100px;
+			height:30px;
+			border-radius:5px;
+			background-color:green;
+			color:white;
+			font-weight:bolder;
+			border:none;
+		}
+		#hed{
+              font-size:50px;
+			font-weight:bolder;
+			font-style:sans-serif;
+			color:white;
+			margin-top:1px;
+			margin-left:400px;
+		}
+		.g{
+			font-size:13px;
+			font-weight:bolder;
+			margin-top:30px;
+			margin-left:40%;
+			font-style:sans-serif;
+		}
+		.creatAcc input[type='reset']:hover{
+			width:102px;
+			height:32px; 
+		}
+        .creatAcc input[type='button']:hover{
+			width:102px;
+			height:32px; 
+		}
+	    header{
+			background-color:rgba(0,0,0,0.8);
+			width:100.5%;
+			height:80px;
+			margin-right:0;
+			padding-right:-1px;
+			}
+        .creatAcc input[type='text']:hover{
+        	width: 253; 
+        	height:33;
+        }
+
+        #back{
+
+        	float: right;
+        	text-decoration: none;
+        	font-size:28px; 
+        	margin-top: 15px;
+        	margin-right: 20px;
+        	color: white;
+        	font-weight: bold;
+        }
+
+
+		 a:hover {
+			background-color:orange;
+			border-radius:5px;
+		}
+	</style>
+
+  
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+            <script type="text/javascript">
+
+            	
+                 
+            	function acc(){
+
+            		var u_name=document.getElementById('userNam').value;
+            	    var name=document.getElementById('nam').value;
+            	    var password=document.getElementById('pass1').value;
+            	    var Confirm_pass=document.getElementById('pass2').value;
+
+                
+                 var dataToSend={
+
+                     "name": name,
+                     "userName": u_name,
+    				 "password": password
+    				           }
+               
+                 if(u_name=="" || name=="" || password=="" || Confirm_pass=="")
+                {
+
+                	alert("fields can not be empty");
+                }
+                else if(password.length<5)
+                {
+                	alert("Password must not be less than 5 characters");
+ 
+                }
+                else if(password!=Confirm_pass)
+            	{
+            		alert("password is not match with Confirm Password");
+            	}
+
+                else{
+                   $.ajax(
+                      { 
+                         url : "http://localhost:8083/logon",
+                         type : 'POST',
+                         data : dataToSend,
+                         datatype : 'json',
+                         success : function(res){
+                         	           
+                                       alert("account has been created");
+
+                                       window.location.href="login.html";
+                                       
+                                          }
+                         }
+                           );
+                         }
+                      }
+                
+            </script>
+
+</head>
+<body>
+	<header>
+		<img src="logo.png" width="215" height="80">
+		<h2 id ="h">We build smart solutions</h2>
+		
+		<a href="index.html" id="back">Back</a>
+	
+	</header>
+	<h1 id="hed">Create Your Account</h1>
+	<div class="creatAcc">		
+<form>
+	Name*<br>
+	<input type="text" id="nam" placeholder="Enter Name"><br><br>
+	User Name*<br>
+	<input type="text" id="userNam" placeholder="FirstNameEmployeeNo"><br><br>
+	Password*<br>
+	<input type="Password" id="pass1" placeholder="***********"><br><br>
+	Confirm Password*<br>
+	<input type="Password" id="pass2" placeholder="***********"><br><br><br>
+	<input type="reset" name="" value="Reset">
+	<input type="button" name="" value= "Submit" onclick="acc();">
+</form>
+</div>
+   <div class="g"><p>@DEEPAK BANSAL 2019</p></div>
+</body>
+</html>

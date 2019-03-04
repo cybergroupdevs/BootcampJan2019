@@ -1,0 +1,74 @@
+
+.heading{
+/*margin:20px;*/
+background:rgba(0,0,0,0.4);
+
+height:100px;
+
+}
+.heading .fornavigation ul li{
+display:inline-block;
+padding:25px;
+font-size:25px;
+font-weight: bold;}
+
+table
+{
+	
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border: 4px solid black;
+  padding: 15px;
+}
+
+.formstyle{
+
+
+	margin-top: 100px;
+}
+
+body{
+	background: url("https://i.pinimg.com/originals/dd/6d/08/dd6d080ac1f635254ea2e1be3fad2794.jpg");
+	background-repeat:no-repeat;
+background-size:cover;
+}
+
+
+.foot{
+
+							
+							background-color: #333;
+         
+            				margin-top: 100px;
+            				top:300px;
+            				bottom: 0px;
+        
+						}
+
+							#fit3
+		{
+		height:25px;
+		background-color:#614051;
+		}
+
+
+		.forright
+	 { float:right; width:30%; clear:right }
+
+
+a{	
+	color:#ffffff;
+	text-decoration:none;
+	font-weight: bold;
+}
+
+.detailbutton{
+								
+								margin-top: 50px;
+								margin-left: 150px;
+								  background: linear-gradient(#0033cc, #33ccff); 
+								width:63px;
+								
+							}

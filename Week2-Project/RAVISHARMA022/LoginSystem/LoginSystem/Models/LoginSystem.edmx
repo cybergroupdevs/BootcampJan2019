@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LoginsystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuthenticateUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="30" />
+          <Property Name="Terms" Type="bit" />
+        </EntityType>
+        <EntityType Name="EducationDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="TenthBoard" Type="char" MaxLength="100" />
+          <Property Name="Tenthmarks" Type="float" />
+          <Property Name="Twelfthboard" Type="char" MaxLength="100" />
+          <Property Name="Twelfthmarks" Type="float" />
+          <Property Name="GraduationDegree" Type="char" MaxLength="100" />
+          <Property Name="GraduationMarks" Type="float" />
+        </EntityType>
+        <EntityType Name="EmployeeDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="firstname" Type="char" MaxLength="30" />
+          <Property Name="lastname" Type="char" MaxLength="30" />
+          <Property Name="fathername" Type="char" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="country" Type="char" MaxLength="50" />
+          <Property Name="dob" Type="date" />
+          <Property Name="gender" Type="char" MaxLength="15" />
+          <Property Name="designation" Type="char" MaxLength="40" />
+          <Property Name="address" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <Association Name="FK__Authenticate__Id__4E88ABD4">
+          <End Role="EmployeeDetail" Type="Self.EmployeeDetail" Multiplicity="1" />
+          <End Role="AuthenticateUser" Type="Self.AuthenticateUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeDetail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AuthenticateUser">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EducationDet__Id__4BAC3F29">
+          <End Role="EmployeeDetail" Type="Self.EmployeeDetail" Multiplicity="1" />
+          <End Role="EducationDetail" Type="Self.EducationDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeDetail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EducationDetail">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LoginsystemModelStoreContainer">
+          <EntitySet Name="AuthenticateUser" EntityType="Self.AuthenticateUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EducationDetail" EntityType="Self.EducationDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeDetail" EntityType="Self.EmployeeDetail" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Authenticate__Id__4E88ABD4" Association="Self.FK__Authenticate__Id__4E88ABD4">
+            <End Role="EmployeeDetail" EntitySet="EmployeeDetail" />
+            <End Role="AuthenticateUser" EntitySet="AuthenticateUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EducationDet__Id__4BAC3F29" Association="Self.FK__EducationDet__Id__4BAC3F29">
+            <End Role="EmployeeDetail" EntitySet="EmployeeDetail" />
+            <End Role="EducationDetail" EntitySet="EducationDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LoginsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AuthenticateUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Terms" Type="Boolean" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__Authenticate__Id__4E88ABD4" FromRole="AuthenticateUser" ToRole="EmployeeDetail" />
+        </EntityType>
+        <EntityType Name="EducationDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenthBoard" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Tenthmarks" Type="Double" />
+          <Property Name="Twelfthboard" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Twelfthmarks" Type="Double" />
+          <Property Name="GraduationDegree" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="GraduationMarks" Type="Double" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EducationDet__Id__4BAC3F29" FromRole="EducationDetail" ToRole="EmployeeDetail" />
+        </EntityType>
+        <EntityType Name="EmployeeDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="fathername" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="dob" Type="DateTime" Precision="0" />
+          <Property Name="gender" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="designation" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AuthenticateUser" Relationship="Self.FK__Authenticate__Id__4E88ABD4" FromRole="EmployeeDetail" ToRole="AuthenticateUser" />
+          <NavigationProperty Name="EducationDetail" Relationship="Self.FK__EducationDet__Id__4BAC3F29" FromRole="EmployeeDetail" ToRole="EducationDetail" />
+        </EntityType>
+        <Association Name="FK__Authenticate__Id__4E88ABD4">
+          <End Role="EmployeeDetail" Type="Self.EmployeeDetail" Multiplicity="1" />
+          <End Role="AuthenticateUser" Type="Self.AuthenticateUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeDetail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AuthenticateUser">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EducationDet__Id__4BAC3F29">
+          <End Role="EmployeeDetail" Type="Self.EmployeeDetail" Multiplicity="1" />
+          <End Role="EducationDetail" Type="Self.EducationDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeDetail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EducationDetail">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LoginsystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuthenticateUsers" EntityType="Self.AuthenticateUser" />
+          <EntitySet Name="EducationDetails" EntityType="Self.EducationDetail" />
+          <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetail" />
+          <AssociationSet Name="FK__Authenticate__Id__4E88ABD4" Association="Self.FK__Authenticate__Id__4E88ABD4">
+            <End Role="EmployeeDetail" EntitySet="EmployeeDetails" />
+            <End Role="AuthenticateUser" EntitySet="AuthenticateUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EducationDet__Id__4BAC3F29" Association="Self.FK__EducationDet__Id__4BAC3F29">
+            <End Role="EmployeeDetail" EntitySet="EmployeeDetails" />
+            <End Role="EducationDetail" EntitySet="EducationDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LoginsystemModelStoreContainer" CdmEntityContainer="LoginsystemEntities">
+          <EntitySetMapping Name="AuthenticateUsers">
+            <EntityTypeMapping TypeName="LoginsystemModel.AuthenticateUser">
+              <MappingFragment StoreEntitySet="AuthenticateUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Terms" ColumnName="Terms" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EducationDetails">
+            <EntityTypeMapping TypeName="LoginsystemModel.EducationDetail">
+              <MappingFragment StoreEntitySet="EducationDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenthBoard" ColumnName="TenthBoard" />
+                <ScalarProperty Name="Tenthmarks" ColumnName="Tenthmarks" />
+                <ScalarProperty Name="Twelfthboard" ColumnName="Twelfthboard" />
+                <ScalarProperty Name="Twelfthmarks" ColumnName="Twelfthmarks" />
+                <ScalarProperty Name="GraduationDegree" ColumnName="GraduationDegree" />
+                <ScalarProperty Name="GraduationMarks" ColumnName="GraduationMarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeDetails">
+            <EntityTypeMapping TypeName="LoginsystemModel.EmployeeDetail">
+              <MappingFragment StoreEntitySet="EmployeeDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="fathername" ColumnName="fathername" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

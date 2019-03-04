@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>List</title>
+<link rel="shortcut icon" type="image/png" href="logo 1.png">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+
+  <script>
+
+  var myBooks=[];
+  function getEmployee(){
+        $.ajax({
+            url: 'http://localhost:61185/api/employees',
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            
+        myBooks= res;
+        }
+        });
+    }
+
+    function display_table()
+    {
+      /*var column=[];
+      var i;
+      for (var entry in data)
+      {
+        for (i in data[entry])
+        {
+          if(col.indexof(i)===-1){
+          column.push(i);
+          }         
+        }
+      }
+      var table=document.createElement("table");
+      var tr=table.insertRow(-1);
+      
+      for( m=0;m<data.length;m++){
+        var th=document.createElement("th");
+        th.innerHTML=column[i];
+        tr.appendChild(th);
+      }
+
+      tr=table.insertRow(-1);
+
+      for(var j=0;j<column.length;j++){
+        if (column[j]!="Designation"){
+          var tabCell=tr.insertCell(-1);
+          tabCell.innerHTML=data[m][column[j]];
+        }
+        else{
+          var tabCell=tr.insertCell(-1);
+          tabCell.innerHTML = data[i]['Designation'].Name;
+                tabCell.innerHTML = data[i]['Designation'].Name;
+
+        }
+      }*/
+      var col = [];
+        for (var i = 0; i < myBooks.length; i++) {
+            for (var key in myBooks[i]) {
+                if (col.indexOf(key) === -1 && key!="Department" && key!="Designation" && key!="Login_Credentials") {
+                    col.push(key);
+                }
+            }
+        }
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = table.insertRow(-1);                   // TABLE ROW.
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < myBooks.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myBooks[i][col[j]];
+            }
+        }
+      var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+
+    }
+</script>
+
+<style>
+.navbar {margin-bottom:0;
+      
+              }
+
+
+.row.content  
+{height:400px;
+}
+
+
+.marquee { color:blue;
+                   font-family:"Verdana";
+
+                   font-size:10pt;
+        
+          }
+
+.sidenav  { padding-top:10px;
+            
+      background-color: darkblue;
+
+                  height: 130%;
+            
+    }
+
+.login-text { font-family:"Bookman Old Style";
+      
+             color:blue;
+   
+               }
+
+
+.btn { color:blue;
+
+         }
+
+.well-lg { margin-left:100px;
+
+               margin-right:100px;
+               background-color: lavender;
+
+              }
+             
+    
+
+footer  { background-color: darkblue;
+
+              color: white;
+        
+      padding: 15px;
+        
+    }
+
+
+@media only screen and (min-width: 768px)
+ {
+ .sidenav 
+      {
+ height: auto;  
+        padding: 55px;
+ 
+      }
+  
+    .row.content {height:auto;} 
+ 
+  }
+ 
+
+</style>
+
+</head>
+
+
+<body>
+    
+<header class= "container-fluid">
+<a href="#">
+<h1>
+<img src="logo.png" style="width:350px" ></a> <br>
+<img src="logo.png" style="width:150px" align="right">
+</h1>
+</header>
+
+
+
+<div class="marquee">
+
+<h4>
+
+<marquee bgcolor="red" behaviour="slide"> Cyber Group </marquee>
+
+</h4>
+
+</div>
+
+
+
+
+
+<nav class="navbar">
+
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class=navbar-toggle 
+ data-toggle="collapse" 
+ data-target="#myNavbar">
+
+</button>
+</div>
+
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav navbar-right">
+<li class="active">
+<a href="#">
+<span class="glyphicon glyphicon-home">
+
+</span>Home</a>
+
+</li>
+<li><a href="#"><span class="glyphicon glyphicon-briefcase">
+
+</span>About</a>
+
+</li>
+<li><a href="#">
+<span class="glyphicon glyphicon-phone">
+</span>Contact</a>
+</li>
+<li><a href="login.html"><span class="glyphicon glyphicon-user">
+</span>
+Login</a>
+
+</li>
+
+</ul>
+</div>
+</div>
+
+</nav>
+
+
+<div class="container-fluid text-center">
+<div class="row content">
+
+<div class="col-sm-12">
+<br>
+
+<div class="well well-lg">
+<div class="container-fluid">
+
+<div class="table-responsive-lg">
+
+    <button type="button" onclick="getEmployee()" >Click to Fetch</button>
+	<button type="button" onclick="display_table()" >Click to Display</button>
+    <p id="showData"></p>
+<!--
+<table class="table table-hover table-striped">
+<thead>
+<tr>
+<th>S.No.</th>
+<th>Firstname</th>
+
+<th>Lastname</th>
+<th>Age</th>
+<th>City</th>
+
+<th>Country</th>
+<th>Sex</th>
+<th>Example</th>
+<th>Example</th>
+<th>Example</th>
+<th>Example</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+
+<td>Abc</td>
+
+<td>xyz</td>
+<td>35</td>
+<td>New York</td>
+<td>USA</td>
+
+<td>Male</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>2</td>
+
+<td>Aman</td>
+<td>xyz</td>
+
+<td>35</td>
+<td>New York</td>
+<td>USA</td>
+<td>Male</td>
+<td>Yes</td>
+ 
+<td>Yes</td>
+
+<td>Yes</td>
+  
+<td>Yes</td>
+  
+</tr>
+
+<tr>
+
+<td>3</td>
+  
+<td>Anand</td>
+ 
+<td>xyz</td>
+  
+<td>35</td>
+  
+<td>New York</td>
+
+<td>USA</td>
+
+<td>Male</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+  
+<td>Yes</td>
+  
+<td>Yes</td>
+ 
+</tr>
+
+<tr>
+ 
+<td>4</td>
+    
+<td>Ana</td>
+    
+<td>xyz</td>
+
+<td>35</td>
+   
+<td>New York</td>
+ 
+<td>USA</td>
+ 
+<td>Male</td>
+ 
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+ 
+</tr>
+
+<tr>
+
+<td>5</td>
+
+<td>Anmol</td>
+
+<td>xyz</td>
+   
+<td>35</td>
+   
+<td>New York</td>
+
+<td>USA</td>
+  
+<td>Male</td>
+ 
+<td>Yes</td>
+ 
+<td>Yes</td>
+
+<td>Yes</td>
+  
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td>6</td>
+   
+<td>Rohan</td>
+  
+<td>xyz</td>
+
+<td>35</td>
+  
+<td>New York</td>
+ 
+<td>USA</td>
+ 
+<td>Male</td>
+  
+<td>Yes</td>
+  
+<td>Yes</td>
+   
+<td>Yes</td>
+    
+<td>Yes</td>
+   
+</tr>
+   
+<tr>
+
+<td>7</td>
+
+<td>Rishabh</td>
+  
+<td>xyz</td>
+  
+<td>35</td>
+ 
+<td>New York</td>
+    
+<td>USA</td>
+   
+<td>Male</td>
+  
+<td>Yes</td>
+
+<td>Yes</td>
+  
+<td>Yes</td>
+ 
+<td>Yes</td>
+    
+</tr>
+
+<tr>
+
+<td>8</td>
+
+<td>Jatin</td>
+
+<td>xyz</td>
+
+<td>35</td>
+   
+<td>New York</td>
+  
+<td>USA</td>
+   
+<td>Male</td>
+
+<td>Yes</td>
+ 
+<td>Yes</td>
+ 
+<td>Yes</td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td>9</td>
+   
+<td>Jatinder</td>
+ 
+<td>xyz</td>
+
+<td>35</td>
+  
+<td>New York</td>
+  
+<td>USA</td>
+    
+<td>Male</td>
+  
+<td>Yes</td>
+ 
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+ 
+<td>10</td>
+   
+<td>Joginder</td>
+ 
+<td>abc</td>
+
+<td>35</td>
+ 
+<td>New York</td>
+ 
+<td>USA</td>
+
+<td>Male</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+  
+<td>Yes</td>
+   
+<td>Yes</td>
+   
+</tr>
+ 
+</tbody>
+  
+</table>
+-->
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+</div>
+<footer class="container-fluid text-center">
+<p>Website Designed and Managed by Cyber Group</p>
+
+</footer>
+
+
+
+</body>
+
+</html>

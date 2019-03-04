@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title>View Employees List</title>
+	<link rel="stylesheet" type="text/css" href="Main.css">
+	<style type="text/css">
+       table{
+       	margin-right: 10px;
+        border: solid;
+       }
+       tr,td{
+       	border: solid;
+       }
+	</style>
+</head>
+<body>
+	<img src="Logo.png" alt="Logo" height="200" width="200" onclick=location.href="Login.html" >
+	<div class="container">
+		<div class="box1">
+
+
+			<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+
+
+<script>
+  function getEmployees(){
+   
+    var DataRetrieved=[];
+        $.ajax({
+            url: 'http://localhost:55584/api/EmployeeDetails/',
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+        	DataRetrieved= res;
+        	printEmployees(DataRetrieved);
+        }
+        });
+        
+        
+        
+    }
+
+    function printEmployees(DataRetrieved){
+    	var Columns = [];
+        for (var i = 0; i < DataRetrieved.length; i++) {
+            for (var key in DataRetrieved[i]) {
+                if (Columns.indexOf(key) === -1 && key!="Designation1") {
+                    Columns.push(key);
+                }
+            }
+        }
+
+        var table = document.createElement("table");
+
+
+        var tr = table.insertRow(-1);            
+
+        for (var i = 0; i < Columns.length; i++) {
+            var th = document.createElement("th");      
+            th.innerHTML = Columns[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = 0; i < DataRetrieved.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < Columns.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = DataRetrieved[i][Columns[j]];
+            }
+        }
+      var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+
+        
+      
+      </script>
+
+<h1>List Of Employees</h1>
+
+<button class="button" onclick="getEmployees()">View Employees List</button>
+<p width='100%' id="showData"></p>
+<button class="button" onclick='location.href="EmployeeAccount.html"'>Back</button>
+<button class="button" onclick='location.href="EnterEmployeeDetails.html"'>Add More</button>
+</div>
+</div>
+</body>
+</html>

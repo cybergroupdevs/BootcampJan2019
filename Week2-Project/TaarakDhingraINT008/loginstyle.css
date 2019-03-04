@@ -1,0 +1,55 @@
+
+.bodyclass
+{
+background:url("http://www.cerc-ug.org/pic/b/62/629422_innovation-wallpaper-hd.jpg");
+
+/*background:url("slidetest.jpg");*/
+
+background-repeat:no-repeat;
+background-size:cover;
+}
+.formstyle
+{ 
+
+text-align:center;
+
+
+background:rgba(0,0,0,0.4);
+width:280px;
+height:320px;
+/*left:20%; 	
+top:40%;*/
+border:5px ;
+		border-radius:5px;
+/*position:absolute;*/
+margin-left:auto;
+margin-right:auto;
+margin-top:10%;
+}
+
+	.loginheading
+	{top:50%;
+	font-style:oblique;
+	font-size:30px;
+	color:#FFFFFF;
+
+	}
+	
+	a{
+	color:#FFFFFF;
+	font-style:oblique;}
+	
+	.submitstyle{
+	padding:20px;
+	}
+		
+		
+
+.details input{
+font-size:20px;
+padding:6px;
+margin-bottom:10px;
+		font-style:italic;
+}
+
+

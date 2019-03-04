@@ -5,30 +5,21 @@
     <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
     <meta charset="utf-8">
 
-    <title>Employee Register</title>
+    <title>Create Employee</title>
 
 </head>
 
-<body>
+<body onload="templater()">
     <header>
 
 
 
-    <div class="CyberLogo"><img src="images/logo.png"></div>
 
 
-        <div class="noAvatar">
-            <img src="images/no_avatar.gif"/>
-
-            <div class="headText">
-                <h1>John Doe</h1>
-                <h2>Employee Id:-INT014</h2>
-            </div>
+        <div class="headText">
+            <h1 >Enter Details of the New Employee</h1>
 
         </div>
-
-
-
 
     </header>
 
@@ -36,48 +27,93 @@
     </div>
 
     <table class="infoTable" cellpadding="0" cellspacing="0">
-
         <tr>
-            <td><div class="info1">Post:-</div></td>
-            <td><div class="info">########</div></td>
+          <td><div class="info1">Name:-</div></td>
+          <td><input class="info" type="text" placeholder="Enter" id="table_employee_Name" ></td>
+        </tr>
+        <tr>
+            <td><div class="info1">Age:-</div></td>
+            <td><input class="info" type="text" placeholder="Enter" id="table_employee_Age" ></td>
         </tr>
 
         <tr>
-            <td><div class="info1">Address:-</div></td>
-            <td><div class="info">########</div></td>
+            <td><div class="info1">Gender:-</div></td>
+            <td><input class="info" type="text" placeholder="Enter" id="table_employee_Gender" ></td>
         </tr>
 
         <tr>
-            <td><div class="info1">Phone no:-</div></td>
-            <td><div class="info">########</div></td>
+            <td><div class="info1">Designation:-</div></td>
+            <td><input class="info" type="text" placeholder="Enter" id="table_employee_Designation" ></td>
         </tr>
+
+
 
         <tr>
-            <td><div class="info1">Aadhaar no:-</div></td>
-            <td><div class="info">########</div></td>
+            <td  colspan="2" class="tableButton" onclick="createEmployee()" >
+                <div class="buttonBackground" >
+                    Enter
+                </div>
+            </td>
         </tr>
-
-        <tr>
-            <td><div class="info1">PAN card no:-</div></td>
-            <td><div class="info">########</div></td>
-        </tr>
-
-        <tr>
-            <td><div class="info1">Bank Account no:-</div></td>
-            <td><div class="info">########</div></td>
-        </tr>
-
 
     </table>
 
     <footer>
         ©kalpriksh bist 2019-2020
-        <nav>
+        <nav class="footNav">
             <div class="links"> <a href="#">link1</a></div>
             <div class="links"> <a href="#">link2</a></div>
             <div class="links"> <a href="#">link3</a></div>
         </nav>
     </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+
+<script>
+
+function templater(){
+
+  var employee_URL="http://localhost:61225/api/Employees/"+localStorage.getItem("ID");
+
+  var headName = document.getElementById("employee_Name");
+  var headDesignation = document.getElementById("employee_Designation");
+
+}
+
+function createEmployee(){
+                          console.log("here");
+                          var empName=document.getElementById("table_employee_Name");
+                          var empAge=document.getElementById("table_employee_Age");
+                          var empGender=document.getElementById("table_employee_Gender");
+                          var empDesignation=document.getElementById("table_employee_Designation");
+
+
+                          var send_data = {
+                            "Name": empName.value ,
+                            "Age": empAge.value,
+                            "Gender": empGender.value,
+                            "DesignationId": empDesignation.value
+                          };
+                          console.log(send_data);
+
+                          $.ajax({
+                              type:'POST',
+                              url: "http://localhost:61225/api/Employees/",
+                              data: send_data,
+                              dataType: "json",
+                              success: function( data, textStatus, jQxhr ){
+                                  alert("Employee has been Created");
+                              },
+                              error: function( jqXhr, textStatus, errorThrown ){
+                                  console.log( errorThrown );
+                              }
+                          });
+}
+
+</script>
 
 </body>
 </html>

@@ -1,0 +1,103 @@
+.heading{
+/*margin:20px;*/
+background:rgba(0,0,0,0.4);
+
+height:100px;
+
+}
+.heading .fornavigation ul li{
+display:inline-block;
+padding:25px;
+font-size:25px;
+font-weight: bold;}
+
+.forright
+	 { float:right; width:30%; clear:right }
+
+
+a{	
+	color:#ffffff;
+	text-decoration:none;
+
+}
+
+.foot{
+
+							
+							background-color: #333;
+         					font-size:30px;
+							font-weight: bold;
+							color: #000000;
+            				margin-top: 67px;
+            				top:300px;
+            				bottom: 0px;
+            				text-align: center;
+
+        
+						}
+
+							#fit3
+		{
+		height:25px;
+		background-color:#614051;
+		}
+.formstyle{
+border-radius: 10px;
+	width: 300px;
+	font-size: 15px;
+	padding: 3px;
+	margin-top: 50px;
+	border: 5px solid red;
+	background-image: linear-gradient(red, yellow);
+	margin-left: 38%;
+	/*background-color: #88ff4d;*/}
+
+	.detailstyle{
+border-radius: 25px;
+	font-size: 20px;
+	padding: 10px;
+	margin-top: 50px;
+	border: 5px solid red;
+	background:#FFFFFF;
+	width: 40%;
+	text-align: center;
+	display: inline-block;
+	margin-left: 3%;
+	}
+
+
+body{background-color: #000000;}
+
+.updatebutton{
+	
+	padding: 10px;
+	margin-top: 50px;
+	margin-left: 38%;
+	width: 64px;
+	display: inline;
+
+	
+}
+.delbutton{
+	height:50px;
+	width:100px;
+	border-radius: 25px;
+	display: inline;
+	margin-left: 10px;
+}
+.forupdate
+{height:50px;
+	width:100px;
+	border-radius: 25px;
+margin-top: 43px;}
+
+.deletedetails
+{
+	padding: 10px;
+	margin-top: 5px;
+	font-size: 40px;
+	display: inline;
+	
+	
+
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Create</title>
+<link rel="shortcut icon" type="image/png" href="logo 1.png">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+</script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+</script>
+
+<style>
+.navbar {margin-bottom:0;
+      
+              }
+
+
+.row.content  
+{height:400px;
+}
+
+
+.marquee { color:blue;
+                   font-family:"Verdana";
+
+                   font-size:10pt;
+        
+          }
+
+.sidenav  { padding-top:10px;
+            
+      background-color: darkblue;
+
+                  height: 130%;
+            
+    }
+
+.login-text { font-family:"Bookman Old Style";
+      
+             color:blue;
+   
+               }
+
+
+.btn { color:blue;
+
+         }
+
+.well-lg { margin-left:100px;
+
+               margin-right:100px;
+               background-color: lavender;
+
+              }
+             
+    
+
+footer  { background-color: darkblue;
+
+              color: white;
+        
+      padding: 15px;
+        
+    }
+
+
+@media only screen and (min-width: 768px)
+ {
+ .sidenav 
+      {
+ height: auto;  
+        padding: 55px;
+ 
+      }
+  
+    .row.content {height:auto;} 
+ 
+  }
+ 
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class= "container-fluid">
+<a href="#">
+<h1>
+<img src="logo.png" style="width:350px" ></a> <br>
+<img src="logo.png" style="width:150px" align="right">
+</h1>
+</header>
+
+
+
+<div class="marquee">
+
+<h4>
+
+<marquee bgcolor="red" behaviour="slide"> Cyber Group </marquee>
+
+</h4>
+
+</div>
+
+
+
+
+
+<nav class="navbar">
+
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class=navbar-toggle 
+ data-toggle="collapse" 
+ data-target="#myNavbar">
+
+</button>
+</div>
+
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav navbar-right">
+<li class="active">
+<a href="create.html"><span class="glyphicon glyphicon-briefcase">
+</span>Create</a>
+</li>
+
+<li>
+<a href="list.html">
+<span class="glyphicon glyphicon-home">
+</span>List</a>
+</li>
+      
+<li><a href="signup.html">
+<span class="glyphicon glyphicon-phone">
+</span>Signup</a>
+</li>
+
+<li><a href="index.html">
+<span class="glyphicon glyphicon-user">
+</span>Login</a>
+</li>
+
+</ul>
+</div>
+</div>
+
+</nav>
+
+
+<div class="container-fluid text-center">
+<div class="row content">
+
+<div class="col-sm-12">
+<br>
+
+<div class="well well-lg">
+<form class="form-horizontal" action="index.html">
+<div class="form-group">
+
+
+<label class="control-label col-sm-5" for="fname">First Name:</label>
+
+<div class="col-sm-4">
+<input type="text" class="form-control" id="fname" placeholder="Enter First Name" required>
+<br>
+</div>
+
+<label class="control-label col-sm-5" for="mname">Middle Name:</label>
+
+<div class="col-sm-4">
+<input type="text" class="form-control" id="mname" placeholder="Enter Middle Name">
+<br>
+</div>
+
+<label class="control-label col-sm-5" for="lname">Last Name:</label>
+
+<div class="col-sm-4">
+<input type="text" class="form-control" id="lname" placeholder="Enter Last Name" required>
+<br>
+</div>
+
+<label class="control-label col-sm-5" for="num">Contact Number:</label>
+
+<div class="col-sm-4">
+<input type="text" class="form-control" id="num" placeholder="Enter Contact Number" required>
+<br>
+</div>
+
+<label class="control-label col-sm-5" for="eid">Employee ID:</label>
+
+<div class="col-sm-4">
+<input type="text" class="form-control" id="eid" placeholder="Enter Employee ID" required>
+<br>
+</div>
+
+
+<label class="control-label col-sm-5" for="email">Email-Id:</label>
+
+<div class="col-sm-4">
+<input type="email" class="form-control" id="email" placeholder="Enter Email-Id" required>
+<br>
+</div>
+
+<label class="control-label col-sm-5" for="dob">D.O.B:</label>
+<div class="col-sm-4">
+<input type="date" class="form-control" id="dob" placeholder="Enter D.O.B." required>
+<br>
+</div>
+
+
+<label class="control-label col-sm-5" for="address">Address:</label>
+
+<div class="col-sm-4">
+<input style="height:100px" type="address" class="form-control" id="address" placeholder="Address" required>
+<br>
+</div>
+
+<div class="form-group">
+
+<div class="col-sm-offset-2 col-sm-8">
+
+<div class="checkbox">
+
+<label>
+<input type="checkbox">Remember me</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<div class="col-sm-offset-4 col-sm-4">
+
+<br><button type="Submit" class="btn btn-deafult">Submit</button>
+
+</div>
+</div>
+</form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+</div>
+<footer class="container-fluid text-center">
+<p>Website Designed and Managed by Cyber Group</p>
+
+</footer>
+
+
+
+</body>
+
+</html>
