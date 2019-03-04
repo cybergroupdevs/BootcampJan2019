@@ -1,0 +1,103 @@
+<html>
+<head>
+	<title>Enter Employee Details</title>
+	<link rel="stylesheet" type="text/css" href="Main.css">
+</head>
+<body>
+	<img src="Logo.png" alt="Logo" height="200" width="200" onclick=location.href="Login.html" >
+	<div class="container">
+		<div class="box1">
+<h1>Please Enter Your Details</h1>
+<br><br><br>
+
+<label class="label">First Name*</label>
+<br>
+<input type=' text' id='FirstName' placeholder=' Enter Your First Name'>
+<br> <br>
+<label class="label">Last Name*</label>
+<br>
+<input type= 'text'id='LastName' placeholder=' Enter Your Last Name'>
+<br><br>
+<label class="label">DesignationId</label>
+<br>
+<input type=' text' id='Designation' placeholder=' Enter Your Designation'>
+<br> <br>
+<label class="label">Email Id*</label>
+<br>
+<input type='text' id='Email' placeholder= ' Enter Your Email'>
+<br><br>
+<label class="label">Contact*</label>
+<br>
+<input type=' text' id='Contact' placeholder=' Enter Your Phone Number'>
+<br><br>
+<label class="label">Address Line 1</label>
+<br>
+<input type='Text'id='Address1' placeholder=' Enter Address Line 1' >
+<br><br>
+<label class="label">Address Line 2</label>
+<br>
+<input type='Text'id='Address2' placeholder=' Enter Address Line 2' >
+<br><br>
+<label class="label">City</label>
+<br>
+<input type='Text'id='City' placeholder='City' >
+<br><br>
+<label class="label">Country</label>
+<br>
+<input type='Text'id='Country' placeholder='Country' >
+<br><br>
+
+
+<button class="button" id='save' onclick="AddDetails()">Save Details</button> <button class="button" onclick="location.href='EmployeeAccount.html'"> Back</button>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+
+function AddDetails(){
+        
+    
+        alert('Details have been saved.');
+
+
+        
+        var FirstName= document.getElementById("FirstName").value;
+        var LastName= document.getElementById("LastName").value;
+        var Designation= document.getElementById("Designation").value;
+        var Email= document.getElementById("Email").value;
+        var Contact= document.getElementById("Contact").value;
+        var Address1= document.getElementById("Address1").value;
+        var Address2= document.getElementById("Address2").value;
+        var City= document.getElementById("City").value;
+        var Country= document.getElementById("Country").value;
+        
+        
+        var Obj=
+        { "FirstName":FirstName,"LastName":LastName,"Designation":Designation,"EmailId":Email,"Contact":Contact,"AddressLine1":Address1,"AddressLine2":Address2,"City":City, "Country":Country};
+
+        $.ajax({
+            url: 'http://localhost:55584/api/EmployeeDetails',
+            type: 'POST',
+            dataType: 'json',
+            data:Obj,
+            success: function(data){
+            console.log(data);
+        
+        }
+        
+        })
+    } ;
+
+
+</script>
+</div>
+</div>
+</body>
+
+
+
+
+</html>

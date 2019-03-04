@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="registeration.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        function hello(){
+             var username= document.getElementById("username").value;
+             var email_ID= document.getElementById("email_ID").value;
+             var password= document.getElementById("password").value;
+             
+             var dataToSend={
+                 "Username1": username,
+                 "Email_ID": email_ID,
+                 "Password": password
+             }
+             
+           $.ajax({
+        url: 'http://localhost:51589/api/usernames',
+        data: dataToSend,
+               type: 'POST',
+        dataType:'json',
+        success: function(res) {
+            console.log(res);
+            alert("Username added");
+      }
+    });
+         }
+     </script>
+
+</head>
+
+<body>
+    <div class="header">
+        <img src="logo.png" alt="logo"/ width="20%" ,height="10%">
+    </div>
+    <div class="registerationpage">
+        <div class="form">
+            <form class="registerf">
+                <input type="text" placeholder="Username" id="username" />
+                <input type="text" placeholder="E-mail Id" id="email_ID" />
+                <input type="password" placeholder="Password" id="password" />
+                <input type="button" onclick="hello();" value="Sign-Up" />
+                <p class="message">If Already A User<a href="index.html">login</a>
+                </p>
+            </form>
+        </div>
+        <div class="footer">
+            <p>Copyright @ 2008 All Rights Reserved </p>
+        </div>
+</body>
+
+</html>
+    

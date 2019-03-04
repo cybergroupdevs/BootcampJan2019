@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete Employee</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<div>
+     <nav>
+     <a href="continue.html"><img src="cygrplogo.jfif" width="300px" height="80px"></a>
+     <a href="index.html"><img src="logout.png" width="80px" height="80px" ></a>
+   </nav>
+  </div>
+  <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+  <script type="text/javascript">
+    var empdata=[];
+var Url='http://localhost:51969/api/Employees/';
+    
+     function fetchrecord()
+    {
+    var id= document.getElementById("id").value;
+    Url='http://localhost:51969/api/Employees/';
+    Url=Url+''+id+'';
+    $.ajax({
+            url: Url,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            empdata=res;
+            alert("Employee to be deleted found");
+              }
+        });
+    }
+
+    function fill() {
+    	
+		document.getElementById("id").value = empdata["ID"];
+		document.getElementById("Name").value = empdata["Name"];
+		document.getElementById("Code").value = empdata["Code"];
+		document.getElementById("Email").value = empdata["Id"];
+		document.getElementById("Address").value = empdata["Address"];
+		document.getElementById("Contact").value = empdata["Contact"];
+		document.getElementById("Department Id").value = empdata["DepartmentId"];
+		document.getElementById("Designation Id").value = empdata["DesignationId"];
+    }
+    function submit() {
+   $.ajax({
+            url: Url,
+            type: 'DELETE',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            empdata=res;
+            alert("Employee Deleted");
+              }
+        });
+    
+    }
+   
+    function reset()
+    {
+
+    document.getElementById("id").value = "";
+		document.getElementById("Name").value = "";
+		document.getElementById("Code").value = "";
+		document.getElementById("Email").value = "";
+		document.getElementById("Address").value = "";
+		document.getElementById("Contact").value = "";
+		document.getElementById("Department Id").value = "";
+		document.getElementById("Designation Id").value = "";
+
+    }
+  </script>
+  
+</head>
+<body>
+  <div class="scrollmenu">
+  <a href="continue.html">...Go Back</a>
+</div>
+
+    <br><h3>Enter Employee Id for Employee to be deleted</h3><input type="text" id="id" placeholder="Employee Id">
+    <input type="submit" value="Continue" onclick="fetchrecord()">
+    <table><tr>
+    <td>Name</td><td><input type="text" id="Name" placeholder=""></td></tr>
+    <tr><td>Code</td><td><input type="text" id="Code" placeholder=""></td></tr>
+    <tr><td>Email</td><td><input type="text" id="Email" placeholder=""></td></tr>
+    <tr><td>Address</td><td><input type="text" id="Address" placeholder=""></td></tr>
+    <tr><td>Contact</td><td><input type="text" id="Contact" placeholder=""></td></tr>
+    <tr><td>Department Id</td><td><input type="text" id="Department Id" placeholder=""></td></tr>
+    <tr><td>Designation Id</td><td><input type="text" id="Designation Id" placeholder=""></td></tr>
+    </table>
+    <button type="fill" value="Fill" onclick="fill()">Fill</button> 
+    <input type="submit" value="Delete" onclick="submit()">
+    <input type="reset" id="reset" value="Reset" onclick="reset()">
+  
+</body>
+</html>

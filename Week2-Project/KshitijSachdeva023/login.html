@@ -1,0 +1,91 @@
+<html>
+    <head>
+    <title>LOGIN FORM </title>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        
+        var err=0;
+        function getEmployee(){
+            var id= document.getElementById("user Id").nodeValue
+            var err=1;
+            $.ajax({
+                url:'http://localhost:49857/api/CybreEmployees'+id,
+                type: 'GET',
+                dataType: 'json',
+                success: function(res){
+                    var pass= document.getElementById("password").value;
+                    if (pass==res.password){
+                        window.location="List.html";
+                        
+                    }
+                    else{
+                        alert("wrong Id or Password");
+                    }
+                }            })
+        }
+        </script>
+    <style>
+        .abc{
+            text-align: center;
+        }
+        .footer{
+            width: 10px;
+            height: 10px;
+        }
+        .well
+        {text-align: center;}
+        
+    </style>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header class="abc">
+            <strong>    
+                <h1>
+                    Cyber Group Login Page<br><br>
+                </h1>
+                    <a class="link" href="./signup.html">Signup</a>
+                    <a class="link" href="#">Home</a>
+                    <a class="link" href="#">About</a>
+                    <a class="link" href="#">Contact</a>
+                    <a class="link" href="#">Log Out</a>
+            
+            </strong>
+                <hr size="1px" color="black"><br><br>
+            </header>
+                <div class= "container-fluid">
+                <div class="col-sm-12">
+                <div class="well well-lg">
+            <form>
+                <label>Username:
+                    <input type="username" placeholder="Enter Username">
+                </label>
+                    <br>
+                    <br>
+                <label>Password:
+                    <input type = "password" placeholder="Enter Password"><br><br>
+                </label><br>
+                    <btn class="btn-success">
+                    <button type="submit">Submit</button></btn>
+                    <br>
+                    <br>
+                    <input type="checkbox">Remember Me
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+             </form>
+                </div>
+                </div>
+                </div>
+            <footer>  All rights reserved<br>
+              <div class="footer">
+                <img src="./logo.png" height= 100px width=250px>
+                </div>
+        </body>
+    </html> 

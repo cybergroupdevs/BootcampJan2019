@@ -1,91 +1,212 @@
 ﻿*{
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 header{
+    font-family: Calibri;
     width:100%;
+    height: 100px;
     overflow: hidden;
-    background-color:black;
-    attachment: scroll ;
-    opacity: 0.7;
-    color: white;
-    box-shadow: 2px 2px 2px 2px black;
+    opacity: 0.8;
+    background-color: white;
+    color: black;
+    box-shadow: 2px 2px 2px 3px lightgray;
+}
+.headerButton{
+    position: absolute;
+    background-color: lightgrey;
+    text-align: center;
+    margin-left: 85%;
+    margin-top: 17%;
+    width: 25px;
+    height: 25px;
+    border: solid;
+    border-color: lightgrey;
+    border-width: 0.5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 2px darkgray;
+}
+.dropdown:hover .navigationDropdown{
+    display: block;
+}
+
+.dropdown:hover .headerButton{
+    background-color: dimgray;
+    box-shadow: none;
+    cursor: pointer;
+
+}
+.navigationDropdown{
+    position: absolute;
+    font-family: "Calibri Light";
+    width: 75px;
+    margin-left: 80%;
+    margin-top: 25%;
+    background-color: lightgray;
+    float: right;
+    display: none;
+}
+.links{
+    text-align: center;
+    color: blue;
+    padding: 5px;
+}
+.links:hover{
+    text-align: center;
+    color: blue;
+    background-color:darkgrey;
+    color: darkslategray;
+    border: none;
+    border-radius: 10px;
 }
 body{
-    width: 100%;
-    color: white;
-    background-image: url("http://smarterware.org/wp-content/uploads/2016/09/technology1.jpg") ;
-}
-.headerText{
-    font-size:xx-large;
-    width:40%;
-    padding: 10px;
-    margin-left: 5px;
-}
- nav{
-    float: right;
-    color: white;
-  }
- .links{
-     display: inline;
-     padding-right: 20px;
- }
-.txtbox {
-    padding: 15px;
-    margin-left: 5px;
+    font-family: Calibri;
+    background-color: white;
 }
 .CyberLogo{
-    padding-top: 10px;
-    margin-left: 10px;
-    opacity: 1;
-}
-footer{
-    color: white;
-    margin-top:100%;
-    background-color: black;
+    position: absolute;
+    top: 10px;
+
 }
 
+.table{
+    margin-top: 10px;
+    margin-right:25% ;
+    margin-bottom: 25%;
+}
 table{
-    align-self: center;
-    margin-left:35px;
-    margin-top: 20px;
+    margin-left: auto;
+    margin-right:auto ;
 
+
+}
+.tableTxt{
+    text-align: left;
+    padding-top: 10px;
+
+}
+.textInput{
+    padding-bottom: 20px;
+}
+.bodyContent{
+    font-family: "Calibri Light";
+    color: darkslategrey;
+    text-align: center;
+    margin-top: 125px;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: whitesmoke;
+
+}
+.contentTxt{
+    text-align:left ;
+    margin-left: 5px;
+    padding: 5px;
+    /*background-color: darkblue;*/
 }
 .button{
+    padding-bottom: 20px;
+    width: 30%;
+    height: 12px;
 
-    width: 20%;
 }
-
 .button:hover{
-    background-color: lightgrey;
+    background-color: darkgray;
+    border: none;
+    height: 12px;
+    border-radius: 3px;
     cursor: pointer ;
     color: black;
 }
 
-a{
+.bottomNav{
+    float: right;
+}
+.footNav{
+    float: right;
+}
+footer{
+    font-family: "Calibri Light"    ;
+    color: black;
+    margin-top:70%;
+    background-color: whitesmoke;
+}
+.linksFoot{
+    display: inline;
+    text-align: center;
+    color: blue;
+    padding: 5px;
+}
+.nav{
+    padding-top: 10px;
+    float: right;
+    margin-top: 30px;
     color: white;
 }
-
-.txtInput{
-    padding: 10px;
+a{
+    color: darkblue;
 }
+
 @media only screen and (min-width:1000px) {
     footer{
-        margin-top:25%;
-        background-color: black;
+        margin-top:30%;
+        background-color: whitesmoke;
     }
     .CyberLogo{
         margin-left: 10px;
-        opacity: 1;
     }
     table{
-        text-align: left;
-        margin-left:20px;
-        margin-top: 20px;
+        float: none;
+        margin-left: 20px;
+        margin-top: 10px;
     }
-    .button:hover{
+    .table{
+        margin-top: 10px;
+        margin-right:45% ;
+        margin-bottom: 20%;
+        border: solid;
+        border-color: whitesmoke ;
+        border-right-color: lightgray;
+        border-width: 0.5px;
+    }
+
+    .textInput{
+
+    }
+    .textInput{
+
+    }
+    .button{
+        padding-bottom: 20px;
+        width: 30%;
+    }
+
+    .headerButton{
+        position: absolute;
         background-color: lightgrey;
-        cursor: pointer ;
-        color: black;
+        text-align: center;
+        margin-left: 95%;
+        margin-top: 5%;
+        width: 25px;
+        height: 25px;
+        border: solid;
+        border-color: lightgrey;
+        border-width: 0.5px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px 2px darkgray;
     }
+    .navigationDropdown{
+        position: absolute;
+        font-family: "Calibri Light";
+        width: 75px;
+        margin-left: 93%;
+        margin-top: 7%;
+        background-color: lightgray;
+        float: right;
+        display: none;
+        border: none;
+        border-radius: 10px;
+    }
+
 }

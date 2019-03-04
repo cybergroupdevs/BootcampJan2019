@@ -18,21 +18,6 @@ function signupform(){
 	var licence=terms.valueOf();
 if(pass1 == pass2 && licence == 1 ){
 	var datafor_EmployeeDetail ={
-								"AuthenticateUser": {
-								"Id": empid,
-								"Email": mail,
-								"password": pass1,
-								"Terms": licence,
-								},
-								"EducationDetail":{
-								"GraduationDegree": "Not Specified"
-								"GraduationMarks": 0,
-								"Id": empid,
-								"TenthBoard": "Not Specified"
-								"Tenthmarks": 0,
-								"Twelfthboard": "Not Specified"
-								"Twelfthmarks": 0,	
-								},
 								"Id": empid,
 								"firstname":fname,
 								"lastname":lname,
@@ -44,7 +29,23 @@ if(pass1 == pass2 && licence == 1 ){
 								"gender": "NA",
 								"designation": "Intern",
 								"address": "Needs to be updated",
+								"AuthenticateUser": {
+								"Id": empid,
+								"Email": mail,
+								"password": pass1,
+								"Terms": licence
+								},
+								"EducationDetail":{
+								"Id": empid,
+								"TenthBoard": "Not Specified",
+								"Tenthmarks": 0,
+								"Twelfthboard": "Not Specified",
+								"Twelfthmarks": 0,
+								"GraduationDegree": "Not Specified",
+								"GraduationMarks": 0
+										}
 								};
+								console.log(datafor_EmployeeDetail);
 						$.ajax	({
 							url: "http://localhost:50052/api/EmployeeDetail",
 							data: datafor_EmployeeDetail,

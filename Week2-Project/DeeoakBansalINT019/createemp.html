@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>create employee</title>
+	<style type="text/css">
+		body{
+			background-image:url(bglogin.png);
+			background-size:cover;
+		}
+		#h{
+			float:right;
+			color:white;
+			margin-right:8px;
+		}
+      .emp{ 
+          width:1000px;
+          height:auto;
+          color:black;
+          font-weight:bolder;
+          font-style:sans-serif;
+          margin-left:25%;
+          font-size:30px;
+          padding:3px;
+          margin-top:-10px;
+      }	
+      .emp input[type="text"]
+      {
+      	width:250px;
+		height:30px;
+		border-radius:5px;
+		padding-left:8px;		
+      }
+	  .emp input[type='Email']
+		{
+		width:250px;
+		height:30px;
+		border-radius:5px;
+		margin-left:100px;
+		padding-left:8px;
+		}
+	  .emp input[type='number']
+		{
+		width:250px;
+		height:30px;
+		border-radius:5px;
+		margin-left:100px;
+		padding-left:8px;
+		}
+      .emp select{
+        width:255px;
+	    height:34px;
+		border-radius:5px;
+	    margin-left:92px;
+	    padding-left:8px;
+		}
+	   .emp input[type="radio"]
+		{
+		width:20px;
+		height:20px;
+		margin-left:150px;
+		}
+		.emp input[type='button']
+		{
+		width:120px;
+		height:30px;
+		border-radius:5px;
+		background-color:green;
+		color:white;
+		font-weight:bolder;
+		border:none;
+		}
+		.emp input[type='reset']
+		{
+		width:120px;
+		height:30px;
+		border-radius:5px;
+		background-color:red;
+		color:white;
+		font-weight:bolder;
+		border:none;
+		margin-left:200px;
+		}
+		.emp input[type='button']:hover{
+		width:123px;
+		height:33px;
+		background-color:orange;
+		}
+		.emp input[type='reset']:hover{
+     	width:123px;
+		height:33px;
+		background-color:orange;
+		}
+       .g{
+		font-size:19px;
+		font-weight:bolder;
+		margin-top:100px;
+		margin-left:40%;
+		font-style:sans-serif;
+		}
+		#name{
+			margin-left:165px;
+		}
+		header{
+			background-color:rgba(0,0,0,0.8);
+			width:100.5%;
+			height:80px;
+			margin-right:0;
+			padding-right:-1px;
+		}
+		#emp{
+			margin-left:145px;
+			color: white;
+		}
+		#desg{
+		      margin-left:110px;	
+		}
+		#empno{
+			margin-left:125px;
+		}
+		#add{
+			margin-left:142px;
+		}
+		#female{
+			margin-left:10px;
+		}
+
+		#UserName{
+		           	margin-left:99px;	
+		}
+		#dept{
+		       	margin-left:92px;	
+		}
+
+		#back{
+
+        	float: right;
+        	text-decoration: none;
+        	font-size:28px; 
+        	margin-top: 15px;
+        	margin-right: 20px;
+        	color: white;
+        	font-weight: bold;
+        }
+
+
+		 a:hover {
+			background-color:orange;
+			border-radius:5px;
+		}
+	</style>
+	    <script
+          src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        	
+        	function Details() {
+        		
+        		var name=document.getElementById('name').value;
+        		var userName=document.getElementById('UserName').value;
+        		
+        		var gender=form.radio.value;
+        		var desgination=document.getElementById('desg').value;
+        		var empNo=document.getElementById('empno').value;
+        		var contNo=document.getElementById('ContNo').value;
+        		var address =document.getElementById('add').value;
+        		var dept=document.getElementById('dept').value;
+
+                var dataToSend = {
+                                  
+                      "Departments": [
+                                       {
+                                         
+                                         "name": dept,
+                                         "employeeNo": empNo 
+                                       }
+                                     ],
+                      
+                     "Designations": [
+                                      {
+                                        
+                                        "name": desgination,
+                                        "employeeNo":empNo
+                                      }
+                                     ],
+                    
+                     "name": name,
+                     "userName": userName,
+                     "gender": gender,
+                     "employeeNo": empNo,
+                     "contactNo": contNo,
+                     "Address": address
+                          }
+
+                         
+                if(name == "" || userName == "" || desgination == "" || empNo == "" || contNo == "" || address == "" || dept == "" || gender == "")
+                {
+                	alert("fields can not be empty");
+                }
+
+                else{
+
+                	  $.ajax(
+                      { 
+                         url : "http://localhost:55034/api/employees",
+                         type : 'POST',
+                         data : dataToSend,
+                         datatype : 'json',
+                         success : function(res){
+                         	            alert("Detailes have been saved");
+
+                                       window.location.href="afterlogin.html";
+                               }
+                        }
+                       );
+ 
+          
+
+                }
+
+
+        	}
+
+        </script>
+     
+</head>
+<body>
+	<header>
+		<img src="logo.png" width="215" height="80">
+		<h2 id ="h">We build smart solutions</h2>
+		<a href="afterlogin.html" id="back">Back</a>
+	</header>
+<div class="emp">
+	<form name="form">
+		<h3 id="emp">Fill Employee Details</h3>
+		Name*
+		<input type="text" id="name" name="" placeholder="Enter Name"></br></br>
+		User Name*
+		<input type="text" id="UserName" name="" placeholder="FirstNameEmployeeNo"></br></br>
+		Gender*
+		<input type="radio" id= "male" name="radio" value="male">Male
+		<input type="radio" id="female" name="radio" value="female">Female</br></br>
+		Desgination
+	    <input type="text" id="desg" name="" placeholder="Enter Desgination"></br></br>
+		Emp_No.*
+		<input type="text" id="empno" name="" placeholder="Enter Emp No."></br></br>
+		Contact No*
+		<input type="number" id="ContNo" name="" placeholder="Contact No"></br></br>
+		Address*
+		<input type="text" id="add" name="" placeholder="Enter Address"></br></br>
+		Department*
+	    <input type="text" id="dept" placeholder="Department Name"></br></br></br></br>
+		<input type="reset" name="" value="Reset">
+		<input type="button" name="" value="Submit" onclick="Details();">
+
+
+	</form></div>
+	<div class="g"><p>@DEEPAK BANSAL 2019</p></div>
+    
+</body>
+</html>

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EmployeeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DESIGNATION">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="Salary" Type="float" />
+        </EntityType>
+        <EntityType Name="DETAILS">
+          <Key>
+            <PropertyRef Name="PanCardNumber" />
+          </Key>
+          <Property Name="PanCardNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ResidentialAddress" Type="varchar" MaxLength="50" />
+          <Property Name="EmailId" Type="varchar" MaxLength="60" />
+          <Property Name="GithubUsername" Type="varchar" MaxLength="50" />
+          <Property Name="LinkedInProfile" Type="varchar" MaxLength="70" />
+          <Property Name="HireDate" Type="date" />
+          <Property Name="EmploymentId" Type="int" />
+        </EntityType>
+        <EntityType Name="EMPLOYEES">
+          <Key>
+            <PropertyRef Name="EmploymentId" />
+          </Key>
+          <Property Name="EmploymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="numeric" Precision="12" Scale="0" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__DETAILS__Employm__74AE54BC">
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="0..1" />
+          <End Role="DETAILS" Type="Self.DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="EmploymentId" />
+            </Principal>
+            <Dependent Role="DETAILS">
+              <PropertyRef Name="EmploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLOYEES__Depar__71D1E811">
+          <End Role="DESIGNATION" Type="Self.DESIGNATION" Multiplicity="0..1" />
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DESIGNATION">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeDBModelStoreContainer">
+          <EntitySet Name="DESIGNATION" EntityType="Self.DESIGNATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETAILS" EntityType="Self.DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DETAILS__Employm__74AE54BC" Association="Self.FK__DETAILS__Employm__74AE54BC">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="DETAILS" EntitySet="DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLOYEES__Depar__71D1E811" Association="Self.FK__EMPLOYEES__Depar__71D1E811">
+            <End Role="DESIGNATION" EntitySet="DESIGNATION" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmployeeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DESIGNATION">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Double" />
+          <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK__EMPLOYEES__Depar__71D1E811" FromRole="DESIGNATION" ToRole="EMPLOYEES" />
+        </EntityType>
+        <EntityType Name="DETAIL">
+          <Key>
+            <PropertyRef Name="PanCardNumber" />
+          </Key>
+          <Property Name="PanCardNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ResidentialAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="GithubUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LinkedInProfile" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="HireDate" Type="DateTime" Precision="0" />
+          <Property Name="EmploymentId" Type="Int32" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK__DETAILS__Employm__74AE54BC" FromRole="DETAILS" ToRole="EMPLOYEES" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EmploymentId" />
+          </Key>
+          <Property Name="EmploymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="DepartmentId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DESIGNATION" Relationship="Self.FK__EMPLOYEES__Depar__71D1E811" FromRole="EMPLOYEES" ToRole="DESIGNATION" />
+          <NavigationProperty Name="DETAILS" Relationship="Self.FK__DETAILS__Employm__74AE54BC" FromRole="EMPLOYEES" ToRole="DETAILS" />
+        </EntityType>
+        <Association Name="FK__EMPLOYEES__Depar__71D1E811">
+          <End Role="DESIGNATION" Type="Self.DESIGNATION" Multiplicity="0..1" />
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DESIGNATION">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETAILS__Employm__74AE54BC">
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="DETAILS" Type="Self.DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="EmploymentId" />
+            </Principal>
+            <Dependent Role="DETAILS">
+              <PropertyRef Name="EmploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DESIGNATIONs" EntityType="Self.DESIGNATION" />
+          <EntitySet Name="DETAILS" EntityType="Self.DETAIL" />
+          <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEE" />
+          <AssociationSet Name="FK__EMPLOYEES__Depar__71D1E811" Association="Self.FK__EMPLOYEES__Depar__71D1E811">
+            <End Role="DESIGNATION" EntitySet="DESIGNATIONs" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETAILS__Employm__74AE54BC" Association="Self.FK__DETAILS__Employm__74AE54BC">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="DETAILS" EntitySet="DETAILS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeeDBModelStoreContainer" CdmEntityContainer="EmployeeDBEntities">
+          <EntitySetMapping Name="DESIGNATIONs">
+            <EntityTypeMapping TypeName="EmployeeDBModel.DESIGNATION">
+              <MappingFragment StoreEntitySet="DESIGNATION">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Designation1" ColumnName="Designation" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETAILS">
+            <EntityTypeMapping TypeName="EmployeeDBModel.DETAIL">
+              <MappingFragment StoreEntitySet="DETAILS">
+                <ScalarProperty Name="PanCardNumber" ColumnName="PanCardNumber" />
+                <ScalarProperty Name="ResidentialAddress" ColumnName="ResidentialAddress" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="GithubUsername" ColumnName="GithubUsername" />
+                <ScalarProperty Name="LinkedInProfile" ColumnName="LinkedInProfile" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="EmploymentId" ColumnName="EmploymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEES">
+            <EntityTypeMapping TypeName="EmployeeDBModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEES">
+                <ScalarProperty Name="EmploymentId" ColumnName="EmploymentId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

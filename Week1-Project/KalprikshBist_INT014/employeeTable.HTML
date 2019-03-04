@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css"  media="screen" href="table_styles.css">
+    <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
+    <meta charset="utf-8">
+
+    <title>Employee Table</title>
+</head>
+
+<body>
+
+    <header>
+
+        <img class="CyberLogo" src="images/logo.png"/>
+        <div class="headertxt">
+
+            <div><h1>Employee Register</h1></div>
+            <div><h6>last updated on dd/mm/yyyy</h6></div>
+
+        </div>
+        <!-- <nav>
+            <div>
+                <div class="links"> <a href="">link1</a></div>
+                <div class="links"> <a href="#">link2</a></div>
+                <div class="links"> <a href="#">link3</a></div>
+            </div>
+        </nav> -->
+        </header>
+
+
+
+        <button onclick="getEmployees()">
+         Generate List of Employees
+        </button>
+
+
+
+        <table id="table" cellspacing="0", cellpadding="0">
+
+            <tr>
+              <div class="tableHead">
+
+                <td><div class="nameh">Employee Name</div></td>
+                <td><div class="idh">Id</div></td>
+                <td><div class="posth">Post</div></td>
+                <td><div class="desIdh">Des.Id</div></td>
+
+              </div>
+            </tr>
+
+        </table>
+
+
+
+    <footer>
+        ©kalpriksh bist 2019-2020
+        <nav>
+            <div class="links"> <a href="#">link1</a></div>
+            <div class="links"> <a href="#">link2</a></div>
+            <div class="links"> <a href="#">link3</a></div>
+        </nav>
+    </footer>
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+
+    <script>
+
+function sendId(rowId){
+   var name = document.getElementById(rowId).childNodes[0].innerHTML;
+   var id = document.getElementById(rowId).childNodes[1].innerHTML;
+   var designation = document.getElementById(rowId).childNodes[2].innerHTML;
+
+
+   localStorage.setItem("ID",id);
+
+   window.open ("employeeDetails.html","employeeDetailsPage");
+
+
+
+}
+
+function getEmployees() {
+
+                $.ajax({
+                    url: "http://localhost:61225/api/Employees",
+                    type: 'GET',
+                    dataType: 'json', // added data type
+                    success: function(res) {
+
+                    console.log(res);
+
+                    for(i=0; i<res.length;i++)
+                    {
+                      var makeRow = document.createElement("TR");
+                      makeRow.setAttribute("class", "myRow");
+                      document.getElementById("table").appendChild(makeRow);
+
+                      for(j=0;j<=3;j++){
+
+                      var myColumn = document.createElement("TD");
+                      if(j==0){
+                        myColumn.setAttribute("class","name");
+                        var t = document.createTextNode(res[i].Name);
+                      myColumn.appendChild(t);
+                      }
+                      if(j==1){
+                            var t = document.createTextNode(res[i].Id);
+                            myColumn.setAttribute("id","idh");
+                            makeRow.setAttribute("id",res[i].Id);
+                            myColumn.appendChild(t);
+                       }
+                      if(j==2){
+                            myColumn.setAttribute("class","post");
+                            var t = document.createTextNode(res[i].Designation.Name);
+                            myColumn.appendChild(t);
+                       }
+                       if(j==3){
+                             myColumn.setAttribute("class","desIdh");
+                             var t = document.createTextNode(res[i].Designation.Id);
+                             myColumn.appendChild(t);
+                        }
+
+                       makeRow.setAttribute("onclick","sendId(this.id)");
+                       makeRow.appendChild(myColumn);
+                      }
+                    }
+
+                  }
+
+                });
+              }//function end
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
+
+

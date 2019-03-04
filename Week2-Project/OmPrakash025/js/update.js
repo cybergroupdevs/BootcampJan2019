@@ -1,11 +1,10 @@
 function loadInfo(){
     var url = new URL(window.location.href);
     var id = url.searchParams.get("id");
-    console.log(id); 
-    
+    id=Number(id);
     document.getElementById("uid").value=id;
     $.ajax({
-            url: 'http://localhost:50191/api/Employees/'+Number(id),
+            url: 'http://localhost:50191/api/Employees/'+id,
             type: 'GET',
             dataType: 'json',
             success: function(item){
@@ -23,7 +22,6 @@ function loadInfo(){
                     $('#pan').val(item['PanNumber']); 
                     $('#bio').val(item['Bio']); 
                     $('#job').val(item['JobRole']);  
-               
         }
     });
 }
@@ -56,6 +54,9 @@ function updateEmployee(){
            url : "http://localhost:50191/api/Employees/"+id,
            dataType : "json",
            data : regData,
+        error:function(e){
+            alert(e);
+        },
            success : function (msg) {
                if (msg) {
                    window.location ="list.html";

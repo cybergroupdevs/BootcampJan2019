@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="hrms1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Pinfo">
+          <Key>
+            <PropertyRef Name="Eid" />
+          </Key>
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="Fathersname" Type="varchar" MaxLength="500" />
+          <Property Name="Eid" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Dob" Type="date" />
+          <Property Name="Mobile" Type="varchar" MaxLength="18" />
+          <Property Name="Address" Type="varchar" MaxLength="900" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="Designation" Type="varchar" MaxLength="100" />
+          <Property Name="Supervisor" Type="varchar" MaxLength="100" />
+          <Property Name="Gender" Type="varchar" MaxLength="19" />
+          <Property Name="Emailid" Type="varchar" MaxLength="900" />
+        </EntityType>
+        <Association Name="FK__Pinfo__Eid__4E88ABD4">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="Pinfo" Type="Self.Pinfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Pinfo">
+              <PropertyRef Name="Eid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hrms1ModelStoreContainer">
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pinfo" EntityType="Self.Pinfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Pinfo__Eid__4E88ABD4" Association="Self.FK__Pinfo__Eid__4E88ABD4">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Pinfo" EntitySet="Pinfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hrms1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pinfo" Relationship="Self.FK__Pinfo__Eid__4E88ABD4" FromRole="Login" ToRole="Pinfo" />
+        </EntityType>
+        <EntityType Name="Pinfo">
+          <Key>
+            <PropertyRef Name="Eid" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fathersname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Eid" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dob" Type="DateTime" Precision="0" />
+          <Property Name="Mobile" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Supervisor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
+          <Property Name="Emailid" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Login" Relationship="Self.FK__Pinfo__Eid__4E88ABD4" FromRole="Pinfo" ToRole="Login" />
+        </EntityType>
+        <Association Name="FK__Pinfo__Eid__4E88ABD4">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="Pinfo" Type="Self.Pinfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Pinfo">
+              <PropertyRef Name="Eid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hrms1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Pinfoes" EntityType="Self.Pinfo" />
+          <AssociationSet Name="FK__Pinfo__Eid__4E88ABD4" Association="Self.FK__Pinfo__Eid__4E88ABD4">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Pinfo" EntitySet="Pinfoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="hrms1ModelStoreContainer" CdmEntityContainer="hrms1Entities">
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="hrms1Model.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pinfoes">
+            <EntityTypeMapping TypeName="hrms1Model.Pinfo">
+              <MappingFragment StoreEntitySet="Pinfo">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Fathersname" ColumnName="Fathersname" />
+                <ScalarProperty Name="Eid" ColumnName="Eid" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Emailid" ColumnName="Emailid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Create Employee">
+        <meta name="keywords" content="HRMS">
+        <meta name="author" content="Rishabh Gupta">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">      
+
+        <link href="create.css" rel="stylesheet">
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script src="const.js"></script>
+    </head>
+
+
+    <body>
+        <header class="header">
+            <div class="logo-wrap">
+                <div class="hamburger-btn">       
+                    <img src="img/baseline_menu_black_18dp.png" class="">
+                </div>
+                <div class="logo">       
+                    <img src="img/logo.png" class="logo-img">
+                </div>
+            </div>
+            <div class="middle-nav">
+                <a href="signup.html"><div class="nav-item">Signup</div></a>
+                <a href="login.html"><div class="nav-item">Login</div></a>
+                <a href="create.html"><div class="nav-item">Create</div></a>
+                <a href="list.html"><div class="nav-item">List</div></a>
+                <a href="details.html"><div class="nav-item">Detail</div></a>
+            </div>
+        </header>
+        <div class="sidebar">
+            <div class="item item-active">Create Employee</div>
+            <div class="item">List Employee</div>
+            <div class="item">Details Employee</div>
+        </div>
+        <div class="body-container">
+            <div class="section">
+                <div class="section-head-txt-wrap">
+                    <span class="section-head-txt">Create Employee</span>
+                </div>
+                <form id="create-employee-form">
+                    <div class="form-wrap">
+                        <div class="form-head">Basic Information</div>
+                        <div class="form-content">
+                            <div class="subform">
+                                <div class="grp">
+                                    <label>First Name</label>
+                                    <input type="text" id="FirstName">
+                                </div>
+                                <div class="grp">
+                                    <label>Last Name</label>
+                                    <input type="text" id="LastName">
+                                </div>
+                                <div class="grp">
+                                    <label>Gender</label>
+                                    <div class="input-radio-wrap">
+                                        <input type="radio" name="g" id="Gender">&nbsp;Male&nbsp;
+                                        <input type="radio" name="g" >&nbsp;Female&nbsp;
+                                    </div>
+                                </div>
+                                <div class="grp">
+                                    <label>Father's Name</label>
+                                    <input type="text" id="FathersName">
+                                </div>
+
+                                <div class="grp">
+                                    <label>Mother's Name</label>
+                                    <input type="text" id="MothersName">
+                                </div>
+                                <div class="grp">
+                                    <label>CGI Code</label>
+                                    <input type="text" id="CgiCode">
+                                </div>
+                            </div>
+
+                            <div class="subform">
+
+                                <div class="grp">
+                                    <label>Date Of Birth</label>
+                                    <input type="date" id="DateOfBirth">
+                                </div>
+
+
+                                <div class="grp">
+                                    <label>Mobile</label>
+                                    <input type="number" id="MobileNumber">
+                                </div>
+
+                                <div class="grp">
+                                    <label>Email</label>
+                                    <input type="email" id="Email">
+                                </div>
+
+                                <div class="grp">
+                                    <label>Designation</label>
+                                    <select id="Designation">
+                                    </select>
+                                </div>
+                                <div class="grp">
+                                    <label>Department</label>
+                                    <input type="text" id="Department">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-wrap">
+                        <div class="form-head">Address Details</div>
+                        <div class="form-content">
+                            <div class="subform">
+                                <div class="grp">
+                                    <label>House / Flat No.</label>
+                                    <input type="text" id="HouseNo">
+                                </div>
+
+                                <div class="grp">
+                                    <label>Street</label>
+                                    <input type="text" id="Street">
+                                </div>
+                                <div class="grp">
+                                    <label>District</label>
+                                    <input type="text" id="District">
+                                </div>
+
+
+                            </div>
+
+                            <div class="subform">
+                                <div class="grp">
+                                    <label>City</label>
+                                    <input type="text" id="City">
+                                </div>
+
+                                <div class="grp">
+                                    <label>State</label>
+                                    <input type="text" id="State">
+                                </div>
+                                <div class="grp">
+                                    <label>Pincode</label>
+                                    <input type="number" id="Pincode">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-wrap">
+                        <div class="form-head">Educational Qualifications</div>
+                        <div class="table-wrap table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Degree/Certificate</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Board/University</th>
+                                        <th>Marks/CGPA</th>
+                                    </tr>
+                                    <tr>
+                                        <td>High School</td>
+                                        <td><input type="date" name="StartDate"></td>
+                                        <td><input type="date" name="EndDate"></td>
+                                        <td><input type="text"  name="University"></td>
+                                        <td><input type="number"  name="Marks"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Senior Secondary</td>
+                                        <td><input type="date" name="StartDate"></td>
+                                        <td><input type="date" name="EndDate"></td>
+                                        <td><input type="text"  name="University"></td>
+                                        <td><input type="number"  name="Marks"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Graduation</td>
+                                        <td><input type="date" name="StartDate"></td>
+                                        <td><input type="date" name="EndDate"></td>
+                                        <td><input type="text"  name="University"></td>
+                                        <td><input type="number"  name="Marks"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Post Graduation</td>
+                                        <td><input type="date" name="StartDate"></td>
+                                        <td><input type="date" name="EndDate"></td>
+                                        <td><input type="text"  name="University"></td>
+                                        <td><input type="number"  name="Marks"></td>
+                                    </tr>
+
+                                </thead>
+                            </table>
+                        </div>
+
+
+                        <div class="grp">
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <script>
+            document.getElementsByClassName("hamburger-btn")[0].onclick = function(){
+                if(document.getElementsByClassName("sidebar")[0].style.left == '0px'){
+                    document.getElementsByClassName("sidebar")[0].style.left = '-250px';
+                }
+                else{
+                    document.getElementsByClassName("sidebar")[0].style.left = '0px';}
+            }
+        </script>
+        <script src="create.js"></script>
+
+
+    </body>
+</html>
