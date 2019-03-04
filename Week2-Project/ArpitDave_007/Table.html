@@ -1,0 +1,193 @@
+<!-- Cyber Group (Bootcamp) : Project 1 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project-1: Details Table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+    function GETRequest()
+    {
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:51510/api/EmployeeDetails',
+      success: function(data)
+      {
+        extresults = data;
+        var Name1 = extresults[0].Name;
+        var Name2 = extresults[1].Name;
+        var Name3 = extresults[2].Name;
+        var Name4 = extresults[3].Name;
+        var Name5 = extresults[4].Name;
+        document.getElementById("Name1").innerHTML=Name1;document.getElementById("Name2").innerHTML=Name2;document.getElementById("Name3").innerHTML=Name3;document.getElementById("Name4").innerHTML=Name4;document.getElementById("Name5").innerHTML=Name5;
+        var dob1 = extresults[0].DOB;var dob2 = extresults[1].DOB;var dob3 = extresults[2].DOB;var dob4 = extresults[3].DOB;var dob5 = extresults[4].DOB;
+        document.getElementById("dob1").innerHTML=dob1;document.getElementById("dob2").innerHTML=dob2;document.getElementById("dob3").innerHTML=dob3;document.getElementById("dob4").innerHTML=dob4;document.getElementById("dob5").innerHTML=dob5;
+        var Designation1 = extresults[0].Designation;var Designation2 = extresults[1].Designation;var Designation3 = extresults[2].Designation;var Designation4 = extresults[3].Designation;var Designation5 = extresults[4].Designation;
+        document.getElementById("Designation1").innerHTML=Designation1;document.getElementById("Designation2").innerHTML=Designation2;document.getElementById("Designation3").innerHTML=Designation3;document.getElementById("Designation4").innerHTML=Designation4;document.getElementById("Designation5").innerHTML=Designation5;
+        var EmailID1 = extresults[0].EmailID;var EmailID2 = extresults[1].EmailID;var EmailID3 = extresults[2].EmailID;var EmailID4 = extresults[3].EmailID;var EmailID5 = extresults[4].EmailID;
+        document.getElementById("EmailID1").innerHTML=EmailID1;document.getElementById("EmailID2").innerHTML=EmailID2;document.getElementById("EmailID3").innerHTML=EmailID3;document.getElementById("EmailID4").innerHTML=EmailID4;document.getElementById("EmailID5").innerHTML=EmailID5;
+        var EmployeeID1 = extresults[0].EmployeeID;var EmployeeID2 = extresults[1].EmployeeID;var EmployeeID3 = extresults[2].EmployeeID;var EmployeeID4 = extresults[3].EmployeeID;var EmployeeID5 = extresults[4].EmployeeID;
+        document.getElementById("EmployeeID1").innerHTML=EmployeeID1;document.getElementById("EmployeeID2").innerHTML=EmployeeID2;document.getElementById("EmployeeID3").innerHTML=EmployeeID3;document.getElementById("EmployeeID4").innerHTML=EmployeeID4;document.getElementById("EmployeeID5").innerHTML=EmployeeID5;
+      }
+      });
+    }
+    </script>
+    <style>
+    .header
+    {
+      position:fixed;
+      width:100%;
+      top:10px;
+      left:0px;
+      padding: 2px;
+      text-align: center;
+    }
+    .menu
+    {
+      position: relative;
+      background-color: white;
+      width: 20%;
+      margin-top:4%;
+      margin-left:75%;
+      padding: 4px 4px;
+      text-align: center;
+      font-size: 16px;
+      font-family: verdana;
+    }
+    .background-color
+    {
+      opacity: 0.6;
+      display:inline;
+      position:fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+      animation: bgcolour 20s infinite;
+    }
+    @keyframes bgcolour
+    {
+      0%    {background-color:#A5E7EE;}
+      25%   {background-color:#EEA5BA;}
+      50%   {background-color:#B2EEA5;}
+      75%   {background-color:#EEB7A5;}
+      100%  {background-color:#A5E7EE;}
+    }
+    .footer
+    {
+      padding: 2px;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      text-align: center;
+      font-size: 12px;
+      font-family: verdana;
+    }
+    .body-design
+    {
+      position: relative;
+      margin-top:50px;
+    }
+    .Table
+    {
+      position: relative;
+      font-family: verdana;
+      font-size: 15px;
+    }
+
+    table
+    {
+      border-collapse: collapse;
+      width: 60%;
+      background: white
+    }
+    table tr td:hover
+    {
+      border-collapse: collapse;
+      background: lightgrey;
+    }
+    p{
+      text-align: center;
+    }
+
+    </style>
+  </head>
+
+  <body onload="GETRequest()">
+    <div class="background-color">
+    </div>
+    <div class="header">
+        <a href="index.html">
+          <img src="logo.png" alt="Cyber Group" width=400px height=100px>
+        </a>
+    </div>
+    <div class="menu">
+        <a href="Login.html" style="color:black"><b>HOME<b></a><span> | </span>
+        <a href="Employee Data.html" style="color:black">ADD DATA</a><span> | </span>
+    </div>
+
+    <div class="body-design">
+      <h3 style="font-family:Verdana;text-align:center;">Details of Employees</h3>
+    </div>
+
+    <div class="Table">
+      <table border="4" align="center" class="Table-Details" text-align="center">
+        <tr>
+          <th><p>S.No.</p></th>
+          <th><p>Full Name</p></th>
+          <th><p>Date of Birth</p></th>
+          <th><p>Designation</p></th>
+          <th><p>E-Mail ID</p></th>
+          <th><p>Employee ID</p></th>
+        </tr>
+        <tr>
+          <td><p style="text-align:center"><a href="Database1.html" style="color:black">1.</a></p></td>
+          <td><a href="Database1.html" style="color:black"><p id="Name1"></p></a></td>
+          <td><a href="Database1.html" style="color:black"><p id="dob1"></p></a></td>
+          <td><a href="Database1.html" style="color:black"><p id="Designation1"></p></a></td>
+          <td><a href="Database1.html" style="color:black"><p id="EmailID1"></p></a></td>
+          <td><a href="Database1.html" style="color:black"><p id="EmployeeID1"></p></a></td>
+        </tr>
+        <tr>
+          <td><p style="text-align:center"><a href="Database2.html" style="color:black">2.</a></p></td>
+          <td><a href="Database2.html" style="color:black"><p id="Name2"></p></a></td>
+          <td><a href="Database2.html" style="color:black"><p id="dob2"></p></a></td>
+          <td><a href="Database2.html" style="color:black"><p id="Designation2"></p></a></td>
+          <td><a href="Database2.html" style="color:black"><p id="EmailID2"></p></a></td>
+          <td><a href="Database2.html" style="color:black"><p id="EmployeeID2"></p></a></td>
+        </tr>
+        <tr>
+          <td><p style="text-align:center"><a href="Database3.html" style="color:black">3.</a></p></td>
+          <td><a href="Database3.html" style="color:black"><p id="Name3"></p></a></td>
+          <td><a href="Database3.html" style="color:black"><p id="dob3"></p></a></td>
+          <td><a href="Database3.html" style="color:black"><p id="Designation3"></p></a></td>
+          <td><a href="Database3.html" style="color:black"><p id="EmailID3"></p></a></td>
+          <td><a href="Database3.html" style="color:black"><p id="EmployeeID3"></p></a></td>
+        </tr>
+        <tr>
+          <td><p style="text-align:center"><a href="Database4.html" style="color:black">4.</a></p></td>
+          <td><a href="Database4.html" style="color:black"><p id="Name4"></p></a></td>
+          <td><a href="Database4.html" style="color:black"><p id="dob4"></p></a></td>
+          <td><a href="Database4.html" style="color:black"><p id="Designation4"></p></a></td>
+          <td><a href="Database4.html" style="color:black"><p id="EmailID4"></p></a></td>
+          <td><a href="Database4.html" style="color:black"><p id="EmployeeID4"></p></a></td>
+        </tr>
+        <tr>
+          <td><p style="text-align:center"><a href="Database5.html" style="color:black">5.</a></p></td>
+          <td><a href="Database5.html" style="color:black"><p id="Name5"></p></a></td>
+          <td><a href="Database5.html" style="color:black"><p id="dob5"></p></a></td>
+          <td><a href="Database5.html" style="color:black"><p id="Designation5"></p></a></td>
+          <td><a href="Database5.html" style="color:black"><p id="EmailID5"></p></a></td>
+          <td><a href="Database5.html" style="color:black"><p id="EmployeeID5"></p></a></td>
+        </tr>
+      </div>
+    <!--How to use the data (Arpit Dave)-->
+      <div class="footer">
+        <p style="font-family:Verdana"><b>© Copyright : Cyber Group<b></p>
+      </div>
+  </body>
+</html>

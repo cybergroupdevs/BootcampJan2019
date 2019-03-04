@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+<title>SIGNUP PORTAL</title>
+<link rel = "stylesheet" type = "text/css" href = "signupstyle.css" />
+
+<script>
+	var images = ["https://www.desktopbackground.org/download/2000x1500/2012/11/26/489983_iconic-view-of-the-new-york-city-wallpapers-hd-wallpapers_3840x2160_h.jpg","https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/HLG4RKt2xj0vdomxf/videoblocks-painted-hand-shows-concept-hologram-innovation-on-his-hand-drawn-man-in-business-suit-with-future-technology-screen-and-modern-cosmic-background_bb4ocjb3g_thumbnail-full01.png","https://wallpaper-house.com/data/out/7/wallpaper2you_194970.jpg"];
+	var i=0;
+	function imagechange(){
+	document.getElementsByClassName("bodyclass")[0].style.background= "url(" + images[i] + ")";
+
+	if(i<(images.length-1))
+	i++;
+	else
+	i=0;
+}
+	setInterval(imagechange,3000);
+</script>
+</head>
+
+	<body class="bodyclass">	
+	<div class="formstyle">
+		
+			<h1 class="signupheading"> LET'S GET STARTED</h1>
+                                 <form action="login.html">
+				<div class="details">
+				<input type="text" placeholder="Name" ><br/>
+
+					<div class="details">
+
+						<input type="text" placeholder="Email Id"><br/>
+							<div class="details">
+								<input type="password" placeholder="Enter Password"><br/>
+							<div class="details">
+										<input type="password" placeholder="Confirm Password"><br/>
+			
+								</div>
+							</div>
+						<div>
+					</div>
+			
+						<div class="submitstyle">
+							<input type="submit" value="SIGN UP"><br/>
+					
+						</div>
+
+							
+							<div class="loginrefer">
+							<a href="login.html">
+							NOT FIRST TIME USER??</a></div>
+
+		
+
+                                           
+		
+	</div>
+</form>
+	</body>
+
+	
+</html>

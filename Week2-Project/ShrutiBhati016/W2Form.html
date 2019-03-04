@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width">
+    <link  rel="stylesheet" type="text/css" href="form.css">
+        <header class="fixed-header">
+            <img src=".\logo.png" alt="Logo" class="center" width="100" height="50" >  
+        </header>
+        <div id="toggle">
+            <a href="W2Loginform.html"><button id="redirect">Go To Login</button></a>
+            <a href="W2Index.html"><button id="redirect">Home</button></a>
+            <a href="W2List.html"><button id="redirect">All Employees</button></a> 
+        </div>
+    <div>
+        <button  id="create" >Create New Employee</button>
+        <button  id="update" >Update Existing Employee</button>
+        
+    </div>
+    <body>
+        <form id="form">
+            <div class="outset">
+                <h2 align="center">FORM</h2>
+                    <label for="Id"><b>Cyber group Id:</b></label>
+                    <input type="number" placeholder="Id" id="Id" required><br>
+                    
+                    <label for="Name"><b>Name:</b></label>
+                    <input type="text" placeholder="First Name" id="Firstname" required>
+                    <input type="text" placeholder="Last Name" id="Lastname" required><br>
+                    
+                    <label for="Age"><b>Age:</b></label>
+                    <input type="number" placeholder="Your Age" id="Age" ><br>
+                    
+                    <label for="Email"><b>Email Id:</b></label>
+                    <input type="text" placeholder="Email" id="Email"><br>
+                    
+                    <label for="Designation"><b>Designation:</b></label>
+                    <input type="text" id="Designation" ><br>
+                    
+                    <label for="Phone"><b>Phone Number:</b></label>
+                    <input type="number" placeholder="Enter Number" id="Phone" ><br>
+                    
+                    <label for="DOB"><b>D.O.B.:</b></label>
+                    <input type="date" placeholder="DD/MM/YYYY" id="DOB" ><br>
+                    <input type="checkbox"><label for="checkbox">Agree to our <a href="#" style="color:blue">Terms & Privacy.</a></label><br><br>
+                </div>
+                <div class="clear">
+                        <button  id="cancelbutton">Cancel</button>
+                        <button  id="save" >To Save New Employee</button>
+                        <button  id="saveupdate" >To Save Updated Employee</button>
+                </div>
+        </form>
+        <div class="fixed-footer">
+            <div class="HeaderFooter">Copyright &copy; 2019 CYBERGROUP INDIA PVT. LTD.</div>
+        </div>
+    </body>
+</html>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+</script>
+    
+<script type="text/javascript" language="javascript">
+    document.getElementById('create').addEventListener('click',create, true);
+    document.getElementById('save').addEventListener('click',SignUp, true);
+    document.getElementById('update').addEventListener('click',updateEmployee, true);
+    document.getElementById('saveupdate').addEventListener('click',saveUpdated, true);
+    
+    function create() {
+        alert("Please fill the form details!");
+    }
+    
+    function SignUp(){
+        var Id = document.getElementById("Id").value;  
+        var FName = document.getElementById("Firstname").value;  
+        var LName = document.getElementById("Lastname").value;        
+        var Email = document.getElementById("Email").value;
+        var Age = document.getElementById("Age").value;
+        var Phone = document.getElementById("Phone").value;
+        var Designation = document.getElementById("Designation").value;
+        var DOB = document.getElementById("DOB").value;
+        var SignUpData = {
+            "Id" : Id,
+            "FirstName": FName,
+            "LastName": LName,
+            "Email" : Email,
+            "Designation": Designation,
+            "Age":Age,
+            "Phone": Phone,
+            "DOB": DOB
+        };
+        alert("Click me");
+        $.ajax ({
+            type: 'POST',
+            url: 'http://localhost:62731/api/Employees', 
+            error: function(e) {
+                console.log(e);
+            },
+            dataType : "json",
+            data : SignUpData,
+            success: function(data) {
+                alert("Entry registered");
+                console.log(data);
+            }           
+                });
+        
+        };
+    
+    function updateEmployee()
+    {   var Emp={};
+        var txt;
+        var person = prompt("Please enter ID to be updated:", "You did not enter any value");
+        
+        if (person == null || person == "") {
+            txt = "User cancelled the prompt.";
+        }
+        else 
+        { 
+            Url='http://localhost:62731/api/Employees/';
+            Url=Url+''+person+'';
+            $.ajax({
+                url: Url,
+                type: 'GET',
+                dataType: 'json',
+                success: function(res){
+                    console.log(res);
+                    Emp=res;
+                    alert("Employee Found");
+             
+                document.getElementById("Id").value = Emp.Id;
+                document.getElementById("Firstname").value = Emp.FirstName;
+                document.getElementById("Lastname").value = Emp.LastName;
+                document.getElementById("Email").value = Emp.Email;
+                document.getElementById("Designation").value = Emp.Designation;
+                document.getElementById("Age").value = Emp.Age;
+                document.getElementById("Phone").value = Emp.Phone;
+                document.getElementById("DOB").value = Emp.DOB;
+                           }
+                });
+        }
+    }
+            
+    function saveUpdated(){
+            var Id = document.getElementById("Id").value;
+            var LName = document.getElementById("Firstname").value;
+            var FName = document.getElementById("Lastname").value;
+            var Email = document.getElementById("Email").value;
+            var Designation = document.getElementById("Designation").value;
+            var Age = document.getElementById("Age").value;
+            var Phone = document.getElementById("Phone").value; 
+            var DOB = document.getElementById("DOB").value;
+            var datatosend = 
+                {
+                "Id" : Id,
+                "FirstName": FName,
+                "LastName": LName,
+                "Email" : Email,
+                "Designation": Designation,
+                "Age":Age,
+                "Phone": Phone,
+                "DOB": DOB
+                }
+            $.ajax({
+                url: Url,
+                type: 'PUT',
+                dataType: 'json',
+                data: datatosend,
+                success: function(res){
+                    console.log(res);      
+                    alert("Employee updated");  
+                    }
+                });
+            }
+
+</script>

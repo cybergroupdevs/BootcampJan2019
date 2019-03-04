@@ -1,0 +1,110 @@
+<html>
+<head>
+<link href="detailstyle.css" rel="stylesheet">
+<title>UPDATE PAGE
+</title>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="employeelistbackend.js"></script>
+<script>	var images = ["https://cdn4.geckoandfly.com/wp-content/uploads/2013/06/earth4096x1536.jpg","https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/HLG4RKt2xj0vdomxf/videoblocks-painted-hand-shows-concept-hologram-innovation-on-his-hand-drawn-man-in-business-suit-with-future-technology-screen-and-modern-cosmic-background_bb4ocjb3g_thumbnail-full01.png","https://w-dog.net/wallpapers/14/16/534816943718258.jpg","http://1.bp.blogspot.com/-doPTX_rQgis/TihJvZkBrjI/AAAAAAAACN0/SQn81T9s9Dc/s1600/3d-computer-wallpapers-for-desktop_1600x1200_80121.jpg"];
+	var i=0;
+	function imagechange(){
+	document.getElementsByClassName("detailclass")[0].style.background= "url(" + images[i] + ")";
+
+	if(i<(images.length-1))
+	i++;
+	else
+	i=0;
+}
+	setInterval(imagechange,3000);
+
+</script>
+
+</head>
+
+
+
+		<body class="detailclass">
+			
+			
+			
+
+			<header class="heading">
+
+				
+
+						<nav class="fornavigation">
+								<ul>
+										<li><a href="employeelist.html">LISTS</a></li>
+										<li><a href="employeedetail.html">DETAILS</a></li>
+										<li><a href="https://cygrp.com/">LOGOUT</a></li>
+										<li class="forright"><img src="https://hrms.cygrp.com/content/images/logo.png" height="75px" weight="75px"></li>
+								</ul>
+										
+										
+									
+							</nav>
+								<br><br><br>
+							<form class="formdetails">
+								<h1 class="infostyle">PLEASE UPDATE DETAILS</h1>
+								<div class="infostyle">FIRST NAME&nbsp;&nbsp;&nbsp;:<input type="text" name="firstname" id="fname"></div>
+								<div class="infostyle">LAST NAME&nbsp;&nbsp;&nbsp;&nbsp;:<input type="text" name="lastname" id="lname"></div>
+								
+								<div class="infostyle">EMAIL ID  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="EMAIL" name="email" id="email"></div>
+
+								<div class="infostyle">PASSWORD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="password" name="password" id="password"></div>
+								<div class="infostyle">EMPLOYEEID  :<input type="text" name="qual" id="empid"></div></div>
+
+								<div class="detailbutton">
+									<input type="button" placeholder="SUBMIT" value="SUBMIT" onclick="updatingdetails()"></div>
+
+								
+							</form>
+										
+			</header>
+
+
+							<footer class="foot">
+								<nav>
+								
+								<marquee behavior="scroll" direction="left" scrollamount="5" id="fit3">
+							<font face="aerial" size="4">
+
+						
+							BELONGS TO TAARAK
+							</font>
+							</marquee> 
+
+							</nav>
+							</footer>
+							<script>
+
+	var idgetting=localStorage.getItem("id");
+
+							 $.ajax({
+      type: 'GET',
+      url: 'http://localhost:64490/api/Employees/' + idgetting,
+      success: function(data) {
+        valuestore = data;
+        console.log(data);
+        document.getElementById("fname").value = data.Firstname;
+        document.getElementById("lname").value = data.Lastname; 
+        
+        document.getElementById("email").value = data.Email;
+        document.getElementById("password").value = data.PASSWORD;
+        document.getElementById("empid").value = data.Id;
+      }
+    });
+
+
+           
+
+		//javascript:getdetails();
+		// javascript:DeletingSingleData();
+
+</script>
+
+		</body>
+</html>

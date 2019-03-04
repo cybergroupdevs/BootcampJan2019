@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Calibri ;
+    background-color: white;
+}
+
+header{
+    font-family: "Calibri Light";
+    width: 100%;
+    background:white;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+    color: dimgrey;
+}
+
+.CyberLogo{
+    display: none;
+}
+
+.noAvatar{
+    padding: 20px;
+}
+.myimage{
+    width: 20%;
+}
+.headText{
+    position: absolute;
+    margin-left:25%;
+    margin-top: 12%;
+}
+.bodytxt{
+    margin-top: 10px;
+    padding: 20px;
+    font-family: "Calibri Light";
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+    margin-bottom: 30px;
+    color: darkslategrey;
+}
+table{
+    width: 100%;
+    font-family: "Calibri Light";
+    margin-left: auto;
+    margin-right: 20% ;
+    margin-top:10px ;
+    background-color: lightgrey;
+}
+.info1{
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 10px;
+    border: solid;
+    border-width:0.5px ;
+    border-color: lightgrey;
+}
+.info{
+    text-align: center;
+    padding: 10px;
+    background-color: whitesmoke;
+    background-color: darkgray;
+}
+
+nav{
+    float: right;
+}
+.links{
+    display: inline;
+    }
+.links:hover{
+    background-color: darkgray;
+    display: inline;
+    margin-right: 10px;
+}
+a{
+    color: black;
+    margin-right: 10px;
+    float: right;
+}
+footer{
+
+    margin-top: 90%;
+}
+.footNav{
+    float: right;
+}
+h1{
+    font-size: larger;
+}
+h2{
+    font-size: larger;
+}
+td{
+  width: 50%
+}
+button{
+
+  background: lightgrey;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  height: 40px;
+  width: 150px;
+  margin-left: 20px;
+  border-radius: 10px;
+
+}
+
+button:hover{
+  background-color: darkgray;
+
+}
+
+@media only screen and (min-width:1000px) {
+
+
+
+    .info1{
+        height: 30px;
+        text-align:left ;
+    }
+    .info{
+        height: 30px;
+        text-align:left ;
+    }
+
+    .CyberLogo{
+        position: absolute;
+        display: block;
+        margin-left: 70%;
+        margin-top: 30px;
+    }
+
+    .headText{
+
+        position: absolute;
+        margin-bottom: 10px;
+        margin-left:22%;
+        margin-top: 15%;
+
+    }
+
+    h1{
+        font-size: xx-large;
+    }
+    h2{
+        font-size: xx-large;
+    }
+}

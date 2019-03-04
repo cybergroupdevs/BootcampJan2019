@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HRMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Designations">
+          <Key>
+            <PropertyRef Name="DesignationId" />
+          </Key>
+          <Property Name="DesignationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="EmployeeDetails">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="int" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="Contact" Type="varchar" MaxLength="50" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="200" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="200" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="Country" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__EmployeeD__Desig__339FAB6E">
+          <End Role="Designations" Type="Self.Designations" Multiplicity="0..1" />
+          <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designations">
+              <PropertyRef Name="DesignationId" />
+            </Principal>
+            <Dependent Role="EmployeeDetails">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRMSModelStoreContainer">
+          <EntitySet Name="Designations" EntityType="Self.Designations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetails" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__EmployeeD__Desig__339FAB6E" Association="Self.FK__EmployeeD__Desig__339FAB6E">
+            <End Role="Designations" EntitySet="Designations" />
+            <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="DesignationId" />
+          </Key>
+          <Property Name="DesignationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designation1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmployeeDetails" Relationship="Self.FK__EmployeeD__Desig__339FAB6E" FromRole="Designations" ToRole="EmployeeDetails" />
+        </EntityType>
+        <EntityType Name="EmployeeDetail">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="Int32" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Designation1" Relationship="Self.FK__EmployeeD__Desig__339FAB6E" FromRole="EmployeeDetails" ToRole="Designations" />
+        </EntityType>
+        <Association Name="FK__EmployeeD__Desig__339FAB6E">
+          <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designations">
+              <PropertyRef Name="DesignationId" />
+            </Principal>
+            <Dependent Role="EmployeeDetails">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRMSEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Designations" EntityType="Self.Designation" />
+          <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetail" />
+          <AssociationSet Name="FK__EmployeeD__Desig__339FAB6E" Association="Self.FK__EmployeeD__Desig__339FAB6E">
+            <End Role="Designations" EntitySet="Designations" />
+            <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRMSModelStoreContainer" CdmEntityContainer="HRMSEntities3">
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="HRMSModel.Designation">
+              <MappingFragment StoreEntitySet="Designations">
+                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+                <ScalarProperty Name="Designation1" ColumnName="Designation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeDetails">
+            <EntityTypeMapping TypeName="HRMSModel.EmployeeDetail">
+              <MappingFragment StoreEntitySet="EmployeeDetails">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

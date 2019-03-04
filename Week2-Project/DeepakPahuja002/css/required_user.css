@@ -1,0 +1,94 @@
+ul.navbar-nav{
+    float: right;
+}
+.navbar-default{
+    padding: 10px 40px;
+}
+.navbar-header{
+    width: 200px;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: white;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: black;
+    font-weight: 600;
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+.navbar-nav>li{
+    border-radius: 15px;
+}
+.active{
+    background-color: green;
+    color: green;
+}
+
+
+//////////////////////////////////  Navbar code above this point  //////////////////////////////
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: black;
+    font-weight: 600;
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+img .Profile_photo{
+    border-radius: 141px;
+}
+.btn_div{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.main_heading{
+    font-size: 30px;
+    color: white;
+    line-height: 110px;
+    text-transform: uppercase;    
+    text-align: left;
+}
+.sign_in_options_button{
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    border-style: none;
+}
+.sign_in_options_button:hover{
+    box-shadow: 5px 5px 10px 1px rgba(255,255,255,0.7);
+}
+div.form_heading{
+    /* width: 100%; */
+    background-color: yellowgreen;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 15px;
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.row{
+    margin: 20px auto 15px auto;
+}
+.container .required_user_container{
+    color: white;
+    text-align: center;
+}
+/* div.col.col-lg-3, input#EmployeeId.inputs{
+    width: 100%;
+    
+    border-radius: 30px;
+    border-style: solid;
+    border-color: red;
+    /* color: white; */
+    /* border: solid; */
+} */
+
+.row .col.col-lg-6 input{
+    color: black;
+}
+
+

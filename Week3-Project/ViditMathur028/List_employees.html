@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List of All Employees</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script type="text/javascript">
+		function edit() {
+			// body...
+			location.href("Edit_employee.html");
+		}
+	</script>
+	<div>
+    <nav>
+   	 <a href="continue.html"><img src="cygrplogo.jfif" width="300px" height="80px"></a>
+     <a href="index.html"><img src="logout.png" width="80px" height="80px" ></a>
+   </nav>
+  </div>
+  <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+
+  <script>
+
+  var DataRetrieved=[];
+  function getEmployee(){
+        $.ajax({
+            url: 'http://localhost:51969/api/Employees/',
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            
+        DataRetrieved= res;
+        }
+        });
+    }
+
+    function display_table()
+    {
+      
+      var Columns = [];
+        for (var i = 0; i < DataRetrieved.length; i++) {
+            for (var key in DataRetrieved[i]) {
+                if (Columns.indexOf(key) === -1 && key!="Department" && key!="Designation" && key!="Login_Credentials") {
+                    Columns.push(key);
+                }
+            }
+        }
+
+        var table = document.createElement("table");
+
+
+        var tr = table.insertRow(-1);            
+
+        for (var i = 0; i < Columns.length; i++) {
+            var th = document.createElement("th");      
+            th.innerHTML = Columns[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = 0; i < DataRetrieved.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < Columns.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = DataRetrieved[i][Columns[j]];
+            }
+        }
+      var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+
+    }
+</script>
+</head>
+<body onload="getEmployee()">
+	  <div class="scrollmenu">
+  <a href="continue.html">...Go Back</a>
+</div>
+
+	<h1>List Of all Employees in Cyber Group </h1>
+
+	<button type="button" onclick="display_table()" >Click to Display</button>
+    <p id="showData"></p>
+</body>
+</html>

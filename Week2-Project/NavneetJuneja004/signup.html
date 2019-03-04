@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp page</title>
+       <meta charset="utf-8">
+       <meta name="description" content="This is SignUp page">	
+       <link href="css/signup.css" rel="stylesheet" type="text/css"> <script
+       src="http://code.jquery.com/jquery-3.3.1.js"
+       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+       crossorigin="anonymous">
+     </script>
+       
+	</head>
+<body> 
+		
+<div class="header">
+	<img src="images/cyg_logo.jpg" alt="">
+	<div class="wel_text">Welcome To Cyber Group India</br>
+		
+	</div>
+</div>
+<div id="nav_bar">
+	<div class="nav_items">
+		<p class="nav_text">Create an account</p>
+	</div>
+</div>
+<div class="bigbox">
+	<div class="smallbox"> 
+
+            <form>
+			<input type="text" class="input_box2" name="First" id="Firstname" placeholder="First Name">
+			<input type="text" class="input_box2" name="Last" id="Surname" placeholder="Surname"></br>
+			<input type="text" class="input_box" name="user" id="userid" placeholder="USER ID"></br>
+			<input type="password" class="input_box" name="user" id="password" placeholder="Enter Password"></br>
+			
+			</br>
+			
+			<div class="licence_box"> 
+				I Accept the terms and conditions &nbsp;<input type="checkbox" class="checkbox" required="required" id="licence" value="1"></br>
+            </div> 
+           </form>
+    </div> 
+    <br>
+    <center>
+			<input type="button" value="Register" name="submit" onclick="signup()"  class="signup_btn" >
+    </center>       
+            Already a user?<a href="index.html" class="lower_text"> Login here</a></center>
+</div>
+<div id="footer">
+Copyright All rights reserved © 2017
+</div> 
+<script>
+    function signup(){
+        
+        var first = document.getElementById("Firstname").value;
+        var last = document.getElementById("Surname").value;
+        var userid = document.getElementById("userid").value;
+        var password = document.getElementById("password").value;
+       
+        var dataToSend= {
+            "id": userid,
+            "firstname": first,
+            "lastname": last,
+            "pswd": password
+            
+        }
+        $.ajax({
+            url: 'http://localhost:49504/api/SIGNUPs',
+            type: 'POST',
+            data: dataToSend,
+            dataType: 'json',
+            success: function(res){ 
+                alert('user has been created ')
+                window.location = "index.html"
+            }
+        });
+    }
+</script>
+</body></html>

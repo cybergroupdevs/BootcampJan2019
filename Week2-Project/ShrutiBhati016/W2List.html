@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width">
+    <link  rel="stylesheet" type="text/css" href="list.css">
+    <body>
+        <header class="fixed-header">
+            <img src=".\logo.png" alt="Logo" class="center" width="100" height="50" >  
+        </header>
+        <div id="toggle">
+            <a href="W2Loginform.html"><button id="redirect">Go To Login</button></a>
+            <a href="W2Index.html"><button  id="redirect">Home</button></a>
+            <a href="W2Form.html"><button id="redirect">Create New Employee</button></a> 
+        </div>
+        
+        <form class="content">
+            <div class="outset">
+                <table id="showData"></table>
+            </div>
+        </form>
+        
+        <div id='getemployee'>
+                    <button id="action">Step 1:Fetch Data</button>
+                    <button id="get">Step 2: Display Data</button>
+                    <button id="delete">Delete Employee data</button>
+        </div>
+        
+        <div class="fixed-footer">
+            <div class="HeaderFooter">Copyright &copy; 2019 CYBERGROUP INDIA PVT. LTD.</div>
+        </div>
+        <script type="text/javascript"
+                src="http://code.jquery.com/jquery-3.3.1.js"
+                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+                crossorigin="anonymous">
+        </script>
+    </body>
+</html>
+
+<script>
+    var Emp=[];
+    document.getElementById('action').addEventListener('click',Get, true);
+    document.getElementById('get').addEventListener('click',Table, true);
+    document.getElementById('delete').addEventListener('click',deleteEmployee, true);
+    
+    function Get(){
+        $.ajax({
+            url: 'http://localhost:62731/api/Employees/',
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);   
+            Emp= res;
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+    }
+    
+    function Table()
+    {
+        var col = [];
+        for (var i = 0; i < Emp.length; i++) {
+            for (var key in Emp[i]) {
+                if (col.indexOf(key) === -1)
+                    col.push(key);   
+                    }
+                }
+        var table = document.createElement("table");
+        var tr = table.insertRow(-1);   
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+        for (var i = 0; i < Emp.length; i++) {
+            tr = table.insertRow(-1);
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = Emp[i][col[j]];
+                    }
+                }
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+        }
+    
+    function deleteEmployee(){
+            var txt;
+            var person = prompt("Please enter ID to be deleted:", "You did not enter any value");
+            if (person == null || person == "") {
+                txt = "User cancelled the prompt.";
+                    } 
+            else 
+            {
+                var del_id = Number(person);
+                console.log(del_id);
+                $.ajax({
+                    type: "DELETE",
+                    url: "http://localhost:62731/api/Employees/"+del_id,
+                    contentType:"application/json",
+                    success: function(){
+                        window.location = "W2List.html";
+                    }
+                });  
+            }
+        }
+</script>

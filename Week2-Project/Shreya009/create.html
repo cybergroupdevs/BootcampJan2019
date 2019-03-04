@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+    </script>
+    <title>
+        create
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+        <script>
+            
+            function post(){
+var id=document.getElementById("id").value;     
+var des=document.getElementById("des").value;
+var qual=document.getElementById("qual").value;
+var exp=document.getElementById("exp").value;
+
+var dts={
+"ID":id, 
+"Designation":des,
+"Qualification":qual,
+"Experience":exp,
+    
+}
+
+$.ajax({
+url:"http://localhost:51442/api/Profiles",
+data:dts,
+type:'post',
+dataType:'json',
+success:function(res){
+console.log(res);
+alert("Account Created");
+}
+})
+            }
+        </script>
+</head>
+    <body>     
+        <div class="text">  
+       
+         <div class="header">
+            <img src="cg.png" align="left" height="30vh" width="100vw">
+            <a href="login.html">Login</a>&nbsp&nbsp<a href="signup.html">Sign up</a>&nbsp&nbsp<a href="create.html">Create</a>&nbsp&nbsp<a href="list.html">List</a>
+         </div>
+         <hr color=navy>
+   
+        <h3>&nbsp CREATE PROFILE &nbsp</h3>
+    
+    
+ 
+        <form>
+<input class="formname" type="text" placeholder="Name" id="name">
+<input class="formname" type="text" placeholder="ID" id="id">
+<br>
+<br>
+<input class="formmid" type="text" placeholder="Designation" length="48" id="des">
+
+<br>
+<br>
+<input class="formmid" type="text" placeholder="Qualification" id="qual">
+
+<br>
+<br>
+<input class="formmid" type="text" placeholder="Experience" id="exp">
+
+
+<br>
+<br>
+<br>
+<input type="button" value="Create" onclick="post()">
+
+
+</form>
+        <div class="footer">
+            <p>Copyright © 2019.All Rights Reserved. Terms & Conditions | Privacy Policy | Disclaimers</p>
+            </div>
+    </div>
+    </body>
+</html>

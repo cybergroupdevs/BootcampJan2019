@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign-Up/Login Form</title>
+ 
+
+  
+      <link rel="stylesheet" href="style.css">
+	  
+	  <script>
+	  
+	  
+	   function store(){
+
+        var gender=document.getElementById("gender").value;
+		var userid= document.getElementById("id").value;
+
+        var first = document.getElementById("first").value;
+
+        var last = document.getElementById("last").value;
+
+        var email=document.getElementById("email").value;
+
+        var password = document.getElementById("password").value;
+
+        
+
+        var dataToSend= {
+
+            "id": userid,
+
+            "FirstName": first,
+
+            "LastName": last,
+
+            "Password": password,
+
+            "Gender": gender,
+			"email":email,
+
+        }
+		
+		
+		if(document.getElementById("type").value=='intern')
+{
+        $.ajax({
+
+            url: 'http://localhost:64680/api/intern_login',
+
+            type: 'POST',
+
+            data: dataToSend,
+
+            dataType: 'json',
+
+            success: function(res){
+
+                window.location = "index.html"
+
+            }
+
+        });
+		else{
+		$.ajax({
+
+            url: 'http://localhost:64680/api/employee_login',
+
+            type: 'POST',
+
+            data: dataToSend,
+
+            dataType: 'json',
+
+            success: function(res){
+
+                window.location = "index.html"
+
+            }
+
+        });
+		
+		
+		}
+		
+		
+
+    }
+	
+	
+	
+	function validate()
+	{
+	if(document.getElementById("type2").value=='intern')
+{
+        $.ajax({
+
+            url: 'http://localhost:64680/api/intern_login',
+
+            type: 'GET',
+
+            
+
+            dataType: 'json',
+
+            success: function(res){
+
+                window.location = "index.html"
+
+            }
+
+        });
+		else{
+		$.ajax({
+
+            url: 'http://localhost:64680/api/employee_login',
+
+            type: 'GET',
+
+            
+
+            dataType: 'json',
+
+            success: function(res){
+
+                window.location = "index.html"
+
+            }
+
+        });
+		
+	}
+	
+	if(document.getElementById("email2")==res[i].email && document.getElementById("password2")==res[i].password)
+	{
+	alert("successfully logged in");
+	
+	}
+	
+	
+	
+	}
+
+</script>
+
+  
+</head>
+
+<body style="background-image: url('bg.png'); " >
+
+<img src="cyber.png" >
+<div style="float:right; padding:30px;">
+ <a type="submit" href="register.html" class="button button-block "/>Register</a>
+ </br></br>
+  <a type="submit" href="list.html" class="button button-block"/>List</a>
+  </br></br>
+  
+   <a type="submit"  class="button button-block"/>Details</a></div>
+   </br>
+
+
+
+  <div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Sign Up</a></li>
+        <li class="tab"><a href="#login">Log In</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup">   
+          <h1>Sign Up for Free</h1>
+          
+          <form >
+          
+          <div class="top-row">
+		  
+		   <div class="field-wrap">
+              <label>
+                Id<span class="req">*</span>
+              </label>
+              <input type="text" id="id" required autocomplete="off" />
+            </div>
+            <div class="field-wrap">
+              <label>
+                First Name<span class="req">*</span>
+              </label>
+              <input type="text" id="first" required autocomplete="off" />
+            </div>
+        
+            <div class="field-wrap">
+              <label>
+                Last Name<span class="req">*</span>
+              </label>
+              <input type="text" id="last"required autocomplete="off"/>
+            </div>
+          </div>
+		  
+
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email"required autocomplete="off"/>
+          </div>
+		  <div class="field-wrap">
+              
+              
+             
+              <select id="gender">
+			  <option>Male</option>
+			  <option>Female</option>
+			  </select>
+            </div>
+			<div class="field-wrap">
+              
+              
+             
+              <select id="type">
+			  <option>intern</option>
+			  <option>employee</option>
+			  </select>
+            </div>
+          
+          <div class="field-wrap">
+            <label>
+              Set A Password<span class="req">*</span>
+            </label>
+            <input type="password"required autocomplete="off"/>
+          </div>
+          
+          <button type="submit" class="button button-block" onclick="store()"/>Get Started</button>
+          
+          </form>
+
+        </div>
+        
+        <div id="login">   
+          <h1>Welcome Back!</h1>
+          
+          <form >
+          
+            <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email2"required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Password<span class="req">*</span>
+            </label>
+            <input type="password2"required autocomplete="off"/>
+          </div>
+		  <div class="field-wrap">
+              
+              
+             
+              <select id="type2">
+			  <option>intern</option>
+			  <option>employee</option>
+			  </select>
+            </div>
+          
+          
+          <p class="forgot"><a href="password.html">Forgot Password?</a></p>
+          
+          <button class="button button-block" onclick="validate()">Log In</button>
+          
+          </form>
+
+        </div>
+        
+      </div>
+      
+</div>
+
+  
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+    <script  src="index.js"></script>
+
+  
+
+
+
+</body>
+
+</html>

@@ -1,45 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css"  media="screen" href="login_styles.css">
-    <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
-    <meta charset="utf-8">
+    <html lang="en">
+        <head>
+            <link rel="stylesheet" type="text/css"  media="screen" href="login_styles.css">
+            <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
+            <meta charset="utf-8">
 
-    <title>Sign Up!</title>
+            <title>Sign Up!</title>
 
-</head>
+        </head>
+
 <body>
 
+    <header>
+        <div class="dropdown">
+            <div class="headerButton" onclick="" >>></div>
+            <div>
+                <nav class = "navigationDropdown">
+                        <div class="links"> <a href="Index.HTML">sign up</a></div>
+                        <div class="links"> <a href="createEmp.html">create</a></div>
+                        <div class="links"> <a href="table_info.html">register</a></div>
+                </nav>
+            </div>
+        </div>
 
+    </header>
 
-<header>
     <div class="CyberLogo"><img src="images/logo.png" alt="logo should be displayed over here"></div>
-    <div class="headtxt"><h1>Login</h1></div>
-            <nav>
-                <div>
-                    <div class="links"> <a href="Index.HTML">sign up</a></div>
-                    <div class="links"> <a href="createEmp.html">link2</a></div>
-                    <div class="links"> <a href="table_info.html">link3</a></div>
-                </div>
-            </nav>
 
-</header>
-
-
-    <div class="bodytxt">
+    <div class="bodyContent">
+        <div class="contentTxt">
         <h1>Login</h1>
-        <h2>Enter Credentials</h2>
-    </div>
-
-    <table align="center" cellspacing="10px" cellpadding="10px">
+        <h3>Enter Credentials</h3>
+        </div>
+    <div class="table" >
+    <table align="center" cellspacing="0" cellpadding="0">
         <tr>
-            <td><div class="textInput">Username</div></td>
-            <td><div class="textInput"><input type="text"></div></td>
+            <td><div class="tableTxt">Username</div></td>
+        </tr>
+        <tr>
+            <td><div class="textInput"><input type="text" placeholder="eg.John Doe"></div></td>
         </tr>
 
         <tr>
-            <td><div class="textInput">Password</div></td>
-            <td><div class="textInput"><input type="password"></div></td>
+            <td><div class="tableTxt" >Password</div></td>
+        </tr>
+        <tr>
+            <td><div class="textInput"><input type="password" placeholder="enter"></div></td>
         </tr>
 
         <tr>
@@ -48,13 +54,14 @@
         </tr>
 
     </table>
-
+    </div>
+</div>
     <footer>
         ©kalpriksh bist 2019-2020
-        <nav>
-            <div class="links"> <a href="Index.HTML">sign up</a></div>
-            <div class="links"> <a href="#">link2</a></div>
-            <div class="links"> <a href="#">link3</a></div>
+        <nav class="footNav">
+            <div class="linksFoot"> <a href="Index.HTML">sign up</a></div>
+            <div class="linksFoot"> <a href="#">link2</a></div>
+            <div class="linksFoot"> <a href="#">link3</a></div>
 
         </nav>
     </footer>
