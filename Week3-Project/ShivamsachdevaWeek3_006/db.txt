@@ -1,0 +1,13 @@
+create database EmployeeManagement;
+
+create table EmployeeRecord(
+	ID int primary key identity(1,1),
+	Name varchar(60),
+	Password varchar(30)
+);
+
+create table Project(
+	ID int primary key identity(1,1),
+	Name varchar(50),
+	EmployeeId int  FOREIGN KEY REFERENCES EmployeeDetails(ID)
+);
