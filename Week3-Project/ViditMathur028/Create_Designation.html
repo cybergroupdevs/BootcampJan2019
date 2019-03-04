@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Designation</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<div>
+     <nav>
+     <a href="continue.html"><img src="cygrplogo.jfif" width="300px" height="80px"></a>
+     <a href="index.html"><img src="logout.png" width="80px" height="80px" ></a>
+   </nav>
+  </div>
+  <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+  <script type="text/javascript">
+    function submit() {
+      var Id = document.getElementById("Id").value; 
+      var Designation = document.getElementById("Designation").value; 
+      var dataToSend= {
+            "Id": Id,
+            "Name": Designation,
+            "Employees":[]
+        }
+
+      alert("Designation Added");
+      $.ajax({
+            url: 'http://localhost:51969/api/Designations/',
+            type: 'POST',
+            dataType: 'json',
+            data: dataToSend,
+            success: function(res){
+            console.log(res);
+            
+              }
+        });
+    }
+    function reset()
+    {
+
+    }
+  </script>
+  
+</head>
+<body>
+  <div class="scrollmenu">
+  <a href="continue.html">...Go Back</a>
+</div>
+<form>
+    <br><h3>Designation Id</h3><input type="text" id="Id" placeholder="Designation Id">
+    <br><h3>Designation Name</h3><input type="text" id="Designation" placeholder="Designation Name"><br>
+    </form>
+    <input type="submit" value="Save" onclick="submit()">
+    <input type="reset" id="reset" value="Reset" onclick="reset()">
+  
+</body>
+</html>

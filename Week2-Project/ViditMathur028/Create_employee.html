@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome To Cyber Group India</title>
+	<link rel="stylesheet" type="text/css" href="main2.css">
+	<div>
+    <nav>
+   	 <a href="Employee.html"><img src="cygrplogo.jfif" width="300px" height="80px"></a>
+     <a href="Employee.html"><img src="logout.png" width="80px" height="80px" ></a>
+   </nav>
+  </div>
+  <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+  
+<script type="text/javascript">
+    function submit() {
+      // body...
+      var Id = document.getElementById("Id").value;
+      var Code = document.getElementById("Code").value;
+      var Name = document.getElementById("Name").value;
+      var DesignationId = document.getElementById("Designation Id").value;
+      var EmailId = document.getElementById("Email").value;
+      var Address = document.getElementById("Address").value;
+      var Contact = document.getElementById("Contact").value;
+      var DepartmentId = document.getElementById("Department Id").value; 
+      var dataToSend= {
+    "ID":Id,
+    "Code": Code,
+    "Name": Name,
+    "DesignationId": DesignationId,
+    "EmailId": EmailId,
+    "Address": Address,
+    "Contact": Contact,
+    "DepartmentId": DepartmentId
+        }
+      $.ajax({
+            url: 'http://localhost:51969/api/Employees/',
+            type: 'POST',
+            dataType: 'json',
+            data: dataToSend,
+            success: function(res){
+            console.log(res);
+            alert("New Employee Added");
+      
+              }
+        });
+
+    }
+    function reset()
+    {
+document.getElementById("Id").value="";
+document.getElementById("Code").value="";
+document.getElementById("Name").value="";
+document.getElementById("Designation Id").value="";
+document.getElementById("Email").value="";
+document.getElementById("Address").value="";
+document.getElementById("Contact").value="";
+document.getElementById("Department Id").value=""; 
+    }
+  </script>
+</head>
+<body>
+
+  <div class="scrollmenu">
+  <a href="continue.html">...Go Back</a>
+</div>
+<form>
+	<table style="width: 70%">
+		<tr>
+			<td>
+	<h3> Id</h3><input type="text" id="Id" placeholder="Id">
+    </td>
+    <td>
+    <h3>Code</h3><input type="text" id="Code" placeholder="Code">
+    </td>
+</tr>
+<tr>
+	<td>
+    <h3>Full Name</h3><input type="text" id="Name" placeholder="Full Name">
+    </td><td>
+    <h3>Designation Id</h3><input type="text" id="Designation Id" placeholder="Designation Id">
+    </td>
+</tr>
+<tr><td>
+    <h3>Email Id</h3><input type="Email" id="Email" placeholder="Email Id">
+    </td><td>
+    <h3>Address</h3><input type="text" id="Address" placeholder="Address">
+    </td>
+</tr><tr><td>
+    <h3>Contact</h3><input type="text" id="Contact" placeholder="Contact">
+    </td><td>
+    <h3>Department Id</h3><input type="text" id="Department Id" placeholder="Department Id">
+    </td></tr>
+</table>
+    </form>
+    <input type="submit" value="Save" onclick="submit()">
+    <input type="reset" id="reset" value="Reset" onclick="reset()">
+
+</body>
+</html>
