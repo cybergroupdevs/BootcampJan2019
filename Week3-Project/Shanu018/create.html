@@ -1,0 +1,197 @@
+
+<!doctype.html>
+<html>
+
+<head>
+    <title>update employee info</title>
+    <link rel="stylesheet" href="create.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+</head>
+     <script>
+        function Signup(){
+            
+            var Name= document.getElementById("Name").value;
+                          
+            var mob=document.getElementById("Mob").value;
+                if (document.getElementById("gen").checked) {
+  var gender = document.getElementById("gen").value;
+}
+            else {
+                if (document.getElementById("gen1").checked) {
+  var gender = document.getElementById("gen1").value;
+}
+            }
+              
+            
+            var Emailid= document.getElementById("Emailid").value;
+            
+            var Dob = document.getElementById("Dob").value;
+                  
+            var Fathersname= document.getElementById("Fathersname").value;       
+            
+           var Address= document.getElementById("Address").value;
+        
+            var City= document.getElementById("City").value;
+             
+            var Supervisor= document.getElementById("Supervisor").value;
+            
+            var State= document.getElementById("State").value;  
+                        
+            var Eid= document.getElementById("Eid").value;
+            
+            var Designation = document.getElementById("Designation").value;
+            
+         
+            
+            
+            
+        var mysignupdata=  {
+            "Name": Name,
+           
+            "Fathersname": Fathersname,
+            
+            "Eid": Eid,
+            "Dob": Dob,
+          
+            "Mobile":mob,
+            
+            "Address": Address,
+            
+            "City": City,
+           
+            "State": State,
+            
+            "Designation": Designation,
+            
+            "Supervisor": Supervisor,
+            
+            "Gender":gender,
+            
+           "Emailid": Emailid
+          
+}
+         
+           
+       
+        $.ajax({
+            url: "http://localhost:3000/api/employees",
+             type: 'POST',
+            dataType:'json',
+            
+            data: JSON.stringify(mysignupdata), 
+           
+            contentType: 'application/json',
+            success: function(res){
+                console.log(res);
+                alert("account has been created");
+               
+            }
+            
+        });
+        
+            
+        }
+        
+    </script>
+
+<body  vlink="black">
+    <div class='header'>
+            <div class='header-image'>
+                    <img src='https://hrms.cygrp.com/content/images/logo.png' class='header-logo'>
+                </div>
+        <h1>CREATE YOUR PROFILE</h1>
+        <ul class='nav'>
+            <li><a href='index.html'>Login</a></li>
+            <li><a href='signup.html'>Signup</a></li>
+            <li><a href='list.html'>List</a></li>
+        </ul>
+
+       
+    </div>
+    <div class="container">
+        <form name class='form'>
+            <div class='form-container'>
+                        <div class="box">
+                    <h2>PERSONAL INFORMATION</h2>
+                </div>
+
+                <div class='box-container'>
+                    <label for='Name'> NAME</label>
+                    <input type="text" id='Name' placeholder=" Enter your first name">
+                </div>                   
+                <div class='box-container'>
+                    <label for='gender'>Gender</label>
+                    <input type="radio" name="gender" id="gen" value="male" checked>Male
+                    <input type="radio" name="gender" id="gen1" value="female" >Female
+                </div>
+                <div class='box-container'>
+                    <label for='MOB1'>MOBILE</label>
+                    <input type="number" id='Mob' placeholder=" Enter your phone number">
+                </div>                               
+                <div class='box-container'>
+                    <label for='MAIL'>E-MAIL</label>
+                    <input type="email" id = 'Emailid' placeholder=" Enter your Email"><br><br>
+                </div>
+
+                <div class='box-container'>
+                    <label for='DOB'>DOB</label>
+                    <input type="date" id='Dob' placeholder="Enter your date of birth ">
+                </div>
+
+                <div class='box-container'>
+                    <label for='father'>FATHER'S NAME</label>
+                    <input type="text" id = 'Fathersname' placeholder="Enter your father's name "><br><br>
+                </div>
+
+                <div class='box-container'>
+                    <label for='Address'>Address</label>
+                    <input type="text" id = 'Address' placeholder="Enter your  street address"> <br></br>
+                </div>
+
+                <div class='box-container'>
+                    <label for='city'>City</label>
+                    <input type="text" id='City' placeholder="enter your city">
+                </div>
+
+                <div class='box-container'>
+                    <label for='state'>State</label>
+                    <input type="text" id='State' placeholder="enter your state">
+                </div>
+
+            </div>
+
+            <div class='form-container'>
+                <div class="box">
+                    <h2>OFFICIAL DETAILS</h2>
+                </div>
+
+                <div class='box-container'>
+                    <label for=' Designation'>DESIGNATION</label>
+                    <input type="text" id='Designation' placeholder="enter your Designation">
+                </div>
+
+
+              <div class="box-container">
+                    <label for='Eid'>EMPLOYEE ID</label>
+                    <input type="text" id ='Eid'placeholder="enter your id"><br><br>
+
+                </div>     
+        
+                                                  
+                <div class="box-container">
+                    <label for='supervisor'>SUPERVISOR</label>
+                    <input type="text" id = 'Supervisor'placeholder="enter your supervisor name">
+                </div>   
+            </div>
+        </form>
+    </div>
+    <div class='button'>
+        <a href="list.html"><button type="submit" onclick="Signup()">SUBMIT</button></a>
+    </div>
+</body>
+
+</html>

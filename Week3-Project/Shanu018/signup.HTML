@@ -1,0 +1,88 @@
+<!Doctype Html>
+<html>
+<head>
+<title>CYBER GROUP ACCOUNT  </title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="s.css"> 
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script> 
+</head>
+    <script>
+        function Signup(){
+            
+            var Name= document.getElementById("Name").value;
+            
+            var mob=document.getElementById("Mob").value;
+            
+            var passsword = document.getElementById("password").value;
+              
+            
+        
+        
+        var signUpData = {
+            "Name": Name,
+            "Username":mob,
+            "Password":passsword
+        };
+        
+        $.ajax(
+        {
+            url:'http://localhost:3000/api/employees'
+            data:signUpData,
+            type:'post',
+            dataType:'json',
+            success: function(data){
+                console.log(data);
+                alert("account has been created");}
+            
+        }
+            );
+        
+            
+        }
+        
+    </script>
+<body vlink="black">
+    
+    <div class='header'>
+        <div class='header-image'>
+            <img src='https://hrms.cygrp.com/content/images/logo.png' class='header-logo'>
+        </div>
+        <h1>WELCOME TO CYBER GROUPs HRMS PAGE</h1>
+    </div>
+
+<div class="box">
+    <h2>SIGN UP</h2>
+<form action="create.html">    
+    <label for='name1'> NAME</label>
+    
+    <i class="fa fa-envelope icon" aria-hidden="true"></i>
+    <input type="text" id="Name" placeholder=" Enter your name"><br><br>
+    <label for='MOB'>USERNAME</label>
+    <i class="fa fa-phone icon" aria-hidden="true"></i>
+    
+<input type="text" id= "Mob" placeholder=" Enter your Employeeid "><br><br>
+  
+<i class="fa fa-envelope icon" aria-hidden="true"></i>
+  
+<i class="fa fa-lock icon" aria-hidden="true"></i>
+    <label for='PASSWORD'>PASSWORD</label>
+<input type="password" id="password" placeholder="Enter your password"><br>
+<i class="fa fa-lock icon" aria-hidden="true"></i>
+    <label for='PASSWORD'></label>
+<input type="password" placeholder="Re-enter password">
+    <div class='tick'>
+        <input type='checkbox' name='checkbox' id='checkbox'>
+        <p>By clicking on submit button you agree to all terms and conditions</p>
+    </div>
+
+    <button type="submit" onclick="Signup()">Submit</button>
+
+
+</form>
+</div>
+
+
+</body>
+</html>
