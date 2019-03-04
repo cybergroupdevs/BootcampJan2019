@@ -1,0 +1,6 @@
+firstpackage\Student.class
+firstpackage\controllers\StudentRetrieveController.class
+com\example\demo\SpringBootcamp2Application.class
+firstpackage\controllers\StudentRegistrationController.class
+firstpackage\StudentRegistration.class
+firstpackage\StudentRegistrationReply.class
