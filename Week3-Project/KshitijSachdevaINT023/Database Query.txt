@@ -1,0 +1,13 @@
+create database abcd;
+
+create table EmployeeDetails(
+	ID int primary key identity(1,1),
+	Name varchar(50),
+	Password varchar(20)
+);
+
+create table Project(
+	ID int primary key identity(1,1),
+	Name varchar(50),
+	EmployeeId int  foreign key references EmployeeDetails(ID)
+);
