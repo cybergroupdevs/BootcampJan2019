@@ -1,0 +1,34 @@
+            <html>
+            <head>
+            
+            <script>
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+ $.ajax({
+      type: 'GET',
+      url: 'http://http://localhost:58266/api/Employees',
+      success: function(data) {
+        extresults = data;
+        console.log(extresults);
+      }
+    });
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://http://localhost:58266/api/Employees',
+        data: {"la" : "lala"},
+          success: function(data) {
+        alert("post is good");
+      }
+    });
+    
+    </script>
+    </head>
+    
+    
+     \*using System.Web.Http.Cors;
+     var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);*\
+            
+ 
