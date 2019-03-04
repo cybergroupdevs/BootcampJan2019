@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>
+            signup
+        </title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+        
+<script>
+
+    function snd(){
+    var fname=document.getElementById("fname").value;   
+    var lname=document.getElementById("lname").value;
+    var code=document.getElementById("code").value;
+    var email=document.getElementById("email").value;
+    var phno=document.getElementById("num").value;
+    var pass=document.getElementById("pwd").value;
+        console.log("gfsd");
+
+    var dts={
+    "FName": fname, 
+    "Lname": lname,
+    "ID": code,
+    "EmailID": email,
+    "Number": phno,
+    "Password" :pass
+    }
+
+$.ajax({
+url: 'http://localhost:51442/api/SignUps/',
+data: dts,
+type: 'POST',
+dataType:'JSON',
+success: function(res){
+console.log(res);
+alert("Account Created");
+}
+});
+            }      </script>
+ 
+       
+    </head>
+    <body>
+        <div class="text">  
+       
+            <div class="header">
+                <img src="cg.png" align="left" height="30vh" width="100vw">
+                <a href="login.html">Login</a>&nbsp&nbsp
+                <a href="signup.html">Sign up</a>&nbsp&nbsp
+                <a href="create.html">Create</a>&nbsp&nbsp
+                <a href="list.html">List</a>
+            </div>
+
+            <hr color=navy>
+
+            <h3>&nbsp;WELCOME TO CYBER GROUP! &nbsp;</h3>
+
+            <form>
+                <input type="text" placeholder="First Name" id="fname" />
+                <br>
+                <br>
+                <input type="text" placeholder="Last Name" id="lname" />
+                <br>
+                <br>
+                <input type="number" placeholder="Employee ID" id="code" />
+                <br>
+                <br>
+                <input type="text" placeholder="Email ID" id="email" />
+                <br>
+                <br>
+                <input type="number" placeholder="Mob. Number" id="num" />
+                <br>
+                <br>
+                <input type="password" placeholder="Password" id="pwd" />
+                <br>
+                <br>
+                <input type="password" placeholder="Confirm Password" />
+                <br>
+                <br>
+                <br>
+                <input type="button" onclick="snd()" value="Sign Up!" />
+            </form>
+            <div class="footer">
+                <p>Copyright © 2019.All Rights Reserved. Terms & Conditions | Privacy Policy | Disclaimers</p>
+            </div>
+       </div>
+    </body>
+    </html>

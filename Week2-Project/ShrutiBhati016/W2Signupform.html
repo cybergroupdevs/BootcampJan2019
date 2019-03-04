@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head><link rel="shortcut icon" href=""></head>
+    <meta name="viewport" content="width=device-width">
+    <link  rel="stylesheet" type="text/css" href="signupform.css">
+    <body>
+        <header class="fixed-header">
+            <img src=".\logo.png" alt="Logo" class="center" width="100" height="50" >
+        </header>
+        <div id="toggle">
+            <a href="W2Index.html"><button id="redirect">Home</button></a>
+            <a href="W2Loginform.html"><button id="redirect" >Go To Login</button></a>
+        </div>
+        <form class="content" >
+            <div class="outset">
+                <h2 align="center">Sign Up</h2>
+                <p align="center">Please fill in this form to create an account.</p>
+                <hr>
+                <div class="relative">
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Username" id="Firstname" required><br>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" id="Email" required> <br>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required><br>
+                    <label for="password-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="password-repeat" required>
+                    <input type="checkbox"><label for="checkbox">Remember Me</label>
+                    <p>By creating an account you agree to our <a href="#" style="color:blue">Terms & Privacy</a>.</p>
+                </div>
+            </div>
+        </form>
+        <div class="clear">
+            <button type="button" class="cancelbutton">Cancel</button>
+            <button type="submit" id="signup">Sign Up</button>
+        </div>
+        
+        <div class="fixed-footer">
+            <div class="HeaderFooter">Copyright &copy; 2019 CYBERGROUP INDIA PVT. LTD.</div>
+        </div>
+    </body>
+</html>
+
+<script
+  src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+</script>
+
+<script type="text/javascript" language="javascript">
+    document.getElementById('signup').addEventListener('click',Signup, true);
+    function Signup() {
+       var FName = document.getElementById("Firstname").value;        
+       var Email = document.getElementById("Email").value;
+       var SignUpData = {
+           "EmployeeId" : Id,
+           "Username": FName,
+           "Email" : Email
+        }
+        $.ajax ({
+            type: 'POST',
+            url: 'http://localhost:62731/api/Signup', 
+            dataType : "json",
+            data : SignUpData,
+            success: function(data) {
+                alert("Entry registered");
+                console.log(data);
+            }           
+                });
+        
+        };
+</script>

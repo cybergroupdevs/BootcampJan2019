@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+    <title>Details</title>
+<style>
+body{
+background-image: url("webs.jpg");
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="EmployeeDetails.css">
+   <script>
+    var getURL = function getURL(parm){
+            var Pageurl = window.location.search.substring(1),
+            URLVariables = Pageurl.split('&'),
+                ParameterName, i;
+            
+        for(i=0; i<URLVariables.length;i++){
+            ParameterName = URLVariables[i].split('=');
+            
+            if(ParameterName[0] == parm){
+                return ParameterName[1]==undefined ? true : decodeURIComponent(ParameterName[1]);
+            }
+        }
+        };
+
+        var em=getURL('id');
+        console.log(em);
+       var temp=null;
+    
+function list(){
+
+    $.ajax({
+        type: 'GET',
+        url:'http://localhost:50393/api/Personals/'+em,
+       
+            dataType:'json',
+
+                success:function(res){
+                    temp=res;
+         document.getElementById("emp_no").value=res.Emp_No;
+        document.getElementById("name").value=res.Name;
+        document.getElementById("uname").value=res.User_Name;
+        document.getElementById("designation").value=res.Designation;
+        document.getElementById("contact").value=res.Contact;
+        document.getElementById("address").value=res.Address;
+        fm.radio.value=res.Gender;
+        
+      
+                   
+         }
+        });
+}
+       
+    function edit()
+       {
+           temp = {};
+        temp.Emp_No =document.getElementById("emp_no").value;
+           temp.Name=   document.getElementById("name").value;
+       temp.User_Name =  document.getElementById("uname").value;
+           temp.Designation = document.getElementById("designation").value;
+           temp.Contact = document.getElementById("contact").value;
+           temp.Address = document.getElementById("address").value;
+           temp.Gender =  fm.radio.value;
+        
+    $.ajax({
+        type: 'PUT',
+        url:'http://localhost:50393/api/Personals/'+em,
+        contentType: "application/json",
+        data:JSON.stringify(temp),
+                success:function(res){
+                    console.log(res);
+
+                               alert("ok");
+                }
+    });
+           
+       }
+       
+       function alldelete()
+       {
+            $.ajax({
+            type: 'DELETE',
+            url:'http://localhost:50393/api/Personals/'+em,
+            contentType: "application/json",
+            data:JSON.stringify(temp),
+            success:function(res){
+                    
+
+                               alert("ok");
+                }
+    });
+       }
+       
+    window.onload=list();
+</script>
+
+</head>
+<body>
+<form name="fm">
+<div class="header">
+  <a href="#default" class="logo"><img src="Cyber.png" ></a>
+  <div class="navbar">
+  <a href="index.html">Sign in</a>
+  <a href="#">create</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+    </button>
+    <div class="dropdown-content">
+      <a href="Employee Details.html">Employee Details</a>
+      <a href="Listpage.html">Employee List</a>
+    </div>
+  </div> 
+</div>
+</div>
+<div class ="container">
+
+<center>
+<b>
+<h1><b>Details</b></h1>
+<br>
+Name*       :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Enter your Name" id="name"/><br>                    
+Emp_No*     :&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Enter your Emp_No" id="emp_no"/><br>
+UserName*   :<input type="text" placeholder="Enter your UserName" id="uname"/><br>
+Desgination*:<input type="text" placeholder="Enter Your Desgination" id="designation"/><br>
+Contact No* :<input type="number" placeholder="Enter your contact info" id="contact"/><br>
+Address     :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Enter your Address" id="address"/><br>
+Gender      :<input type="radio" id="gender" value="male" name="radio">Male
+             <input type="radio" id="gender" value="female"name="radio"> Female<br>
+             <br>
+    <div class="clearfix">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="edit" onclick="edit()" value="update">
+    <input type="button" class="delete" onclick="alldelete()" value="delete">
+    </div>
+ 
+</b>
+ </center>
+    </div>
+
+</form>
+
+</body>

@@ -1,5 +1,7 @@
 Files to review for week-1 project :
 
+LoginSystem Directory is the visual studio solution directory.
+
 Index.html: 			Login page
 Signup.html.html: 		Signup page
 Create User.html: 		To add a new user to database.

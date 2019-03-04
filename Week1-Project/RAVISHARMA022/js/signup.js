@@ -52,12 +52,31 @@ function signupform(){
 								"AuthenticateUser":{
 								"Id": empid,
 								"Email": mail,
+<<<<<<< HEAD
 								"password": pass,
 								"Terms": licence,
 								},
 								};
 						$.ajax({
 							url: 'http://localhost:50052/api/EmployeeDetail/',
+=======
+								"password": pass1,
+								"Terms": licence
+								},
+								"EducationDetail":{
+								"Id": empid,
+								"TenthBoard": "Not Specified",
+								"Tenthmarks": 0,
+								"Twelfthboard": "Not Specified",
+								"Twelfthmarks": 0,
+								"GraduationDegree": "Not Specified",
+								"GraduationMarks": 0
+										}
+								};
+								console.log(datafor_EmployeeDetail);
+						$.ajax	({
+							url: "http://localhost:50052/api/EmployeeDetail",
+>>>>>>> 6311e2c658160f6f0d2c89871782016ec937c5d3
 							data: datafor_EmployeeDetail,
 							type: 'POST',
 							dataType: 'json', 

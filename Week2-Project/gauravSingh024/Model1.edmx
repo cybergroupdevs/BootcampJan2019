@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="hrmsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="dept_name" />
+          </Key>
+          <Property Name="dept_id" Type="int" />
+          <Property Name="dept_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="contact_no" Type="int" />
+        </EntityType>
+        <EntityType Name="employee_details">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="20" />
+          <Property Name="last_name" Type="varchar" MaxLength="20" />
+          <Property Name="e_dob" Type="date" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="email" Type="varchar" MaxLength="40" />
+          <Property Name="phone_no" Type="int" />
+          <Property Name="department" Type="varchar" MaxLength="30" />
+          <Property Name="last_organization" Type="varchar" MaxLength="20" />
+          <Property Name="last_salary" Type="int" />
+          <Property Name="joining_date" Type="date" />
+          <Property Name="work_experience" Type="int" />
+        </EntityType>
+        <EntityType Name="employee_login">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="20" />
+          <Property Name="last_name" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="gender" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="intern_details">
+          <Key>
+            <PropertyRef Name="intern_id" />
+          </Key>
+          <Property Name="intern_id" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="20" />
+          <Property Name="last_name" Type="varchar" MaxLength="20" />
+          <Property Name="e_dob" Type="date" />
+          <Property Name="gender" Type="varchar" MaxLength="2" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="email" Type="varchar" MaxLength="40" />
+          <Property Name="phone_no" Type="int" />
+          <Property Name="highschool_per" Type="int" />
+          <Property Name="graduation_per" Type="int" />
+          <Property Name="intermediate_per" Type="int" />
+          <Property Name="aadhar_no" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="intern_login">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="20" />
+          <Property Name="last_name" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="gender" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <Association Name="FK__employee___depar__4CA06362">
+          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+          <End Role="employee_details" Type="Self.employee_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="dept_name" />
+            </Principal>
+            <Dependent Role="employee_details">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee_log__id__4F7CD00D">
+          <End Role="employee_details" Type="Self.employee_details" Multiplicity="0..1" />
+          <End Role="employee_login" Type="Self.employee_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_details">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employee_login">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__intern_login__id__5441852A">
+          <End Role="intern_details" Type="Self.intern_details" Multiplicity="0..1" />
+          <End Role="intern_login" Type="Self.intern_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="intern_details">
+              <PropertyRef Name="intern_id" />
+            </Principal>
+            <Dependent Role="intern_login">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hrmsModelStoreContainer">
+          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee_details" EntityType="Self.employee_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee_login" EntityType="Self.employee_login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="intern_details" EntityType="Self.intern_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="intern_login" EntityType="Self.intern_login" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__employee___depar__4CA06362" Association="Self.FK__employee___depar__4CA06362">
+            <End Role="department" EntitySet="department" />
+            <End Role="employee_details" EntitySet="employee_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee_log__id__4F7CD00D" Association="Self.FK__employee_log__id__4F7CD00D">
+            <End Role="employee_details" EntitySet="employee_details" />
+            <End Role="employee_login" EntitySet="employee_login" />
+          </AssociationSet>
+          <AssociationSet Name="FK__intern_login__id__5441852A" Association="Self.FK__intern_login__id__5441852A">
+            <End Role="intern_details" EntitySet="intern_details" />
+            <End Role="intern_login" EntitySet="intern_login" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hrmsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="dept_name" />
+          </Key>
+          <Property Name="dept_id" Type="Int32" />
+          <Property Name="dept_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact_no" Type="Int32" />
+          <NavigationProperty Name="employee_details" Relationship="Self.FK__employee___depar__4CA06362" FromRole="department" ToRole="employee_details" />
+        </EntityType>
+        <EntityType Name="employee_details">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="e_dob" Type="DateTime" Precision="0" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="phone_no" Type="Int32" />
+          <Property Name="department" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="last_organization" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="last_salary" Type="Int32" />
+          <Property Name="joining_date" Type="DateTime" Precision="0" />
+          <Property Name="work_experience" Type="Int32" />
+          <NavigationProperty Name="department1" Relationship="Self.FK__employee___depar__4CA06362" FromRole="employee_details" ToRole="department" />
+          <NavigationProperty Name="employee_login" Relationship="Self.FK__employee_log__id__4F7CD00D" FromRole="employee_details" ToRole="employee_login" />
+        </EntityType>
+        <EntityType Name="employee_login">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="employee_details" Relationship="Self.FK__employee_log__id__4F7CD00D" FromRole="employee_login" ToRole="employee_details" />
+        </EntityType>
+        <EntityType Name="intern_details">
+          <Key>
+            <PropertyRef Name="intern_id" />
+          </Key>
+          <Property Name="intern_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="e_dob" Type="DateTime" Precision="0" />
+          <Property Name="gender" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="phone_no" Type="Int32" />
+          <Property Name="highschool_per" Type="Int32" />
+          <Property Name="graduation_per" Type="Int32" />
+          <Property Name="intermediate_per" Type="Int32" />
+          <Property Name="aadhar_no" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="intern_login" Relationship="Self.FK__intern_login__id__5441852A" FromRole="intern_details" ToRole="intern_login" />
+        </EntityType>
+        <EntityType Name="intern_login">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="intern_details" Relationship="Self.FK__intern_login__id__5441852A" FromRole="intern_login" ToRole="intern_details" />
+        </EntityType>
+        <Association Name="FK__employee___depar__4CA06362">
+          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+          <End Role="employee_details" Type="Self.employee_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="dept_name" />
+            </Principal>
+            <Dependent Role="employee_details">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee_log__id__4F7CD00D">
+          <End Role="employee_details" Type="Self.employee_details" Multiplicity="0..1" />
+          <End Role="employee_login" Type="Self.employee_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_details">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employee_login">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__intern_login__id__5441852A">
+          <End Role="intern_details" Type="Self.intern_details" Multiplicity="0..1" />
+          <End Role="intern_login" Type="Self.intern_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="intern_details">
+              <PropertyRef Name="intern_id" />
+            </Principal>
+            <Dependent Role="intern_login">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hrmsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="departments" EntityType="Self.department" />
+          <EntitySet Name="employee_details" EntityType="Self.employee_details" />
+          <EntitySet Name="employee_login" EntityType="Self.employee_login" />
+          <EntitySet Name="intern_details" EntityType="Self.intern_details" />
+          <EntitySet Name="intern_login" EntityType="Self.intern_login" />
+          <AssociationSet Name="FK__employee___depar__4CA06362" Association="Self.FK__employee___depar__4CA06362">
+            <End Role="department" EntitySet="departments" />
+            <End Role="employee_details" EntitySet="employee_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee_log__id__4F7CD00D" Association="Self.FK__employee_log__id__4F7CD00D">
+            <End Role="employee_details" EntitySet="employee_details" />
+            <End Role="employee_login" EntitySet="employee_login" />
+          </AssociationSet>
+          <AssociationSet Name="FK__intern_login__id__5441852A" Association="Self.FK__intern_login__id__5441852A">
+            <End Role="intern_details" EntitySet="intern_details" />
+            <End Role="intern_login" EntitySet="intern_login" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="hrmsModelStoreContainer" CdmEntityContainer="hrmsEntities">
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="hrmsModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+                <ScalarProperty Name="dept_name" ColumnName="dept_name" />
+                <ScalarProperty Name="contact_no" ColumnName="contact_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee_details">
+            <EntityTypeMapping TypeName="hrmsModel.employee_details">
+              <MappingFragment StoreEntitySet="employee_details">
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="e_dob" ColumnName="e_dob" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="last_organization" ColumnName="last_organization" />
+                <ScalarProperty Name="last_salary" ColumnName="last_salary" />
+                <ScalarProperty Name="joining_date" ColumnName="joining_date" />
+                <ScalarProperty Name="work_experience" ColumnName="work_experience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee_login">
+            <EntityTypeMapping TypeName="hrmsModel.employee_login">
+              <MappingFragment StoreEntitySet="employee_login">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="intern_details">
+            <EntityTypeMapping TypeName="hrmsModel.intern_details">
+              <MappingFragment StoreEntitySet="intern_details">
+                <ScalarProperty Name="intern_id" ColumnName="intern_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="e_dob" ColumnName="e_dob" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="highschool_per" ColumnName="highschool_per" />
+                <ScalarProperty Name="graduation_per" ColumnName="graduation_per" />
+                <ScalarProperty Name="intermediate_per" ColumnName="intermediate_per" />
+                <ScalarProperty Name="aadhar_no" ColumnName="aadhar_no" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="intern_login">
+            <EntityTypeMapping TypeName="hrmsModel.intern_login">
+              <MappingFragment StoreEntitySet="intern_login">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

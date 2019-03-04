@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>list </title>
+ 
+
+  
+      <link rel="stylesheet" href="style.css">
+	  <script
+	  
+	  src="http://code.jquery.com/jquery-3.3.1.js" 
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
+  crossorigin="anonymous"> 
+
+</script> 
+
+
+
+ 
+    <script> 
+   function getintern(){ 
+        $.ajax({ 
+
+  url: 'http://localhost:64680/api/intern_details', 
+
+            type: 'GET', 
+
+            dataType: 'json', 
+            success: function(res){ 
+  
+var table = document.getElementById("intable"); 
+for(var i=0;i<res.length;i++){ 
+  var intern_id = res[i].intern_id; 
+
+                var row = table.insertRow(table.length); 
+
+                name = res[i].intern_details.FirstName + ' '+res[i].intern_details.LastName 
+                var cell1 = row.insertCell(0); 
+                 
+                 cell1.innerHTML=name; 
+                 row.insertCell(1).innerHTML = res[i].intern_id; 
+                  row.insertCell(2).innerHTML = res[i].email; 
+                   row.insertCell(3).innerHTML = "<input type='button' value='edit' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal' onclick=\'fetch(\""+res[i].intern_id +"\",\""+ res[i].first_name +"\",\""+res[i].last_name +"\",\""+ res[i].e_dob+"\",\""+res[i].gender+"\",\""+res[i].password+"\",\""+res[i].email+"\",\""+res[i].phone_number+  "\",\""+res[i].highschool_per+  "\",\""+res[i].graduation_per+  "\",\""+res[i].intermediate_per+  "\",\""+res[i].adhar_no+  "\",\""+res[i].address+  "\")\'>" 
+                   row.insertCell(4).innerHTML = "<input type='button' value='delete' class='btn btn-info btn-lg' onclick=\'delete1(\""+res[i].intern_id+"\")\'>" 
+                    row.insertCell(5).innerHTML = "<input type='button' value='Full_details' class='btn btn-info btn-lg' onclick=\'show(\""+res[i].intern_id+"\")\'>" 
+ } 
+            } 
+
+
+
+ 
+        }); 
+
+
+
+ 
+    } 
+
+
+
+ 
+    function show(intern_id){ 
+
+        window.location="display.html?id="+intern_id; 
+    } 
+
+    function fetch(intern_id,first_name,last_name,e_dob,gender,password,email,phone_no,highschool_per,graduation_per,intermediate_per,aadhar_no,address,mom,father,dob){ 
+
+        console.log(id); 
+         document.getElementById("intern_id").value=intern_id;
+	   document.getElementById("fname").value=first_name;
+	   
+	    document.getElementById("lname").value=last_name;
+	    document.getElementById("password").value=password;
+        document.getElementById("dob").value=e_dob;
+	    document.getElementById("gender").value=gender;
+	   document.getElementById("high").value=highschool_per;
+	  document.getElementById("inter").value=intermediate_per;
+	   document.getElementById("grad").value=graduation_per;
+	   document.getElementById("email").value=email;
+	   
+	   document.getElementById("aadhar").value=aadhar_no;
+	 document.getElementById("phone").value=phone_no;
+ document.getElementById("address").value=address;
+	
+    } 
+    function update(){         
+
+	  var id = document.getElementById("intern_id").value;
+	  var f_name = document.getElementById("fname").value;
+	  var l_name = document.getElementById("lname").value;
+	  var password = document.getElementById("password").value;
+	  var inter_mark = document.getElementById("inter").value; 
+	  var high_mark = document.getElementById("high").value;
+	  var dob = document.getElementById("dob").value;
+	  var grad_mark = document.getElementById("grad").value;
+	  var email = document.getElementById("email").value;
+	  var  gender=document.getElementById("gender").value;
+	   
+	  var aadhar = document.getElementById("aadhar").value;
+	  var phone = document.getElementById("phone").value;
+	  var address = document.getElementById("address").value; 
+         
+        var dataToUpdate = {  
+	  "intern_Id": id, 
+	  "first_name": f_name,
+	  "last_name": l_name,
+	  "e_dob": dob,
+	  "Gender": gender,
+	  "password": password,
+	  "email": email,
+	 "phone_no":phone,
+	  
+	  "highschool_per":high_mark,
+	  "graduation_per":grad_mark,
+	  "intermediate_per":inter_mark,
+	  
+	  "aadhar_no":aadhar,
+	  "address": address,
+ 
+           
+        } 
+ 
+        $.ajax({ 
+ 
+            url: 'http://localhost:64680/api/intern_details/'+intern_id, 
+ 
+            type: 'PUT',
+
+ 
+            data: dataToUpdate,
+            dataType: 'json', 
+
+
+
+ 
+            success: function(res){ 
+ 
+                console.log("success"); 
+
+                 
+				
+				
+				
+				window.location = "list.html"; 
+
+ 
+            } 
+
+        }); 
+
+
+
+ 
+    } 
+
+
+
+ 
+    function delete1(intern_id){ 
+
+       $.ajax({ 
+    url: 'http://localhost:64680/api/intern_details/'+intern_id, 
+
+      type: 'DELETE', 
+
+            dataType: 'json', 
+ 
+            success: function(res){ 
+	
+                window.location = "list.html"; 
+
+            } 
+
+        }); 
+
+    }  
+	
+	
+	
+	
+	
+	 function getEmployee(){ 
+        $.ajax({ 
+
+  url: 'http://localhost:64680/api/Employee_details', 
+
+            type: 'GET', 
+
+            dataType: 'json', 
+            success: function(res){ 
+  
+var table = document.getElementById("emtable"); 
+for(var i=0;i<res.length;i++){ 
+  var employee_id = res[i].employee_id; 
+
+                var row = table.insertRow(table.length); 
+
+                name = res[i].employee_details.FirstName + ' '+res[i].employee_details.LastName 
+                var cell1 = row.insertCell(0); 
+                 
+                 cell1.innerHTML=name; 
+                 row.insertCell(1).innerHTML = res[i].employee_id; 
+                  row.insertCell(2).innerHTML = res[i].email; 
+                   row.insertCell(3).innerHTML = "<input type='button' value='edit' class='button' data-toggle='modal' data-target='#myModal' onclick=\'fetch(\""+res[i].employee_id +"\",\""+ res[i].first_name +"\",\""+res[i].last_name +"\",\""+ res[i].e_dob+"\",\""+res[i].password+"\",\""+res[i].email+"\",\""+res[i].phone_no+"\",\""+res[i].department+  "\",\""+res[i].last_organisation+  "\",\""+res[i].last_salary+  "\",\""+res[i].joining_date+  "\",\""+res[i].work_experience+ )\'>" 
+                   row.insertCell(4).innerHTML = "<input type='button' value='delete' class='button' onclick=\'delete1()\""+res[i].employee_id+"\")\'>" 
+                    row.insertCell(5).innerHTML = "<input type='button' value='Full_details' class='button' onclick=\'show()\""+res[i].employee_id+"\")\'>" 
+ } 
+            } 
+
+
+
+ 
+        }); 
+
+
+
+ 
+    } 
+	  
+	
+	  </script>
+
+  
+</head>
+
+<body style="background-image: url('bg.png'); " >
+
+<img src="cyber.png" >
+
+<div style="float:right; padding:30px;">
+ <a type="submit" href="index.html" class="button button-block "/>back</a>
+
+</div>
+<div class="form">
+ 
+      
+       <ul class="tab-group">
+        
+        <li class="tab active"><a href="#intern">Intern details</a></li>
+        <li class="tab"><a href="#Employee">Employee details</a></li>
+      </ul>
+	  
+	  
+      
+      
+      <div class="tab-content">
+        <div id="intern" onload="getintern()">   
+          <h1>Details</h1>
+		  
+		    
+		  
+		   <table id=intable align="center">
+		   
+		   <tr>
+		   
+		   <th colspan="3" class="th"><h1> list of employees<h1></th>
+		   
+		   
+		   </tr>
+                <tr>
+                    <th>name</th>
+					<th>Intern Id</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                    <th>full deatails</th>
+                </tr>
+			
+                
+                
+            </table>
+			
+		</div>	
+		
+		
+			
+          
+		  <div id="Employee" onclick="getEmployee()">   
+          <h1>details</h1>
+		  
+		  
+		  
+		  <table id=intable align="center">
+		   
+		   <tr>
+		   
+		   <th colspan="3" class="th"><h1> list of employees<h1></th>
+		   
+		   
+		   </tr>
+                <tr>
+                    <th>name</th>
+					<th>Intern Id</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                    <th>full deatails</th>
+                </tr>
+			
+                
+                
+            </table>
+		     
+		  		  
+                
+            
+			</div>
+			</div>
+          
+     
+  
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script  src="index.js"></script>
+
+  
+
+
+
+</body>
+
+</html>

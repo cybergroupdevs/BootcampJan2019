@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Employee List</title>
+       <meta charset="utf-8">
+       <meta name="description" content="Authorized User">	
+       <link href="css/userlist.css" rel="stylesheet" type="text/css">
+       <script src="https://code.jquery.com/jquery-3.3.1.js"
+				integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+				crossorigin="anonymous">
+		</script>	
+	</head>
+<body> 
+		
+<div class="header">
+	<img src="images/cyg_logo.jpg" alt="">
+	<div class="wel_text">Welcome To Cyber Group India</br>
+		
+	</div>
+</div>
+<div id="nav_bar">
+	<div class="nav_items">
+		<ul>	
+			<a href="#"><button type="button" class="nav_btn">Home</button></a>
+		
+			<div class="dropdown">
+				<button type="button" class="nav_btn">My Account</button></a>
+				<div class="dropdown-content">
+					
+					<li><a href="index.html">Log Out</a></li>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+<center>
+<div class="bigbox">
+	<div class="list_table">
+			<table id="mytable">
+				<thead>
+					<tr>
+						<th>Employee Id</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Gender</th>
+						<th>Date of Birth</th>
+						<th>Designation</th>
+						<th>Adress</th>
+						</tr>
+				</thead>
+				<tbody>
+				</tbody>
+        </table> 
+        	
+	<p class="lower_text">User Details are not shown by default for security reasons, Click below button to see the list</p>
+	<button type="button" class="showlist_btn" onclick="showlist()"> Show User list </button></br>
+	
+	</div>
+</div>
+
+</center>
+<div id="footer">
+Copyright All rights reserved © 2017
+</div>
+<script> 
+
+function showlist(){								
+				$.ajax	({
+				url: "http://localhost:49504/api/EMPLOYEEs",
+				type: 'GET',
+				dataType: 'json', 
+				success: function(data)
+									{
+									var table=document.getElementById("mytable");
+										for (var i=0; i<data.length; i++){
+											var row=table.insertRow(table.length);
+											row.insertCell(0).innerHTML=data[i].empid;
+											row.insertCell(1).innerHTML=data[i].firstname;
+											row.insertCell(2).innerHTML=data[i].lastname;
+											row.insertCell(3).innerHTML=data[i].Gender;
+											row.insertCell(4).innerHTML=data[i].DOB;
+											row.insertCell(5).innerHTML=data[i].Designation;
+											row.insertCell(6).innerHTML=data[i].Adress;
+											row.insertCell(7).innerHTML="<input type='button' id='"+data[i].empid+"' value='Click To View' class='editbutton' onclick='ThrowId(this.id)'>"
+										}
+									} 
+						});
+}
+function ThrowId(Id){
+	alert(Id);
+	window.location = "userdetail.html?Id="+Id;
+}
+</script>
+</body></html>

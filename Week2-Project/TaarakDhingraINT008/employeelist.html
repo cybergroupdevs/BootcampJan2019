@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="emplist.css" rel="stylesheet">
+	<title>EMPLOYEE LIST</title>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+  	var firstname = valuestore[0].Firstname;
+  	document.getElementById("Firstname").innerHTML = Firstname;
+  	console.log(Firstname); 
+
+  </script>
+	<script type="text/javascript" src="employeelistbackend.js"></script>
+	<script>
+		
+			</script>
+
+</head>
+<body>
+	<header class="heading">
+
+						<nav class="fornavigation">
+								<ul>
+										<li><a href="detailpage.html">CREATE</a></li>
+										
+										<li><a href="https://cygrp.com/">LOGOUT</a></li>
+										<li class="forright"><img src="https://hrms.cygrp.com/content/images/logo.png" height="75px" weight="75px"></li>
+								</ul>
+										
+										
+									
+							</nav>
+	
+		<center><div class="formstyle">
+
+			<h1>MEMBERS ON BOARD:</h1><br/>
+		<form name="tableform" text-align:center>
+		<table cellspacing="3px">
+			<tbody id="tb">
+				 
+			</tbody>
+		<!-- 
+		<tr>
+		<th id="serial"><b>S.NO</b> </th>
+		<th></thead>NAME</th>
+		<th>EMPLOYEE ID</th>
+		</tr>
+
+
+		<tr>
+		<td  id="serial"><b>1)</b> </td>
+		<td><a href="employeedetail.html">TAARAK</a></td>
+		<td>INT008</td>
+		</tr>
+
+		<tr>
+		<td  id="serial"><b>2)</b> </td>
+		<td>AMRIT</td>
+		<td>INT324</td>
+		</tr>
+
+		<tr>
+		<td  id="serial"><b>3)</b> </td>
+		<td>SHIKHAR</td>
+		<td>INT433</td>
+		</tr>
+
+		<tr>
+		<td  id="serial"><b>4)</b> </td>
+		<td>NAV</td>
+		<td>DEV11</td>
+		</tr>
+
+		<tr>
+		<td  id="serial"><b>5)</b> </td>
+		<td>AMARJEET</td>
+		<td>LEAD32</td>
+		</tr>
+		
+		 -->
+		
+		
+
+		</table>
+	</form>
+
+</div>
+
+<footer class="foot">
+								<nav>
+								
+								<marquee behavior="scroll" direction="left" scrollamount="5" id="fit3">
+							<font face="aerial" size="4">
+
+						
+							BELONGS TO TAARAK
+							</font>
+							</marquee> 
+
+							</nav>
+							</footer>
+
+							            <script type="text/javascript"> 
+
+
+							            	function openEdit(id)
+ {
+	localStorage.setItem("id",id);
+	location.href = "employeedetail.html";
+}
+$(window).ready(function(){
+	function getdetails()
+
+{
+ $.ajax({
+      type: 'GET',
+      url: 'http://localhost:64490/api/Employees',
+      success: function(data) {
+        valuestore = data;
+        // console.log(data);
+        addRows(data)
+      }
+    });
+
+}
+
+                function addRows(data){
+
+
+    // alert('click');
+    console.log(data);
+    for(i=0;i<data.length;i++)
+    $("<tr><td><p id=\"Firstname\">"+data[i].Firstname+"</p></td><td><p id=\"EmployeeId\">"+data[i].Id+"</p></td><td><p id=\"EmailId\">"+data[i].Email+"</p></td><td><p><input type=\"button\" value=\"DETAILS\" onclick=openEdit(\""+data[i].Id+ "\")></p></td></tr>").appendTo('#tb');
+  }  
+
+		javascript:getdetails();
+		// javascript:DeletingSingleData();
+
+});
+
+
+</script>
+         
+							
+</body>
+</html>

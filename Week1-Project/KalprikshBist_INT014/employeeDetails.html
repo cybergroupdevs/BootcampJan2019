@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css"  media="screen" href="employeeDetails.css">
+    <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
+    <meta charset="utf-8">
+
+    <title>Employee Register</title>
+
+</head>
+
+<body onload="templater()">
+<header>
+
+
+
+    <div class="CyberLogo"><img src="images/logo.png"></div>
+
+    <div class="headText">
+        <h1 id="employee_Name"></h1>
+        <h2 id="employee_Designation"></h2>
+    </div>
+    <div class="noAvatar">
+        <img class="myimage" src="images/no_avatar.gif"/>
+    </div>
+
+
+
+
+</header>
+
+
+<div class="bodytxt"><h3>Employee details</h3>
+</div>
+
+<button type="button" name="button" onclick="delete_Employee()">Delete Employee</button>
+<button type="button" name="button" onclick="edit_Employee()">Edit Employee</button>
+
+<table class="infoTable" cellpadding="0" cellspacing="0">
+
+    <tr>
+        <td><div class="info1">Id:-</div></td>
+        <td><div class="info" id="table_employee_Id" ></div></td>
+    </tr>
+
+    <tr>
+      <td><div class="info1" >Age:-</div></td>
+      <td><div class="info" id = "table_employee_Age" ></div></td>
+    </tr>
+
+    <tr>
+        <td><div class="info1">Gender:-</div></td>
+        <td><div class="info" id="table_employee_Gender"></div></td>
+    </tr>
+
+    <tr>
+        <td><div class="info1">Designation:-</div></td>
+        <td><div class="info" id="table_employee_Designation" > </div></td>
+    </tr>
+
+
+
+</table>
+
+<footer>
+   ©kalpriksh bist 2019-2020
+    <nav class="footNav">
+        <div class="links"> <a href="#">link1</a></div>
+        <div class="links"> <a href="#">link2</a></div>
+        <div class="links"> <a href="#">link3</a></div>
+    </nav>
+</footer>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+<script>
+
+function templater(){
+    var headName = document.getElementById("employee_Name");
+    var headDesignation = document.getElementById("employee_Designation");
+
+    var tableId = document.getElementById("table_employee_Id");
+    var tableAge = document.getElementById("table_employee_Age");
+    var tableGender = document.getElementById("table_employee_Gender");
+    var tableDesignation = document.getElementById("table_employee_Designation");
+
+    var employee_URL="http://localhost:61225/api/Employees/"+localStorage.getItem("ID");
+
+    $.ajax({
+        url: employee_URL,
+        type: 'GET',
+        dataType: 'json', // added data type
+        success: function(res) {
+                                  console.log(res);
+
+                                   headName.innerHTML = res.Name;
+                                   headDesignation.innerHTML = res.Designation.Name;
+
+                                   tableId.innerHTML=res.Id;
+                                   tableAge.innerHTML=res.Age;
+                                   tableGender.innerHTML=res.Gender;
+                                   tableDesignation.innerHTML = res.Designation.Name;
+                               }
+          });
+      }
+
+
+
+
+function edit_Employee(){
+  window.open("editEmployee.html","employeeEditPage")
+}
+
+function delete_Employee(){
+                      alert("Employee Deleted\nPlease go back");
+                      var employee_URL="http://localhost:61225/api/Employees/"+localStorage.getItem("ID");
+
+                      $.ajax({
+                          url: employee_URL,
+                          type: 'DELETE',
+                          dataType: 'json', // added data type
+                          });
+                    }
+
+
+</script>
+
+</body>
+</html>

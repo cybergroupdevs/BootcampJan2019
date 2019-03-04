@@ -1,8 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
-
-<!--<link rel ="stylesheet" type="text/css" href="styles.css" media="screen" >-->
 <head>
     <link rel="stylesheet" type="text/css"  media="screen" href="SignUp_styles.css">
     <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
@@ -12,74 +9,76 @@
 
 </head>
 
-
 <body>
-    <header>
 
-        <div class="CyberLogo"><img src="images/logo.png" alt="logo should be displayed over here"></div>
-
+<header>
+    <div class="dropdown">
+        <div class="headerButton" onclick="" >>></div>
         <div>
-            <div class="headerText">Sign Up!</div>
-            <nav>
-                <div>
-                    <div class="links"> <a href="login page.html">login</a></div>
-                    <div class="links"> <a href="#">link2</a></div>
-                    <div class="links"> <a href="#">link3</a></div>
-                </div>
+            <nav class = "navigationDropdown">
+                <div class="links"> <a href="login page.HTML">login</a></div>
+                <div class="links"> <a href="createEmp.html">create</a></div>
+                <div class="links"> <a href="employeeTable.html">register</a></div>
             </nav>
-
         </div>
-
-    </header>
-
-
-    <div class="txtbox">
-
-            <p><h1>Become a member today</h1></p>
-            <p><h2>Sign up for free!</h2></p>
-
-
-        </div>
-        <table class="table" cellpadding="20" cellspacing="10">
-
-            <tr>
-                <td>Username</td>
-                <td><div class="txtInput"><input type="text"></div></td>
-            </tr>
-
-            <tr>
-                <td>Password</td>
-                <td><div class="txtInput"><input type="password"></div></td>
-            </tr>
-
-            <tr>
-                <td>e-mail</td>
-                <td><div class="txtInput"><input type="text"></div></td>
-            </tr>
-
-            <tr>
-                <td>phone</td>
-                <td><div class="txtInput"><input type="text"></div></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center" ><div class="button">Enter</div></td>
-            </tr>
-        </table>
-
     </div>
 
+</header>
 
+<div class="CyberLogo"><img src="images/logo.png" alt="logo should be displayed over here"></div>
 
-   <footer>
-       ©kalpriksh bist 2019-2020
-       <nav>
-           <div class="links"> <a href="login page.html">login</a></div>
-           <div class="links"> <a href="#">link2</a></div>
-           <div class="links"> <a href="#">link3</a></div>
+<div class="bodyContent">
+    <div class="contentTxt">
+        <h1>Become a member today</h1>
+        <h3>Sign up today!</h3>
+    </div>
+    <div class="table" >
+        <table align="center" cellspacing="0" cellpadding="0">
+            <tr>
+                <td><div class="tableTxt">Username</div></td>
+            </tr>
+            <tr>
+                <td><div class="textInput"><input type="text" placeholder="eg.John Doe"></div></td>
+            </tr>
 
-       </nav>
-   </footer>
+            <tr>
+                <td><div class="tableTxt" >Password</div></td>
+            </tr>
+            <tr>
+                <td><div class="textInput"><input type="password" placeholder="enter"></div></td>
+            </tr>
+
+            <tr>
+                <td><div class="tableTxt" >email</div></td>
+            </tr>
+            <tr>
+                <td><div class="textInput"><input type="text" placeholder="eg.John.Doe@xyz.com"></div></td>
+            </tr>
+
+            <tr>
+                <td><div class="tableTxt" >phone</div></td>
+            </tr>
+            <tr>
+                <td><div class="textInput"><input type="number" placeholder="ph no."></div></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><div class="button">Sign Up</div></td>
+
+            </tr>
+
+        </table>
+    </div>
+</div>
+<footer>
+    ©kalpriksh bist 2019-2020
+    <nav class="footNav">
+        <div class="linksFoot"> <a href="Index.HTML">sign up</a></div>
+        <div class="linksFoot"> <a href="#">link2</a></div>
+        <div class="linksFoot"> <a href="#">link3</a></div>
+
+    </nav>
+</footer>
 
 </body>
-
 </html>

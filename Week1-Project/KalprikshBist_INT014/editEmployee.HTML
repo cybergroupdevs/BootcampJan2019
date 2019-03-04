@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css"  media="screen" href="editEmployee_styles.css">
+    <meta name="viewport" content = "width = device-width, initial-scale = 1.0">
+    <meta charset="utf-8">
+
+    <title>Employee Register</title>
+
+</head>
+
+<body onload="templater()">
+    <header>
+
+
+
+    <div class="CyberLogo"><img src="images/logo.png"></div>
+
+        <div class="headText">
+            <h1 id="employee_Name">John Doe</h1>
+            <h2 id="employee_Designation">Employee Id:-INT014</h2>
+        </div>
+        <div class="noAvatar">
+            <img class="myimage" src="images/no_avatar.gif"/>
+        </div>
+
+
+
+
+    </header>
+
+    <div class="bodytxt"><h3>Employee details</h3>
+    </div>
+
+    <table class="infoTable" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><div class="info1">Name:-</div></td>
+          <td><input class="info" type="text" placeholder="Enter" id="table_employee_Name" ></td>
+        </tr>
+        <tr>
+            <td><div class="info1">Age:-</div></td>
+            <td><input class="info" type="text" placeholder="Enter" id="table_employee_Age" ></td>
+        </tr>
+
+        <tr>
+            <td><div class="info1">Gender:-</div></td>
+            <td><input class="info" type="text" placeholder="Enter" id="table_employee_Gender" ></td>
+        </tr>
+
+        <tr>
+            <td><div class="info1">Designation:-</div></td>
+            <td><input class="info" type="text" placeholder="Enter" id="table_employee_Designation" ></td>
+        </tr>
+
+
+
+
+        <tr>
+            <td  colspan="2" class="tableButton" onclick="editEmployee()" >
+                <div class="buttonBackground" >
+                    Enter
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+    <footer>
+        ©kalpriksh bist 2019-2020
+        <nav class="footNav">
+            <div class="links"> <a href="#">link1</a></div>
+            <div class="links"> <a href="#">link2</a></div>
+            <div class="links"> <a href="#">link3</a></div>
+        </nav>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+
+<script>
+
+var empName=document.getElementById("table_employee_Name");
+var empAge=document.getElementById("table_employee_Age");
+var empGender=document.getElementById("table_employee_Gender");
+var empDesignation=document.getElementById("table_employee_Designation");
+var employee_URL="http://localhost:61225/api/Employees/"+localStorage.getItem("ID");
+var designation_URL="http://localhost:61225/api/Designations/"+localStorage.getItem("des_ID");
+
+function templater(){
+
+
+  var headName = document.getElementById("employee_Name");
+  var headDesignation = document.getElementById("employee_Designation");
+
+
+  $.ajax({
+              url: employee_URL,
+              type: 'GET',
+              dataType: 'json', // added data type
+              success: function(res) {
+              console.log(res);
+
+              headName.innerHTML=res.Name;
+              headDesignation.innerHTML=res.Designation.Name;
+
+              empName.value=res.Name;
+              empAge.value=res.Age;
+              empGender.value=res.Gender;
+              empDesignation.value=res.Designation.Id;
+
+            }
+       });
+
+
+}
+
+function editEmployee(){
+                          console.log("here");
+                          var send_data =
+                          {
+                                "Designation": {
+                                    "Employees": [],
+                                    "Id": empDesignation.value,
+                                    "Name": "GM"
+                                },
+                                "Id":localStorage.getItem("ID"),
+                                "Name": empName.value,
+                                "Age": empAge.value,
+                                "Gender": empGender.value,
+                                "DesignationId": empDesignation.value
+                         };
+
+
+
+
+                          // {
+                          //   "Name": empName.value ,
+                          //   "Age": empAge.value,
+                          //   "Gender": empGender.value,
+                          //   "DesignationId": empDesignation.value
+                          // };
+                          //
+                          // {
+                          //
+
+
+                          console.log(send_data);
+
+                          $.ajax({
+                              type:'PUT',
+                              url: employee_URL,
+                              data: send_data,
+                              dataType: "json",
+                              success: function( data, textStatus, jQxhr ){
+                                  alert("Employee Data Updated");
+                              },
+                              error: function( jqXhr, textStatus, errorThrown ){
+                                  console.log( errorThrown );
+                              }
+                          });
+}
+
+</script>
+
+</body>
+</html>

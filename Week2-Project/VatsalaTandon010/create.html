@@ -1,0 +1,80 @@
+<html>
+ <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Create Employee Detail Page</title>
+     <link rel="stylesheet" href="create.css">
+     <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+      <script>
+        function create(){
+             var cgicode= document.getElementById("cgicode").value;
+             var firstname= document.getElementById("firstname").value;
+             var lastname= document.getElementById("lastname").value;
+             var designation= document.getElementById("designation").value;
+             var yoe= document.getElementById("yoe").value;
+             var qualification= document.getElementById("qualification").value;
+             
+             var dataToSend={
+                 "Employee_CGI_Code": cgicode,
+                 "First_Name": firstname,
+                 "Last_Name" : lastname,
+                 "Designation": designation,
+                 "Years_Of_Experiance":yoe,
+                 "Qualification": qualification
+             }
+             
+           $.ajax({
+        url: 'http://localhost:51589/api/Employees',
+        data: dataToSend,
+               type: 'POST',
+        dataType:'json',
+        success: function(res) {
+            console.log(res);
+            alert("Details of the employee added");
+            location.href="list.html"
+      }
+    });
+         }
+     </script>
+
+ </head>
+<body>
+
+<div class="header">      
+  <img src="logo.png" alt="logo"/ width="20%",height="10%">
+
+       <div class="header-right">
+           <a class="active" href="#home">Home</a>
+           <a href="#contact">Contact</a>
+           <a href="#about">About</a>
+           <a href="index.html">Log Out</a>
+        </div>
+</div>
+<h1>New Employee's Details</h1>
+<div class="section">
+    <form class="employeedetails">
+       <h4> CGI Code</h4>
+        <input type="text" placeholder="CGI Code" id="cgicode"/><br><br>
+        <h4> First Name</h4>
+        <input type="text" placeholder="First Name" id="firstname"/><br><br>
+        <h4> Last Name</h4>
+        <input type="text" placeholder="Last Name" id="lastname"/><br><br>
+        <h4> Designation</h4>
+        <input type="text" placeholder="Designation" id= "designation"/><br><br>
+        <h4> Years Of Experiance</h4>
+        <input type="text" placeholder="Years Of Experiance" id="yoe"/><br><br>
+        <h4> Qualification</h4>
+        <input type="text" placeholder="Qualification" id="qualification"/><br><br>
+        <input type="button" class="button" onclick="create();"value="Update"/><br><br>
+        <input type="button" class="button" onclick="location.href='list.html';"value="GO TO LIST"/>
+        </form>
+                 
+    </div>
+    <div class="footer">
+        <p>Copyright @ 2008 All Rights Reserved </p>
+    </div>    
+</body>
+</html>

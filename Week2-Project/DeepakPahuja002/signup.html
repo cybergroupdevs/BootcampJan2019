@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LogIn Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="js/signup.js"></script>
+</head>
+<body>
+    <section id="signup">
+        <div id="signup_page" class="background_pic">
+            <div class="overlay">
+                <nav class="navbar navbar-default navbar-inverse" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="login.html"><img style=" height: 40px; margin-top: -10px;" src="https://hrms.cygrp.com/content/images/logo.png" alt="Cyber Group Logo"></a>
+                    </div>
+                                
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="login.html">LogIn</a></li>
+                            <li class="active"><a href="#">SignUp</a></li>
+                            <li><a href="create_user.html">Create User</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="list.html">Users List</a></li>
+                                    <li><a href="required_user.html">Required User</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+
+<!-- *******************//////////////***********         NAVBAR ENDED        *******************//////////////***********   -->
+
+                
+    
+                <div class="container">
+                    <span class="signup_heading">SIGNUP</span> 
+    
+                    <div class="row">
+                        <div>
+                            <form action=""> 
+                                <div class="form-group">
+                                    <label for="Name">Name</label>
+                                    <input type="text" class="form-control" id="Name">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" id="EmailId">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Password</label>
+                                    <input type="password" class="form-control" id="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm_pwd">Confirm Password</label>
+                                    <input type="password" class="form-control" id="ConfirmPassword">
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox"> Keep me Logged In</label>
+                                    <!-- <a href="#login_page" class="pull-right" style="color:red;  outline-color: none; text-decoration: underline">Forgot Password ?</a> -->
+                                </div>
+                            </form> 
+                                
+                            <a>
+                                <button  id="SignUpBtn" type="button" class="btn btn-success">Sign Up</button>
+                            </a>
+                            <div id="go_to_login_page">
+                                <a href="login.html" class="go_to_login_page">Have an Account? LogIn Here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+</body>
+</html>
