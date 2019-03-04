@@ -1,0 +1,112 @@
+<html>
+ <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Employee Detail Page</title>
+     <link rel="stylesheet" href="retrieve.css">
+     <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  
+ </head>
+<body>
+
+<div class="header">      
+  <img src="logo.png" alt="logo"/ width="20%",height="10%">
+
+       <div class="header-right">
+           <a class="active" href="#home">Home</a>
+           <a href="#contact">Contact</a>
+           <a href="#about">About</a>
+           <a href="index.html">Log Out</a>
+        </div>
+</div>
+<h1>Employee Details</h1>
+
+
+<div class="section">
+    <form class="employeedetails">
+        <h4> CGI Code</h4>
+        <input type="text" placeholder="CGI Code" id="cgicode"/><br><br>
+        <h4> First Name</h4>
+        <input type="text" placeholder="First Name" id="firstname"/><br><br>
+        <h4> Last Name</h4>
+        <input type="text" placeholder="Last Name" id="lastname"/><br><br>
+        <h4> Designation</h4>
+        <input type="text" placeholder="Designation" id= "designation"/><br><br>
+        <h4> Years Of Experiance</h4>
+        <input type="text" placeholder="Years Of Experiance" id="yoe"/><br><br>
+        <h4> Qualification</h4>
+        <input type="text" placeholder="Qualification" id="qualification"/><br><br>
+        <input type="button" class="button" onclick="editt()"value="Edit"/><br><br>
+        <input type="button" class="button" onclick="deletee()"value="Delete"/>
+        </form>
+    </div>
+
+     <div class="footer">
+        <p>Copyright @ 2008 All Rights Reserved </p>
+    </div>  
+    <script>
+    var url = new URL(window.location.href);
+      var UserId=url.searchParams.get("id");
+      UserId=Number(UserId);
+    console.log(UserId);
+      $.ajax({
+          type:'GET',
+          url:'http://http://localhost:8084/Employees/'+UserId,
+          success:function(Data){
+              document.getElementById("cgicode").value=Data.Employee_CGI_Code
+              document.getElementById("firstname").value=Data.First_Name
+              document.getElementById("lastname").value=Data.Last_Name
+              document.getElementById("designation").value=Data.Designation
+              document.getElementById("yoe").value=Data.Years_Of_Experiance
+              document.getElementById("qualification").value=Data.Qualification
+          }
+      });
+      function deletee(){
+          $.ajax({
+              type:'DELETE',
+              url:'http://localhost:51589/api/Employees/'+UserId,
+              success: function(Data){
+                  alert("User Deleted!!");
+                  location.replace("list.html");
+              }
+          });
+      }
+    function editt(){
+             var Employee_CGI_Code =UserId;
+        console.log(UserId);
+             var First_Name= document.getElementById("firstname").value;
+             var Last_Name= document.getElementById("lastname").value;
+             var Designation= document.getElementById("designation").value;
+             var Years_Of_Experiance= document.getElementById("yoe").value;
+             var Qualification= document.getElementById("qualification").value;
+              console.log(UserId,First_Name,Designation, Last_Name, Years_Of_Experiance, Qualification);
+        var userdata={
+              "Employee_CGI_Code": Employee_CGI_Code,
+              "First_Name": First_Name,
+              "Last_Name":Last_Name,
+              "Designation":Designation,
+              "Years_Of_Experiance":Years_Of_Experiance,
+              "Qualification":Qualification
+          }
+          $.ajax({
+              type:'PUT',
+              url:'http://localhost:51589/api/Employees/'+UserId,
+              dataType:"json",
+              data:userdata,
+              error:function(e){console.log(e);},
+              sucess:function(data){
+              
+          }
+          });
+        alert("User Info Updated !!")
+              window.location.href="list.html";
+      }
+      
+     </script>
+
+</body>
+</html>
