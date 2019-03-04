@@ -15,16 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.CRUD.main.EmployeeData;
+
 @CrossOrigin
 @Controller
-public class EmployeeDataDataController {
+public class EmployeeDataController {
 
 	@RequestMapping(method = RequestMethod.DELETE, value="/EmployeeData/{id}")
 	@ResponseBody
 	public void DeleteDep(@RequestBody @PathVariable("id")  String id) {
 		Connection con;
 			try {
-				String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Corporate";
+				String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 				String user = "sa";
 				con = DriverManager.getConnection(dbURL, user, "password");
 				if(con != null) {
@@ -42,12 +44,13 @@ public class EmployeeDataDataController {
 	public void AddDep(@RequestBody EmployeeData lc) {
 		Connection con;
 			try {
-				String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Corporate";
+				String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 				String user = "sa";
 				con = DriverManager.getConnection(dbURL, user, "password");
 				if(con != null) {
 					Statement stmt = con.createStatement();
-					String query = "insert into EmployeeData values('"+lc.getID()+"','"+lc.getCode()+"','"+lc.getName()+"','"+lc.getDesignationId()+"','"+lc.getEmailId()+"','"+lc.getAddress()+"','"+lc.getContact()+"','"+lc.getDesignationId()+"');";
+					String query = "insert into EmployeeData values('"+lc.getId()+"','"+lc.getIdtype()+"','"+lc.getName()+"',"
+							+ "'"+lc.getIdNumber()+"','"+lc.getEmail()+"','"+lc.getAddress()+"','"+lc.getContact()+"','"+lc.getIdNumber()+"');";
 					stmt.execute(query);
 				}
 			}
@@ -62,12 +65,12 @@ public class EmployeeDataDataController {
 	public void UpdateDep(@RequestBody EmployeeData lc,@PathVariable("id") String id) {
 		Connection con;
 			try {
-				String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Corporate";
+				String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 				String user = "sa";
 				con = DriverManager.getConnection(dbURL, user, "password");
 				if(con != null) {
 					Statement stmt = con.createStatement();
-					String query = "update EmployeeData set Code='"+lc.getCode()+"', Name = '"+lc.getName()+"', DesignationId = '"+lc.getDesignationId()+"', EmailId = '"+lc.getEmailId()+"', Address = '"+lc.getAddress()+"', Contact = '"+lc.getContact()+"', DepartmentId = '"+lc.getDepartmentId()+"'where ID ='"+ id+"';";
+					String query = "update EmployeeData set Code='"+lc.getIdtype()+"', Name = '"+lc.getName()+"', DesignationId = '"+lc.getIdtype()+"', EmailId = '"+lc.getEmail()+"', Address = '"+lc.getAddress()+"', Contact = '"+lc.getContact()+"', DepartmentId = '"+lc.getIdNumber()+"'where ID ='"+ id+"';";
 					stmt.execute(query);
 				}
 			}
@@ -82,7 +85,7 @@ public class EmployeeDataDataController {
 		List<EmployeeData> EmployeeDataList= new ArrayList<EmployeeData>();
 		ResultSet rs = null;
 			try {
-				String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Corporate";
+				String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 				String user = "sa";
 				con = DriverManager.getConnection(dbURL, user, "password");
 				if(con != null) {
@@ -91,7 +94,10 @@ public class EmployeeDataDataController {
 					rs=stmt.executeQuery(query5);
 					while(rs.next())
 					{
-						EmployeeDataList.add(new EmployeeData(rs.getInt("ID"),rs.getString("Code"),rs.getString("Name"),rs.getInt("DesignationId"),rs.getString("Contact"),rs.getString("Address"),rs.getString("EmailId"),rs.getInt("DepartmentId"))); 
+						EmployeeDataList.add(new EmployeeData(rs.getInt("Id"),rs.getString("Idtype"),rs.getString("MartialStatus"),
+								rs.getString("DOB"),rs.getString("Name"),
+								rs.getString("Contact"),rs.getString("Home"),rs.getString("Email"),rs.getString("Address"),
+								rs.getString("PinCode"),rs.getString("State"))); 
 					}
 					return EmployeeDataList;
 				}
@@ -119,14 +125,18 @@ public class EmployeeDataDataController {
 				rs=stmt.executeQuery(query5);
 				while(rs.next())
 				{
-					emp.setID(rs.getInt("ID"));
-					emp.setCode(rs.getString("Code"));
-					emp.setEmailId(rs.getString("EmailId"));
-					emp.setContact(rs.getString("Contact"));
-					emp.setName(rs.getString("Name"));
-					emp.setAddress(rs.getString("Address"));
-					emp.setDepartmentId(rs.getInt("DepartmentId"));
-					emp.setDesignationId(rs.getInt("DesignationId"));
+					emp.setId(rs.getInt("Id"));
+					emp.setIdtype(rs.getString("Idtype"));
+					emp.setIdNumber(rs.getInt("idNumber"));
+					emp.setMartialStatus(rs.getString("martialStatus"));
+					emp.setDOB(rs.getString("dOB"));
+					emp.setName(rs.getString("name"));
+					emp.setContact(rs.getString("contact"));
+					emp.setHome(rs.getString("home"));
+					emp.setEmail(rs.getString("email"));
+					emp.setAddress(rs.getString("address"));
+					emp.setPinCode(rs.getString("pinCode"));
+					emp.setState(rs.getString("state"));
 					EmployeeDatalist.add(emp);
 				}
 			}

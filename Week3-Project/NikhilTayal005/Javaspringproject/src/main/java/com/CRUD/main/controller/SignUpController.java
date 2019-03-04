@@ -25,7 +25,7 @@ public class SignUpController {
 	public void DeleteDep(@RequestBody @PathVariable("id") String id) {
 		Connection con;
 			try {
-				String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Employees";
+				String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 				String user = "sa";
 				con = DriverManager.getConnection(dbURL, user, "Password");
 				if(con != null) {
@@ -64,7 +64,7 @@ public class SignUpController {
 	public void UpdateDep(@RequestBody SignUp lc,@PathVariable("id") String id) {
 		Connection con;
 			try {
-				String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Corporate";
+				String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 				String user = "sa";
 				con = DriverManager.getConnection(dbURL, user, "Password");
 				if(con != null) {
@@ -84,7 +84,7 @@ public class SignUpController {
 		List<SignUp> Login_CredentialList= new ArrayList<SignUp>();
 		ResultSet rs = null;
 			try {
-				String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Corporate";
+				String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 				String user = "sa";
 				con = DriverManager.getConnection(dbURL, user, "password");
 				if(con != null) {
@@ -111,7 +111,7 @@ public class SignUpController {
 		List<SignUp> Login_CredentialList= new ArrayList<SignUp>();
 		ResultSet rs=null;
 		try {
-			String dbURL = "jdbc:sqlserver://CYG376\SQLEXPRESS;database=Employees";
+			String dbURL = "jdbc:sqlserver://CYG376\\SQLEXPRESS;database=Employees";
 			String user = "sa";
 			
 			con = DriverManager.getConnection(dbURL, user, "password");
