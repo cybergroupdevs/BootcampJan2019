@@ -1,0 +1,205 @@
+<!-- Cyber Group (Bootcamp) : Project 1 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project-1 : Details of Employees</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+    function GETRequest()
+    {
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:51510/api/EmployeeDetails',
+      success: function(data)
+      {
+        extresults = data;
+        var Name1 = extresults[3].Name;
+        document.getElementById("Name1").value=Name1;
+        var Phone1 = extresults[3].Phone;
+        document.getElementById("Phone1").value=Phone1;
+        var dob1 = extresults[3].DOB;
+        document.getElementById("dob1").value=dob1;
+        var Designation1 = extresults[3].Designation;
+        document.getElementById("Designation1").value=Designation1;
+        var EmailID1 = extresults[3].EmailID;
+        document.getElementById("EmailID1").value=EmailID1;
+        var EmployeeID1 = extresults[3].EmployeeID;
+        document.getElementById("EmployeeID1").value=EmployeeID1;
+      }
+      });
+    }
+    </script>
+    <script>
+    function PUTRequest()
+    {
+      var Name1= document.getElementById("Name1").value;
+      var dob1= document.getElementById("dob1").value;
+      var Phone1= document.getElementById("Phone1").value;
+      var EmailID1= document.getElementById("EmailID1").value;
+      var EmployeeID1= document.getElementById("EmployeeID1").value;
+      var Designation1= document.getElementById("Designation1").value;
+      $.ajax({
+          type: 'PUT',
+          url: 'http://localhost:51510/api/EmployeeDetails/'+ EmployeeID1,
+          data: {
+            "EmployeeID": EmployeeID1,
+            "Name": Name1,
+            "Phone": Phone1,
+            "DOB": dob1,
+            "Designation": Designation1,
+            "EmailID": EmailID1
+          },
+          success: function(data) {
+            console.log("Data sent");
+            location.href = "Table.html";
+         }
+      });
+    }
+    function DELETERequest()
+    {
+      var EmployeeID1= document.getElementById("EmployeeID1").value;
+      $.ajax({
+          type: 'DELETE',
+          url: 'http://localhost:51510/api/EmployeeDetails/'+ EmployeeID1,
+          data: {
+            "EmployeeID": EmployeeID1,
+          },
+          success: function(data) {
+            alert("Record deleted.");
+         }
+      });
+    }
+    </script>
+    <style>
+    .header
+    {
+      position:fixed;
+      width:100%;
+      top:10px;
+      left:0px;
+      padding: 2px;
+      text-align: center;
+    }
+    .menu
+    {
+      position: relative;
+      background-color: white;
+      width: 20%;
+      margin-top:4%;
+      margin-left:75%;
+      padding: 4px 4px;
+      text-align: center;
+      font-size: 16px;
+      font-family: verdana;
+    }
+    .background-color
+    {
+      opacity: 0.6;
+      display:inline;
+      position:fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+      animation: bgcolour 7s infinite;
+    }
+    @keyframes bgcolour
+    {
+      0%    {background-color:#A5E7EE;}
+      25%   {background-color:#EEA5BA;}
+      50%   {background-color:#B2EEA5;}
+      75%   {background-color:#EEB7A5;}
+      100%  {background-color:#A5E7EE;}
+    }
+    .footer
+    {
+      padding: 2px;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      text-align: center;
+      font-size: 12px;
+      font-family: verdana;
+    }
+    .body-design
+    {
+      position: relative;
+      margin-top:50px;
+    }
+    .signup
+    {
+      position: relative;
+      margin: auto;
+      font-family: verdana;
+    }
+    .button1
+    {
+      position: absolute;
+      bottom: -17%;
+      background-color: green;
+      color: white;
+      padding: 15px 120px;
+      text-align: center;
+      font-family: verdana;
+      display: inline-block;
+      font-size: 18px;
+      left: 25%;
+    }
+    .button2
+    {
+      position: absolute;
+      bottom: -17%;
+      background-color: green;
+      color: white;
+      padding: 15px 120px;
+      text-align: center;
+      font-family: verdana;
+      display: inline-block;
+      font-size: 18px;
+      left: 50%;
+    }
+    </style>
+  </head>
+
+  <body onload="GETRequest()">
+    <div class="background-color">
+    </div>
+    <div class="header">
+        <a href="index.html">
+          <img src="logo.png" alt="Cyber Group" width=400px height=100px>
+        </a>
+    </div>
+    <div class="menu">
+        <a href="Login.html" style="color:black"><b>LOGIN<b></a><span> | </span>
+        <a href="Employee Data.html" style="color:black">ADD DATA</a><span> | </span>
+        <a href="Table.html" style="color:black">TABLE</a>
+    </div>
+
+    <div class="body-design">
+      <h2 style="font-family:Verdana;text-align:center;">Details of new Employees.</h2>
+    </div>
+    <div class="signup">
+      <table align="center" class="Signup-page">
+        <tr><th><p>Full Name :</p></th><th><p><input type="textfield" name="ans" id="Name1" </p></th></tr>
+        <tr><th><p>Phone number :</p></th><th><p><input type="number" name="ans" id="Phone1"></p></th></tr>
+        <tr><th><p>Date of birth :</p></th><th><p><input type="text" name="ans" id="dob1"></p></th></tr>
+        <tr><th><p>Designation :</p></th><th><p><input type="textfield" name="ans" id="Designation1"></p></th></tr>
+        <tr><th><p>E-Mail ID :</p></th><th><p><input type="email" name="ans" id="EmailID1"></p></th></tr>
+        <tr><th><p>Employee ID :</p></th><th><p><input type="textfield" name="ans" id="EmployeeID1"></p></th></tr>
+    </div>
+
+    <div><input type="button" class="button1" value="Update" onclick="PUTRequest()"></div>
+    <div><input type="button" class="button2" value="Delete" onclick="DELETERequest()"></div>
+
+    <div class="footer">
+      <p style="font-family:Verdana">
+        <b>© Copyright : Cyber Group<b>
+      </p>
+    </div>
+  </body>
+</html>
