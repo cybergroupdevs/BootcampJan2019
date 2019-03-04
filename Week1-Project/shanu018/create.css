@@ -1,6 +1,7 @@
 .form{
     display: flex;
     justify-content: space-around;
+    action = "list.html";
 }
 .header-image{
     display:inline-block;
