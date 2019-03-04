@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+body, html {
+    height: 100%;
+    padding: 25px;
+    background-repeat: no-repeat; 
+    background-image: linear-gradient(rgb(12, 97, 33),rgb(104, 145, 162));
+    background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');
+	
+    position: relative; 
+    font-size: 14px;
+     margin: 0px;
+     font-family: georgia, Segoe Script, Bradley Hand ITC, verdana;
+     
+     
+} 
+.video_selector{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -999;
+}
+
+#login-box {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 350px;
+	margin: 0 auto;
+	border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
+	min-height: 250px;
+	padding: 20px;
+	z-index: 9999;
+}
+#login-box .logo .logo-caption {
+	font-family: 'Poiret One', cursive;
+	color: white;
+	text-align: center;
+	margin-bottom: 0px;
+}
+#login-box .logo .tweak {
+	color: #ff5252;
+}
+#login-box .controls {
+	padding-top: 30px;
+}
+#login-box .controls input {
+	border-radius: 0px;
+	background: rgb(98, 96, 96);
+	border: 0px;
+	color: white;
+	font-family: 'Nunito', sans-serif;
+}
+#login-box .controls input:focus {
+	box-shadow: none;
+}
+#login-box .controls input:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+#login-box .controls input:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+#login-box button.btn-custom {
+	border-radius: 2px;
+	margin-top: 8px;
+	background:#ff5252;
+	border-color: rgba(48, 46, 45, 1);
+	color: white;
+	font-family: 'Nunito', sans-serif;
+}
+#login-box button.btn-custom:hover{
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+	background: rgba(48, 46, 45, 1);
+	border-color: #ff5252;
+}
+#particles-js{
+  	width: 100%;
+  	height: 100%;
+  	background-size: cover;
+  	background-position: 50% 50%;
+  	position: fixed;
+  	top: 0px;
+  	z-index:1;
+}
+
+ .header {
+     margin-bottom: 10px;
+     height: 60px;
+     padding: 10px;
+     font-family: Comic sans ms;
+     justify-content: space-between;
+     Display: flex;
+     background: #114357;
+     background: -webkit-linear-gradient(to top, #F29492, #114357);
+     background: linear-gradient(to top, #F29492, #114357);
+}
+ img{
+    max-height:100%;
+    max-width:100px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+}
+ .wel_text{
+     margin-top:10px;
+     font-size: 120%;
+}
+
+ .nav_items{
+    margin-right: 50px;
+}
+ .nav_btn{
+     width:80px;
+     height:100%;
+     color: white;
+     padding: 10px 0px;
+     
+     
+     background-color: red;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 4s; 
+    animation-name: example;
+    animation-duration: 4s;
+  }
+  
+  
+  @-webkit-keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  }
+  
+  /* Standard syntax */
+  @keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  }
+
+ #nav_bar{
+     margin-top: 5px;
+     height: 40px;
+     padding: 5px;
+     border-radius: 0px;
+     Display:flex;
+     justify-content: flex-end;
+     color: #FFFFFF;
+     
+     background-color: #CC3333;
+     
+}
+ #footer {
+     padding: 7px;
+     bottom: 20px;
+     height: 25px;
+     width: 100%;
+     text-align: center;
+     border-radius: 100% 100% 0% 0%;
+     position: fixed;
+     margin-top: -0px;
+     color: white;
+     background: #1D4350;
+     background: -webkit-linear-gradient(to top, #A43931, #403B4A);
+     background: linear-gradient(to top, #A43931, #403B4A);
+}
+ ul a{
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     background-color: #1D4350;
+}
+ ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+}
+ li a{
+     display: block;
+     color: white;
+     text-align: center;
+     padding: 0px 10px;
+     text-decoration: none;
+     display: flex;
+}
+ li {
+     float: left;
+}
+ li a:hover {
+     color: black;
+     background-color: white;
+}
+ .dropdown {
+     position: relative;
+     display: inline-block;
+}
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     min-width: 160%;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     padding: 12px 0px;
+     z-index: 1;
+     background: #1D4350;
+     border-radius: 0px 20px 0px 20px;
+}
+ .dropdown:hover .dropdown-content {
+     display: block;
+}
+ .input_box{
+     margin: 3px;
+     padding: 10px;
+     width: 282px;
+     border-radius: 6px;
+     background: #C6FFDD;
+     background: -webkit-linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);
+     background: linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);
+}
+ .bigbox {
+     position:absolute;
+     top: 50%;
+     left: 50%;
+     width: 300px;
+     height: 350px;
+     transform: translate(-50%, -50%);
+     text-align:center;
+}
+ .logbox {
+     font-size:130%;
+     font-family: Bradley Hand ITC;
+     font-weight:bold;
+     color: white;
+}
+ .login_btn{
+     color: grey;
+     padding: 8px 16px;
+     font-size: 16px;
+     margin-top: 20px;
+     margin-bottom:20px;
+     border-radius: 5px;
+     width: 150px;
+     height: 40px;
+     background: #C6FFDD;
+     background: -webkit-linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);
+     background: linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);
+}
+ .login_btn:hover{
+     cursor: pointer;
+     margin-bottom: 45px;
+     transition-duration:2s;
+     color: black;
+     border-radius: 20px;
+     width: 250px;
+     height:40px;
+     background: #C6FFDD;
+     background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+     background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+}
+ .lower_text{
+     color:#114357;
+     font-size: 16px;
+     margin: 5px;
+}
