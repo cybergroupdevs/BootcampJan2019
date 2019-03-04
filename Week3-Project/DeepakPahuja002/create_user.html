@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LogIn Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/create_user.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="js/create_user.js"></script>
+</head>
+<body>
+    <section id="create_user">
+        <div id="create_user_page" class="background_pic">
+            <div class="overlay">
+                <nav class="navbar navbar-default navbar-inverse" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="login.html"><img style=" height: 40px; margin-top: -10px;" src="https://hrms.cygrp.com/content/images/logo.png" alt="Cyber Group Logo"></a>
+                    </div>
+                        
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="login.html">LogIn</a></li>
+                            <li><a href="signup.html">SignUp</a></li>
+                            <li  class="active"><a href="#">Create User</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="list.html">Users List</a></li>
+                                    <li><a href="required_user.html">Required User</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+    
+<!-- *******************//////////////***********         NAVBAR ENDED        *******************//////////////***********   -->
+                
+    
+                <div class="container">
+                    <div class="form_container">
+                        <div class=" main_heading row col col-lg-12 text-center">CREATE / UPDATE  Your User profile</div>
+
+<!-- *******************//////////////***********          FIRST COLUMN         *******************//////////////***********   -->
+                        <!-- <div class="row">
+                            <div class="col col-lg-12">
+                                    <div class="row form_heading">Personal Information</div>
+
+
+
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="First Name" id="fname">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Last Name" id="lname">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Street Address" id="address">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="state" id="state">
+                                        </div>
+                                    </div>
+
+
+                                    
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="city" id="city">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Pin Code" id="pincode">
+                                        </div>
+                                    </div>
+
+
+                                    
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Mobile Number" id="mobile_number">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Alternate_Number" id="alternate_number">
+                                        </div>
+                                    </div>
+
+
+
+                                    
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="date" class="form-control" placeholder="Birth Date" id="birth_date">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Marital Status" id="marital_status">
+                                        </div>
+                                    </div>
+
+
+                                    
+                                    <div class="row"> 
+                                        <div class="col col-lg-12">
+                                            <input type="text" class="form-control" placeholder="Spouse Name" id="spouse_name">
+                                        </div>
+                                    </div>
+
+
+                                    
+                                    <div class="row"> 
+                                        <div class="col col-lg-12">
+                                            <input type="file" class="form-control" placeholder="UPLOAD YOUR PHOTO" id="upload_photo">
+                                        </div>
+                                    </div>
+                            </div>
+                        </div> -->
+<!-- *******************//////////////***********          SECOND COLUMN         *******************//////////////***********   -->
+
+                        <div class="row">
+                            <div class="col col-lg-12">
+                                    <div class="row form_heading">Enter User Information</div>
+
+                                    <!-- /////////////////////////////////// -->
+
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="EmployeeId" id="EmployeeId">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Name" id="Name">
+                                        </div>
+                                    </div>
+
+                                    <!-- /////////////////////////////////// -->
+
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Designation" id="Designation">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="PhoneNo." id="PhoneNo">
+                                        </div>
+                                    </div>
+
+                                    <!-- /////////////////////////////////// -->
+
+                                    <div class="row">
+                                        <div class="col col-lg-12">
+                                            <input type="text" class="form-control" placeholder="Email Id" disabled id="EmailId">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 
+                                    <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Work Location" id="work_location">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Email Address" id="email_address">
+                                        </div>
+                                    </div> -->
+
+                                    <!-- /////////////////////////////////// -->
+
+                                    <!-- <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="date" class="form-control" placeholder="Start Date" id="start_date">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Salary" id="salary">
+                                        </div>
+                                    </div> -->
+                            </div>
+                        </div>
+
+
+<!-- *******************//////////////***********          THIRD COLUMN         *******************//////////////***********   -->
+                    
+                        <!-- <div class="row">
+                            <div class="col col-lg-12">
+                                <div class="row form_heading">Emergency Contact Information</div>
+
+
+                                <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="First Name of Person to contact with" id="fname_emergency">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Last Name of Person to contact with" id="lname_emergency">
+                                        </div>
+                                </div>
+
+
+                                <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Street Address" id="street_emergency">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="City" id="city_emergency">
+                                        </div>
+                                </div>
+
+
+                                <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="State" id="state_emergency">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Pin Code" id="pincode_emergency">
+                                        </div>
+                                </div>
+
+
+                                <div class="row"> 
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Mobile Number" id="mobile_number_emergency">
+                                        </div>
+                                        <div class="col col-lg-6">
+                                            <input type="text" class="form-control" placeholder="Alternate Number" id="alternate_number_emergency">
+                                        </div>
+                                </div>
+                            </div>
+                        </div> -->
+                            
+                        <div class="row col col-lg-4 col-lg-offset-4">
+                            <a>
+                                <button type="button" class="btn btn-success" id="createNewUser" style="width:100%; border-radius: 15px; background-color: green;">SAVE PROFILE</button>
+                            </a>
+                        </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
