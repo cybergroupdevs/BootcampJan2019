@@ -1,0 +1,53 @@
+#mtable{
+    border: 1px solid black;
+    margin-left: 7%;
+	margin-right: 7%;
+    margin-top: 50px;
+    border-collapse: collapse;
+    width: 85%;
+    text-align: center;
+}
+.th,td{
+    text-align: center;
+    border: 1px solid black;
+	font-size: 20px;
+	height: 40px;
+}
+.th{
+    background-color: blueviolet;
+    color: white;
+    background: #373B44;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+tr:nth-child(odd){
+    background-color: cornflowerblue;
+}
+#add{
+	padding: 0px 0px;
+}
+#button{
+	background: none;
+	border: none;
+	font-size: 20px;
+	width: 100%;
+	height: 100%;
+}
+#button:hover{
+	cursor: pointer;
+}
+#button{
+	font-size: 22px;
+	background: none;
+	border: none;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+#myModal2{
+	margin-top: 15%;
+}
+#myModal{
+	margin-top: 14%;
+}
