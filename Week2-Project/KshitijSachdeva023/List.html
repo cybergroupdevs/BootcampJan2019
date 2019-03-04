@@ -1,0 +1,147 @@
+  <html>
+  <head>
+  <title>List Page</title>
+  <style>
+      .abc{
+          text-align: center;
+      }
+      </style>
+      <br>
+
+
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+  <script>
+
+  var myBooks=[];
+  function getEmployee(){
+        $.ajax({
+            url: 'http://localhost:57389/api/desigs',
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            
+        myBooks= res;
+        }
+        });   
+    }
+    console.log(myBooks);
+    /*function display_table()
+    {
+      var column=[];
+      var i;
+      for (var entry in data)
+      {
+        for (i in data[entry])
+        {
+          if(col.indexof(i)===-1){
+          column.push(i);
+          }         
+        }
+      }
+      var table=document.createElement("table");
+      var tr=table.insertRow(-1);
+      
+      for( m=0;m<data.length;m++){
+        var th=document.createElement("th");
+        th.innerHTML=column[i];
+        tr.appendChild(th);
+      }
+
+      tr=table.insertRow(-1);
+
+      for(var j=0;j<column.length;j++){
+        if (column[j]!="Designation"){
+          var tabCell=tr.insertCell(-1);
+          tabCell.innerHTML=data[m][column[j]];
+        }
+        else{
+          var tabCell=tr.insertCell(-1);
+          tabCell.innerHTML = data[i]['Designation'].Name;
+                tabCell.innerHTML = data[i]['Designation'].Name;
+        }
+      }*/      
+ $.ajax({ 
+url : "http://localhost:57389/api/desigs",
+type : 'GET',
+
+datatype : 'json',
+success : function(res){
+  var table = document.getElementById('tb');
+  console.log(res);
+  for(var i=0; i<res.length;i++)
+  {
+     var row = table.insertRow(table.length);
+     row.insertCell(0).innerHTML=res[i].FirstName;
+     row.insertCell(1).innerHTML=res[i].LastName;
+     row.insertCell(2).innerHTML=res[i].Date_of_birth;
+     row.insertCell(3).innerHTML=res[i].Email_Address;
+     row.insertCell(4).innerHTML=res[i].PhoneNo;
+     
+     row.insertCell(5).innerHTML= '<a href="Display.html?id='+res[i].EmployeeId+'">'+res[i].EmployeeId+'</a>'
+  
+    
+    // row.insertCell(3).innerHTML='<a href="displayDetails.html?id='+res[i].employeeNo+'">'+res[i].employeeNo+'</a>'
+  }
+
+}
+
+});
+
+     </script>
+    </head>
+  <body>
+    <form>
+
+    <p id="showData"></p>
+          <header class="abc">
+                  <strong>
+                      <h1>
+                  Cyber Group List Page<br><br>
+                  </strong>
+
+                  <a class="link" href="#">Home</a>
+                  <a class="link" href="#">About</a>
+                  <a class="link" href="#">Contact</a>
+                  <a class="link" href="#">Log Out</a>
+
+                  <hr size="1px" color="black"><br><br>
+                      </h1>
+            </header>
+
+            <table id="tb">
+              <tr>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Date_of_birth</th>
+              <th>Email_Addess</th>
+              <th>PhoneNo</th>
+             
+              <th>Employee Id</th>
+            </tr>
+            </table>
+            <button type="button" onclick="getEmployee()" >Click to Fetch</button>
+            <button type="button" onclick="display_table()" >Click to Display</button>  
+            
+          
+
+        <br><br><br><br><br><br><br><br><br><br><br>
+
+           <div class="footer">
+              All rights reserved<br>
+          
+              <img src="./logo.png" height= 100px width=250px>
+           </div>
+          </form>
+       </body>
+ </html>
