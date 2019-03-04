@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title> Employee Details </title>
+        <link rel="stylesheet" href="EnterDetails.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src = "EnterDetails.js"></script>
+    </head>
+    <body>
+        <header>
+            <img src="logo.png" alt="logo">
+            
+        </header>
+        
+        <div class="loginBox">
+            
+            <form method="post">
+                <p>Employment Id</p>
+                <input type="text" name="" placeholder="EMP000" id="EmploymentId"> 
+                <p>First Name</p>
+                <input type="text" name="" placeholder="First Name" id="FirstName">
+                 <p>Last Name</p>
+                <input type="text" name="" placeholder="Last Name" id="LastName">
+                <p>Contact Number</p>
+                <input type="number" name="phone number" min="10" max="11" placeholder="999999999999" id="ContactNumber">  
+                <p> Date Of Birth </p>
+                <input type="date" name="birthday" id="DateOfBirth"><br><br><br><br>
+                
+               
+            
+                  
+
+            </form>
+        </div>
+         <div class="loginBox1">
+            
+            <form method="post">
+                <p>Department Id</p>
+                <input type="text" name="" placeholder="DEP000" id="DepartmentId"> 
+                <p> Department Name </p>
+                <input type="text" name="" placeholder="Accounting and Finance" id="DepartmentName ">
+                <p> Designation </p>
+                <input type="text" name="" placeholder="Chief Financial Officer(CFO)" id=" Designation">
+                <p>Salary (per annum) </p>
+                <input type="number" name="" min="6" max="14" placeholder="100000" id="Salary">
+                <p> Hire Date </p>
+                <input type="date" name="HireDate" id="Hire Date"><br><br><br><br>
+                <a href="List.html"><input type="button" name="" value="Submit" onclick="onClick();" id="button"></a><br>
+                 
+
+            </form>
+        </div>
+        <div class="loginBox2">
+            
+            <form >
+                <p>Pan Card Number</p>
+                <input type="number" name="Pan Card Number" min="12" max="12" placeholder="XYZ123" id="PanCardNumber"> 
+                <p> Residential Address </p>
+                <input type="text" name="" placeholder="House No., City, State, Country" id="ResidentialAddress">
+                <p> Email ID </p>
+                <input type="text" name="" placeholder="abc@cygrp.com" id="EmailID">
+                <p>GitHub Username</p>
+                <input type="text" name="" placeholder="abc123" id="GitHubUsername">
+                <p>LinkedIn Profile URL </p>
+                <input type="url" name="" placeholder="http://ca.linkedin.com/in/yourname" id="LinkedInProfile"><br><br><br><br>
+                
+                
+
+            </form>
+        </div>
+       
+    </body>
+</html>
