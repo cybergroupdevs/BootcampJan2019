@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>sign up Page</title>
+        <style>
+            body{
+                background-image: url("webs.jpg");
+            }
+        </style>
+
+        <link rel="stylesheet" type="text/css" href="ankitdetail.css">
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+ 
+ 
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+       
+        </script>
+                
+                <script>
+            function call(){
+                debugger;
+                var name=document.getElementById("name").value;
+                var user=document.getElementById("user").value;
+                var pass=document.getElementById("pass").value;
+           //     var repass=document.getElementById("repass").value;
+
+                var signupData={
+                    "Name":name,
+                    "User_Name":user,
+                    "Password":pass,
+              /* "Re-password":repass,*/
+
+                }
+
+                $.ajax({
+
+                    url:"http://localhost:50393/api/infoes",
+                    data:signupData,
+                    type:'post',
+                    dataType:'json',
+                    success:function(res){
+                        console.log(res);
+                       window.location="index.html"
+                        alert("Employee details has been created");
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+
+
+        <form>
+            <div class="header">
+                <a href="#default" class="logo"><img src="Cyber.png" ></a>
+                <div class="navbar">
+                    <a href="index.html">Sign in</a>
+                    <a href="#">create</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown 
+                
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="Employee Details.html">Employee Details</a>
+                            <a href="Listpage.html">Employee List</a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class ="container">
+
+                <center>
+                    <b>
+                        <h1><b>Sign up</b></h1>
+                        <h2><p>Please fill this form to create an account.</p></h2>
+                        <br>
+                        Name          :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Enter your Name" Id="name"><br>
+                        User_Name     :<input type="text" placeholder="EnteryourEmail" Id="user"><br>
+                        Password      :&nbsp;&nbsp;<input type="Password" placeholder="Enter your Password" Id="pass"><br>
+                        Re-Password   : <input type="Password" Id="repass" placeholder="Enter Re-Enter Your Password"><br> 
+
+                        <input type="checkbox" checked="checked" name="remember" style="margin-left:-20px;" id=""> Remember me<br>
+                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <div class="clearfix">
+                        <button type="button" class="Cancel">Reset</button><br>
+                        <input type="button" value="Signup" name="submit" class="signupbtn" onclick="call()">
+                    </div>
+
+                    </b>
+
+                </center>
+            </div>
+
+        </form>
+
+    </body>
+</html>
