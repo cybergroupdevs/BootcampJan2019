@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html>
+  <head> 
+    <title> create employee page </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="createtry.css">
+      
+   
+  </head> 
+
+    
+   <body>
+      <header > 
+          <div class="img"> 
+<!--           // <img src=".\logo.png"> -->
+            
+          </div>   
+          
+      </header>
+       
+       <p> 
+<!--           <a href=".\ret.html" id="one"> <b> Details </b> </a> -->
+                <a href=".\ListEmp.html" id="two"> <b> List </b> </a>
+       </p> 
+       
+      <div class="container">
+     <form>
+        <h1>Create Employee</h1>
+        <br>
+    <label for="cyg_id"><b>Employee ID</b></label>
+    <input type="text"  id="emp_id" ><br>
+    
+    <label ><b>Name</b></label>
+    <input type="text" id="Name" > <br>
+    
+      
+    <label ><b>Gender</b></label>
+    <input type="text" placeholder="M/F/Other" id="gender" ><br>
+    
+    <label><b>Employee Designation</b> </label>
+<!--    DesigID-->
+    <input type="text"  id="eid" placeholder="01/02"><br>
+
+
+    <label><b>Contact No.</b></label>
+    <input type="number" maxlength="10"  id="ph"><br>
+
+    <label ><b>Email ID</b></label>
+    <input type="text" placeholder="" id="emailid"> <br>
+    
+    <label ><b>Password</b></label>
+    <input type="password" placeholder="" id="pswd"> <br>
+    
+         
+         
+         
+    </form>
+          
+             <button type="button" class="cancel" onclick="reset()">Cancel</button>
+          <input type="button" value="Save" class="create" onclick="submit()">
+       </div>      
+  <footer>
+  Copyright All Rights Reserved © 2017      
+ </footer>
+        
+
+      
+     
+ </body>
+          <script type="text/javascript"
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+    
+  <script type="text/javascript">
+    function submit() 
+      {
+      var Id = document.getElementById("emp_id").value; // var , form
+      var Name = document.getElementById("Name").value; 
+           var gender = document.getElementById("gender").value;
+           var E_ID = document.getElementById("eid").value;
+         var ph = document.getElementById("ph").value;
+         var emailid = document.getElementById("emailid").value;
+         var password = document.getElementById("pswd").value;
+          
+      var dataToSend= {
+            "ID": Id, //db:var
+            "Name": Name,
+             "Gender": gender,
+	    "ContactNo":ph,
+	     "Password":password,  
+	    "EmailID":emailid,
+	      "DesigID":E_ID,
+             
+                     };
+console.log("Department Added");
+//    alert("Department Added");
+      $.ajax({
+            url: 'http://localhost:5050/api/Employees/',
+            type: 'POST',
+            dataType: 'json',
+            data: dataToSend,
+            success: function(data){
+                alert("Employee Added");
+            console.log(data);
+            
+              }
+        });
+    };
+    function reset()
+    {
+
+    }
+  </script>
+    
+   
+  
+
+</html>
