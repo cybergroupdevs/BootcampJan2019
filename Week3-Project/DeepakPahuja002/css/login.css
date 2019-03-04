@@ -1,0 +1,105 @@
+ul.navbar-nav{
+    float: right;
+}
+.navbar-default{
+    padding: 10px 40px;
+}
+.navbar-header{
+    width: 200px;
+}
+.background_pic{
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1536553176585-67a46418b7d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+.container{
+    background-color: white;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 50px ;
+    color: black;
+    margin-top: 60px;
+    padding-top: 30px;
+    max-width: 500px;
+}
+.navbar-default .navbar-nav>li>a{
+    color: white;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: black;
+    font-weight: 600;
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+.navbar-nav>li{
+    border-radius: 15px;
+}
+.active{
+    background-color: green;
+    color: green;
+}
+
+//////////////////////////////////  Navbar code above this point  //////////////////////////////
+
+
+.btn{
+    width: 100%;
+    border-radius: 15px;
+}
+.col .col-lg-6{
+    width: 100%;
+}
+#sign_in_options{
+    margin-top: 15px;;
+}
+.sign_in_options_button{
+    padding: 10px;
+    color: white;
+    width: 100%;
+    border-radius: 10px;
+    border-style: none;
+}
+.sign_in_options_button:hover{
+    box-shadow: 5px 5px 5px 1px gray;
+}
+.google{
+background-color: #d34836;
+}
+.facebook{
+background-color: #4267b2;
+}
+.login_heading{
+    text-align: center;
+    max-width: 50px;
+    margin: 0 auto;
+    width: 100%;
+    margin: 150px;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+div#go_to_signup_page{
+    margin-top: 20px;
+}
+.go_to_signup_page{
+    color:blue;
+    outline-color: none;
+    text-decoration: underline;
+    margin-left: 70px;
+}
+
+
+
