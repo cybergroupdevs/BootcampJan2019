@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Employee</title>
+	<link rel="stylesheet" type="text/css" href="Update.css">
+</head>
+ <body>
+      <header> 
+          <div class="img"> 
+            <img src=".\logo.png"> 
+          </div>   
+     </header>
+     
+   <div class="container">
+     <h1>Edit Employee</h1>
+     <br><h3>Enter Employee Id</h3><input type="text" id="emp_id" >
+   
+<form>  
+    <label ><b>First Name</b></label>
+    <input type="text" id="First Name" > <br>
+      
+    <label ><b>Last Name</b></label>
+    <input type="text"id="Last Name" ><br>
+<!--
+
+    <label><b>Date of Birth</b></label>
+    <input type="date" placeholder="yyyy-mm-dd" id="DOB" ><br>
+-->
+      
+    <label ><b>Gender</b></label>
+    <input type="text" placeholder="M/F/Other" id="gender" ><br>
+    
+    <label><b>Employee Designation</b></label>
+    <input type="text"  id="eid" placeholder="01/02"><br>
+
+
+    <label><b>Contact No.</b></label>
+    <input type="number" maxlength="10"  id="ph"><br>
+
+      
+    <label><b>Highest Qualifictation </b></label>
+    <input type="text"  id="HQ" > <br>
+      
+
+    <label ><b>Work Experience</b></label>
+    <input type="number" placeholder="In Months" id="workex"> <br>
+
+</form>
+  </div>
+  <div class="btns">
+    <input type="submit" value="Fetch Details" onclick="getDetails()" id="fill"> 
+    <input type="submit" value="Save" onclick="submit()" id="save">
+  </div>
+</body>
+     
+    <script type="text/javascript"
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+    
+  <script type="text/javascript">
+      alert("Enter a valid Employee ID and click on Fetch Details");
+    var fdata={};
+    var ide;
+    var Url='http://localhost:52598/api/Employees/';
+    
+     function getDetails()
+    { 
+      ide=document.getElementById("emp_id").value;
+      Url='http://localhost:52598/api/Employees/';
+      Url=Url+ide;
+      $.ajax({
+            url: Url,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            fdata=res;
+            alert("Employee Found");
+                    document.getElementById("emp_id").value = fdata["ID"]; // var , db
+                    document.getElementById("First Name").value = fdata["FName"];
+                    document.getElementById("Last Name").value = fdata["LName"];
+//                  document.getElementById("DOB").value = fdata["DOB"];
+                    document.getElementById("gender").value = fdata["Gender"];
+                    document.getElementById("eid").value = fdata["E_ID"];
+                    document.getElementById("ph").value = fdata["Contact_No"];
+                    document.getElementById("HQ").value = fdata["HighestQualification"];
+                    document.getElementById("workex").value = fdata["Work_Ex"];
+                    document.getElementById("eid").value=fdata["E_ID"];
+              }
+        });
+          
+   
+    }
+    
+    
+   function submit() 
+      {
+           var Id = document.getElementById("emp_id").value; // var , form
+           var First_Name = document.getElementById("First Name").value; 
+           var Last_Name = document.getElementById("Last Name").value;
+//           var DOB = document.getElementById("DOB").value;
+           var gender = document.getElementById("gender").value;
+           var E_ID = document.getElementById("eid").value;
+           var ph = document.getElementById("ph").value;
+           var HQ = document.getElementById("HQ").value;
+           var workex = document.getElementById("workex").value;
+      
+      var dataToSend= {
+             "ID": Id, //db:var
+             "FName": First_Name,
+             "LName":Last_Name,
+//             "DOB":DOB,
+             "Gender": gender,
+              "Contact_No": ph,
+             "HighestQualification":HQ,
+             "Work_Ex": workex,
+             "E_ID": E_ID  
+            
+                     };
+          
+      ide=document.getElementById("emp_id").value;
+      Url='http://localhost:52598/api/Employees/';
+      Url=Url+ide;
+ 
+      $.ajax({
+            url:Url,
+            type: 'PUT',
+            dataType: 'json',
+            data: dataToSend,
+            success: function(data){
+                alert("Employee Updated");
+            console.log(data);
+            
+              }
+        });
+    };
+    </script>
+</html>
