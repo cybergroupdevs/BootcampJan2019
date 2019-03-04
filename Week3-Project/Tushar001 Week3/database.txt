@@ -1,0 +1,11 @@
+Create Database DB;
+
+create table [login](
+[Id] int primary key IDENTITY(1,1),
+[Username] varchar(100) unique not null,
+[Password] varchar(15))
+
+create table [project](
+[Id] int primary key identity(1,1),
+[Name] varchar(100),
+[UserId] int foreign key references [Users](Id))

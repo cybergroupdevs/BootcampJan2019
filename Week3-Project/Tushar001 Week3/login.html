@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Login</title>
+<link rel="shortcut icon" type="image/png" href="logo 1.png">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+</script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+</script>
+
+    <script>
+    function getEmp(){
+	var e = localStorage.getItem("Id");
+    $.ajax({
+        url: 'http://localhost:8081/Employees/'+emp,
+        type: 'GET',
+        dataType: 'json',
+        success: function(res){
+            var table = document.getElementById("table");
+            for(var i=0;i<res.length;i++){
+				var row = table.insertRow(table.length);
+                row.insertCell(0).innerHTML = res[i].id;
+                row.insertCell(1).innerHTML = res[i].name;
+                row.insertCell(2).innerHTML = "<input type='button' value='Edit' id='button' data-toggle='modal' data-target='#myModal' onclick=\'fetch(\""+res[i].id +"\",\""+res[i].name+"\")\'>" 
+                row.insertCell(3).innerHTML = "<input type='button' value='delete' id='button' onclick=\'deleteProject(\""+res[i].id+"\")\'>"
+            }
+
+        }
+    });
+}
+
+function xyz(id, name){
+	document.getElementById("id").value = id;
+	document.getElementById("name").value = name;
+}
+
+function updt(){
+	var name = document.getElementById("project");
+	var emp = localStorage.getItem("Id");
+	var data= {
+        "name": name,
+        "password": pass
+    };
+	$.ajax({
+        url: 'http://localhost:8081/Employees',
+		contentType: "application/json",
+		data: JSON.stringify(data),
+        type: 'PUT',
+        dataType: 'json',
+        success: function(res){
+			console.log("success");
+            window.location = "create.html";
+        }
+    });
+}
+
+function pr(){
+	var name = document.getElementById("project");
+	var emp = localStorage.getItem("Id");
+	var data= {
+        "name": name,
+        "password": pass
+    };
+	$.ajax({
+        url: 'http://localhost:8081/Employees',
+		contentType: "application/json",
+		data: JSON.stringify(data),
+        type: 'POST',
+        dataType: 'json',
+        success: function(res){
+			console.log("success");
+			localStorage.setItem('id', id);
+			localStorage.setItem('pass', password);
+            window.location = "create.html";
+        }
+    });
+}
+
+function del(id){
+	console.log("Perfect");
+	var check = confirm("sure to delete?");
+	if(check == true){
+	    $.ajax({
+		url: 'http://localhost:8081/Employees/'+id,
+        type: 'DELETE',
+        success: function (resource){
+			console.log("Deleted");
+            window.location = "create.html";
+			}
+		});	
+	}
+
+}
+
+    </script>
+<style>
+.row.content  
+{height:400px;
+}
+
+
+.marquee { color:blue;
+                   font-family:"Verdana";
+
+                   font-size:10pt;
+        
+          }
+
+
+.login-text { font-family:"Bookman Old Style";
+      
+             color:blue;
+   
+               }
+
+
+.btn { color:blue;
+
+         }
+
+.well-lg { margin-left:500px;
+           margin-right:0px;
+           background-color: lavender;
+              }
+             
+    
+
+footer  { background-color: darkblue;
+
+              color: white;
+        
+      padding: 15px;
+        
+    }
+
+
+@media only screen and (min-width: 768px)
+ {
+ .sidenav 
+      {
+ height: auto;  
+        padding: 15px;
+ 
+      }
+  
+    .row.content {height:auto;} 
+ 
+  }
+ 
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class= "container-fluid">
+<a href="#">
+<h1>
+<img src="logo.png" style="width:350px" ></a> <br>
+<img src="logo.png" style="width:150px" align="right">
+</h1>
+</header>
+
+
+
+<div class="marquee">
+
+<h4>
+
+<marquee bgcolor="red" behaviour="slide"> Cyber Group </marquee>
+
+</h4>
+
+</div>
+
+
+
+
+
+<div class="container-fluid text-center">
+<div class="row content">
+<br><br>
+<div class="col-sm-8">
+<div class="well well-lg">
+<form class="form-horizontal" action="index.html">
+
+<div class="form-group">
+
+
+
+<div class="col-sm-12">
+<input type="username" class="form-control" id="username" placeholder="Enter Username" required>
+<br>
+
+<input type="password" class="form-control" id="pwd" placeholder="Enter Password" required>
+<br>
+</div>
+<div class="row" style="margin-bottom:0;">
+
+</div>
+
+<div class="form-group">
+
+<div class="col-sm-12">
+
+<div class="checkbox">
+
+<label>
+<input type="checkbox">Remember me</label>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+<div class="form-group">
+
+<div class="col-sm-offset-4 col-sm-4">
+
+<button type="Submit" class="btn btn-deafult">Login</button>
+
+</div>
+</div>
+    <div>
+    New User? 
+    <a href= "#">Register</a>
+    </div>
+</div>
+</form>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<footer class="container-fluid text-center">
+<p>Copyright © Cyber Group</p>
+
+</footer>
+  </body>
+</html>
