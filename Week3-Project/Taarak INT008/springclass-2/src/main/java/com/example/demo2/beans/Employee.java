@@ -5,6 +5,13 @@ public class Employee {
 	    int id;
 	    String password;
 	    
+		
+		public Employee(String name, int id, String password) {
+			super();
+			this.name = name;
+			this.id = id;
+			this.password = password;
+		}
 		public String getName() {
 			return name;
 		}

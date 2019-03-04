@@ -24,14 +24,10 @@ import com.example.demo2.beans.EmployeeRegistration;
 public class EmployeeRetrieveController {
 	
 	@RequestMapping(method = RequestMethod.GET, value="/Employee/allEmployee")
-
-
-
 	  @ResponseBody
 
 	  public List<Employee> getAllEmployees() {
-
-	  return null;
+	  return EmployeeRegistration.getInstance().getEmployeeRecords();
 
 	  }
 
