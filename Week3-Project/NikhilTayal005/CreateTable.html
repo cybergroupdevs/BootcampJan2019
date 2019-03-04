@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="css/LoginPage.css">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script>
+            var getUrl = function getUrl(param){
+                var pageUrl = window.location.search.substring(1);
+                var urlVariables = pageUrl.split("&");
+                var parameterName;
+                var i;
+                for(i=0; i<urlVariables.length; i++){
+                    parameterName = urlVariables[i].split("=");
+                    if(parameterName[0] == param){
+                        return  parameterName[1] == undefined ? true : decodeURIComponent(parameterName[1]);
+                    }
+                }
+            }
+            var UserId = getUrl("id");
+            console.log(UserId);
+            /////POST REQUEST/////
+            function Employee()
+            {
+                var Desg= document.getElementById("Desg").value;
+                var userId= document.getElementById("userId").value;
+                var martial= document.getElementById("martial").value;
+                var dob= document.getElementById("dob").value;
+                var name= document.getElementById("name").value;
+                var contact= document.getElementById("contact").value;
+                var home= document.getElementById("home").value;
+                var email= document.getElementById("email").value;
+                var adddress= document.getElementById("address").value;
+                var pin= document.getElementById("pin").value;
+                var state= document.getElementById("state").value;
+
+                var dataToSend={
+                    "Id": 2,
+                    "IdType": Desg,
+                    "IdNumber": userId,
+                    "MartialStatus": martial,
+                    "DOB": dob,
+                    "Name": name,
+                    "Contact": contact,
+                    "Home": home,
+                    "Email": email,
+                    "Address": adddress,
+                    "PinCode": pin,
+                    "State": state
+                }
+                $.ajax({
+                    url:"http://localhost:50953/api/EmployeeDatas",
+                    data: dataToSend,
+                    type:'post',
+                    dataType:'json',
+                    success:function(res){
+                        console.log(res);
+                        alert("acc has been created");
+                    }
+
+                });
+            }
+
+
+            ////////////////////////////////////////////
+
+            $(document).ready(function(){
+
+                var Desg= document.getElementById("Desg").value;
+                var userId= document.getElementById("userId").value;
+                var martial= document.getElementById("martial").value;
+                var dob= document.getElementById("dob").value;
+                var name= document.getElementById("name").value;
+                var contact= document.getElementById("contact").value;
+                var home= document.getElementById("home").value;
+                var email= document.getElementById("email").value;
+                var adddress= document.getElementById("address").value;
+                var pin= document.getElementById("pin").value;
+                var state= document.getElementById("state").value;
+
+
+
+            });
+
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:50953/api/EmployeeDatas/' + UserId,
+                success: function(data) {
+                    console.log(data.IdNumber);
+                    document.getElementById("Desg").value = data.IdType;
+                    document.getElementById("userId").value = data.IdNumber;
+                    document.getElementById("martial").value = data.MartialStatus;
+                    document.getElementById("dob").value = data.DOB;
+                    document.getElementById("name").value = data.Name;
+                    document.getElementById("contact").value = data.Contact;
+                    document.getElementById("home").value = data.Home;
+                    document.getElementById("email").value = data.Email;
+                    document.getElementById("address").value = data.Address;
+                    document.getElementById("pin").value = data.PinCode;
+                    document.getElementById("state").value = data.State;
+
+                }
+            });    
+
+
+            ////////////////////             UPDATE FUNCTION          ///////////////////////
+
+            function UpdateButton(){
+                var dataToUpdate = {
+                    "Id": 2,
+                    "IdType": document.getElementById("Desg").value,
+                    "IdNumber": document.getElementById("userId").value ,
+                    "MartialStatus": document.getElementById("martial").value,
+                    "DOB": document.getElementById("dob").value,
+                    "Name": document.getElementById("name").value,
+                    "Contact": document.getElementById("contact").value,
+                    "Home": document.getElementById("home").value ,
+                    "Email": document.getElementById("email").value,
+                    "Address": document.getElementById("address").value,
+                    "PinCode": document.getElementById("pin").value,
+                    "State": document.getElementById("state").value
+                }
+                $.ajax({
+                    type: 'PUT',
+                    url: 'http://localhost:50953/api/EmployeeDatas/' + UserId,
+                    error: function(e)
+                    {
+                        console.log(e);
+                    },
+                    data: dataToUpdate,
+                    success: function(data) {
+                        alert("User Info Updated !!");
+                        location.replace("TableEmployee.html");
+                    }
+                });
+            }
+
+            ////////////////////             DELETE FUNCTION          ///////////////////////
+
+            function DeleteButton(){ 
+                $.ajax({
+                    type: 'DELETE',
+                    url: 'http://localhost:50953/api/EmployeeDatas/' + UserId,
+                    success: function(data) {                
+                        alert("User deleted !!");
+
+                        location.replace("TableEmployee.html");
+                    }
+                });
+            }
+
+
+        </script>
+
+        <title>Cyber Group</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-none d-lg-block" href="#"><img src="img/logo.png" alt=""></a>
+                <a class="navbar-brand navbar-brand-1" href="#">Cyber Group</a>
+
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="SignUp.html">SIGNUP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="TableEmployee.html">LIST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="CreateTable.html">CREATE TABLE</a>
+                        </li> 
+                    </ul>
+                </div> 
+            </div>
+        </nav>
+        <div id="home-section">
+            <div class="dark-overlay">
+                <div class="createtable container">
+                    <h2 class="display-4">Employee Data</h2>
+                    <div class="hrline"></div>
+                    <h3 class="mt-4"><i class="far fa-calendar mr-4"></i>Employee Information</h3>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="sel1" ><h3 class="mt-4" >ID Type:</h3></label>
+                        </div>
+                        <div class="col-lg-8 mt-4">
+                            <select class="form-control form-control-lg" id="Desg">
+                                <option value="Intern">Intern</option>
+                                <option value="Employee">Employee</option>
+                                <option value="Trainer">Trainer</option>
+                                <option value="Manager">Manager</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 mt-3">
+                            <label for="userId"><h3>ID :</h3></label>
+                        </div>
+                        <div class="col-lg-8 mt-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" id="userId" placeholder="e.g INT005">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 mt-1">
+                            <label for="martial"><h3>Martial Status:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <select class="form-control form-control-lg" id="martial" >
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Commited">Commited</option>
+                                <option value="Its Complicated">Its Complicated</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 mt-4">
+                            <label for="dob"><h3>Date Birth:</h3></label> 
+                        </div>
+                        <div class="col-lg-8 mt-3">
+                            <div class="form-group">
+                                <input type="date" class="form-control form-control-lg" id="dob">
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="mt-4"><i class="far fa-calendar mr-4"></i>Personal Information</h3>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="name"><h3 class="mt-4">Name:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control form-control-lg mt-4" id="name" placeholder="e.g. Nikhil">
+                        </div>
+                    </div> 
+
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="contact"><h3 class="mt-4">Contact Number:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control form-control-lg mt-3" id="contact" placeholder="e.g. +(91)9873327914">
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="home"><h3 class="mt-4">Home Contact Number:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control form-control-lg mt-3" id="home" placeholder="e.g. 011-2256XXXX">
+                        </div>
+                    </div>    
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="email"><h3 class="mt-4">Email Id:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="email" class="form-control form-control-lg mt-3" id="email" placeholder="e.g. example@.com">
+                        </div>
+                    </div>  
+
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="address"><h3 class="mt-4">Address:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control form-control-lg mt-3" id="address" placeholder="Flat Number & Building Name(If Any)">
+                        </div>
+                    </div> 
+
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="pin"><h3 class="mt-4">PinCode:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control form-control-lg mt-3" id="pin" placeholder="e.g.110058" maxlength="6">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="state"><h3 class="mt-4">State:</h3></label> 
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control form-control-lg mt-3" id="state" placeholder="e.g. Delhi" >
+                        </div>
+                    </div> 
+
+                    <input type="submit" class="btn btn-lg btn-info " value="Submit" onclick="Employee()">
+                    <!--                    <button id="DeleteButton">DELETE</button>-->
+                    <input type="submit" class="btn btn-lg btn-danger" value="Delete" onclick="DeleteButton()">
+                    <input type="submit" class="btn btn-lg btn-warning" value="Update" onclick="UpdateButton()">
+
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+
+                <div class="col-lg-4 footer-part mt-5">
+                    <div class="container">
+                        <h2>Cyber Group India</h2>
+                        <h4>Sector-03</h4>
+                        <h4>Noida,Uttar Pradesh</h4>
+                        <h4>India</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 footer-part mt-5">
+                    <div class="container">
+                        <h2>Cyber Group USA</h2>
+                        <h4>XYZ</h4>
+                        <h4>Dllas,Texas</h4>
+                        <h4>United States Of America</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 footer-part mt-5">
+                    <h2>Contact US</h2>
+                    <h3><a href="mailto:nikhiltayal9211@gmail.com"><i class="fas fa-at"></i>Email </a></h3>
+                    <h3><a href="https://cygrp.com/"><i class="fab fa-chrome"></i>Cygrp.com</a></h3>
+                    <h3><i class="fas fa-mobile-alt"></i>  987337914</h3>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+                crossorigin="anonymous"></script>
+
+        <script>
+            // Get the current year for the copyright
+            $('#year').text(new Date().getFullYear());
+        </script>
+    </body>
+
+</html>
