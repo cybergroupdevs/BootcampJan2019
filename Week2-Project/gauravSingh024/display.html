@@ -1,0 +1,146 @@
+<html>
+
+    <head>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+
+   
+
+      
+
+    <body onload="add_details()">
+
+        <h1 id="head" class="heading"></h1>
+
+        <div class="split left body"><br><br>
+
+            <h2>details</h2>
+
+            <form>
+
+                <br>
+
+                  first name :&nbsp;<input type="text" id="first" placeholder="Mother's name" readonly><br><br>
+
+                last name: &nbsp;<input type="text" id="last" placeholder="Father's name" readonly><br><br>
+
+                E-mail : &nbsp;<input type="email" id="email" placeholder="E-mail" readonly><br><br>
+
+                Phone no : &nbsp;<input type="number" id="phone" placeholder="phone" readonly><br><br>
+
+                Address :&nbsp; <input type="text" id="address" placeholder="Address" readonly><br><br>
+
+                Date Of birth :&nbsp; <input type="text" id="date" placeholder="YYYY-MM-DD" readonly><br><br>
+
+                aadhar :&nbsp; <input type="text" id="aadhar" placeholder="Designation" readonly>
+
+             
+                highschool_per :&nbsp;<input type="number" id="high_per" placeholder="year" readonly><br><br>
+
+                graduation_per : &nbsp;<input type="number" id="grad_per" placeholder="marks" readonly><br><br>
+
+                intermediate_per : &nbsp;<input type="number" id="int_year" placeholder="year" readonly><br><br>
+
+                
+
+                
+            </form>
+
+        </div>
+
+        
+
+    </body>
+
+            <script
+
+  src="http://code.jquery.com/jquery-3.3.1.js"
+
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+
+  crossorigin="anonymous">
+
+</script>
+
+    <script>
+
+var getURL = function getURL(parm){
+
+var Pageurl = window.location.search.substring(1),
+
+URLVariables = Pageurl.split('&'),
+
+ParameterName, i;
+
+for(i=0; i<URLVariables.length;i++){
+
+ParameterName = URLVariables[i].split('=');
+
+if(ParameterName[0] == parm){
+
+return ParameterName[1]==undefined ? true : decodeURIComponent(ParameterName[1]);
+
+}
+
+}
+
+};
+
+var intern_id = getURL('intern_id');
+
+
+
+document.getElementById("heading").innerHTML = "Welcome"; 
+
+function add_details(){
+
+$.ajax({
+
+url: 'http://localhost:64680/api/intern_details/'+id,
+
+type: 'GET',
+
+dataType: 'json',
+
+success: function(res){
+
+
+
+document.getElementById("head").innerHTML = "Welcome "+res.intern_details.FirstName+" "+res.intern_details.LastName+"("+id+")";
+
+document.getElementById("high_per").value=res.highschool_per;
+
+document.getElementById("inter_per").value=res.intermediate_per;
+
+document.getElementById("grad_per").value=res.graduation_per;
+
+document.getElementById("addresss").value=res.address;
+
+document.getElementById("first").value=res.first_name;
+
+document.getElementById("aadhar").value=res.aadhar_no;
+
+document.getElementById("date").value=res.e_dob;
+
+document.getElementById("phone").value=res.phone_no;
+
+document.getElementById("email").value=res.email;
+
+document.getElementById("last").value=res.last_name;
+
+document.getElementById("email").value=res.email;
+
+
+}
+
+});
+
+}
+
+</script>
+
+   
+
+</html>

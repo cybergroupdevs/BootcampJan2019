@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>registration</title>
+ 
+
+  
+      <link rel="stylesheet" href="style.css">
+	  
+	  <script src="http://code.jquery.com/jquery-3.3.1.js" 
+	  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
+	  crossorigin="anonymous"> 
+	  </script> 
+	  
+	  <script > 
+	  function registerIntern()
+	  {var id = document.getElementById("intern_id").value;
+	  var f_name = document.getElementById("fname").value;
+	  var l_name = document.getElementById("lname").value;
+	  var password = document.getElementById("password").value;
+	  var inter_mark = document.getElementById("inter").value; 
+	  var high_mark = document.getElementById("high").value;
+	  var dob = document.getElementById("dob").value;
+	  var grad_mark = document.getElementById("grad").value;
+	  var email = document.getElementById("email").value;
+	   var gender=document.getElementById("gender").value;
+	  var aadhar = document.getElementById("aadhar").value;
+	  var phone = document.getElementById("phone").value;
+	  var address = document.getElementById("address").value; 
+	 
+	  var dataToSend= { 
+	   "id":id,
+	  "intern_Id": id, 
+	  "first_name": f_name,
+	  "last_name": l_name,
+	  "e_dob": dob,
+	  "Gender": gender,
+	  "password": password,
+	  "email": email,
+	 "phone_no":phone,
+	  
+	  "highschool_per":high_mark,
+	  "graduation_per":grad_mark,
+	  "intermediate_per":inter_mark,
+	  
+	  "aadhar_no":aadhar,
+	  "address": address,
+	  
+	 
+	  
+	  
+	  
+	  
+	 
+	   }; 
+	  
+	  $.ajax({ url: 'http://localhost:64680/api/intern_details',
+	  
+	  
+	  
+	  type: 'POST', 
+	  data: dataToSend,
+	  dataType: 'json',
+	  
+	  success: function(res){ 
+	  
+	  } });
+	  
+	  
+	  
+	  
+	   $.ajax({ url: 'http://localhost:64680/api/intern_login',
+	  
+	  
+	  
+	  type: 'POST', 
+	  data: dataToSend,
+	  dataType: 'json',
+	  
+	  success: function(res){ 
+	  
+	  alert("data has been added");
+	  window.location="list.html" 
+	  
+	  } });
+	  
+	
+	
+	  
+	  
+	  }
+	  
+	  
+	  
+	  function registerEmployee()
+	  {
+	  
+	  
+	  
+	  var employee_id=document.getElementById("emp_id").value;
+	  var first_name =document.getElementById("fname1").value;
+var last_name=document.getElementById("lname1").value;
+var date_birth=document.getElementById("dob2").value;
+var password=document.getElementById("pass1").value;
+var e_mail=document.getElementById("email1").value;
+var phone_no=document.getElementById("phone1").value;
+var dept=document.getElementById("dept").value;
+var last_org=document.getElementById("last_org").value;	
+var last_sal=document.getElementById("lsal").value;  
+var j_date=document.getElementById("djon").value;
+var wor_exp=document.getElementById("wexp").value;
+       
+ var empdata ={	   
+        "employee_id": employee_id,
+		"id":employee_id,
+        "first_name": first_name,
+		
+        "last_name": last_name,
+        "e_dob":date_birth,
+        "password":password,
+        "email": e_mail,
+        "phone_no":phone_no,
+        "department": dept,
+        "last_organization":last_org,
+        "last_salary": last_sal,
+        "joining_date":j_date,
+        "work_experience":wor_exp,
+    };
+	  
+	    $.ajax({ url: 'http://localhost:64680/api/employee_details',
+	  
+	  
+	  
+	  type: 'POST', 
+	  data: emp_data,
+	  dataType: 'json',
+	  
+	  success: function(res){ 
+	  alert("data has been added");
+	  
+	  
+	  } });
+	  
+	    $.ajax({ url: 'http://localhost:64680/api/employee_login',
+	  
+	  
+	  
+	  type: 'POST', 
+	  data: emp_data,
+	  dataType: 'json',
+	  
+	  success: function(res){ 
+	  alert("data has been added");
+	  
+	  
+	  } });
+	  
+	  }
+	 
+
+	  </script>
+	  
+  
+</head>
+
+
+
+<body style="background-image: url('bg.png'); " >
+
+<img src="cyber.png" >
+
+<div style="float:right; padding:30px;">
+ <a type="submit" href="index.html" class="button button-block "/>back</a>
+
+</div>
+  <div class="form">
+      
+       <ul class="tab-group">
+        
+        <li class="tab active"><a href="#intern">Intern registration</a></li>
+        <li class="tab"><a href="#Employee">Employee registration</a></li>
+      </ul>
+      
+      
+      <div class="tab-content">
+        <div id="intern">   
+          <h1>Registration</h1>
+          
+          <form >
+          
+          <div class="top-row">
+		  <div class="field-wrap">
+              <label>
+                Intern ID<span class="req">*</span>
+              </label>
+              <input type="text" id="intern_id" required autocomplete="off" />
+            </div>
+            <div class="field-wrap">
+              <label>
+                First Name<span class="req">*</span>
+              </label>
+              <input type="text" id="fname" required autocomplete="off" />
+            </div>
+        
+            <div class="field-wrap">
+              <label>
+                Last Name<span class="req">*</span>
+              </label>
+              <input type="text"id="lname" required autocomplete="off"/>
+            </div>
+          </div>
+		  
+		  <div class="field-wrap">
+              
+              <select id="gender">
+			  <option>Male</option>
+			  <option>Female</option>
+			  </select>
+            </div>
+             <div class="field-wrap">
+              <label>
+                password<span class="req">*</span>
+              </label>
+              <input type="password" id="password"required autocomplete="off" />
+            </div>
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" id="email"required autocomplete="off"/>
+          </div>
+		  <div class="field-wrap">
+              <label>
+                Date of birth<span class="req">*</span>
+              </label>
+              <input type="text"id="dob" required autocomplete="off" />
+            </div>
+		  
+          
+          <div class="field-wrap">
+            <label>
+              Aadhar number<span class="req">*</span>
+            </label>
+            <input type="password" id="aadhar" required autocomplete="off"/>
+          </div>
+		  <div class="field-wrap">
+            <label>
+              phone number<span class="req">*</span>
+            </label>
+            <input type="password" id="phone" required autocomplete="off"/>
+          </div>
+		  <div class="field-wrap">
+              <label>
+                Highschool percentage<span class="req">*</span>
+              </label>
+              <input type="text" id="high" required autocomplete="off" />
+            </div>
+			<div class="field-wrap">
+              <label>
+                Intermediate percenatge<span class="req">*</span>
+              </label>
+              <input type="text" id="inter" required autocomplete="off" />
+            </div>
+			<div class="field-wrap">
+              <label>
+                Graduation perecentage<span class="req">*</span>
+              </label>
+              <input type="text" id="grad" required autocomplete="off" />
+            </div>
+		  <div class="field-wrap">
+            <label>
+              Address<span class="req">*</span>
+            </label>
+            <input type="text" id="address" required autocomplete="off"/>
+          </div>
+          
+          <button type="submit"  id="1" class="button button-block" onclick="registerIntern()"/>register</button>
+          
+          </form>
+
+        </div> 
+		
+		<div id="Employee">   
+          <h1>Registration</h1>
+          
+          <form >
+		  
+		   <div class="field-wrap">
+              <label>
+                employee id<span class="req">*</span>
+              </label>
+              <input type="text"id="emp_id" required autocomplete="off" />
+            </div>
+           <div class="field-wrap">
+            <label>
+              First name<span class="req">*</span>
+            </label>
+            <input type="text" id="fname1" required autocomplete="off"/>
+          </div>
+		  
+           <div class="field-wrap">
+            <label>
+              Last name<span class="req">*</span>
+            </label>
+            <input type="text" id="lname1"required autocomplete="off"/>
+          </div>
+        <div class="field-wrap">
+              <label>
+                Date of birth<span class="req">*</span>
+              </label>
+              <input type="text"id="dob2" required autocomplete="off" />
+            </div>	
+             <div class="field-wrap">
+              <label>
+                Password<span class="req">*</span>
+              </label>
+              <input type="text"id="pass1" required autocomplete="off" />
+            </div>	
+         <div class="field-wrap">
+              <label>
+                Phone number<span class="req">*</span>
+              </label>
+              <input type="text"id="phone1"  required autocomplete="off" />
+            </div>			
+		 
+		 <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" id="email1" required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Last organization<span class="req">*</span>
+            </label>
+            <input type="text" id="last_org"  required autocomplete="off"/>
+          </div>
+		  
+		  <div class="field-wrap">
+            <label>
+            work experience<span class="req">*</span>
+            </label>
+            <input type="text"id="wexp" required autocomplete="off"/>
+          </div> 
+		  
+		  <div class="field-wrap">
+            <label>
+              Last salary<span class="req">*</span>
+            </label>
+            <input  type="text"id="lsal"required autocomplete="off"/>
+          </div>
+		   <div class="field-wrap">
+              <label>
+                Department<span class="req">*</span>
+              </label>
+              <input type="text"id="dept" required autocomplete="off" />
+            </div>
+			 <div class="field-wrap">
+              <label>
+                Joining date<span class="req">*</span>
+              </label>
+              <input type="text"id="djon" required autocomplete="off" />
+            </div>
+		  
+          
+         
+          
+          <button type="submit" id="2" class="button button-block" onclick="registerEmployee()"/>Register</button>
+          
+          
+
+        
+		
+        
+       
+                 
+          </form>
+
+        </div>
+        
+      
+      
+</div>
+
+  
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script  src="index.js"></script>
+
+  
+
+
+
+</body>
+
+</html>
