@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        list
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+        
+     <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+        
+<script>
+
+    
+ // retrieve91.html?id='   "retrieve91.html' + data[i].ID+ '">'
+        
+         $.ajax({
+            type: 'GET',
+            url: 'http://localhost:51442/api/Profiles',
+            success: function(profiles) {
+                
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:51442/api/SignUps',
+                    success: function(signUps) {
+                        configureTable(signUps,profiles)
+                    }
+                });
+            }
+        });   
+    
+        function configureTable(signUps,profiles){
+                for(i=0; i<profiles.length;i++){
+                    $('#profiles').append(
+                        '<tr><td id = "Name">' + signUps[i].FName + signUps[i].LName+
+                        '</td><td id = "EmployeeId"><a href="retreive91.html?id=' + profiles[i].ID + '">' + profiles[i].ID + '</a>' + 
+                        '</td><td id = "Designation">' + profiles[i].Designation + 
+                        '</td><td id = "Qualification">' + profiles[i].Qualification + 
+                        '</td><td id = "Experience">' + profiles[i].Experience + 
+                        '</td></tr>'
+                    );
+                }
+        }
+    
+  
+        
+                 </script>
+</head>
+    <body>
+        <div class="text">  
+       
+        <div class="header">
+            <img src="cg.png" align="left" height="30vh" width="100vw">
+            <a href="login.html">Login</a>&nbsp&nbsp
+            <a href="signup.html">Sign up</a>&nbsp&nbsp
+            <a href="create.html">Create</a>&nbsp&nbsp
+            <a href="list.html">List</a>
+        </div>
+        
+        <hr color=navy>
+   
+        <h3>&nbsp EMPLOYEE LIST &nbsp</h3>
+    
+        <table align="center" cellspacing="12" id="profiles">
+            <tr>
+         <th>Name</th>
+         <th>ID</th>
+         <th>Designation</th>
+         <th>Qualification</th>
+         <th>Experience</th>         
+     </tr>
+            
+            
+        </table>         
+ 
+        <div class="footer">
+            <p>Copyright © 2019.All Rights Reserved. Terms & Conditions | Privacy Policy | Disclaimers</p>
+        </div>
+    </div>
+    </body>
+</html>
