@@ -29,6 +29,13 @@ public class EmployeeUpdate {
 		String Eid = ChangeId;
 		String mail = emp.getEmailid();
 		String Designation = emp.getDesignation();
+		int mob = emp.getMob();
+		String Father = emp.getFathersName();
+		String Add =emp.getAddress();
+		String City =emp.getCity();
+		String State = emp.getState();
+		String Supervisor = emp.getSupervisor();
+
     	Connection conn = null;
 		try {
 			String dbURL = "jdbc:sqlserver://CYG362;databaseName=Eclipse";
@@ -40,7 +47,8 @@ public class EmployeeUpdate {
 			    System.out.println("Connection Successful******************************");
 			    
 				Statement stmt = conn.createStatement();
-				stmt.executeQuery("Update employee Set Emailid = '" + mail + "' , name = '" + name +  "' , Designation = '" + Designation + "' where Eid = '" + Eid + "';select * from employee;");
+				stmt.executeQuery("Update employee Set Emailid = '" + mail + "' , name = '" + name +  "' , Designation = '" + Designation +   "' , Mobile = '"+ mob + "', Supervisor ='"+  Supervisor + "', Address ='"+  Add + "', City ='"+  City+ "', State ='"+  State + "', FathersName ='"+  Father+" 'where Eid = '" + Eid + "';select * from employee;");
+
 				
 				
 			}
