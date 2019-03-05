@@ -1,0 +1,6 @@
+com\example\Myfirst\beans\StudentRegistration.class
+com\example\Myfirst\SpringBootRest2Application.class
+com\example\Myfirst\beans\Student.class
+com\example\Myfirst\controllers\StudentRetrieveController.class
+com\example\Myfirst\beans\StudentRegistrationReply.class
+com\example\Myfirst\controllers\StudentRegistrationController.class
