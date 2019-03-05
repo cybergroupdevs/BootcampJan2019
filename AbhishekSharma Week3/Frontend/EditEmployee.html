@@ -1,0 +1,128 @@
+<html>
+<head>
+	<title>Edit</title>
+  <link rel="stylesheet" type="text/css" href="Main.css">
+</head>
+<body>
+	<img src="Logo.png" alt="Logo" height="200" width="200" onclick=location.href="Login.html" >
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"> </script>
+        
+        <label class="label">Enter Employee Id to Edit</label>
+        <input type="text" id='id'> 
+        <button class="button" onclick="StoreData()">Select</button>
+        <button class="button" onclick="location.href='EmployeeAccount.html'">Back</button>
+<br>
+<div class=box1>
+        <h1>Your Details</h1>
+<br><br><br>
+
+<label class="label">First Name*</label>
+<br>
+<input type=' text' id='FirstName' >
+<br> <br>
+<label class="label">Last Name*</label>
+<br>
+<input type= 'text'id='LastName' >
+<br><br>
+<label class="label">DesignationId</label>
+<br>
+<input type=' text' id='Designation'>
+<br> <br>
+<label class="label">Email Id*</label>
+<br>
+<input type='text' id='EmailId' >
+<br><br>
+<label class="label">Contact*</label>
+<br>
+<input type=' text' id='Contact' >
+<br><br>
+<label class="label">Address Line 1</label>
+<br>
+<input type='Text'id='Address1'  >
+<br><br>
+<label class="label">Address Line 2</label>
+<br>
+<input type='Text'id='Address2'  >
+<br><br>
+<label class="label">City</label>
+<br>
+<input type='Text'id='City'  >
+<br><br>
+<button class="button" onclick="EditData()">Submit</button>
+<br>
+<br><br>
+
+</div>
+
+
+
+        <script type="text/javascript">
+         var data={};
+        var id=0;
+        var Url='http://localhost:55584/api/EmployeeDetails/';
+        
+       function StoreData(){
+        id=document.getElementById("id").value;
+        Url=Url+''+id+'';
+         $.ajax({
+            url: Url,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+            data=res;
+            store();
+        }
+            
+        });
+        
+
+
+       }
+
+function store(){
+  document.getElementById("FirstName").value=data['FirstName'];
+        document.getElementById("LastName").value=data['LastName'];
+        document.getElementById("Designation").value=data['Designation'];
+        document.getElementById("EmailId").value=data['EmailId'];
+        document.getElementById("Contact").value=data['Contact'];
+        document.getElementById("Address1").value=data['AddressLine1'];
+        document.getElementById("Address2").value=data['AddressLine2'];
+        document.getElementById("City").value=data['City'];
+} 
+
+      function EditData(){
+
+      var FirstName= document.getElementById("FirstName").value;
+        var LastName= document.getElementById("LastName").value;
+        var Designation= document.getElementById("Designation").value;
+        var Email= document.getElementById("EmailId").value;
+        var Contact= document.getElementById("Contact").value;
+        var Address1= document.getElementById("Address1").value;
+        var Address2= document.getElementById("Address2").value;
+        var City= document.getElementById("City").value;
+        
+        
+        var SendObject=
+        { "EmployeeId":id,"FirstName":FirstName,"LastName":LastName,"Designation":Designation,"EmailId":Email,"Contact":Contact,"AddressLine1":Address1,"AddressLine2":Address2,"City":City};
+       
+       $.ajax({
+            url: Url,
+            type: 'PUT',
+            dataType: 'json',
+            data:SendObject,
+            success: function(data){
+            console.log(data);
+            alert('Edited Details Saved');
+             }
+        
+        
+        });
+     }
+
+</script>
+</body>
+</html>

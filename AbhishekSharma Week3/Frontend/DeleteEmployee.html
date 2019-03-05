@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Delete</title>
+  <link rel="stylesheet" type="text/css" href="Main.css">
+</head>
+<body>
+<label class="label">Enter Employee Id to Delete</label>
+<input type="text" id='id'> <br><br><br>
+<button class="button" onclick="DelEmployee()">Delete</button>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript">
+
+var id=0;
+var Url='http://localhost:55584/api/EmployeeDetails/';
+ function DelEmployee()
+{	id=document.getElementById("id").value;
+	Url=Url+''+id+'';
+  $.ajax({
+            url: Url,
+            type: 'DELETE',
+            dataType: 'json',
+            success: function(res){
+            console.log(res);
+          
+        }
+        });
+  alert('Employee Deleted');
+}
+
+  </script>	
+</body>
+</html>
