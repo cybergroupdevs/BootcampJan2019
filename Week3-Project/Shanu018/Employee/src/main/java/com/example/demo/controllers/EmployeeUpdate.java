@@ -34,12 +34,14 @@ public class EmployeeUpdate {
 			String dbURL = "jdbc:sqlserver://CYG362;databaseName=Eclipse";
 			String user = "sa";
 			conn = DriverManager.getConnection(dbURL, user, "Password@123" );
+			
 			if(conn != null ) {
 
 			    System.out.println("Connection Successful******************************");
 			    
 				Statement stmt = conn.createStatement();
-				stmt.executeQuery("Update employee Set Emailid = '" + mail + "' , name = '" + name +  "' Set Designation = '" + Designation + "' where Eid = '" + Eid + "'");
+				stmt.executeQuery("Update employee Set Emailid = '" + mail + "' , name = '" + name +  "' , Designation = '" + Designation + "' where Eid = '" + Eid + "';select * from employee;");
+				
 				
 			}
 	    
