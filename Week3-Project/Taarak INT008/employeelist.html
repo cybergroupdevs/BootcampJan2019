@@ -7,9 +7,9 @@
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous">
-  	var firstname = valuestore[0].Firstname;
-  	document.getElementById("Firstname").innerHTML = Firstname;
-  	console.log(Firstname); 
+  	var Name = valuestore[0].name;
+  	document.getElementById("fname").innerHTML = name;
+  	 
 
   </script>
 	<script type="text/javascript" src="employeelistbackend.js"></script>
@@ -116,7 +116,7 @@ $(window).ready(function(){
 {
  $.ajax({
       type: 'GET',
-      url: 'http://localhost:8083//register/Employee',
+      url: 'http://localhost:8083//Employee/allEmployee',
       success: function(data) {
         valuestore = data;
         // console.log(data);
@@ -132,7 +132,7 @@ $(window).ready(function(){
     // alert('click');
     console.log(data);
     for(i=0;i<data.length;i++)
-    $("<tr><td><p id=\"Firstname\">"+data[i].Firstname+"</p></td><td><p id=\"EmployeeId\">"+data[i].Id+"</p></td><td><p id=\"EmailId\">"+data[i].Email+"</p></td><td><p><input type=\"button\" value=\"DETAILS\" onclick=openEdit(\""+data[i].Id+ "\")></p></td></tr>").appendTo('#tb');
+    $("<tr><td><p id=\"fname\">"+data[i].name+"</p></td><td><p id=\"id\">"+data[i].id+"</p></td><td><p><input type=\"button\" value=\"DETAILS\" onclick=openEdit(\""+data[i].Id+ "\")></p></td></tr>").appendTo('#tb');
   }  
 
 		javascript:getdetails();

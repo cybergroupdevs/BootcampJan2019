@@ -2,18 +2,17 @@
 
 function postingdetails(){
 
-  var firstname=document.getElementById('fname').value;
-  var lastname=document.getElementById('lname').value;
-  var phoneno=document.getElementById('phone').value;
+  var Name=document.getElementById('fname').value;
+  var Password=document.getElementById('password').value;
+ 
   var emailid=document.getElementById('email').value;
   console.log(emailid);
-  var password=document.getElementById('password').value;
+
   var PostingData={
-            "Firstname": firstname,
-            "Lastname": lastname,
-            "Phone no":phoneno,
+            "name": Name,
+            
             "Email":emailid,
-            "password":password
+            "password":Password
 
 
 
@@ -56,14 +55,14 @@ if(confirm("ARE YOU SURE?")){
 function updatingdetails(){
 
   var firstname=document.getElementById('fname').value;
-  var lastname=document.getElementById('lname').value;
+
  
   var emailid=document.getElementById('email').value;
-  console.log(emailid);
+  
   var password=document.getElementById('password').value;
   var UpdateData={
-            "Firstname": firstname,
-            "Lastname": lastname,
+            "fname": name,
+            
             "Email":emailid,
             "password":password,
             "id":idgetting 

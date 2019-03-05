@@ -35,13 +35,16 @@
 							
 						</div>
 						<div class="detailstyle">
-							Fist name:<span id="firstname"></span>
+							name:<span id="fname"></span>
+						</div>
+					
 						</div>
 						<div class="detailstyle">
-							Last name:<span  id="lastname"></span>
+							Password:<span id="Password"></span>
+						</div>
 						</div>
 						<div class="detailstyle">
-							Email id:<span id="email"></span>
+							Email id:<span id="Email"></span>
 						</div>
 
 						<div class="updatebutton">
@@ -67,15 +70,14 @@
 	var idgetting=localStorage.getItem("id");
 							 $.ajax({
       type: 'GET',
-      url: 'http://localhost:64490/api/Employees/' + idgetting,
+      url: 'http://localhost:8083/Employee/allEmployee/' + idgetting,
       success: function(data) {
         valuestore = data;
         console.log(data);
-        document.getElementById("firstname").innerHTML=data.Firstname;
-        document.getElementById("empid").innerHTML = data.Id; 
-        document.getElementById("firstname").innerHTML=data.Firstname;
-        document.getElementById("lastname").innerHTML=data.Lastname;
-        document.getElementById("email").innerHTML=data.Email;
+        document.getElementById("fname").innerHTML=data.name;
+        document.getElementById("empid").innerHTML = data.id; 
+        document.getElementById("Password").innerHTML=data.password;
+       
       }
     });
 
