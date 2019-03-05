@@ -1,0 +1,55 @@
+
+.bodyclass
+{
+background:url("https://images.unsplash.com/photo-1508710985089-e985fabbb184?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+
+/*background:url("slidetest.jpg");*/
+
+background-repeat:no-repeat;
+background-size:cover;
+}
+.formstyle
+{ 
+
+text-align:center;
+
+
+background:rgba(0,0,0,0.5);
+width:280px;
+height:410px;
+/*left:20%; 	
+top:40%;*/
+border:5px ;
+		border-radius:5px;
+/*position:absolute;*/
+margin-left:auto;
+margin-right:auto;
+margin-top:10%;
+}
+
+	.signupheading
+	{top:40%;
+	font-style:oblique;
+	font-size:30px;
+	color:#FFFFFF;
+
+	}
+	
+	a{
+	color:#FFFFFF;
+	font-style:oblique;}
+	
+	.submitstyle{
+	padding:20px;
+	}
+		
+		
+
+.details input{
+font-size:20px;
+padding:6px;
+margin-bottom:10px;
+		font-style:italic;
+}
+
+
