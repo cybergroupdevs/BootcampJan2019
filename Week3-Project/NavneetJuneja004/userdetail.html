@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete User</title>
+       <meta charset="utf-8">
+       <meta name="description" content="This is Employee Details updation form">	
+	   <link href="css/userdetail.css" rel="stylesheet" type="text/css">
+	   <script src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+
+
+<script>
+
+		var url=new URL(window.location.href);
+		var id=url.searchParams.get('Id');
+		console.log(id);
+		
+		function FillDetails(){
+						$.ajax	({
+						url: 'http://localhost:49504/api/EMPLOYEEs/'+id,
+						type: 'GET',
+						dataType: 'json', 
+						success: function(EmpDetail){ 
+							$('#EmployeeID').val(EmpDetail['empid']);
+							$("#Firstname").val(EmpDetail['firstname']);
+							$("#Surname").val(EmpDetail['lastname']);
+							$("#Dob").val(EmpDetail['DOB']);
+							$("#Gender").val(EmpDetail['Gender']);
+							$("#Designation").val(EmpDetail['Designation']);
+							$("#Address").val(EmpDetail['Adress']);
+						}
+					});
+		};
+		
+		function UpdateDetails(){
+			var empid = document.getElementById("EmployeeID").value;
+			
+			
+			var fname = document.getElementById("Firstname").value;
+			
+			var lname = document.getElementById("Surname").value;
+			
+			var dob = document.getElementById("Dob").value;
+			var gender = document.getElementById("Gender").value;
+			
+			var designation = document.getElementById("Designation").value;
+			
+			var address = document.getElementById("Address").value;
+			
+					var datafor_EmployeeDetail={
+										
+										"empid": empid,
+										"firstname":fname,
+										"lastname":lname,
+										"DOB":dob, 
+										"Gender": gender,
+										"Designation": designation,
+										"Adress": address,
+										};
+								$.ajax({
+									url: 'http://localhost:49504/api/EMPLOYEEs/'+empid,
+									data: datafor_EmployeeDetail,
+									type: 'PUT',
+									dataType: 'json', 
+									success: function(response){ 
+															alert("Changes have been updated as per your request");
+															window.location="userlist.html"
+															}	
+										});
+		};
+		//console.log(Id);
+		
+		function DeleteUser(){
+			
+				alert("Are you sure, You want to delete the user data from database.");
+				$.ajax({
+				url: 'http://localhost:49504/api/EMPLOYEEs/'+id,
+				type: 'DELETE',
+				dataType: 'json',
+				success: function(deleted){
+										alert("User Details Have been removed from the database");
+										window.location.href = "userlist.html";
+										}
+				});
+		}
+		
+		</script>
+	</head>
+<body onload="FillDetails()"> 
+		
+</div>
+<div class="header">
+	<img src="images/cyg_logo.jpg" alt="">
+	<div class="wel_text">Welcome To Cyber Group India</br>
+		
+	</div>
+</div>
+<div id="nav_bar">
+	<div class="nav_items">
+		<ul>	
+			
+			<a href="userlist.html"><button type="button" class="nav_btn">Show List</button></a>
+			<div class="dropdown">
+				<button type="button" class="nav_btn">My Account</button></a>
+				<div class="dropdown-content">
+					
+					<li><a href="index.html">Log Out</a></li>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+<div class="label_box">
+	<h1 class="label_text">Update and Delete Employee's Information</h1>
+</div>
+<div class="bigbox">
+		<p class="box_text">Employee's ID : </p> 
+		<input type="text" class="input_box" id="EmployeeID" placeholder="Employee ID"></br>
+		<p class="box_text">Employee's First Name : </p> 
+		<input type="text" class="input_box" id="Firstname"  placeholder="First Name"></br>
+		<p class="box_text">Employee's Surname : </p> 
+		<input type="text" class="input_box" id="Surname" placeholder="Surname"></br>
+		
+		<p class="box_text">Date of Birth : </p> 
+		<input type="date" class="DOB" id="Dob" name="DOB" placeholder="Date of Birth"></br>
+		<p class="box_text">Gender : </p> 
+		<select required="required" id="Gender" class="gender" name="Gender">
+			<option value="gender">Gender</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+			<option value="Other">Other</option>
+		</select></br>
+		<p class="box_text">Cyber Group Profile : </p> 
+		<select required="required" autofocus name="profilerank" id="Designation" class="designation">
+			<option value="Default">Cyber Group Profile</option>
+			<option value="Intern">Intern</option>
+			<option value="Trainee">Trainee</option>
+			<option value="Consultant">Consultant</option>
+			<option value="Engineer">Engineer</option>
+			<option value="Senior Developer">Senior Developer</option>
+			<option value="Human Resource">Human Resource</option>
+		</select></br>	
+
+
+			<center>	
+		<p class="box_text">Address : </p> 
+		<input type="text" id="Address" class="address_box"  placeholder="Employee's Address . . . "></p>
+		<button type="button" class="update_btn" onclick="UpdateDetails()"> Update Details </button> 
+		
+		<button type="button" class="update_btn" onclick="DeleteUser()"> Delete User </button></br>
+	    </center>
+</div>
+<div id="footer">
+Copyright All rights reserved © 2017
+</div> 
+
+
+</body></html>

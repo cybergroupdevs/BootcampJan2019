@@ -26,71 +26,34 @@ crossorigin="anonymous"></script>
 	<div class="wel_text">Welcome To Cyber Group India</br>
 	</div>
 </div>
-<div id="nav_bar">
-	<div class="nav_items">
-		<ul>	
-			
-			<a href="signup.html"><button type="button" class="nav_btn">Signup</button></a>
-			
-			<div class="dropdown">
-				<button type="button" class="nav_btn">My Account</button></a>
-				<div class="dropdown-content "><i class="fa fa-caret-down" aria-hidden="true"></i>
-					
-					<li><a href="index.html">Log Out</a></li>
-				</div>
-			</div>
-		</ul>
-	</div>
-</div>
+
 	<div class="bigbox">
 	<center>
-		<p class="logbox">Enter your login credentials</p>
-		<div class="container">
-			<div id="login-box">
-				<div class="logo">
-					<img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img img-responsive img-circle center-block"/>
-					<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
-				</div>
-				<div class="controls"> 
-					<form >
-					<input type="text" id="userid"  placeholder="userid" class="form-control" /> 
-					<input type="password" id="password"  placeholder="password" class="form-control" /> <br>
-					<input type="button" value="Login"  onClick="getEmployee()"class="btn btn-default btn-block btn-custom"> 
-				    </form>
-				</br>
-				
-				</div>
-			</div>
-			<div id="particles-js"></div> 
-		</div> 
+        <div id="nav_bar">
+            <div class="nav_items">
+                <ul>	
+                    <a href="createuser.html"><button type="button" class="nav_btn">createuser</button></a> 
+            <a href="userlist.html"><button type="button" class="nav_btn">Userlist</button></a> 
+		 
+			<a href="userdetail.html"><button type="button" class="nav_btn">UserDetail</button></a> 
+                    <a href="signup.html"><button type="button" class="nav_btn">Signup</button></a> 
+                    
+                    <div class="dropdown">
+                        <button type="button" class="nav_btn">My Account</button></a>
+                        <div class="dropdown-content "><i class="fa fa-caret-down" aria-hidden="true"></i>
+                            
+                            <li><a href="index.html">Log Out</a></li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
 	</center>
 	</div>
 <div id="footer">
 Copyright All rights reserved © 2017
 </div> 
 
-<script>
-	
-function getEmployee(){
-var id = document.getElementById("userid").value;
-
-
-$.ajax({
-	url: 'http://localhost:49504/api/SIGNUPs/'+id,
-	type: 'GET',
-	dataType: 'json',
-	success: function(res){
-		var pass = document.getElementById("password").value;
-		if(pass == res.pswd){
-			window.location = "userlist.html";
-		}
-		else{
-			window.location = "index.html";
-		}
-	}
-});
-}
-</script>
 
   
 </body></html>
