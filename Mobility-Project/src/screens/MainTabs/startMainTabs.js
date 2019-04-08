@@ -6,7 +6,7 @@ const startTabs=() => {
     Promise.all([
         Icon.getImageSource("md-map", 30),
         Icon.getImageSource("md-share", 30),
-        icon.getImageSource("ios-menu",30)
+        Icon.getImageSource("ios-menu",30)
     ]).then(sources =>{
         Navigation.startTabBasedApp({
             tabs:[
@@ -19,7 +19,8 @@ const startTabs=() => {
                         leftButtons: [
                             {
                                 title: "Menu",
-                                icon: sources[2]
+                                icon: sources[2],
+                                id: "sideDrawerToggle"
                                 
                             }
                         ]
@@ -30,16 +31,16 @@ const startTabs=() => {
                     screen: "awesome-places.SharePlaceScreen",
                     label : "Share Place",
                     title: "Share Place",
-                    icon: sources[1]
-        
-                },
-                navigatorButtons:{
-                    leftButtons:[
+                    icon: sources[1],
+                    navigatorButtons:{
+                    leftButtons: [
                         {
+                            title:"Menu",
                             icon: sources[2],
-                            title:"Menu"
+                            id: "sideDrawerToggle"
                         }
-                    ]
+                     ]
+                  }
                 }
             ],
             drawer :{
@@ -48,7 +49,7 @@ const startTabs=() => {
                 }
             }
         });
-    })
+    });
    
 };
 

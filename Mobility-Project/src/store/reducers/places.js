@@ -7,6 +7,7 @@ const initialState={
 const reducers = (state = initialState ,action)=>{
       switch (action.type){
           case ADD_PLACE:
+            ToastAndroid.show("Successfully Added", ToastAndroid.SHORT)
             return {
                 ...state,
                 places:state.places.concat({
